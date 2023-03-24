@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class QuestionController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
         $questoes= Question::all();
         return $questoes;
