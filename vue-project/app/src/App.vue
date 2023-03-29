@@ -1,40 +1,56 @@
 <template>
-  <TheHeader v-if="showHeader"/>
-  <div v-show="showName">
-    Nome: {{ firstname }}<br>
-    Sobrenome: {{ lastname }}
+  <div class="valorCarrinho">
+    {{ 'O preço do meu carrinho é de: R$' }}
+    {{ $store.getters.total }}
+
   </div>
 
-  <div v-if="accessLevel === 'admin'">Usuário Admin</div>
-  <div v-else-if="accessLevel === 'marketing'">Usuário Marketing</div>
-  <div v-else>Usuário normal</div>
+  <div class="marketingplace">
+    <h2>MARKETING PLACE</h2>
+  </div>
+  <AppProducts/>
+  <br><br>
+  <br><br>
+{{$store.state.user.first_name}}  {{$store.state.user.last_name}}
 
-  <img
-      alt="Vue logo"
-      src="./assets/logo.png"
-  >
+  <br><br>
+  <button @click="updateUser()">
+    Atualizar perfil
+  </button>
+    <pre>
+      {{$store.state.cart}}
+    </pre>
 
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <br><br>
+
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import TheHeader from "./components/TheHeader.vue";
+
+
+import AppProducts from "@/components/Products/AppProducts.vue";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
-    TheHeader
-
+    AppProducts,
   },
   data() {
     return {
-      showHeader: true,
-      firstname: 'Mateus',
-      lastname: 'Correia',
-      showName: true, 
-      accessLevel: 'admin'
+    }
+  },
+  methods: {
+    updateUser() {
+      const newUser = {
+        first_name: 'Mateus',
+        last_name: 'Correia',
+        email: 'mateus@gmail.com'
+      }
+      // this.$store.commit('storeUser', newUser)
+      this.$store.dispatch('storeUser', newUser).then(()=>{
+        console.log('terminou');
+      });
     }
   }
 }
@@ -42,11 +58,26 @@ export default {
 
 <style>
 #app {
+  /*text-align: center;*/
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  margin: 60px;
 }
+
+.marketingplace {
+  background-color: black;
+  color: white;
+  font-family: Calibri;
+  border-radius: 6px;
+  padding: 2px;
+}
+
+.valorCarrinho {
+  background-color: #42b983;
+  padding: 6px;
+  border-radius: 6px;
+  margin-bottom: 5px;
+}
+
 </style>
