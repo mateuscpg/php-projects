@@ -2,22 +2,28 @@
 
 namespace App\Models;
 
+use App\Models\User;
+use App\Models\Task;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Address extends Model
+class Category extends Model
 {
-    public $table = 'addresses';
-    protected $fillable = ['address'];
-    protected  $hidden = [
+    use HasFactory;
+
+    protected $fillable = [
+        'title',
+        'color',
         'user_id'
     ];
-
-    use HasFactory;
 
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+    public function task()
+    {
+        return $this->hasMany(Task::class);
     }
 
 

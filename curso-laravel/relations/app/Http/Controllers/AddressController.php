@@ -23,7 +23,7 @@ class AddressController extends Controller
 
     public function create(Request $request)
     {
-        $address = Address::create($request->only(['address']));
+        $address = Address::create($request->all());
         return $address;
     }
 
