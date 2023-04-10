@@ -18,7 +18,7 @@
 
             {{--            Data de realização--}}
             <x-form.text_input name="due_date"
-                               type="date"
+                               type="datetime-local"
                                label="Data de realização"
                                placeholder="Digite a data de realização"
             />

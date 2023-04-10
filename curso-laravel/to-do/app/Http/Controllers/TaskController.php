@@ -22,9 +22,9 @@ class TaskController extends Controller
 
     public function create_action(Request $request)
     {
-        $task = $request->only(['title','category_id','description','due_date']);
+        $task = $request->only(['title', 'category_id', 'description', 'due_date']);
         $task['user_id'] = 1;
-        $dbtask= Task::create($task);
+        $dbtask = Task::create($task);
         return redirect(route('home'));
     }
 
@@ -33,7 +33,7 @@ class TaskController extends Controller
         $id = $request->id;
 
         $task = Task::find($id);
-        if(!$task){
+        if (!$task) {
             return redirect(route('home'));
         }
         $categories = Category::all();
@@ -45,13 +45,35 @@ class TaskController extends Controller
 
     public function edit_action(Request $request)
     {
-        return 'ok';
+        $request_data = $request->only(['title','due_date','category_id','description']);
+        $request_data['is_done'] = $request->is_done ? true : false;
+
+        $task = Task::find($request->id);
+        if (!$task) {
+            return 'ERRO DE TAREFA NÃO EXISTENTE!!!';
+        }
+        $task->update($request_data);
+        $task->save();
+        return redirect(route('home'));
+    }
+
+    public function update(Request $request)
+    {
+        $task = Task::findOrFail($request->taskId);
+        $task -> is_done = $request->status;
+        $task->save();
+        return ['success'=> true];
+
     }
 
     public function delete(Request $request)
     {
-       //Delete e redireciona para a home
-        return redirect( route('home'));
+        $id = $request->id;
+        $task = Task::find($id);
+        if ($task){
+            $task->delete();
+        }
+        return redirect(route('home'));
     }
 
 }
