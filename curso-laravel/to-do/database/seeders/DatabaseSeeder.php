@@ -21,8 +21,22 @@ class DatabaseSeeder extends Seeder
 //            UserSeeder::class,
 //            TaskSeeder::class
 //        ]);
-        User::factory(40)->create();
-        Category::factory(30)->create();
+        User::factory(10)->create();
+
+        Category::insert([[
+            'title' => 'Alta Prioridade',
+            'color' => 'Red',
+            'user_id' => User::all()->random()->id
+        ],[
+            'title' => 'Média Prioridade',
+            'color' => 'Yellow',
+            'user_id' => User::all()->random()->id
+        ],[
+            'title' => 'Baixa Prioridade',
+            'color' => 'Blue',
+            'user_id' => User::all()->random()->id
+        ]]);
+
         Task::factory(100)->create();
         // \App\Models\User::factory(10)->create();
 

@@ -1,4 +1,4 @@
-<div class="task">
+<div class="task {{$data['is_done'] ? 'task_done' : 'task_pending'}}">
     <div class="title">
         <input type='checkbox'
                onchange="taskUpdate(this)"
@@ -14,6 +14,7 @@
         <div class="">{{$data ['category']-> title ?? ''}}</div>
     </div>
     <div class="actions">
+
         {{--                            ícone de editar--}}
         <a href="{{route('tasks.edit', ['id'=> $data['id']])}}">
             <img src="/assets/images/icon-edit.png"/>
