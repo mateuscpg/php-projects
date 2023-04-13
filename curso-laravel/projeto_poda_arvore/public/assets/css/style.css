@@ -1,0 +1,21 @@
+*{
+    font-size: 18px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+nav{
+    background-color: crimson;
+    
+}
+.list_home{
+    text-align: center;
+    padding: 10px;
+}
+.list_home ul li{
+    display: inline-block;
+    padding-right: 6%;
+}
+section.apresentation{
+    background-color: azure;
+    padding: 100px;
+    text-align: center;
+}
