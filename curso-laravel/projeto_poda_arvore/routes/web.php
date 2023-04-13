@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Mails\AuthMailController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/send-mail',[AuthMailController::class, 'sendRegisterMail']);
+Route::get('/',[HomeController::class, 'index']);
+
