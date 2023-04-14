@@ -1,4 +1,4 @@
-# app2
+# dashboard
 
 ## Project setup
 ```
