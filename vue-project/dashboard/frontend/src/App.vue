@@ -6,7 +6,7 @@
     <router-link to="/usuarios/:id">Usuários</router-link>
   </nav>
   <router-view/>
-</template>
+</template> 
 
 <style>
 #app {
