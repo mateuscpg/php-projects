@@ -28,7 +28,7 @@
               />
             </div>
                 <br>
-            <button type="submit" class="btn btn-primary">Acessar</button>
+            <button type="submit" class="btn btn-primary" @click="login">Acessar</button>
           </form>
         </div>
       </div>
@@ -38,6 +38,18 @@
 
 <script>
 export default {
+  name:'LoginView',
+
+  data() {
+    return {
+      
+    }
+  },
+  methods:{
+    login(){
+      this.$router.push('home')
+    }
+  }
     
 };
 </script>

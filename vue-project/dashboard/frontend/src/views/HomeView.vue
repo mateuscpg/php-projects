@@ -1,16 +1,20 @@
 <template>
-  <div class="home">
-    ESSA VAI SER A TELA DA HOME
-</div>
+<DashboardComponent >
+    <template v-slot:slot-pages>
+      <p>AQUI É A HOME/INÍCIO</p>
+    </template>  
+
+</DashboardComponent>
 </template>
 
 <script>
-// @ is an alias to /src
+import DashboardComponent from '../components/DashboardComponent.vue'
 
 export default {
   name: 'HomeView',
-  components: {
+  components:{
+    DashboardComponent,
+  }
 
   }
-}
 </script>
