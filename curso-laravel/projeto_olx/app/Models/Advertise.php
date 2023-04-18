@@ -9,7 +9,7 @@ class Advertise extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title','price','isNegotiable','description','description','user_id','category_id'];
+    protected $fillable = ['title','price','isNegotiable','description','description','user_id','category_id','state_id'];
 
     //O Anúncio pertence à uma categoria     
     public function category()
