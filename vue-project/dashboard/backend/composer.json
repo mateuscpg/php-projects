@@ -53,9 +53,13 @@
         }
     },
     "config": {
+         "platform": {
+        "php": "7.3.0"
+    },
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true,
+        "platform-check": false,
         "allow-plugins": {
             "pestphp/pest-plugin": true
         }

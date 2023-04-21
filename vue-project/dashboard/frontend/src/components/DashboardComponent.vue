@@ -13,7 +13,7 @@
             </div>
 
             
-            <div class="pages">
+            <div class="content-pages">
                 <slot name="slot-pages"></slot>
             </div>
 
