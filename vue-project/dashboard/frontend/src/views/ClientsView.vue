@@ -1,21 +1,15 @@
 <template>
-
   <DashboardComponent>
     <template v-slot:slot-pages>
-     <header class="title-pages">
-      <p>AQUI É A PÁGINA DE PRODUTOS</p>
-    
-    </header>
-    
+      <p>PÁGINA DE CLIENTES</p>
     </template>  
   </DashboardComponent>
-
 </template>
 <script>
 import DashboardComponent from '../components/DashboardComponent.vue'
 
 export default{
-  name: 'ProductsView',
+  name: 'ClientsComponent',
   components: {
     DashboardComponent,
   }
@@ -23,4 +17,5 @@ export default{
 }
 </script>
 
-<style lang="scss" src="../assets/scss/styledashboard.scss"></style>
+<style>
+</style>

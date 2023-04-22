@@ -1,6 +1,6 @@
 <template>
     <div class="nav-principal">
-        <h3 class="logo"><i class="fa fa-star"></i> Logomarca</h3>
+        <h3 class="logo"><i class="fa fa-bar-chart"></i> Dashboard</h3>
        
     </div>
     <a href="" @click.prevent="logout" class="logout">Sair <i class="fa fa-sign-out-alt"></i> </a>
