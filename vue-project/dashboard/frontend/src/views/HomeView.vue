@@ -43,6 +43,7 @@ import DashboardComponent from "../components/DashboardComponent.vue";
 import CardsComponent from "../components/CardsComponent.vue"
 import ListsComponent from "../components/ListsComponent.vue"
 
+
 const axios = require("axios");
 
 export default {
@@ -57,7 +58,7 @@ export default {
   },
   methods:{
     async getUsers(){
-      const response = await axios.get('https://jsonplaceholder.typicode.com/users'); 
+      let response = await axios.get('http://localhost:8000/api/'); 
       if(response.status == 200){
        this.users = response.data;
       }else{
