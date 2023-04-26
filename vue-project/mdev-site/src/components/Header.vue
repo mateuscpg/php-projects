@@ -8,7 +8,8 @@
           id="logo"
       /></a>
       <a onclick="toggleMenu()">
-        <img v-on:click="openMenu"
+        <img
+          v-on:click="openMenu"
           src="https://raw.githubusercontent.com/william-costa/wdev-mock-site-resources/master/assets/images/menu.svg"
           alt="Abrir menu"
           id="menu-button"
@@ -16,12 +17,7 @@
       </a>
       <div v-on:click="closeMenu" id="menu-overlay" v-if="menuActive"></div>
       <div id="menu-items" :class="{ active: menuActive }">
-        <a href="/"
-          ><img
-            src="https://raw.githubusercontent.com/william-costa/wdev-mock-site-resources/master/assets/images/wdev.svg"
-            alt="mDEV"
-            id="menu-logo"
-        /></a>
+        <a href="/"><img src="https://raw.githubusercontent.com/william-costa/wdev-mock-site-resources/master/assets/images/wdev.svg" alt="mDEV" id="menu-logo"/></a>
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/videos">Vídeos</a></li>
@@ -35,21 +31,21 @@
 
 <script>
 export default {
-  name: "Header",
-  data() {
+  name: 'Header',
+  data () {
     return {
       menuActive: false
-    };
+    }
   },
   methods: {
-    openMenu: function() {
-      this.menuActive = true;
+    openMenu: function () {
+      this.menuActive = true
     },
-    closeMenu: function() {
-      this.menuActive = false;
+    closeMenu: function () {
+      this.menuActive = false
     }
   }
-};
+}
 </script>
 
 <style scoped>
@@ -64,6 +60,8 @@ header {
 nav {
   display: flex;
   justify-content: space-between;
+  height: 60px;
+  align-items: center;
 }
 #logo {
   width: 130px;
@@ -110,5 +108,28 @@ ul li {
 }
 ul li a {
   color: var(--color-text-light);
+}
+
+@media (min-width:700px){
+  #menu-button,
+  #menu-logo,
+  #menu-overlay{
+    display: none;
+  }
+  #menu-items{
+    display: flex;
+    position: static;
+    height: 60px;
+    width: auto;
+  }
+  ul{
+    display: flex;
+    height: 60px;
+    align-items: center;
+  }
+  ul li{
+    margin: 0;
+    margin-left: 20px;
+  }
 }
 </style>
