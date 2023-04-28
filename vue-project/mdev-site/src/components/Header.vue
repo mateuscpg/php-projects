@@ -2,27 +2,24 @@
   <header>
     <nav class="container">
       <a href="/"
-        ><img
-          src="https://raw.githubusercontent.com/william-costa/wdev-mock-site-resources/master/assets/images/wdev.svg"
-          alt="mDEV"
-          id="logo"
-      /></a>
+        ><h2 id="logo">MDEV</h2>
+      </a>
       <a onclick="toggleMenu()">
         <img
-          v-on:click="openMenu"
+          @mouseenter="openMenu"
           src="https://raw.githubusercontent.com/william-costa/wdev-mock-site-resources/master/assets/images/menu.svg"
           alt="Abrir menu"
           id="menu-button"
         />
       </a>
-      <div v-on:click="closeMenu" id="menu-overlay" v-if="menuActive"></div>
-      <div id="menu-items" :class="{ active: menuActive }">
-        <a href="/"><img src="https://raw.githubusercontent.com/william-costa/wdev-mock-site-resources/master/assets/images/wdev.svg" alt="mDEV" id="menu-logo"/></a>
+      <div id="menu-overlay" v-if="menuActive"></div>
+      <div @mouseleave="closeMenu" id="menu-items" :class="{ active: menuActive }">
+        <a href="/"><h2 id="menu-logo">MDEV</h2></a>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/videos">Vídeos</a></li>
-          <li><a href="/sobre">Sobre</a></li>
-          <li><a href="/contatos">Contato</a></li>
+          <li><router-link to="/">Home</router-link></li>
+          <li><router-link to="/videos">Vídeos</router-link></li>
+          <li><router-link to="/sobre">Sobre</router-link></li>
+          <li><router-link to="/contatos">Contatos</router-link></li>
         </ul>
       </div>
     </nav>
@@ -65,6 +62,8 @@ nav {
 }
 #logo {
   width: 130px;
+  color: var(--color-text-title);
+
 }
 #menu-button {
   width: 30px;
@@ -82,7 +81,9 @@ nav {
 #menu-logo {
   width: 110px;
   margin-top: 30px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
+  color: var(--color-text-title);
+  text-align: center;
 }
 #menu-items {
   position: fixed;
@@ -95,6 +96,15 @@ nav {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  animation: fade 0.2s ease-in-out;
+}
+@keyframes fade {
+   from {
+    opacity: 0;
+   }
+   to {
+    opacity: 1;
+   }
 }
 #menu-items.active {
   display: flex;
