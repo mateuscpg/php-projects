@@ -41,7 +41,7 @@ input, select, textarea, button {
 }
 
 button {
-    background-color: #74bd15;
+    background-color: #69b30a;
     cursor: pointer;
     color: #fff;
 }
@@ -65,7 +65,7 @@ button:hover {
 
 .topo {
     width: 100%;
-    background-color: #f8f8f8;
+    background-color: #012b46;
     position: absolute;
     padding: 20px 0px 10px 0px;
 }
@@ -79,6 +79,7 @@ button:hover {
 .menu {
     float: right;
     margin-right: 40px;
+    
 }
 
 .menu li {
@@ -91,17 +92,56 @@ button:hover {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    
 }
 
 .menu a {
     text-decoration: none;
     padding: 14px 16px;
-    color: #333;
+    color: #fffdfd;
 }
 
 .menu a:hover {
-    color: #268fd0;
+    color: #69b30a;
+    transition: 0.6s;
+    
 }
+
+
+.menu-2 {
+    float: left;
+    margin-left: 30px;
+    margin-top: 25px;
+}
+
+.menu-2 li {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+
+.menu-2 ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ffffff;
+    border-radius: 20px 0px 20px 0px;
+}
+
+.menu-2 a {
+    text-decoration: none;
+    padding: 14px 16px;
+    color: #012b46;
+}
+
+.menu-2 a:hover {
+    color: #8aeb0b;
+    transition: 0.6s;
+}
+
+
 
 .conteudo-destaque {
     width: 100%;
@@ -111,14 +151,14 @@ button:hover {
 
 .esquerda {
     float:left;
-    background-color: #268fd0;
+    background-color: #012b46;
     width: 60%;
     height: 100%;
 }
 
 .direita {
     float:right;
-    background-color: #2a9ee2;
+    background-color: #075d8f;
     width: 40%;
     height: 100%;
 }
@@ -129,6 +169,10 @@ button:hover {
 
 .contato-principal {
     margin: 0px 60px 60px 40px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 15px;
+    
 }
 
 .chamada {
@@ -150,21 +194,33 @@ button:hover {
     height: 100%;
     text-align: center;
     margin-bottom: 100px;
+    background-color: #012b46;
 }
 
 .titulo-pagina {
     padding: 100px 0px 60px 0px;
-    background-color: #2a9ee2;
+    background-color: #075d8f;
     text-align: center;
+}
+.titulo-pagina-2 {
+    padding: 70px 0px 10px 0px;
+    margin-bottom: 10px;
+    background-color: #075d8f;
+    text-align: center;
+    
+
 }
 
 .informacao-pagina {
     text-align: center;
     margin-top: 30px;
+    
 }
 
 .informacao-pagina p{
-    color: #333;
+    color: #ffffff;
+    padding: 10px;
+    font-size: 18px;
 }
 
 .rodape {
@@ -187,3 +243,38 @@ button:hover {
 .redes-sociais img {
     margin: 0px 15px 0px 15px;
 }
+.pagination li {
+    display: inline;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.page-item {
+    background-color: #c2bdbd;
+    color: rgb(145, 145, 145);
+    padding: 8px;
+    border-radius: 5px;
+
+}
+
+.pagination ul {
+    list-style-type: none;
+}
+
+
+.a-excluir{
+    text-decoration: none;
+    color: #000000;
+}
+.a-excluir:hover {
+    color: #ff0000; 
+  }
+
+.a-editar{
+    text-decoration: none;
+    color: #000000;
+}
+.a-editar:hover {
+    color: #0e25f3; 
+  }
+

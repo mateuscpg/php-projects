@@ -1,45 +1,46 @@
-<h3>Fornecedor</h3>
+@extends('app.layouts.basico')
+
+@section('titulo', 'Fornecedor')
+    
+@section('conteudo')
+
+<div class="conteudo-pagina">
+    
+    <div class="titulo-pagina-2">
+        <h1>Fornecedor</h1>
+    </div>
+    <div class="menu-2">
+        <ul>
+            <li><a href="{{route('app.fornecedor.adicionar')}}">Novo</a></li>
+            <li><a href="{{route('app.fornecedor')}}">Consulta</a></li>
+        </ul>
+    </div>
+
+    <div class="informacao-pagina">
+
+       <div style="
+       background-color:aliceblue;
+       padding: 25px;
+       border-radius: 20px 0px 20px 0px;
+       width: 30%; 
+       margin-left:auto; 
+       margin-right: auto;">
+         <form method="POST" action="{{route('app.fornecedor.listar')}}">
+            @csrf
+            <h2>CONSULTAR</h2>
+            <input type="text" name="nome" placeholder="Digite um nome" class="borda-branca">
+            <input type="text" name="site" placeholder="Digite um site" class="borda-branca">
+            <input type="text" name="uf" placeholder="Digite uma uf" class="borda-branca">
+            <input type="text" name="email" placeholder="Digite um email" class="borda-branca">
+            <button type="submit" class="bordar-preta">Pesquisar</button>
+
+         </form>
+
+       </div>
+
+    </div>
+
+</div>
 
 
-
-@isset($fornecedores)
-
-@php
- $i = 0 
-@endphp
-    @forelse($fornecedores as $fornecedor)
-               
-        Fornecedor: {{$fornecedor['nome'] }} 
-        <br/>
-        Status: {{$fornecedor['status'] }}
-        <br/>
-        CNPJ: {{$fornecedor['cnpj'] ?? 'Dado não preenchido'}}
-        <br/>
-        Telefone: ({{$fornecedor['ddd'] ?? ''}}) {{$fornecedor['telefone'] ?? ''}} - 
-        @switch($fornecedores[1]['ddd'])
-            @case('11')
-                São Paulo - SP
-                @break
-            @case('83')
-                João Pessoa - PB
-                @break
-            @case('32')
-                Juíz De Fora - MG
-            @default
-
-        @endswitch
-        <hr>
-
-        @empty
-            Não existem fornecedores cadastrados
-       
-    @endforelse
-
-@endisset
-
-
-   
-
-
-
-
+@endsection
