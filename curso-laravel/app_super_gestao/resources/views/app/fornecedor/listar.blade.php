@@ -1,14 +1,14 @@
 
 @extends('app.layouts.basico')
 
-@section('titulo', 'Fornecedor')
+@section('titulo', 'Fornecedores')
     
 @section('conteudo')
 
 <div class="conteudo-pagina">
     
     <div class="titulo-pagina-2">
-        <h1>Fornecedor</h1>
+        <h1>Fornecedores</h1>
     </div>
     <div class="menu-2">
         <ul>
@@ -19,15 +19,9 @@
 
     <div class="informacao-pagina">
 
-       <div style="
-       background-color:aliceblue;
-       padding: 25px;
-       border-radius: 20px 20px 20px 20px;
-       width: 60%; 
-       margin-left:auto; 
-       margin-right: auto;">
+       <div class="tabela">
 
-        <table border="1" width='100%'>
+        <table width='100%'>
             <thead>
                 <tr>
                     <th>Nome</th>
@@ -52,7 +46,28 @@
                     <td>
                         <a class="a-editar" href="{{ route('app.fornecedor.editar', $fornecedor->id) }}">Editar</a>
                     </td>
-                </tr>
+                    {{-- <tr>
+                        <td colspan="6">
+                            <p> Lista de produtos</p>
+                            <table style="margin:20px;">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nome</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($fornecedor->produtos as $key => $produto)
+                                    <tr>
+                                        <td>{{$produto->id}}</td>
+                                        <td>{{$produto->nome}}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tr> --}}
                 @endforeach
             </tbody>
         </table>

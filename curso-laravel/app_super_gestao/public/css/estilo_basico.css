@@ -67,13 +67,16 @@ button:hover {
     width: 100%;
     background-color: #012b46;
     position: absolute;
-    padding: 20px 0px 10px 0px;
+    padding: 15px 0px 15px 0px;
 }
 
 .logo {
     width: 50px;
     float: left;
+    margin-top: 6px;
     margin-left: 40px;
+    display: flex;
+    justify-items: center;
 }
 
 .menu {
@@ -83,7 +86,8 @@ button:hover {
 }
 
 .menu li {
-    display: inline;
+    display: flex;
+    justify-content: center;
     float: left;
 }
 
@@ -110,12 +114,12 @@ button:hover {
 
 .menu-2 {
     float: left;
-    margin-left: 30px;
-    margin-top: 25px;
+    margin-left: 20px;
+    
 }
 
 .menu-2 li {
-    display: block;
+    display: inline-block;
     margin-top: 20px;
     margin-bottom: 20px;
     
@@ -222,6 +226,29 @@ button:hover {
     padding: 10px;
     font-size: 18px;
 }
+.tabela {
+    color: white;
+    padding: 25px;
+    border-radius: 20px;
+    width: 90%;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse; /* Para unir as bordas das células */
+}
+
+.tabela th, .tabela td {
+    padding: 10px; /* Reduzi o padding das células para que a tabela não fique muito espaçada */
+    border: 1px solid rgb(255, 255, 255); /* Adicionei uma borda branca para separar as células */
+    border-radius: 10px;
+    
+}
+
+.tabela th {
+    background-color: #555; 
+}
+
+
 
 .rodape {
     width: 100%;
@@ -250,8 +277,8 @@ button:hover {
 }
 
 .page-item {
-    background-color: #c2bdbd;
-    color: rgb(145, 145, 145);
+    background-color: #ffffff;
+    color: rgb(11, 231, 22);
     padding: 8px;
     border-radius: 5px;
 
@@ -264,17 +291,39 @@ button:hover {
 
 .a-excluir{
     text-decoration: none;
-    color: #000000;
+    color: #ffffff;
+    padding: 7px;
 }
 .a-excluir:hover {
+    transition: 0.6s;
     color: #ff0000; 
-  }
+}
 
 .a-editar{
     text-decoration: none;
-    color: #000000;
+    color: #ffffff;
+    padding: 7px;
 }
 .a-editar:hover {
+    transition: 0.6s;
     color: #0e25f3; 
   }
+.a-visualizar{
+    text-decoration: none;
+    color: #ffffff;
+    padding: 7px;
+}
+.a-visualizar:hover {
+    transition: 0.6s;
+    color: #8aeb0b; 
+  }
+.a-add{
+ text-decoration: none;   
+ color: white;
+ padding: 7px;
+}
+.a-add:hover{
+    transition: 0.6s;
+    color:#88fda1
+}
 

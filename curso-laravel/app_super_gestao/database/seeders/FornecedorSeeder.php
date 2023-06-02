@@ -15,30 +15,30 @@ class FornecedorSeeder extends Seeder
      */
     public function run()
     {
-        //Instanciando um objeto
-        $fornecedor = new Fornecedor();
-        $fornecedor->nome= 'Fornecedor 1';
-        $fornecedor->site='fornecedor1.com.br';
-        $fornecedor->uf='JP';
-        $fornecedor->email='contato@fornecedor1.com.br';
-        $fornecedor->save();
+        // //Instanciando um objeto
+        // $fornecedor = new Fornecedor();
+        // $fornecedor->nome= 'Fornecedor 1';
+        // $fornecedor->site='fornecedor1.com.br';
+        // $fornecedor->uf='JP';
+        // $fornecedor->email='contato@fornecedor1.com.br';
+        // $fornecedor->save();
 
-        //Utilizando o método create
-        Fornecedor::create([
-            'nome'=> 'fornecedor 2',
-            'site'=> 'fornecedor2.com.br',
-            'uf'=> 'SP',
-            'email'=> 'contato@fornecedor2.com.br'
-        ]);
+        // //Utilizando o método create
+        // Fornecedor::create([
+        //     'nome'=> 'fornecedor 2',
+        //     'site'=> 'fornecedor2.com.br',
+        //     'uf'=> 'SP',
+        //     'email'=> 'contato@fornecedor2.com.br'
+        // ]);
 
-        //Utilizando Insert
-        DB::table('fornecedores')->insert([
-            'nome'=> 'fornecedor 3',
-            'site'=> 'fornecedor3.com.br',
-            'uf'=> 'MG',
-            'email'=> 'contato@fornecedor3.com.br'
-        ]);
-
+        // //Utilizando Insert
+        // DB::table('fornecedores')->insert([
+        //     'nome'=> 'fornecedor 3',
+        //     'site'=> 'fornecedor3.com.br',
+        //     'uf'=> 'MG',
+        //     'email'=> 'contato@fornecedor3.com.br'
+        // ]);
+        Fornecedor::factory()->count(15)->create();
 
     }
 }

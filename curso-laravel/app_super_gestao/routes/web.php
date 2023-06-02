@@ -5,12 +5,12 @@ use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PedidoController;
+use App\Http\Controllers\PedidoProdutoController;
 use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\ProdutoDetalheController;
 use App\Http\Controllers\SobreNosController;
-use App\Http\Controllers\TesteController;
-use App\Http\Middleware\LogAcessoMiddleware;
-use App\Models\Fornecedor;
 use Illuminate\Support\Facades\Route;
 
 
@@ -27,7 +27,6 @@ Route::middleware('autenticacao:padrao, visitante')->prefix('/app')->group(funct
     // Rotas do adm
     Route::get('/home', [HomeController::class, 'index'])->name('app.home');
     Route::get('/sair', [LoginController::class, 'sair'])->name('app.sair');
-    Route::get('/cliente', [ClienteController::class, 'index'])->name('app.cliente');
 
     //Rotas para fornecedores
     Route::get('/fornecedor',[FornecedorController::class, 'index'])->name('app.fornecedor');
@@ -38,8 +37,20 @@ Route::middleware('autenticacao:padrao, visitante')->prefix('/app')->group(funct
     Route::get('/fornecedor/editar/{id}/{msg?}',[FornecedorController::class, 'editar'])->name('app.fornecedor.editar');
     Route::get('fornecedor/excluir/{id}', [FornecedorController::class, 'excluir'])->name('app.fornecedor.excluir');
 
+    //Produtos
+    Route::resource('produto', ProdutoController::class);  
 
-    Route::get('/produto', [ProdutoController::class, 'index'])->name('app.produto');
+    //Produto detalhe
+    Route::resource('produto-detalhe', ProdutoDetalheController::class);
+
+    //Rotas para cliente
+    Route::resource('cliente', ClienteController::class);
+    //Rotas para pedido
+    Route::resource('pedido', PedidoController::class);
+    //Rotas para pedido-produto
+    // Route::resource('pedido-produto', PedidoProdutoController::class);
+    Route::get('pedido-produto/create/{pedido}',[PedidoProdutoController::class, 'create'])->name('pedido-produto.create');
+    Route::post('pedido-produto/store/{pedido}',[PedidoProdutoController::class, 'store'])->name('pedido-produto.store');
 });
 
 
