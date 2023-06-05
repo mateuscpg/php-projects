@@ -10,4 +10,8 @@ class Pedido extends Model
     use HasFactory;
 
     protected $fillable = ['cliente_id'];
+
+    public function produtos(){
+        return $this->belongsToMany(Produto::class, 'pedidos_produtos', 'pedido_id','produto_id')->withPivot('created_at','id');
+    }
 }

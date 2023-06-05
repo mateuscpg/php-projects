@@ -17,4 +17,10 @@ class Produto extends Model
         return $this->hasOne(ProdutoDetalhe::class);
 
     }
+    public function fornecedor(){
+        return $this->belongsTo(Fornecedor::class);
+    }
+    public function pedido(){
+        return $this->belongsToMany(Pedido::class, 'pedidos_produtos');
+    }
 }

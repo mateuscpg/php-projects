@@ -64,6 +64,7 @@
                         <a class="a-editar" href="{{route('produto.edit', ['produto' => $produto->id])}}">Editar</a>
                     </td>
                 </tr>
+                
                 @endforeach
             </tbody>
         </table>
