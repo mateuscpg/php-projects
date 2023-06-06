@@ -28,10 +28,10 @@
          <form method="POST" action="{{route('app.fornecedor.listar')}}">
             @csrf
             <h2>CONSULTAR</h2>
-            <input type="text" name="nome" placeholder="Digite um nome" class="borda-branca">
-            <input type="text" name="site" placeholder="Digite um site" class="borda-branca">
-            <input type="text" name="uf" placeholder="Digite uma uf" class="borda-branca">
-            <input type="text" name="email" placeholder="Digite um email" class="borda-branca">
+            <input type="text" name="nome" placeholder="Digite um nome" class="borda-preta">
+            <input type="text" name="site" placeholder="Digite um site" class="borda-preta">
+            <input type="text" name="uf" placeholder="Digite uma uf" class="borda-preta">
+            <input type="text" name="email" placeholder="Digite um email" class="borda-preta">
             <button type="submit" class="bordar-preta">Pesquisar</button>
 
          </form>

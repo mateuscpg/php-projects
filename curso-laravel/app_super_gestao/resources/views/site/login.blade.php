@@ -23,10 +23,10 @@
                     @csrf
 
                     {{$errors->has('email') ? $errors->first('email') : ''}}
-                    <input name="email" type="text" value="{{old('email')}}" placeholder="Digite o email" class="borda-branca">
+                    <input name="email" type="text" value="{{old('email')}}" placeholder="Digite o email" class="borda-preta">
 
                     {{$errors->has('senha') ? $errors->first('senha') : ''}}
-                    <input name="senha" type="password" value="{{old('senha')}}" placeholder="Digite a senha" class="borda-branca">
+                    <input name="senha" type="password" value="{{old('senha')}}" placeholder="Digite a senha" class="borda-preta">
 
                     <p style="font-size: 12px; text-align:left">
                         <a href="" class="link">Esqueceu sua senha?</a>

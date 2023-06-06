@@ -3,7 +3,7 @@
     {{$slot}}
 
     {{$errors->has('nome') ? $errors->first('nome') : ''}}
-    <input name="nome" value="{{old('nome')}}" type="text" placeholder="Nome" class="{{ $class }}">
+    <input name="nome"  value="{{old('nome')}}" type="text" placeholder="Nome" class="{{ $class }}">
     <br>
 
     {{$errors->has('telefone') ? $errors->first('telefone') : ''}}
