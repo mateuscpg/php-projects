@@ -28,9 +28,6 @@ class MensagemTesteMail extends Mailable
      */
     public function build()
     {
-        // $mensagem ='Você está recebendo este e-mail porque recebemos uma solicitação de redefinição de senha para sua conta.';
-        // $prazo = 'Esse link para atualizar a senha expira em 60 minutos';
-
         return $this->markdown('emails.mensagem-teste');
     }
 }

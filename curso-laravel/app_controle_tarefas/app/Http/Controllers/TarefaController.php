@@ -55,7 +55,7 @@ class TarefaController extends Controller
      */
     public function create()
     {
-        //
+        return view('tarefa.create');
     }
 
     /**
@@ -66,7 +66,20 @@ class TarefaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $regras=[
+            'tarefa' => 'required|max:200',
+            'data_limite_conclusao' => 'required'
+        ];
+        $feedback=[
+            'tarefa.required' => "O campo ':attribute' precisa ser informado.",
+            'tarefa.max' => "O campo ':attribute' só pode ter no máximo 200 caracteres.",
+            'data_limite_conclusao.required' => "O campo ':attribute' precisa ser informado."
+        ];
+        $request->validate($regras, $feedback);
+
+        $tarefa =Tarefa::create($request->all());
+        return redirect()->route('tarefa.show',['tarefa' => $tarefa->id]);
+        
     }
 
     /**
