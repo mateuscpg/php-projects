@@ -209,17 +209,21 @@ button:hover {
     width: 100%;
     height: 100vh;
     text-align: center;
-    background-image: url(https://img.freepik.com/free-vector/5g-networking-technology-background-with-blue-digital-line_53876-119505.jpg?w=1380&t=st=1687279155~exp=1687279755~hmac=56dd973f343902747e94cf410ef56d3c8e62d9980cb9f2a400ff109a16f1a6f8);
     background-repeat: no-repeat;
+    background-image: url("https://img.freepik.com/fotos-gratis/fundo-preto-abstrato-da-grade-digital_53876-97647.jpg");
     background-size: cover;
+    background-position: center;
 }
 
 .titulo-pagina {
-    padding: 5px 0px 60px 0px;
+    padding: 100px 0px 60px 0px;
+    background-color: #006494;
     text-align: center;
+    color: #fff;
+
 }
 .titulo-pagina-2 {
-    padding: 70px 0px 10px 0px;
+    padding-top: 100px;
     margin-bottom: 10px;
     text-align: center;
     color: #fff;
