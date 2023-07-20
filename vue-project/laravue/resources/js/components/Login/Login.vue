@@ -29,7 +29,7 @@ export default {
   },
   methods:{
     redirectToHome(){
-      this.$router.push('/home');
+      this.$router.push('/');
     }
   }
 };

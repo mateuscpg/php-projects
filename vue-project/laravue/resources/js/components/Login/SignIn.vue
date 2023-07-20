@@ -21,7 +21,7 @@
             <input type="date" class="form-control" id="exampleInputDate" placeholder="Data de nascimento">
           </div>
           
-          <button type="submit" class="btn btn-primary">Cadastrar</button>
+          <button type="submit" class="btn btn-primary " @click="redirectToLogin">Cadastrar</button>
         </form>
       </div>
     </div>
@@ -35,6 +35,11 @@ export default {
   components: {
     HeaderLogin,
   },
+  methods:{
+    redirectToLogin(){
+      this.$router.push('/login');
+    }
+  }
 };
 </script>
 

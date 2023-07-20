@@ -7,7 +7,7 @@
             <img src="../../../../public/images/vue.svg" alt="Vue">
         </div>
 
-        <div class="menu-toggle-wrap">
+        <!-- <div class="menu-toggle-wrap">
             <button class="menu-toggle">
                 <span class="material-icons">
                     <span class="material-icons">
@@ -15,7 +15,7 @@
                     </span>
                 </span>
             </button>
-        </div>
+        </div> -->
 
         <!-- <h3>Menu</h3> -->
         <div class="menu">
@@ -67,6 +67,7 @@ aside{
     top: 0;
     left: 0;
     bottom: 0;
+    z-index: 1;
     flex-direction: column;
     width: calc(2rem + 2rem);
     min-height: 100vh;
@@ -81,7 +82,8 @@ aside{
         flex: 1 1 0;
     }
     .logo{
-        margin-bottom: 1rem;
+        margin-top: 0.5rem;
+        margin-bottom: 3rem;
 
         img{
             width: 2rem;
@@ -124,7 +126,6 @@ aside{
     }
     .menu{
         margin: 0 -1rem;
-
         .button{
             display: flex;
             align-items: center;

@@ -1,5 +1,6 @@
 <template>
     <div>
+      <Header/>
       <div class="content">
         <div class="sobre-nos">
           <p>Essa página foi desenvolvida com o intuito de centralizar todas as suas streamings, facilitando assim a sua busca por um filme.</p>
@@ -9,8 +10,10 @@
   </template>
   
   <script>
+  import Header from '../Header/Header.vue'
   export default {
     components: {
+      Header
     },
 
 
@@ -18,28 +21,22 @@
   </script>
   
   <style scoped>
- .content {
+
+.content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  height: 100vh;
-  position: relative;
-  color: var(--light);
+  align-items: center; 
+  height: 100%;
+  color:var(--light);
+  background-color: var(--blue);
 }
-/* .sobre-nos{
-  color: white;
-  position: absolute;
-  width: 30%;
-  top: 15%;
-  background-color: rgba(39, 39, 47, 0.9); 
-  display: flex;
-  align-items: center;
-  padding: 25px;
-  padding-top: 60px;
-  padding-bottom: 60px;
-  border-radius: 25px;
-  flex-direction: column;
-} */
+.sobre-nos{
+  margin-top: 84px;
+  background-color: blue ;
+  padding: 1rem 1rem;
+
+  /* position: absolute; */
+}
 
   
   </style>

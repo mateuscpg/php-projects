@@ -1,7 +1,6 @@
 <template>
     <header class="header">
       <div class="logo-container">
-        <h2>Centralizador de streaming</h2>
         <!-- <img class="logo" src="../../../../public/images/Black And White Aesthetic Minimalist Modern Simple Typography Coconut Cosmetics Logo (1).png" alt="Logo"> -->
       </div>
       <div class="buttons-container">
@@ -40,15 +39,11 @@ export default {
     justify-content: space-between;
     align-items: center;
     padding: 22px;
-    background-color: #17161b;
+    background-color: var(--dark);
   }
   
   .logo-container {
     flex: 1;
-  }
-  h2{
-    color: #fe0084;
-    /* font-family: sans-serif; */
   }
   
   .logo {

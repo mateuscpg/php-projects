@@ -42,7 +42,6 @@ body{
   linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
   url('https://media.ldlc.com/apple/tv/imgTv/tv_app.png');
   background-size: cover;
-  background-position: center;
 }
 button{
   cursor: pointer;
@@ -52,15 +51,22 @@ button{
   background: none;
 }
 .app{
-  display: flex;
-  
+  // display: flex;
   main{
     flex: 1 1 0;
     padding: 2rem;
 
     @media (max-width:768px){
-      padding-left:6rem ;
+      padding-left:10rem ;
     }
   }
+}
+.content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center; 
+  height: 100%;
+  color:var(--light)
 }
   </style>
