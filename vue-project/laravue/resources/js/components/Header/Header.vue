@@ -1,59 +1,65 @@
 <template>
-    <header class="header">
-      <div class="logo-container">
-        <h2>Centralizador de streaming</h2>
-        <!-- <img class="logo" src="caminho/para/sua/logo.png" alt="Logo"> -->
-      </div>
-      <div class="buttons-container">
+  <header class="header">
+    <div class="buttons-container">
+      
+      <a href="#" class="icon-search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        </svg>
+      </a>
 
-        <a href="#" class="icon-search">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-          </svg>
-        </a>
-        
-        <input class="header-search" type="search" placeholder="Pesquise">
-        <button class="sair-button" @click="redirectToLogin">Sair</button>
+      <input class="header-search" type="search" placeholder="Pesquise">
+      <button class="sair-button" @click="redirectToLogin">Sair</button>
     </div>
+
   </header>
 </template>
 
-
-<script>;
+<script>
 export default {
-    methods: {
+  props: {
+    showSideBar: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  methods: {
     redirectToLogin() {
       this.$router.push('/');
     },
-  }
+    toggleSideBar() {
+      this.$emit('update:showSideBar', !this.showSideBar);
+    },
+  },
 };
 </script>
-  
-  <style scoped>
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 22px;
-    background-color: #17161b;
-  }
-  
-  .logo-container {
-    flex: 1;
-  }
-  h2{
-    color: #fe0084;
-    /* font-family: sans-serif; */
-  }
-  
-  .logo {
-    height: 40px;
-  }
-  
-  .buttons-container {
-    display: flex;
-  }
-  
+
+
+<style scoped>
+.header {
+  display: flex;
+  align-items: center;
+  padding: 22px;
+  background-color: var(--dark);
+}
+
+.logo-container {
+  flex: 1;
+  font-size: 32px;
+  padding: 0px 26px;
+  background-color: transparent;
+  border: none;
+  color: #fe0084;
+
+}
+
+h2 {
+  color: #fe0084;
+}
+
+.buttons-container {
+  display: flex;
+}
 
 .sair-button {
   margin-left: 10px;
@@ -72,7 +78,8 @@ export default {
   outline: 1px solid #fff;
   color: #17161b;
 }
-.header-search{
+
+.header-search {
   padding: 8px 25px;
   background-color: transparent;
   outline: 1px solid #00aacd;
@@ -81,11 +88,19 @@ export default {
   border-radius: 4px;
   transition: background-color 0.3s linear, outline 0.3s linear, color 0.3s linear;
 }
-.icon-search{
+
+.icon-search {
   color: white;
   margin-right: 6px;
-  margin-top: 14px;
+  margin-top: 12px;
+}
+.button-sidebar{
+  font-size: 30px;
+  padding: 3px;
+  background-color: transparent;
+  border: none;
+  color: #fe0084;
+
 }
 
-  </style>
-  
+</style>

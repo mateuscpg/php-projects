@@ -1,6 +1,7 @@
 <template>
     <div>
-        <div class="content">
+        <div class="app">
+          <Sidebar/>
             <router-view/>
         </div>
     </div>
@@ -8,37 +9,58 @@
 </template>
 
   <script>
-  import Header from './Header/Header.vue';
+  import Sidebar from './Sidebar/Sidebar.vue'
   export default {
     components: {
-      Header,
+      Sidebar,
     },
 
   };
 
   </script>
   
-  <style scoped>
- /* .content {
-  display: flex;
-  background-image: url('https://media.ldlc.com/apple/tv/imgTv/tv_app.png');
-  background-size: cover;
-  background-position: center;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-  position: relative;
+  <style lang="scss">
+  :root {
+  --blue: #00aacd;
+  --pink: #fe0084;
+  --grey: #64748b;
+  --dark: rgb(0, 0,0, 0.9);
+  --dark-alt: #334155;
+  --light: #f1f5f9;
+  --sidebar-width: 200px;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fire Sans', sans-serif;
 }
 
-.content::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+body{
+  font-family: 'Nunito', sans-serif;
+  background: 
+  linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
+  url('https://media.ldlc.com/apple/tv/imgTv/tv_app.png');
+  background-size: cover;
+  background-position: center;
 }
-   */
-  </style>
+button{
+  cursor: pointer;
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+}
+.app{
+  display: flex;
   
+  main{
+    flex: 1 1 0;
+    padding: 2rem;
+
+    @media (max-width:768px){
+      padding-left:6rem ;
+    }
+  }
+}
+  </style>

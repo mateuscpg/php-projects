@@ -8,6 +8,13 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <!-- Option 1: Include in HTML -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+        rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet">
 
         <!-- Styles -->
         <style>
@@ -16,12 +23,7 @@
 
         <style>
             body {
-                font-family: 'Nunito', sans-serif;
-                background: 
-                linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
-                url('https://media.ldlc.com/apple/tv/imgTv/tv_app.png');
-                background-size: cover;
-                background-position: center;
+               
             }
         </style>
     </head>
