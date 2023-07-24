@@ -27,6 +27,8 @@
     },
     "dependencies": {
         "bootstrap-icons": "^1.10.5",
+        "vue-ai-carousel": "^1.1.1",
+        "vue-carousel": "^0.18.0",
         "vue-router": "^4.2.4"
     }
 }

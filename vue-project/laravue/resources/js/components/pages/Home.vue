@@ -1,34 +1,38 @@
 <template>
   <div>
     <Header/>
-    <div class="content">
-      <div class="homepage">
-        This is a Home page
-        <div class="card-principal">
-          CARD PRINCIPAL
+      <div class="content">
+
+        <div class="homepage">
+          <h3>Filmes Recomendados</h3>
+          <Carousel></Carousel>
+          <br>
+          <!-- <h3>Filmes de Ação</h3>
+          <Carousel></Carousel>
+          
+          <br>
+          <h3>Filmes de Terror</h3>
+          <Carousel></Carousel> -->
+     
         </div>
-        <div class="card-secundario">
-          CARD SECUNDÁRIO
-        </div>
+
       </div>
-      
-    </div>
   </div>
 </template>
 
 
 <script>
 import Header from '../Header/Header.vue'
+import Carousel from '../Carousel/Carousel.vue'
 export default {
 
   components: {
-    Header
+    Header,
+    Carousel
   },
-  data() {
-    return {
-
-    };
-  },
+  data: () => ({
+    
+  }),
   
 };
 </script>
@@ -37,21 +41,17 @@ export default {
 .content {
   display: flex;
   flex-direction: column;
-  align-items: center; 
   height: 100%;
   color:var(--light);
-  background-color: var(--blue);
+  /* background-color: var(--blue); */
 }
 .homepage{
   margin-top: 84px;
-  background-color: blue ;
-  padding: 1rem 48rem;
+  /* background-color: blue ; */
+  margin-top: 5.5rem; 
+  margin-right:5rem;
+  margin-left:5rem;
 }
-.card-principal{
-  
-}
-.card-secundario{
-  
-}
+
 
 </style>

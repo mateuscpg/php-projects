@@ -23,6 +23,10 @@
                 <span class="material-icons">home</span>
                 <span class="text">Home</span>
             </router-link>
+                <router-link class="button" to="/about">
+                    <span class="material-icons">category</span>
+                    <span class="text">Category</span>
+                </router-link>
             <router-link class="button" to="/about">
                 <span class="material-icons">visibility</span>
                 <span class="text">About</span>

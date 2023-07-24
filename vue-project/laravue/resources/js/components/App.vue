@@ -65,7 +65,6 @@ button{
   display: flex;
   width: 100%;
   flex-direction: column;
-  align-items: center; 
   height: 100%;
   color:var(--light)
 }

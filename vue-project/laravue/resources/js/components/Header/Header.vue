@@ -19,12 +19,6 @@
 
 <script>
 export default {
-  props: {
-    showSideBar: {
-      type: Boolean,
-      default: false,
-    },
-  },
   methods: {
     redirectToLogin() {
       this.$router.push('/login');
@@ -41,14 +35,14 @@ export default {
   align-items: center;
   position: fixed;
   padding: 22px;
-  background-color: var(--dark);
+  background-color: rgb(0, 0,0, 1);
   /* z-index: 0; */
 }
 
 .right-container {
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content:right;
 }
 
 .header-search {
