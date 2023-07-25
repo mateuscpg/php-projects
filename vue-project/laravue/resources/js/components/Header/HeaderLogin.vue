@@ -6,7 +6,6 @@
       <div class="buttons-container">
         <button class="login-button" @click="redirectToLogin">Login</button>
         <button class="signin-button" @click="redirectToSignIn">Sign in</button>
-        <button class="login-button" @click="redirectToSobreNos">Sobre nós</button>
         
     </div>
   </header>
@@ -16,9 +15,6 @@
 <script>;
 export default {
     methods: {
-    redirectToSobreNos() {
-      this.$router.push('/sobre-nos');
-    },
     redirectToLogin() {
       this.$router.push('/');
     },

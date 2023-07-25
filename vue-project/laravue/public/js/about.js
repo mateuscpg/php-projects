@@ -19,19 +19,48 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      objects: []
+      objects: [{
+        img: "https://files.tecnoblog.net/wp-content/uploads/2020/12/ordem-filmes-harry-potter-e1609427898909-700x393.jpg",
+        tittle: "Filme 1"
+      }, {
+        img: "https://cdn.maioresemelhores.com/imagens/melhores-filmes-atuais-og.jpg",
+        tittle: "Filme 2"
+      }, {
+        img: "https://img.olhardigital.com.br/wp-content/uploads/2023/02/o-projeto-adam-divulgacao-netflix-1.png",
+        tittle: "Filme 3"
+      }, {
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIEN8hAzw3zJFEfnMlTrborAZon3HXAKHM1Q&usqp=CAU",
+        tittle: "Filme 4"
+      }, {
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREtz6-RrA7Xb75mXTBbEIs84VqzXpcMnF6CA&usqp=CAU",
+        tittle: "Filme 5"
+      }, {
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYBZotpBz63PtBZIyZdKuHdLwe3q_A5kt-1Q&usqp=CAU",
+        tittle: "Filme 6"
+      }, {
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2Oxp-pleRTAGfZ4dq9h4sw4cEliSYh8dX4rDuAX6BOxRWWVxizvb6wHszM4_VfoMgpTA&usqp=CAU",
+        tittle: "Filme 7"
+      }, {
+        img: "https://br.web.img3.acsta.net/r_1280_720/newsv7/20/04/22/22/18/1797065.jpg",
+        tittle: "Filme 8"
+      }, {
+        img: "https://uploads.jovemnerd.com.br/wp-content/uploads/2021/02/destruicao-final-amazon.jpg",
+        tittle: "Filme 9"
+      }, {
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdAmrUJHKHsdxN0yQazjyv7O0-D-bQy9Jqw&usqp=CAU",
+        tittle: "Filme 10"
+      }]
     };
   },
   mounted: function mounted() {
     var _this = this;
     setTimeout(function () {
-      _this.objects = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17'];
+      // this.objects =['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17'];
       console.warn(_this.objects);
     });
-
-    // setTimeout(() => {
-    this.objects = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17'];
-    // }, 70000);
+    setTimeout(function () {
+      // this.objects = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17'];
+    }, 70000);
   }
 });
 
@@ -70,9 +99,6 @@ __webpack_require__.r(__webpack_exports__);
 ;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   methods: {
-    redirectToSobreNos: function redirectToSobreNos() {
-      this.$router.push('/sobre-nos');
-    },
     redirectToLogin: function redirectToLogin() {
       this.$router.push('/');
     },
@@ -198,12 +224,16 @@ var _withScopeId = function _withScopeId(n) {
 var _hoisted_1 = {
   "class": "img"
 };
+var _hoisted_2 = ["src"];
+var _hoisted_3 = {
+  "class": "tittle"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_VueAIcarousel = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("VueAIcarousel");
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_VueAIcarousel, {
     Property: {
       ID: 'One',
-      Dlay: 80000,
+      Dlay: 50000,
       NavBtn: 'naveBtnStyle',
       CountPos: 'CounterPosition',
       CounterStyle: 'counterNewStyle',
@@ -215,7 +245,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
           key: object.id,
           "class": "NewCards"
-        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(object), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"tittle\">\r\n                alnsldgblasgd\r\n            </div> ")]);
+        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+          height: "150",
+          width: "240",
+          src: object.img,
+          alt: ""
+        }, null, 8 /* PROPS */, _hoisted_2)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(object.tittle), 1 /* TEXT */)])]);
       }), 128 /* KEYED_FRAGMENT */))];
     }),
 
@@ -320,12 +355,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[1] || (_cache[1] = function () {
       return $options.redirectToSignIn && $options.redirectToSignIn.apply($options, arguments);
     })
-  }, "Sign in"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    "class": "login-button",
-    onClick: _cache[2] || (_cache[2] = function () {
-      return $options.redirectToSobreNos && $options.redirectToSobreNos.apply($options, arguments);
-    })
-  }, "Sobre nós")])]);
+  }, "Sign in")])]);
 }
 
 /***/ }),
@@ -482,7 +512,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\r\n/* .NewCards{\r\n    height: 150px;\r\n    width:150px ;\r\n    border-radius: 0;\r\n    display: flex;\r\n    flex-direction: column;\r\n} */\r\n/* .img{\r\n    height:50px ;\r\n}\r\n.tittle{\r\n    display: flex;\r\n    background-color: white;\r\n} */\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.NewCards[data-v-fc704218]{\r\n  height: 210px;\r\n  width: 240px;\r\n  background-color: white;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center; /* Centraliza o conteúdo horizontalmente */\r\n  justify-content: center; /* Centraliza o conteúdo verticalmente */\n}\n.img[data-v-fc704218]{\r\n  /* height: 160px;\r\n  width: 240px; */\r\n  margin: 0;\r\n  display: flex;\r\n  justify-content: center; /* Centraliza a imagem horizontalmente */\r\n  align-items: center; /* Centraliza a imagem verticalmente */\n}\n.tittle[data-v-fc704218]{\r\n  margin: 0;\r\n  margin-top: 10px; /* Espaço entre a imagem e o título */\r\n  text-align: center; /* Centraliza o texto horizontalmente */\r\n  color: var(--dark);\r\n  background-color: white;\n} \r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
