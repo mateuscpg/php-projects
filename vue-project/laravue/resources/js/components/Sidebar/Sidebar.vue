@@ -1,8 +1,8 @@
 <template>
     <aside 
     :class="{'is-expanded' : isExpanded }"
-    @mouseenter="ToggleMenu(true)"
-    @mouseleave="ToggleMenu(false)">
+    @mouseenter="toggleMenu(true)"
+    @mouseleave="toggleMenu(false)">
         <div class="logo">
             <img src="../../../../public/images/vue.svg" alt="Vue">
         </div>
@@ -16,21 +16,54 @@
                 </span>
             </button>
         </div> -->
+        <div class="user-info">
+        <!-- Rounded user image -->
+            <div class="user-image">
+                <img :src="userImage" alt="" />
+            </div>
+            <div class="user-name" v-if="isExpanded">{{ userName }}</div>
+            <p style="color: rgb(135, 216, 13); font-size: 0.8rem;
+            " v-if="isExpanded
+            ">online</p>
+        </div>
 
         <!-- <h3>Menu</h3> -->
         <div class="menu">
-            <router-link class="button" to="/">
-                <span class="material-icons">home</span>
-                <span class="text">Home</span>
-            </router-link>
-                <router-link class="button" to="/about">
-                    <span class="material-icons">category</span>
-                    <span class="text">Category</span>
-                </router-link>
-            <router-link class="button" to="/about">
-                <span class="material-icons">visibility</span>
-                <span class="text">About</span>
-            </router-link>
+      <router-link class="button" to="/">
+        <span class="material-icons">home</span>
+        <span class="text">Home</span>
+      </router-link>
+
+      <!-- Category menu item with drop-right submenu -->
+      <div class="sub-menu">
+        <div class="button" @click="toggleSubMenu">
+          <span class="material-icons">category</span>
+          <span class="text">Category</span>
+        </div>
+
+        <!-- Submenu items -->
+        <router-link
+          v-if="showSubMenu && isExpanded"
+          class="sub-button"
+          to="/category/subitem1"
+        >
+          <span class="material-icons">subitem1_icon</span>
+          <span class="text">Subitem 1</span>
+        </router-link>
+        <router-link
+          v-if="showSubMenu && isExpanded"
+          class="sub-button"
+          to="/category/subitem2"
+        >
+          <span class="material-icons">subitem2_icon</span>
+          <span class="text">Subitem 2</span>
+        </router-link>
+      </div>
+
+      <router-link class="button" to="/about">
+        <span class="material-icons">visibility</span>
+        <span class="text">About</span>
+      </router-link>
             <router-link class="button" to="/team">
                 <span class="material-icons">group</span>
                 <span class="text">Team</span>
@@ -55,12 +88,19 @@
 <script setup>
 import {ref} from 'vue'
 
+const userName = ref('Mateus Correia'); // Replace with default user name
+const userImage = ref('https://photografos.com.br/wp-content/uploads/2020/09/fotografia-para-perfil.jpg'); // Replace with default image URL
+const showSubMenu = ref(false);
+
 const isExpanded = ref(localStorage.getItem('isExpanded') === 'true')
 
-const ToggleMenu = (expaned) => {
+const toggleMenu = (expaned) => {
     isExpanded.value = expaned;
     localStorage.setItem('isExpanded', isExpanded.value)
 }
+const toggleSubMenu = () => {
+  showSubMenu.value = !showSubMenu.value;
+};
 
 </script>
 
@@ -81,6 +121,56 @@ aside{
     color: var(--light);
 
     transition: 0.2s ease-out;
+
+    .user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.user-image {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%; /* Make the image rounded */
+  overflow: hidden; /* Ensure the image is properly clipped within the circle */
+}
+
+.user-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-name {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--gray);
+}
+/* Add this to your existing styles */
+.sub-menu {
+//   margin-left: 1rem; /* Adjust the spacing as needed */
+  display: flex;
+  flex-direction: column;
+}
+
+.sub-button {
+//   padding-left: 4rem; /* Adjust the spacing as needed */
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-decoration: none;
+}
+
+.sub-button .material-icons {
+  font-size: 1.6rem;
+}
+
+.sub-button .text {
+  margin-left: 0.5rem; /* Adjust the spacing as needed */
+}
+
 
     .flex{
         flex: 1 1 0;
@@ -179,5 +269,6 @@ aside{
         position: fixed;
         z-index: 99;
     }
+    
 }
 </style>
