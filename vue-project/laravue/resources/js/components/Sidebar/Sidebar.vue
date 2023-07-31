@@ -19,7 +19,9 @@
         <div class="user-info">
         <!-- Rounded user image -->
             <div class="user-image">
-                <img :src="userImage" alt="" />
+                <router-link to="/profile">
+                    <img :src="userImage" alt="" />
+                </router-link>
             </div>
             <div class="user-name" v-if="isExpanded">{{ userName }}</div>
             <p style="color: rgb(135, 216, 13); font-size: 0.8rem;
@@ -47,16 +49,14 @@
           class="sub-button"
           to="/category/subitem1"
         >
-          <span class="material-icons">subitem1_icon</span>
-          <span class="text">Subitem 1</span>
+          <span class="text">Ação</span>
         </router-link>
         <router-link
           v-if="showSubMenu && isExpanded"
           class="sub-button"
           to="/category/subitem2"
         >
-          <span class="material-icons">subitem2_icon</span>
-          <span class="text">Subitem 2</span>
+          <span class="text">Romance</span>
         </router-link>
       </div>
 
@@ -99,7 +99,8 @@ const toggleMenu = (expaned) => {
     localStorage.setItem('isExpanded', isExpanded.value)
 }
 const toggleSubMenu = () => {
-  showSubMenu.value = !showSubMenu.value;
+    showSubMenu.value = !showSubMenu.value;
+        
 };
 
 </script>
@@ -120,7 +121,7 @@ aside{
     background-color: var(--dark);
     color: var(--light);
 
-    transition: 0.2s ease-out;
+    transition: 0.3s ease-out;
 
     .user-info {
   display: flex;
@@ -134,6 +135,8 @@ aside{
   height: 3rem;
   border-radius: 50%; /* Make the image rounded */
   overflow: hidden; /* Ensure the image is properly clipped within the circle */
+  border: 2px solid var(--blue);
+
 }
 
 .user-image img {
@@ -153,18 +156,23 @@ aside{
   display: flex;
   flex-direction: column;
 }
+.button{
+    cursor: pointer;
+}
 
 .sub-button {
-//   padding-left: 4rem; /* Adjust the spacing as needed */
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
 text-decoration: none;
+padding-top: 1.1rem;
+padding-bottom: 1.1rem;
+color: var(--light);
 }
-
-.sub-button .material-icons {
-  font-size: 1.6rem;
+.sub-button:hover{
+    color: var(--pink);
+    transition: 0.2s linear;
 }
 
 .sub-button .text {

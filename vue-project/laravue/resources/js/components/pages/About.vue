@@ -4,6 +4,7 @@
       <div class="content">
         <div class="sobre-nos">
           <p>Essa página foi desenvolvida com o intuito de centralizar todas as suas streamings, facilitando assim a sua busca por um filme.</p>
+          
         </div>
       </div>
     </div>

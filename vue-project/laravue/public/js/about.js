@@ -19,48 +19,66 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      objects: [{
+      movies: [{
         img: "https://files.tecnoblog.net/wp-content/uploads/2020/12/ordem-filmes-harry-potter-e1609427898909-700x393.jpg",
-        tittle: "Filme 1"
+        title: "Filme 1"
       }, {
-        img: "https://cdn.maioresemelhores.com/imagens/melhores-filmes-atuais-og.jpg",
-        tittle: "Filme 2"
+        img: "https://conteudo.imguol.com.br/c/entretenimento/f1/2021/11/15/o-poster-mostra-peter-parker-e-doutor-estranho-lutando-contra-os-viloes-dos-homem-aranha-antigos-1637010597234_v2_1x1.jpg",
+        title: "Filme 2"
       }, {
         img: "https://img.olhardigital.com.br/wp-content/uploads/2023/02/o-projeto-adam-divulgacao-netflix-1.png",
-        tittle: "Filme 3"
+        title: "Filme 3"
       }, {
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIEN8hAzw3zJFEfnMlTrborAZon3HXAKHM1Q&usqp=CAU",
-        tittle: "Filme 4"
+        title: "Filme 4"
       }, {
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREtz6-RrA7Xb75mXTBbEIs84VqzXpcMnF6CA&usqp=CAU",
-        tittle: "Filme 5"
+        title: "Filme 5"
       }, {
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYBZotpBz63PtBZIyZdKuHdLwe3q_A5kt-1Q&usqp=CAU",
-        tittle: "Filme 6"
+        img: "https://6vezes7.com.br/wp-content/uploads/2023/05/arte-blog-75-1024x576.png",
+        title: "Filme 6"
       }, {
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2Oxp-pleRTAGfZ4dq9h4sw4cEliSYh8dX4rDuAX6BOxRWWVxizvb6wHszM4_VfoMgpTA&usqp=CAU",
-        tittle: "Filme 7"
+        img: "https://i.pinimg.com/originals/a0/47/91/a047914690fb35a8ce4f06d743ceb23a.png",
+        title: "Filme 7"
       }, {
         img: "https://br.web.img3.acsta.net/r_1280_720/newsv7/20/04/22/22/18/1797065.jpg",
-        tittle: "Filme 8"
+        title: "Filme 8"
       }, {
         img: "https://uploads.jovemnerd.com.br/wp-content/uploads/2021/02/destruicao-final-amazon.jpg",
-        tittle: "Filme 9"
+        title: "Filme 9"
       }, {
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdAmrUJHKHsdxN0yQazjyv7O0-D-bQy9Jqw&usqp=CAU",
-        tittle: "Filme 10"
-      }]
+        title: "Filme 10"
+      }],
+      visibleMovies: [],
+      // Displayed movies in the carousel
+      currentMovieIndex: 0,
+      // Index of the currently displayed movie
+      moviesPerPage: 7
     };
   },
+  methods: {
+    // Method to update the visibleMovies array based on the currentMovieIndex
+    updateVisibleMovies: function updateVisibleMovies() {
+      this.visibleMovies = this.movies.slice(this.currentMovieIndex, this.currentMovieIndex + this.moviesPerPage);
+    },
+    nextMovie: function nextMovie() {
+      this.currentMovieIndex += this.moviesPerPage;
+      if (this.currentMovieIndex >= this.movies.length) {
+        this.currentMovieIndex = 0;
+      }
+      this.updateVisibleMovies();
+    },
+    prevMovie: function prevMovie() {
+      this.currentMovieIndex -= this.moviesPerPage;
+      if (this.currentMovieIndex < 0) {
+        this.currentMovieIndex = Math.max(this.movies.length - this.moviesPerPage, 0);
+      }
+      this.updateVisibleMovies();
+    }
+  },
   mounted: function mounted() {
-    var _this = this;
-    setTimeout(function () {
-      // this.objects =['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17'];
-      console.warn(_this.objects);
-    });
-    setTimeout(function () {
-      // this.objects = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17'];
-    }, 70000);
+    this.updateVisibleMovies();
   }
 });
 
@@ -100,7 +118,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   methods: {
     redirectToLogin: function redirectToLogin() {
-      this.$router.push('/');
+      this.$router.push('/login');
     },
     redirectToSignIn: function redirectToSignIn() {
       this.$router.push('/signin');
@@ -222,15 +240,47 @@ var _withScopeId = function _withScopeId(n) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-fc704218"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
 };
 var _hoisted_1 = {
+  "class": "carousel-container"
+};
+var _hoisted_2 = {
+  "class": "carousel-wrapper"
+};
+var _hoisted_3 = {
+  "class": "button-prev"
+};
+var _hoisted_4 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+    "class": "material-icons"
+  }, "arrow_back_ios", -1 /* HOISTED */);
+});
+var _hoisted_5 = [_hoisted_4];
+var _hoisted_6 = ["onMouseover", "onMouseleave"];
+var _hoisted_7 = {
+  "class": "card"
+};
+var _hoisted_8 = {
   "class": "img"
 };
-var _hoisted_2 = ["src"];
-var _hoisted_3 = {
-  "class": "tittle"
+var _hoisted_9 = ["src"];
+var _hoisted_10 = {
+  "class": "title"
 };
+var _hoisted_11 = {
+  "class": "button-next"
+};
+var _hoisted_12 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+    "class": "material-icons"
+  }, "arrow_forward_ios", -1 /* HOISTED */);
+});
+var _hoisted_13 = [_hoisted_12];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_VueAIcarousel = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("VueAIcarousel");
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_VueAIcarousel, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[0] || (_cache[0] = function () {
+      return $options.prevMovie && $options.prevMovie.apply($options, arguments);
+    })
+  }, _hoisted_5)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_VueAIcarousel, {
     Property: {
       ID: 'One',
       Dlay: 50000,
@@ -241,21 +291,31 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.objects, function (object) {
+      return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.visibleMovies, function (movie) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-          key: object.id,
-          "class": "NewCards"
-        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-          height: "150",
+          key: movie.id,
+          "class": "NewCards",
+          onMouseover: function onMouseover($event) {
+            return _ctx.onCardMouseOver(movie);
+          },
+          onMouseleave: function onMouseleave($event) {
+            return _ctx.onCardMouseLeave(movie);
+          }
+        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+          height: "200",
           width: "240",
-          src: object.img,
-          alt: ""
-        }, null, 8 /* PROPS */, _hoisted_2)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(object.tittle), 1 /* TEXT */)])]);
+          src: movie.img,
+          alt: "movieimg"
+        }, null, 8 /* PROPS */, _hoisted_9)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(movie.title), 1 /* TEXT */)])])], 40 /* PROPS, HYDRATE_EVENTS */, _hoisted_6);
       }), 128 /* KEYED_FRAGMENT */))];
     }),
 
     _: 1 /* STABLE */
-  });
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[1] || (_cache[1] = function () {
+      return $options.nextMovie && $options.nextMovie.apply($options, arguments);
+    })
+  }, _hoisted_13)])])]);
 }
 
 /***/ }),
@@ -491,7 +551,7 @@ var _hoisted_4 = /*#__PURE__*/_withScopeId(function () {
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Header = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Header");
   var _component_Carousel = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Carousel");
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Carousel), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <h3>Filmes de Ação</h3>\r\n          <Carousel></Carousel>\r\n          \r\n          <br>\r\n          <h3>Filmes de Terror</h3>\r\n          <Carousel></Carousel> ")])])]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Carousel), _hoisted_4])])]);
 }
 
 /***/ }),
@@ -512,7 +572,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.NewCards[data-v-fc704218]{\r\n  height: 210px;\r\n  width: 240px;\r\n  background-color: white;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center; /* Centraliza o conteúdo horizontalmente */\r\n  justify-content: center; /* Centraliza o conteúdo verticalmente */\n}\n.img[data-v-fc704218]{\r\n  /* height: 160px;\r\n  width: 240px; */\r\n  margin: 0;\r\n  display: flex;\r\n  justify-content: center; /* Centraliza a imagem horizontalmente */\r\n  align-items: center; /* Centraliza a imagem verticalmente */\n}\n.tittle[data-v-fc704218]{\r\n  margin: 0;\r\n  margin-top: 10px; /* Espaço entre a imagem e o título */\r\n  text-align: center; /* Centraliza o texto horizontalmente */\r\n  color: var(--dark);\r\n  background-color: white;\n} \r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\r\n/* Your styles here */\n.carousel-container[data-v-fc704218] {\r\n  overflow: hidden;\n}\n.carousel-wrapper[data-v-fc704218] {\r\n    display: flex;\n}\n.NewCards[data-v-fc704218] {\r\n  height: 240px;\r\n  width: 240px;\r\n  background-color: rgba(85, 85, 85, 0.8);\r\n  position: relative;\r\n  z-index: 0;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: space-between;\r\n  align-items: center; /* Centraliza o conteúdo horizontalmente */\r\n  justify-content: center; /* Centraliza o conteúdo verticalmente */\n}\n.img[data-v-fc704218] {\r\n  margin: 0;\r\n  display: flex;\r\n  justify-content: center; /* Centraliza a imagem horizontalmente */\r\n  align-items: center; /* Centraliza a imagem verticalmente */\n}\n.title[data-v-fc704218] {\r\n  margin: 0;\r\n  padding-top: 1rem; \r\n  text-align: center; /* Centraliza o texto horizontalmente */\r\n  color: var(--light);\r\n  background-color: rgba(85, 85, 85, 0.8);\n}\n.button-prev[data-v-fc704218],\r\n.button-next[data-v-fc704218] {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    position: absolute;\r\n    top: 27.5%;\r\n    transform: translateY(-50%);\r\n    width: 45px;\r\n    /* height: 200px; */\r\n    padding: 6.7rem 1rem;\r\n    background-color: rgba(0, 0, 0, 0.2);\r\n    cursor: pointer;\n}\n.button-prev[data-v-fc704218] {\r\n  left: 75px;\n}\n.button-next[data-v-fc704218] {\r\n  right: 75px;\n}\n.button-container[data-v-fc704218] {\r\n  display: flex;\r\n  padding: 0.5em;\r\n  padding-top: 3rem;\r\n  padding-bottom: 3rem;\r\n  justify-content: space-between;\r\n  margin: 20px;\n}\n.button-prev .material-icons[data-v-fc704218],\r\n.button-next .material-icons[data-v-fc704218] {\r\n  color: white;\n}\r\n\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -650,7 +710,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.content[data-v-a9aac016] {\r\n  display: flex;\r\n  flex-direction: column;\r\n  height: 100%;\r\n  color:var(--light);\r\n  /* background-color: var(--blue); */\n}\n.homepage[data-v-a9aac016]{\r\n  margin-top: 84px;\r\n  /* background-color: blue ; */\r\n  margin-top: 5.5rem; \r\n  margin-right:5rem;\r\n  margin-left:5rem;\n}\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.content[data-v-a9aac016] {\r\n  display: flex;\r\n  flex-direction: column;\r\n  height: 100%;\r\n  color:var(--light);\r\n  /* background-color: var(--blue); */\n}\n.homepage[data-v-a9aac016]{\r\n  margin-top: 84px;\r\n  /* background-color: blue ; */\r\n  margin-top: 5.5rem; \r\n  margin-right:8rem;\r\n  margin-left:8rem;\n}\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

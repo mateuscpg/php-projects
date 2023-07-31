@@ -16,7 +16,7 @@
 export default {
     methods: {
     redirectToLogin() {
-      this.$router.push('/');
+      this.$router.push('/login');
     },
     redirectToSignIn() {
       this.$router.push('/signin');

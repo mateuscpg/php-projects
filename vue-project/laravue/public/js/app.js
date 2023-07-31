@@ -22900,68 +22900,58 @@ var _hoisted_12 = /*#__PURE__*/_withScopeId(function () {
 var _hoisted_13 = [_hoisted_11, _hoisted_12];
 var _hoisted_14 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-    "class": "material-icons"
-  }, "subitem1_icon", -1 /* HOISTED */);
+    "class": "text"
+  }, "Ação", -1 /* HOISTED */);
 });
 var _hoisted_15 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     "class": "text"
-  }, "Subitem 1", -1 /* HOISTED */);
+  }, "Romance", -1 /* HOISTED */);
 });
 var _hoisted_16 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     "class": "material-icons"
-  }, "subitem2_icon", -1 /* HOISTED */);
+  }, "visibility", -1 /* HOISTED */);
 });
 var _hoisted_17 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     "class": "text"
-  }, "Subitem 2", -1 /* HOISTED */);
+  }, "About", -1 /* HOISTED */);
 });
 var _hoisted_18 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     "class": "material-icons"
-  }, "visibility", -1 /* HOISTED */);
+  }, "group", -1 /* HOISTED */);
 });
 var _hoisted_19 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     "class": "text"
-  }, "About", -1 /* HOISTED */);
+  }, "Team", -1 /* HOISTED */);
 });
 var _hoisted_20 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     "class": "material-icons"
-  }, "group", -1 /* HOISTED */);
+  }, "email", -1 /* HOISTED */);
 });
 var _hoisted_21 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     "class": "text"
-  }, "Team", -1 /* HOISTED */);
-});
-var _hoisted_22 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-    "class": "material-icons"
-  }, "email", -1 /* HOISTED */);
-});
-var _hoisted_23 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-    "class": "text"
   }, "Contact", -1 /* HOISTED */);
 });
-var _hoisted_24 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_22 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "flex"
   }, null, -1 /* HOISTED */);
 });
-var _hoisted_25 = {
+var _hoisted_23 = {
   "class": "menu"
 };
-var _hoisted_26 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_24 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     "class": "material-icons"
   }, "settings", -1 /* HOISTED */);
 });
-var _hoisted_27 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_25 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     "class": "text"
   }, "Settings", -1 /* HOISTED */);
@@ -22979,10 +22969,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onMouseleave: _cache[1] || (_cache[1] = function ($event) {
       return $setup.toggleMenu(false);
     })
-  }, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"menu-toggle-wrap\">\r\n            <button class=\"menu-toggle\">\r\n                <span class=\"material-icons\">\r\n                    <span class=\"material-icons\">\r\n                    keyboard_double_arrow_right\r\n                    </span>\r\n                </span>\r\n            </button>\r\n        </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Rounded user image "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    src: $setup.userImage,
-    alt: ""
-  }, null, 8 /* PROPS */, _hoisted_4)]), $setup.isExpanded ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.userName), 1 /* TEXT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $setup.isExpanded ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_6, "online")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <h3>Menu</h3> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  }, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"menu-toggle-wrap\">\r\n            <button class=\"menu-toggle\">\r\n                <span class=\"material-icons\">\r\n                    <span class=\"material-icons\">\r\n                    keyboard_double_arrow_right\r\n                    </span>\r\n                </span>\r\n            </button>\r\n        </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Rounded user image "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    to: "/profile"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+        src: $setup.userImage,
+        alt: ""
+      }, null, 8 /* PROPS */, _hoisted_4)];
+    }),
+    _: 1 /* STABLE */
+  })]), $setup.isExpanded ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.userName), 1 /* TEXT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $setup.isExpanded ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_6, "online")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <h3>Menu</h3> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     "class": "button",
     to: "/"
   }, {
@@ -22999,7 +22996,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     to: "/category/subitem1"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_14, _hoisted_15];
+      return [_hoisted_14];
     }),
     _: 1 /* STABLE */
   })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $setup.showSubMenu && $setup.isExpanded ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_router_link, {
@@ -23008,7 +23005,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     to: "/category/subitem2"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_16, _hoisted_17];
+      return [_hoisted_15];
     }),
     _: 1 /* STABLE */
   })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
@@ -23016,7 +23013,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     to: "/about"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_18, _hoisted_19];
+      return [_hoisted_16, _hoisted_17];
     }),
     _: 1 /* STABLE */
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
@@ -23024,7 +23021,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     to: "/team"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_20, _hoisted_21];
+      return [_hoisted_18, _hoisted_19];
     }),
     _: 1 /* STABLE */
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
@@ -23032,15 +23029,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     to: "/contact"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_22, _hoisted_23];
+      return [_hoisted_20, _hoisted_21];
     }),
     _: 1 /* STABLE */
-  })]), _hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  })]), _hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     "class": "button",
     to: "/settings"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_26, _hoisted_27];
+      return [_hoisted_24, _hoisted_25];
     }),
     _: 1 /* STABLE */
   })])], 34 /* CLASS, HYDRATE_EVENTS */);
@@ -32176,7 +32173,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "aside[data-v-19a7ef6e] {\n  display: flex;\n  position: fixed;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  z-index: 1;\n  flex-direction: column;\n  width: 4rem;\n  min-height: 100vh;\n  overflow: hidden;\n  padding: 1rem;\n  background-color: var(--dark);\n  color: var(--light);\n  transition: 0.2s ease-out;\n  /* Add this to your existing styles */\n}\naside .user-info[data-v-19a7ef6e] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-bottom: 1rem;\n}\naside .user-image[data-v-19a7ef6e] {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; /* Make the image rounded */\n  overflow: hidden; /* Ensure the image is properly clipped within the circle */\n}\naside .user-image img[data-v-19a7ef6e] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\naside .user-name[data-v-19a7ef6e] {\n  margin-top: 0.5rem;\n  font-size: 0.875rem;\n  color: var(--gray);\n}\naside .sub-menu[data-v-19a7ef6e] {\n  display: flex;\n  flex-direction: column;\n}\naside .sub-button[data-v-19a7ef6e] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-decoration: none;\n}\naside .sub-button .material-icons[data-v-19a7ef6e] {\n  font-size: 1.6rem;\n}\naside .sub-button .text[data-v-19a7ef6e] {\n  margin-left: 0.5rem; /* Adjust the spacing as needed */\n}\naside .flex[data-v-19a7ef6e] {\n  flex: 1 1 0;\n}\naside .logo[data-v-19a7ef6e] {\n  margin-top: 0.5rem;\n  margin-bottom: 3rem;\n}\naside .logo img[data-v-19a7ef6e] {\n  width: 2rem;\n}\naside .menu-toggle-wrap[data-v-19a7ef6e] {\n  display: flex;\n  justify-content: flex-end;\n  margin-bottom: 1rem;\n  position: relative;\n  top: 0;\n  transition: 0.2s ease-out;\n}\naside .menu-toggle-wrap .menu-toggle[data-v-19a7ef6e] {\n  transition: 0.2s ease-out;\n}\naside .menu-toggle-wrap .menu-toggle .material-icons[data-v-19a7ef6e] {\n  font-size: 2rem;\n  color: var(--light);\n}\naside .menu-toggle-wrap .menu-toggle:hover .material-icons[data-v-19a7ef6e] {\n  color: var(--blue);\n  transform: translateX(0.2rem);\n  transition: 0.2s ease-out;\n}\naside h3[data-v-19a7ef6e], aside .button .text[data-v-19a7ef6e] {\n  opacity: 0;\n  transition: 0.3s ease-out;\n}\naside h3[data-v-19a7ef6e] {\n  color: var(--gray);\n  font-size: 0.875rem;\n  margin-bottom: 0.5rem;\n  text-transform: uppercase;\n}\naside .menu[data-v-19a7ef6e] {\n  margin: 0 -1rem;\n}\naside .menu .button[data-v-19a7ef6e] {\n  display: flex;\n  align-items: center;\n  text-decoration: none;\n  padding: 1rem 1rem;\n  transition: 0.2s ease-out;\n}\naside .menu .button .material-icons[data-v-19a7ef6e] {\n  font-size: 1.6rem;\n  color: var(--light);\n  transition: 0.2s ease-out;\n}\naside .menu .button .text[data-v-19a7ef6e] {\n  color: var(--light);\n  transition: 0.2s ease-out;\n}\naside .menu .button:hover .material-icons[data-v-19a7ef6e], aside .menu .button:hover .text[data-v-19a7ef6e] {\n  color: var(--blue);\n}\naside.is-expanded[data-v-19a7ef6e] {\n  width: var(--sidebar-width);\n}\naside.is-expanded .menu-toggle-wrap[data-v-19a7ef6e] {\n  top: -3rem;\n}\naside.is-expanded .menu-toggle-wrap .menu-toggle[data-v-19a7ef6e] {\n  transform: rotate(-180deg);\n}\naside.is-expanded h3[data-v-19a7ef6e], aside.is-expanded .button .text[data-v-19a7ef6e] {\n  opacity: 1;\n}\naside.is-expanded .button .material-icons[data-v-19a7ef6e] {\n  margin-right: 2rem;\n}\n@media (max-width: 768px) {\naside[data-v-19a7ef6e] {\n    position: fixed;\n    z-index: 99;\n}\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "aside[data-v-19a7ef6e] {\n  display: flex;\n  position: fixed;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  z-index: 1;\n  flex-direction: column;\n  width: 4rem;\n  min-height: 100vh;\n  overflow: hidden;\n  padding: 1rem;\n  background-color: var(--dark);\n  color: var(--light);\n  transition: 0.3s ease-out;\n  /* Add this to your existing styles */\n}\naside .user-info[data-v-19a7ef6e] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-bottom: 1rem;\n}\naside .user-image[data-v-19a7ef6e] {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; /* Make the image rounded */\n  overflow: hidden; /* Ensure the image is properly clipped within the circle */\n  border: 2px solid var(--blue);\n}\naside .user-image img[data-v-19a7ef6e] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\naside .user-name[data-v-19a7ef6e] {\n  margin-top: 0.5rem;\n  font-size: 0.875rem;\n  color: var(--gray);\n}\naside .sub-menu[data-v-19a7ef6e] {\n  display: flex;\n  flex-direction: column;\n}\naside .button[data-v-19a7ef6e] {\n  cursor: pointer;\n}\naside .sub-button[data-v-19a7ef6e] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-decoration: none;\n  padding-top: 1.1rem;\n  padding-bottom: 1.1rem;\n  color: var(--light);\n}\naside .sub-button[data-v-19a7ef6e]:hover {\n  color: var(--pink);\n  transition: 0.2s linear;\n}\naside .sub-button .text[data-v-19a7ef6e] {\n  margin-left: 0.5rem; /* Adjust the spacing as needed */\n}\naside .flex[data-v-19a7ef6e] {\n  flex: 1 1 0;\n}\naside .logo[data-v-19a7ef6e] {\n  margin-top: 0.5rem;\n  margin-bottom: 3rem;\n}\naside .logo img[data-v-19a7ef6e] {\n  width: 2rem;\n}\naside .menu-toggle-wrap[data-v-19a7ef6e] {\n  display: flex;\n  justify-content: flex-end;\n  margin-bottom: 1rem;\n  position: relative;\n  top: 0;\n  transition: 0.2s ease-out;\n}\naside .menu-toggle-wrap .menu-toggle[data-v-19a7ef6e] {\n  transition: 0.2s ease-out;\n}\naside .menu-toggle-wrap .menu-toggle .material-icons[data-v-19a7ef6e] {\n  font-size: 2rem;\n  color: var(--light);\n}\naside .menu-toggle-wrap .menu-toggle:hover .material-icons[data-v-19a7ef6e] {\n  color: var(--blue);\n  transform: translateX(0.2rem);\n  transition: 0.2s ease-out;\n}\naside h3[data-v-19a7ef6e], aside .button .text[data-v-19a7ef6e] {\n  opacity: 0;\n  transition: 0.3s ease-out;\n}\naside h3[data-v-19a7ef6e] {\n  color: var(--gray);\n  font-size: 0.875rem;\n  margin-bottom: 0.5rem;\n  text-transform: uppercase;\n}\naside .menu[data-v-19a7ef6e] {\n  margin: 0 -1rem;\n}\naside .menu .button[data-v-19a7ef6e] {\n  display: flex;\n  align-items: center;\n  text-decoration: none;\n  padding: 1rem 1rem;\n  transition: 0.2s ease-out;\n}\naside .menu .button .material-icons[data-v-19a7ef6e] {\n  font-size: 1.6rem;\n  color: var(--light);\n  transition: 0.2s ease-out;\n}\naside .menu .button .text[data-v-19a7ef6e] {\n  color: var(--light);\n  transition: 0.2s ease-out;\n}\naside .menu .button:hover .material-icons[data-v-19a7ef6e], aside .menu .button:hover .text[data-v-19a7ef6e] {\n  color: var(--blue);\n}\naside.is-expanded[data-v-19a7ef6e] {\n  width: var(--sidebar-width);\n}\naside.is-expanded .menu-toggle-wrap[data-v-19a7ef6e] {\n  top: -3rem;\n}\naside.is-expanded .menu-toggle-wrap .menu-toggle[data-v-19a7ef6e] {\n  transform: rotate(-180deg);\n}\naside.is-expanded h3[data-v-19a7ef6e], aside.is-expanded .button .text[data-v-19a7ef6e] {\n  opacity: 1;\n}\naside.is-expanded .button .material-icons[data-v-19a7ef6e] {\n  margin-right: 2rem;\n}\n@media (max-width: 768px) {\naside[data-v-19a7ef6e] {\n    position: fixed;\n    z-index: 99;\n}\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
