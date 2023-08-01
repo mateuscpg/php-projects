@@ -40,7 +40,7 @@ class ProdutoDetalheController extends Controller
     public function store(Request $request)
     {
         ProdutoDetalhe::create($request->all());
-        echo 'Cadastro realizado com sucesso';
+        return redirect()->route('produto.index');
         // return view('app.produto_detalhe.create');
     }
 
