@@ -21,12 +21,15 @@
 </template>
 
 <script>
+import Sidebar from '../Sidebar/Sidebar.vue';
 import HeaderLogin from '../Header/HeaderLogin.vue';
 
 export default {
   components: {
+    Sidebar,
     HeaderLogin,
   },
+ 
   methods:{
     redirectToHome(){
       this.$router.push('/');

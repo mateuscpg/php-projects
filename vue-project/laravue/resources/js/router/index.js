@@ -1,39 +1,35 @@
 
 import { createRouter, createWebHistory } from 'vue-router'
+import Login from '../components/login/Login.vue';
+import SignIn from '../components/Login/SignIn.vue';
 
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../components/pages/Home.vue')
+    component: () => import('../components/pages/Home.vue')
   },
   {
     path: '/login',
     name: 'login',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../components/Login/Login.vue')
+    component: Login,
+    meta: {
+      showSidebar: false, // Define para não mostrar a Sidebar nesta rota
+    },
   },
   {
     path: '/signin',
     name: 'Signin',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../components/Login/SignIn.vue')
+    component: SignIn,
+    meta: {
+      showSidebar: false, // Define para não mostrar a Sidebar nesta rota
+    },
   },
   {
     path: '/about',
     name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../components/pages/About.vue'),
+    component: () => import('../components/pages/About.vue'),
   },
  
 ]

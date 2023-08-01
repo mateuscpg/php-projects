@@ -36,7 +36,7 @@ export default {
   position: fixed;
   padding: 22px;
   background-color: rgb(0, 0,0, 1);
-  /* z-index: 0; */
+  z-index: 2;
 }
 
 .right-container {
@@ -64,7 +64,7 @@ export default {
 }
 
 .sair-button {
-  padding: 6px 40px;
+  padding: 6px 35px;
   background-color: transparent;
   border-radius: 2px;
   outline: 1px solid #00aacd;

@@ -36,12 +36,13 @@
   font-family: 'Fire Sans', sans-serif;
 }
 
-body{
+body {
   font-family: 'Nunito', sans-serif;
   background: 
-  linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
-  url('https://media.ldlc.com/apple/tv/imgTv/tv_app.png');
+    linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url('https://media.ldlc.com/apple/tv/imgTv/tv_app.png');
   background-size: cover;
+  background-attachment: fixed;
 }
 button{
   cursor: pointer;

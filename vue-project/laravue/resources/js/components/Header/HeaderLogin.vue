@@ -32,9 +32,12 @@ export default {
   }
     .header {
     display: flex;
+    width: 100%;
     justify-content: space-between;
+     position: fixed;
     align-items: center;
     padding: 22px;
+    z-index: 2;
     background-color: var(--dark);
   }
   

@@ -2,22 +2,15 @@
     <aside 
     :class="{'is-expanded' : isExpanded }"
     @mouseenter="toggleMenu(true)"
-    @mouseleave="toggleMenu(false)">
-        <div class="logo">
-            <img src="../../../../public/images/vue.svg" alt="Vue">
+    @mouseleave="toggleMenu(false)"
+    v-if="authenticated"
+    >
+        <div class="logo-container" >
+            <div class="logo">
+                <img src="../../../../public/images/vue.svg" alt="Vue">
+            </div>
         </div>
-
-        <!-- <div class="menu-toggle-wrap">
-            <button class="menu-toggle">
-                <span class="material-icons">
-                    <span class="material-icons">
-                    keyboard_double_arrow_right
-                    </span>
-                </span>
-            </button>
-        </div> -->
         <div class="user-info">
-        <!-- Rounded user image -->
             <div class="user-image">
                 <router-link to="/profile">
                     <img :src="userImage" alt="" />
@@ -29,55 +22,57 @@
             ">online</p>
         </div>
 
-        <!-- <h3>Menu</h3> -->
+
         <div class="menu">
-      <router-link class="button" to="/">
-        <span class="material-icons">home</span>
-        <span class="text">Home</span>
+      <router-link class="button" to="/" :class="{'justify-content-center':!isExpanded}">
+        <span class="material-symbols-outlined">home</span>
+        <span v-if="isExpanded" class="text">Home</span>
       </router-link>
 
-      <!-- Category menu item with drop-right submenu -->
+
       <div class="sub-menu">
-        <div class="button" @click="toggleSubMenu">
-          <span class="material-icons">category</span>
-          <span class="text">Category</span>
+        <div class="button" @click="toggleSubMenu" :class="{'justify-content-center':!isExpanded}">
+          <span class="material-symbols-outlined">category</span>
+          <span v-if="isExpanded" class="text">Category</span>
         </div>
 
-        <!-- Submenu items -->
+  
         <router-link
+        :class="{'justify-content-center':!isExpanded}"
           v-if="showSubMenu && isExpanded"
           class="sub-button"
           to="/category/subitem1"
         >
-          <span class="text">Ação</span>
+          <span v-if="isExpanded" class="text">Ação</span>
         </router-link>
         <router-link
+        :class="{'justify-content-center':!isExpanded}"
           v-if="showSubMenu && isExpanded"
           class="sub-button"
           to="/category/subitem2"
         >
-          <span class="text">Romance</span>
+          <span v-if="isExpanded" class="text">Romance</span>
         </router-link>
       </div>
 
-      <router-link class="button" to="/about">
-        <span class="material-icons">visibility</span>
-        <span class="text">About</span>
+      <router-link class="button" to="/about" :class="{'justify-content-center':!isExpanded}">
+        <span class="material-symbols-outlined">visibility</span>
+        <span v-if="isExpanded" class="text">About</span>
       </router-link>
-            <router-link class="button" to="/team">
-                <span class="material-icons">group</span>
-                <span class="text">Team</span>
+            <router-link class="button" to="/team" :class="{'justify-content-center':!isExpanded}">
+                <span class="material-symbols-outlined">group</span>
+                <span v-if="isExpanded" class="text">Team</span>
             </router-link>
-            <router-link class="button" to="/contact">
-                <span class="material-icons">email</span>
-                <span class="text">Contact</span>
+            <router-link class="button" to="/contact" :class="{'justify-content-center':!isExpanded}">
+                <span class="material-symbols-outlined">email</span>
+                <span v-if="isExpanded" class="text">Contact</span>
             </router-link>
         </div>
         <div class="flex"></div>
         <div class="menu">
-            <router-link class="button" to="/settings">
-                <span class="material-icons">settings</span>
-                <span class="text">Settings</span>
+            <router-link class="button" to="/settings" :class="{'justify-content-center':!isExpanded}">
+                <span class="material-symbols-outlined">settings</span>
+                <span v-if="isExpanded" class="text">Settings</span>
             </router-link>
             </div>
 
@@ -86,13 +81,14 @@
 </template>
 
 <script setup>
-import {ref} from 'vue'
+import {ref} from 'vue';
 
 const userName = ref('Mateus Correia'); // Replace with default user name
 const userImage = ref('https://photografos.com.br/wp-content/uploads/2020/09/fotografia-para-perfil.jpg'); // Replace with default image URL
 const showSubMenu = ref(false);
 
 const isExpanded = ref(localStorage.getItem('isExpanded') === 'true')
+const authenticated = true;
 
 const toggleMenu = (expaned) => {
     isExpanded.value = expaned;
@@ -106,13 +102,18 @@ const toggleSubMenu = () => {
 </script>
 
 <style lang="scss" scoped>
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 aside{
     display: flex;
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
-    z-index: 1;
+    z-index: 3;
     flex-direction: column;
     width: calc(2rem + 2rem);
     min-height: 100vh;
@@ -203,12 +204,12 @@ color: var(--light);
         .menu-toggle {
             transition:  0.2s ease-out;
 
-            .material-icons {
+            .material-symbols-outlined {
                 font-size: 2rem;
                 color: var(--light);
             }
             &:hover{
-                .material-icons{
+                .material-symbols-outlined{
                     color: var(--blue);
                     transform: translateX(0.2rem);
                     transition:  0.2s ease-out;
@@ -236,18 +237,18 @@ color: var(--light);
             padding: 1rem  1rem;
             transition: 0.2s ease-out;
             
-            .material-icons{
+            .material-symbols-outlined{
                 font-size: 1.6rem;
                 color: var(--light);
-                transition: 0.2s ease-out;
+                transition: 0.3s ease-out;
             }
             .text{
                 color: var(--light);
-                transition: 0.2s ease-out;
+                transition: 0.3s ease-out;
             }
             &:hover{
 
-                .material-icons, .text {
+                .material-symbols-outlined, .text {
                     color: var(--blue);
                 }
             }
@@ -267,7 +268,7 @@ color: var(--light);
            
         }
         .button{
-            .material-icons{
+            .material-symbols-outlined{
                 margin-right: 2rem;
             }
         }
