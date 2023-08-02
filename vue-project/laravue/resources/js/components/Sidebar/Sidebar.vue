@@ -124,11 +124,11 @@ aside{
 
     transition: 0.3s ease-out;
 
-    .user-info {
+.user-info {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 1rem;
+//   margin-bottom: 0.5rem;
 }
 
 .user-image {
@@ -151,9 +151,8 @@ aside{
   font-size: 0.875rem;
   color: var(--gray);
 }
-/* Add this to your existing styles */
+
 .sub-menu {
-//   margin-left: 1rem; /* Adjust the spacing as needed */
   display: flex;
   flex-direction: column;
 }
@@ -229,6 +228,7 @@ color: var(--light);
     }
     .menu{
         margin: 0 -1rem;
+        margin-top: 3rem;
         .button{
             display: flex;
             align-items: center;

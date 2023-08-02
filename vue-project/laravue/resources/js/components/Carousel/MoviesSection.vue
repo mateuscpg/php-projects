@@ -1,7 +1,7 @@
 <template>
     <div ref="slider" class="keen-slider">
       <div class="keen-slider__slide" v-for="movie in movies" :key="movie.id">
-        <img :src="movie.img" alt="">
+        <img :src="movie.img" alt="" @click="openMovie(movie.id)">
         <div class="movie-title">{{ movie.title }}</div>
       </div>
     </div>
@@ -54,11 +54,14 @@
           this.slider = null;
         }
       },
+      openMovie(id){
+        console.log("O id desse filme é o id: " + id);
+      }
     },
   };
   </script>
   
-  <style>
+<style scoped>
 .keen-slider {
   display: flex;
 }
@@ -70,6 +73,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border-radius: 5px;
 }
 
 .keen-slider__slide img {
@@ -77,6 +81,13 @@
   height: 100%;
   object-fit: cover;
   max-height: 240px;
+  cursor: pointer;
+  filter: brightness(100%); /* Set the initial brightness to 100% (no change) */
+  transition: filter 0.3s ease;
+}
+.keen-slider__slide img:hover {
+  outline: 2px solid white;
+  filter: brightness(70%); 
 }
 
 .movie-title {

@@ -58,6 +58,9 @@ __webpack_require__.r(__webpack_exports__);
         this.slider.destroy();
         this.slider = null;
       }
+    },
+    openMovie: function openMovie(id) {
+      console.log("O id desse filme é o id: " + id);
     }
   }
 });
@@ -86,6 +89,13 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Slider",
+  props: {
+    movies: {
+      type: Array,
+      required: true // Make the movies prop required
+    }
+  },
+
   computed: {
     dotHelper: function dotHelper() {
       return this.slider ? _toConsumableArray(Array(this.slider.track.details.slides.length).keys()) : [];
@@ -93,14 +103,19 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   },
   data: function data() {
     return {
-      current: 1,
+      current: 0,
       slider: null
     };
+  },
+  methods: {
+    openMovie: function openMovie(id) {
+      console.log("O id desse filme é o id: " + id);
+    }
   },
   mounted: function mounted() {
     var _this = this;
     this.slider = new keen_slider__WEBPACK_IMPORTED_MODULE_1__["default"](this.$refs.slider, {
-      initial: this.current,
+      initial: 0,
       slideChanged: function slideChanged(s) {
         _this.current = s.track.details.rel;
       }
@@ -157,210 +172,281 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      principalMovie: [{
+        id: 1,
+        img: "https://www.publicitarioscriativos.com/wp-content/uploads/2019/08/Todos-os-po%CC%82steres-do-Universo-Cinematogra%CC%81fico-Marvel-em-alta-qualidade.png",
+        title: "Filme 1",
+        description: "Uma descrição qualquer"
+      }, {
+        id: 2,
+        img: "https://cinepop.com.br/wp-content/uploads/2022/11/avatar2_29.jpg",
+        title: "Filme 2",
+        description: "Uma descrição qualquer"
+      }, {
+        id: 3,
+        img: "https://uploads.jovemnerd.com.br/wp-content/uploads/2018/10/deadpool-2-familia.jpg",
+        title: "Filme 3",
+        description: "Uma descrição qualquer"
+      }, {
+        id: 4,
+        img: "https://images.cgames.de/images/gamestar/290/joker_6078890.jpg",
+        title: "Filme 4",
+        description: "Uma descrição qualquer"
+      }],
       recommendedMovies: [{
         id: 1,
         img: "https://files.tecnoblog.net/wp-content/uploads/2020/12/ordem-filmes-harry-potter-e1609427898909-700x393.jpg",
-        title: "Filme 1"
+        title: "Filme 1",
+        description: "Uma descrição qualquer"
       }, {
         id: 2,
         img: "https://conteudo.imguol.com.br/c/entretenimento/f1/2021/11/15/o-poster-mostra-peter-parker-e-doutor-estranho-lutando-contra-os-viloes-dos-homem-aranha-antigos-1637010597234_v2_1x1.jpg",
-        title: "Filme 2"
+        title: "Filme 2",
+        description: "Uma descrição qualquer"
       }, {
         id: 3,
         img: "https://img.olhardigital.com.br/wp-content/uploads/2023/02/o-projeto-adam-divulgacao-netflix-1.png",
-        title: "Filme 3"
+        title: "Filme 3",
+        description: "Uma descrição qualquer"
       }, {
         id: 4,
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIEN8hAzw3zJFEfnMlTrborAZon3HXAKHM1Q&usqp=CAU",
-        title: "Filme 4"
+        title: "Filme 4",
+        description: "Uma descrição qualquer"
       }, {
         id: 5,
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREtz6-RrA7Xb75mXTBbEIs84VqzXpcMnF6CA&usqp=CAU",
-        title: "Filme 5"
+        title: "Filme 5",
+        description: "Uma descrição qualquer"
       }, {
         id: 6,
         img: "https://6vezes7.com.br/wp-content/uploads/2023/05/arte-blog-75-1024x576.png",
-        title: "Filme 6"
+        title: "Filme 6",
+        description: "Uma descrição qualquer"
       }, {
         id: 7,
         img: "https://i.pinimg.com/originals/a0/47/91/a047914690fb35a8ce4f06d743ceb23a.png",
-        title: "Filme 7"
+        title: "Filme 7",
+        description: "Uma descrição qualquer"
       }, {
         id: 8,
         img: "https://br.web.img3.acsta.net/r_1280_720/newsv7/20/04/22/22/18/1797065.jpg",
-        title: "Filme 8"
+        title: "Filme 8",
+        description: "Uma descrição qualquer"
       }, {
         id: 9,
         img: "https://uploads.jovemnerd.com.br/wp-content/uploads/2021/02/destruicao-final-amazon.jpg",
-        title: "Filme 9"
+        title: "Filme 9",
+        description: "Uma descrição qualquer"
       }, {
         id: 10,
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdAmrUJHKHsdxN0yQazjyv7O0-D-bQy9Jqw&usqp=CAU",
-        title: "Filme 10"
+        title: "Filme 10",
+        description: "Uma descrição qualquer"
       }],
       acctionMovies: [{
         id: 1,
         img: "https://s2.glbimg.com/uYRv1HsL0I1mVRHxND5W6_b5R4E=/620x413/top/e.glbimg.com/og/ed/f/original/2019/03/20/mv5bndjjmtqzm2mtnteyzs00y2filwi1ngmtmmy0m2y5yjrimwu1xkeyxkfqcgdeqxvynjk3nju0ndy._v1_sx1777_cr001777999_al_.jpg",
-        title: "Filme 1"
+        title: "Filme 1",
+        description: "Uma descrição qualquer"
       }, {
         id: 2,
         img: "https://img.wallpapic-br.com/i6762-343-437/medium/tomb-raider-filmes-poster-filme-de-acao-imagem-de-fundo.jpg",
-        title: "Filme 2"
+        title: "Filme 2",
+        description: "Uma descrição qualquer"
       }, {
         id: 3,
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFz-uo4bncM9B2I_WWWRB3TyDEvDnlkoupsKmZ8BI5WZMJMLdzn6uu6Ry8c1TaZ795c2s&usqp=CAU",
-        title: "Filme 3"
+        title: "Filme 3",
+        description: "Uma descrição qualquer"
       }, {
         id: 4,
         img: "https://static1.purebreak.com.br/articles/0/10/24/20/@/425265-tambem-ha-filmes-de-acao-natalinos-e-d-700x700-2.jpg",
-        title: "Filme 4"
+        title: "Filme 4",
+        description: "Uma descrição qualquer"
       }, {
         id: 5,
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJgrywbDSAChA7In3ejJleDRF7jyJ3BZhTrw&usqp=CAU",
-        title: "Filme 5"
+        title: "Filme 5",
+        description: "Uma descrição qualquer"
       }, {
         id: 6,
         img: "https://br.web.img3.acsta.net/pictures/210/140/21014018_2013061921374075.jpg",
-        title: "Filme 6"
+        title: "Filme 6",
+        description: "Uma descrição qualquer"
       }, {
         id: 7,
         img: "https://d3alv7ekdacjys.cloudfront.net/Custom/Content/Products/10/99/1099133_capitao-america-guerra-civil-filme-acao-ms_m1_637383523771667202.jpg",
-        title: "Filme 7"
+        title: "Filme 7",
+        description: "Uma descrição qualquer"
       }, {
         id: 8,
         img: "https://br.web.img3.acsta.net/r_1280_720/newsv7/20/04/22/22/18/1797065.jpg",
-        title: "Filme 8"
+        title: "Filme 8",
+        description: "Uma descrição qualquer"
       }, {
         id: 9,
         img: "https://uploads.jovemnerd.com.br/wp-content/uploads/2021/02/destruicao-final-amazon.jpg",
-        title: "Filme 9"
+        title: "Filme 9",
+        description: "Uma descrição qualquer"
       }, {
         id: 10,
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdAmrUJHKHsdxN0yQazjyv7O0-D-bQy9Jqw&usqp=CAU",
-        title: "Filme 10"
+        title: "Filme 10",
+        description: "Uma descrição qualquer"
       }],
       adventureMovies: [{
         id: 1,
         img: "https://files.tecnoblog.net/wp-content/uploads/2020/12/ordem-filmes-harry-potter-e1609427898909-700x393.jpg",
-        title: "Filme 1"
+        title: "Filme 1",
+        description: "Uma descrição qualquer"
       }, {
         id: 2,
         img: "https://conteudo.imguol.com.br/c/entretenimento/f1/2021/11/15/o-poster-mostra-peter-parker-e-doutor-estranho-lutando-contra-os-viloes-dos-homem-aranha-antigos-1637010597234_v2_1x1.jpg",
-        title: "Filme 2"
+        title: "Filme 2",
+        description: "Uma descrição qualquer"
       }, {
         id: 3,
         img: "https://img.olhardigital.com.br/wp-content/uploads/2023/02/o-projeto-adam-divulgacao-netflix-1.png",
-        title: "Filme 3"
+        title: "Filme 3",
+        description: "Uma descrição qualquer"
       }, {
         id: 4,
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIEN8hAzw3zJFEfnMlTrborAZon3HXAKHM1Q&usqp=CAU",
-        title: "Filme 4"
+        title: "Filme 4",
+        description: "Uma descrição qualquer"
       }, {
         id: 5,
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREtz6-RrA7Xb75mXTBbEIs84VqzXpcMnF6CA&usqp=CAU",
-        title: "Filme 5"
+        title: "Filme 5",
+        description: "Uma descrição qualquer"
       }, {
         id: 6,
         img: "https://6vezes7.com.br/wp-content/uploads/2023/05/arte-blog-75-1024x576.png",
-        title: "Filme 6"
+        title: "Filme 6",
+        description: "Uma descrição qualquer"
       }, {
         id: 7,
         img: "https://i.pinimg.com/originals/a0/47/91/a047914690fb35a8ce4f06d743ceb23a.png",
-        title: "Filme 7"
+        title: "Filme 7",
+        description: "Uma descrição qualquer"
       }, {
         id: 8,
         img: "https://br.web.img3.acsta.net/r_1280_720/newsv7/20/04/22/22/18/1797065.jpg",
-        title: "Filme 8"
+        title: "Filme 8",
+        description: "Uma descrição qualquer"
       }, {
         id: 9,
         img: "https://uploads.jovemnerd.com.br/wp-content/uploads/2021/02/destruicao-final-amazon.jpg",
-        title: "Filme 9"
+        title: "Filme 9",
+        description: "Uma descrição qualquer"
       }, {
         id: 10,
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdAmrUJHKHsdxN0yQazjyv7O0-D-bQy9Jqw&usqp=CAU",
-        title: "Filme 10"
+        title: "Filme 10",
+        description: "Uma descrição qualquer"
       }],
       terrorMovies: [{
         id: 1,
         img: "https://files.tecnoblog.net/wp-content/uploads/2020/12/ordem-filmes-harry-potter-e1609427898909-700x393.jpg",
-        title: "Filme 1"
+        title: "Filme 1",
+        description: "Uma descrição qualquer"
       }, {
         id: 2,
         img: "https://conteudo.imguol.com.br/c/entretenimento/f1/2021/11/15/o-poster-mostra-peter-parker-e-doutor-estranho-lutando-contra-os-viloes-dos-homem-aranha-antigos-1637010597234_v2_1x1.jpg",
-        title: "Filme 2"
+        title: "Filme 2",
+        description: "Uma descrição qualquer"
       }, {
         id: 3,
         img: "https://img.olhardigital.com.br/wp-content/uploads/2023/02/o-projeto-adam-divulgacao-netflix-1.png",
-        title: "Filme 3"
+        title: "Filme 3",
+        description: "Uma descrição qualquer"
       }, {
         id: 4,
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIEN8hAzw3zJFEfnMlTrborAZon3HXAKHM1Q&usqp=CAU",
-        title: "Filme 4"
+        title: "Filme 4",
+        description: "Uma descrição qualquer"
       }, {
         id: 5,
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREtz6-RrA7Xb75mXTBbEIs84VqzXpcMnF6CA&usqp=CAU",
-        title: "Filme 5"
+        title: "Filme 5",
+        description: "Uma descrição qualquer"
       }, {
         id: 6,
         img: "https://6vezes7.com.br/wp-content/uploads/2023/05/arte-blog-75-1024x576.png",
-        title: "Filme 6"
+        title: "Filme 6",
+        description: "Uma descrição qualquer"
       }, {
         id: 7,
         img: "https://i.pinimg.com/originals/a0/47/91/a047914690fb35a8ce4f06d743ceb23a.png",
-        title: "Filme 7"
+        title: "Filme 7",
+        description: "Uma descrição qualquer"
       }, {
         id: 8,
         img: "https://br.web.img3.acsta.net/r_1280_720/newsv7/20/04/22/22/18/1797065.jpg",
-        title: "Filme 8"
+        title: "Filme 8",
+        description: "Uma descrição qualquer"
       }, {
         id: 9,
         img: "https://uploads.jovemnerd.com.br/wp-content/uploads/2021/02/destruicao-final-amazon.jpg",
-        title: "Filme 9"
+        title: "Filme 9",
+        description: "Uma descrição qualquer"
       }, {
         id: 10,
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdAmrUJHKHsdxN0yQazjyv7O0-D-bQy9Jqw&usqp=CAU",
-        title: "Filme 10"
+        title: "Filme 10",
+        description: "Uma descrição qualquer"
       }],
       romanceMovies: [{
         id: 1,
         img: "https://files.tecnoblog.net/wp-content/uploads/2020/12/ordem-filmes-harry-potter-e1609427898909-700x393.jpg",
-        title: "Filme 1"
+        title: "Filme 1",
+        description: "Uma descrição qualquer"
       }, {
         id: 2,
         img: "https://conteudo.imguol.com.br/c/entretenimento/f1/2021/11/15/o-poster-mostra-peter-parker-e-doutor-estranho-lutando-contra-os-viloes-dos-homem-aranha-antigos-1637010597234_v2_1x1.jpg",
-        title: "Filme 2"
+        title: "Filme 2",
+        description: "Uma descrição qualquer"
       }, {
         id: 3,
         img: "https://img.olhardigital.com.br/wp-content/uploads/2023/02/o-projeto-adam-divulgacao-netflix-1.png",
-        title: "Filme 3"
+        title: "Filme 3",
+        description: "Uma descrição qualquer"
       }, {
         id: 4,
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIEN8hAzw3zJFEfnMlTrborAZon3HXAKHM1Q&usqp=CAU",
-        title: "Filme 4"
+        title: "Filme 4",
+        description: "Uma descrição qualquer"
       }, {
         id: 5,
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREtz6-RrA7Xb75mXTBbEIs84VqzXpcMnF6CA&usqp=CAU",
-        title: "Filme 5"
+        title: "Filme 5",
+        description: "Uma descrição qualquer"
       }, {
         id: 6,
         img: "https://6vezes7.com.br/wp-content/uploads/2023/05/arte-blog-75-1024x576.png",
-        title: "Filme 6"
+        title: "Filme 6",
+        description: "Uma descrição qualquer"
       }, {
         id: 7,
         img: "https://i.pinimg.com/originals/a0/47/91/a047914690fb35a8ce4f06d743ceb23a.png",
-        title: "Filme 7"
+        title: "Filme 7",
+        description: "Uma descrição qualquer"
       }, {
         id: 8,
         img: "https://br.web.img3.acsta.net/r_1280_720/newsv7/20/04/22/22/18/1797065.jpg",
-        title: "Filme 8"
+        title: "Filme 8",
+        description: "Uma descrição qualquer"
       }, {
         id: 9,
         img: "https://uploads.jovemnerd.com.br/wp-content/uploads/2021/02/destruicao-final-amazon.jpg",
-        title: "Filme 9"
+        title: "Filme 9",
+        description: "Uma descrição qualquer"
       }, {
         id: 10,
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdAmrUJHKHsdxN0yQazjyv7O0-D-bQy9Jqw&usqp=CAU",
-        title: "Filme 10"
+        title: "Filme 10",
+        description: "Uma descrição qualquer"
       }]
     };
   },
@@ -376,10 +462,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/MoviesSection.vue?vue&type=template&id=0035223e":
-/*!********************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/MoviesSection.vue?vue&type=template&id=0035223e ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/MoviesSection.vue?vue&type=template&id=0035223e&scoped=true":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/MoviesSection.vue?vue&type=template&id=0035223e&scoped=true ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -388,11 +474,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
+var _withScopeId = function _withScopeId(n) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-0035223e"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
+};
 var _hoisted_1 = {
   ref: "slider",
   "class": "keen-slider"
 };
-var _hoisted_2 = ["src"];
+var _hoisted_2 = ["src", "onClick"];
 var _hoisted_3 = {
   "class": "movie-title"
 };
@@ -403,17 +492,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       key: movie.id
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
       src: movie.img,
-      alt: ""
+      alt: "",
+      onClick: function onClick($event) {
+        return $options.openMovie(movie.id);
+      }
     }, null, 8 /* PROPS */, _hoisted_2), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(movie.title), 1 /* TEXT */)]);
   }), 128 /* KEYED_FRAGMENT */))], 512 /* NEED_PATCH */);
 }
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=template&id=3461a994":
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=template&id=3461a994 ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=template&id=3461a994&scoped=true":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=template&id=3461a994&scoped=true ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -422,6 +514,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
+var _withScopeId = function _withScopeId(n) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-3461a994"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
+};
 var _hoisted_1 = {
   "class": "navigation-wrapper"
 };
@@ -429,46 +524,46 @@ var _hoisted_2 = {
   ref: "slider",
   "class": "keen-slider"
 };
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"keen-slider__slide number-slide2\">1</div><div class=\"keen-slider__slide number-slide2\">2</div><div class=\"keen-slider__slide number-slide2\">3</div><div class=\"keen-slider__slide number-slide2\">4</div><div class=\"keen-slider__slide number-slide2\">5</div><div class=\"keen-slider__slide number-slide2\">6</div>", 6);
-var _hoisted_9 = [_hoisted_3];
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
-  d: "M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"
-}, null, -1 /* HOISTED */);
-var _hoisted_11 = [_hoisted_10];
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
-  d: "M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"
-}, null, -1 /* HOISTED */);
-var _hoisted_13 = [_hoisted_12];
-var _hoisted_14 = {
+var _hoisted_3 = {
+  "class": "image-overlay"
+};
+var _hoisted_4 = {
+  "class": "movie-info"
+};
+var _hoisted_5 = {
+  "class": "movie-title"
+};
+var _hoisted_6 = {
+  "class": "movie-description"
+};
+var _hoisted_7 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "button-container"
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    "class": "play-button"
+  }, "PLAY"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    "class": "info-button"
+  }, "INFO")], -1 /* HOISTED */);
+});
+var _hoisted_8 = ["src", "onClick"];
+var _hoisted_9 = {
   key: 0,
   "class": "dots"
 };
-var _hoisted_15 = ["onClick"];
+var _hoisted_10 = ["onClick"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, _hoisted_9, 512 /* NEED_PATCH */), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", {
-    onClick: _cache[0] || (_cache[0] = function ($event) {
-      return $data.slider.prev();
-    }),
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
-      arrow: true,
-      'arrow--left': true,
-      'arrow--disabled': $data.current === 0
-    }),
-    xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 24 24"
-  }, _hoisted_11, 2 /* CLASS */)), $data.slider ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", {
-    key: 0,
-    onClick: _cache[1] || (_cache[1] = function ($event) {
-      return $data.slider.next();
-    }),
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
-      arrow: true,
-      'arrow--right': true,
-      'arrow--disabled': $data.current === $data.slider.track.details.slides.length - 1
-    }),
-    xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 24 24"
-  }, _hoisted_13, 2 /* CLASS */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), $data.slider ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_14, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.dotHelper, function (_slide, idx) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.movies, function (movie) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+      "class": "keen-slider__slide",
+      key: movie.id
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(movie.title), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(movie.description), 1 /* TEXT */)]), _hoisted_7])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+      src: movie.img,
+      alt: "",
+      onClick: function onClick($event) {
+        return $options.openMovie(movie.id);
+      }
+    }, null, 8 /* PROPS */, _hoisted_8)]);
+  }), 128 /* KEYED_FRAGMENT */))], 512 /* NEED_PATCH */)]), $data.slider ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_9, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.dotHelper, function (_slide, idx) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
       onClick: function onClick($event) {
         return $data.slider.moveToIdx(idx);
@@ -478,7 +573,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         active: $data.current === idx
       }),
       key: idx
-    }, null, 10 /* CLASS, PROPS */, _hoisted_15);
+    }, null, 10 /* CLASS, PROPS */, _hoisted_10);
   }), 128 /* KEYED_FRAGMENT */))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
 }
 
@@ -643,7 +738,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Header = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Header");
   var _component_PrincipalMovie = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("PrincipalMovie");
   var _component_MoviesSection = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("MoviesSection");
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_PrincipalMovie), _hoisted_3, _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_PrincipalMovie, {
+    movies: $data.principalMovie
+  }, null, 8 /* PROPS */, ["movies"]), _hoisted_3, _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "class": "header-search",
     type: "search",
     placeholder: "Pesquise",
@@ -716,10 +813,10 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".keen-slider:not([data-keen-slider-dis
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/MoviesSection.vue?vue&type=style&index=0&id=0035223e&lang=css":
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/MoviesSection.vue?vue&type=style&index=0&id=0035223e&lang=css ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/MoviesSection.vue?vue&type=style&index=0&id=0035223e&scoped=true&lang=css":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/MoviesSection.vue?vue&type=style&index=0&id=0035223e&scoped=true&lang=css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -732,17 +829,17 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.keen-slider {\r\n  display: flex;\n}\n.keen-slider__slide {\r\n  width: 100%;\r\n  display: flex;\r\n  background-color: rgba(75, 73, 73, 0.486);\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: center;\n}\n.keen-slider__slide img {\r\n  width: 100%;\r\n  height: 100%;\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\r\n  max-height: 240px;\n}\n.movie-title {\r\n  margin: 15px 0px;\r\n  font-size: 18px;\r\n  font-weight: 2px;\r\n  text-align: center;\r\n  color: var(--light);\n}\r\n\r\n/* Other styles (if needed) */\n[class^=\"number-slide\"],\r\n[class*=\" number-slide\"] {\r\n  background: grey;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  font-size: 50px;\r\n  color: #fff;\r\n  font-weight: 500;\r\n  height: 240px;\r\n  max-height: 100vh;\n}\n.number-slide {\r\n  background: rgb(64, 175, 255);\r\n  background: linear-gradient(128deg, rgba(64, 175, 255, 1) 0%, rgba(63, 97, 255, 1) 100%);\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.keen-slider[data-v-0035223e] {\r\n  display: flex;\n}\n.keen-slider__slide[data-v-0035223e] {\r\n  width: 100%;\r\n  display: flex;\r\n  background-color: rgba(75, 73, 73, 0.486);\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: center;\r\n  border-radius: 5px;\n}\n.keen-slider__slide img[data-v-0035223e] {\r\n  width: 100%;\r\n  height: 100%;\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\r\n  max-height: 240px;\r\n  cursor: pointer;\r\n  filter: brightness(100%); /* Set the initial brightness to 100% (no change) */\r\n  transition: filter 0.3s ease;\n}\n.keen-slider__slide img[data-v-0035223e]:hover {\r\n  outline: 2px solid white;\r\n  filter: brightness(70%);\n}\n.movie-title[data-v-0035223e] {\r\n  margin: 15px 0px;\r\n  font-size: 18px;\r\n  font-weight: 2px;\r\n  text-align: center;\r\n  color: var(--light);\n}\r\n\r\n/* Other styles (if needed) */\n[class^=\"number-slide\"][data-v-0035223e],\r\n[class*=\" number-slide\"][data-v-0035223e] {\r\n  background: grey;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  font-size: 50px;\r\n  color: #fff;\r\n  font-weight: 500;\r\n  height: 240px;\r\n  max-height: 100vh;\n}\n.number-slide[data-v-0035223e] {\r\n  background: rgb(64, 175, 255);\r\n  background: linear-gradient(128deg, rgba(64, 175, 255, 1) 0%, rgba(63, 97, 255, 1) 100%);\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=style&index=0&id=3461a994&lang=css":
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=style&index=0&id=3461a994&lang=css ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=style&index=0&id=3461a994&scoped=true&lang=css":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=style&index=0&id=3461a994&scoped=true&lang=css ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -755,7 +852,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n[class^=\"number-slide2\"],\r\n  [class*=\" number-slide2\"] {\r\n    background: grey;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    font-size: 50px;\r\n    color: #fff;\r\n    font-weight: 500;\r\n    height: 500px;\n}\n.number-slide2 {\r\n    background: rgb(255, 75, 64);\r\n    background: linear-gradient(\r\n      128deg,\r\n      rgba(255, 154, 63, 1) 0%,\r\n      rgba(255, 75, 64, 1) 100%\r\n    );\n}\n.navigation-wrapper {\r\n    position: relative;\n}\n.dots {\r\n    display: flex;\r\n    padding: 10px 0;\r\n    justify-content: center;\n}\n.dot {\r\n    border: none;\r\n    width: 10px;\r\n    height: 10px;\r\n    background: #c5c5c5;\r\n    border-radius: 50%;\r\n    margin: 0 5px;\r\n    padding: 5px;\r\n    cursor: pointer;\n}\n.dot:focus {\r\n    outline: none;\n}\n.dot.active {\r\n    background: #000;\n}\n.arrow {\r\n    width: 30px;\r\n    height: 30px;\r\n    position: absolute;\r\n    top: 50%;\r\n    transform: translateY(-50%);\r\n    -webkit-transform: translateY(-50%);\r\n    fill: #fff;\r\n    cursor: pointer;\n}\n.arrow--left {\r\n    left: 5px;\n}\n.arrow--right {\r\n    left: auto;\r\n    right: 5px;\n}\n.arrow--disabled {\r\n    fill: rgba(255, 255, 255, 0.5);\n}\r\n  ", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.keen-slider[data-v-3461a994] {\r\n  display: flex;\r\n  height: 700px;\r\n  width: 100%;\r\n  z-index: 0;\n}\n.keen-slider__slide[data-v-3461a994] {\r\n  width: 100%;\r\n  display: flex;\r\n  background-color: transparent;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: center;\r\n  position: relative; /* Add position relative to enable overlay positioning */\n}\n.keen-slider__slide img[data-v-3461a994] {\r\n  width: 100%;\r\n  height: 100%;\r\n  -o-object-fit: contain;\r\n     object-fit: contain;\r\n  cursor: pointer;\n}\r\n\r\n/* Overlay styles */\n.image-overlay[data-v-3461a994] {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  width: 50%; /* Adjust the width of the overlay to fit your needs */\r\n  height: 100%;\r\n  background-color: rgba(0, 0, 0, 0.5); /* Transparent dark background */\r\n  z-index: 1;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  align-items: center;\r\n  padding: 20px;\r\n  color: #fff;\n}\n.movie-info[data-v-3461a994] {\r\n  text-align: center;\n}\n.button-container[data-v-3461a994]{\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\n}\n.play-button[data-v-3461a994], .info-button[data-v-3461a994]{\r\n  padding: 0.5rem;\r\n  border-radius: 6px;\r\n  margin: 5px;\r\n  color: black;\r\n  background-color: white;\n}\n.navigation-wrapper[data-v-3461a994] {\r\n  position: relative;\n}\n.dots[data-v-3461a994] {\r\n  display: flex;\r\n  padding: 10px 0;\r\n  justify-content: center;\n}\n.dot[data-v-3461a994] {\r\n  border: none;\r\n  width: 10px;\r\n  height: 10px;\r\n  background: #c5c5c5;\r\n  border-radius: 50%;\r\n  margin: 0 5px;\r\n  padding: 5px;\r\n  cursor: pointer;\n}\n.dot[data-v-3461a994]:focus {\r\n  outline: none;\n}\n.dot.active[data-v-3461a994] {\r\n  background: #000;\n}\n.arrow[data-v-3461a994] {\r\n  width: 30px;\r\n  height: 30px;\r\n  position: absolute;\r\n  top: 50%;\r\n  transform: translateY(-50%);\r\n  -webkit-transform: translateY(-50%);\r\n  fill: #fff;\r\n  cursor: pointer;\n}\n.arrow--left[data-v-3461a994] {\r\n  left: 5px;\n}\n.arrow--right[data-v-3461a994] {\r\n  left: auto;\r\n  right: 5px;\n}\n.arrow--disabled[data-v-3461a994] {\r\n  fill: rgba(255, 255, 255, 0.5);\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -852,10 +949,10 @@ var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMP
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/MoviesSection.vue?vue&type=style&index=0&id=0035223e&lang=css":
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/MoviesSection.vue?vue&type=style&index=0&id=0035223e&lang=css ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/MoviesSection.vue?vue&type=style&index=0&id=0035223e&scoped=true&lang=css":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/MoviesSection.vue?vue&type=style&index=0&id=0035223e&scoped=true&lang=css ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -864,7 +961,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_MoviesSection_vue_vue_type_style_index_0_id_0035223e_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./MoviesSection.vue?vue&type=style&index=0&id=0035223e&lang=css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/MoviesSection.vue?vue&type=style&index=0&id=0035223e&lang=css");
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_MoviesSection_vue_vue_type_style_index_0_id_0035223e_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./MoviesSection.vue?vue&type=style&index=0&id=0035223e&scoped=true&lang=css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/MoviesSection.vue?vue&type=style&index=0&id=0035223e&scoped=true&lang=css");
 
             
 
@@ -873,18 +970,18 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_MoviesSection_vue_vue_type_style_index_0_id_0035223e_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_MoviesSection_vue_vue_type_style_index_0_id_0035223e_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_MoviesSection_vue_vue_type_style_index_0_id_0035223e_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_MoviesSection_vue_vue_type_style_index_0_id_0035223e_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=style&index=0&id=3461a994&lang=css":
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=style&index=0&id=3461a994&lang=css ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=style&index=0&id=3461a994&scoped=true&lang=css":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=style&index=0&id=3461a994&scoped=true&lang=css ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -893,7 +990,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PrincipalMovie_vue_vue_type_style_index_0_id_3461a994_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./PrincipalMovie.vue?vue&type=style&index=0&id=3461a994&lang=css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=style&index=0&id=3461a994&lang=css");
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PrincipalMovie_vue_vue_type_style_index_0_id_3461a994_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./PrincipalMovie.vue?vue&type=style&index=0&id=3461a994&scoped=true&lang=css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=style&index=0&id=3461a994&scoped=true&lang=css");
 
             
 
@@ -902,11 +999,11 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PrincipalMovie_vue_vue_type_style_index_0_id_3461a994_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PrincipalMovie_vue_vue_type_style_index_0_id_3461a994_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PrincipalMovie_vue_vue_type_style_index_0_id_3461a994_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PrincipalMovie_vue_vue_type_style_index_0_id_3461a994_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -978,9 +1075,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _MoviesSection_vue_vue_type_template_id_0035223e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MoviesSection.vue?vue&type=template&id=0035223e */ "./resources/js/components/Carousel/MoviesSection.vue?vue&type=template&id=0035223e");
+/* harmony import */ var _MoviesSection_vue_vue_type_template_id_0035223e_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MoviesSection.vue?vue&type=template&id=0035223e&scoped=true */ "./resources/js/components/Carousel/MoviesSection.vue?vue&type=template&id=0035223e&scoped=true");
 /* harmony import */ var _MoviesSection_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MoviesSection.vue?vue&type=script&lang=js */ "./resources/js/components/Carousel/MoviesSection.vue?vue&type=script&lang=js");
-/* harmony import */ var _MoviesSection_vue_vue_type_style_index_0_id_0035223e_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MoviesSection.vue?vue&type=style&index=0&id=0035223e&lang=css */ "./resources/js/components/Carousel/MoviesSection.vue?vue&type=style&index=0&id=0035223e&lang=css");
+/* harmony import */ var _MoviesSection_vue_vue_type_style_index_0_id_0035223e_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MoviesSection.vue?vue&type=style&index=0&id=0035223e&scoped=true&lang=css */ "./resources/js/components/Carousel/MoviesSection.vue?vue&type=style&index=0&id=0035223e&scoped=true&lang=css");
 /* harmony import */ var C_Users_Carlos_Downloads_projetos_vue_project_laravue_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
@@ -989,7 +1086,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,C_Users_Carlos_Downloads_projetos_vue_project_laravue_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_MoviesSection_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_MoviesSection_vue_vue_type_template_id_0035223e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Carousel/MoviesSection.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Carlos_Downloads_projetos_vue_project_laravue_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_MoviesSection_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_MoviesSection_vue_vue_type_template_id_0035223e_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-0035223e"],['__file',"resources/js/components/Carousel/MoviesSection.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -1008,9 +1105,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _PrincipalMovie_vue_vue_type_template_id_3461a994__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PrincipalMovie.vue?vue&type=template&id=3461a994 */ "./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=template&id=3461a994");
+/* harmony import */ var _PrincipalMovie_vue_vue_type_template_id_3461a994_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PrincipalMovie.vue?vue&type=template&id=3461a994&scoped=true */ "./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=template&id=3461a994&scoped=true");
 /* harmony import */ var _PrincipalMovie_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PrincipalMovie.vue?vue&type=script&lang=js */ "./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=script&lang=js");
-/* harmony import */ var _PrincipalMovie_vue_vue_type_style_index_0_id_3461a994_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PrincipalMovie.vue?vue&type=style&index=0&id=3461a994&lang=css */ "./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=style&index=0&id=3461a994&lang=css");
+/* harmony import */ var _PrincipalMovie_vue_vue_type_style_index_0_id_3461a994_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PrincipalMovie.vue?vue&type=style&index=0&id=3461a994&scoped=true&lang=css */ "./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=style&index=0&id=3461a994&scoped=true&lang=css");
 /* harmony import */ var C_Users_Carlos_Downloads_projetos_vue_project_laravue_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
@@ -1019,7 +1116,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,C_Users_Carlos_Downloads_projetos_vue_project_laravue_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_PrincipalMovie_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_PrincipalMovie_vue_vue_type_template_id_3461a994__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Carousel/PrincipalMovie.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Carlos_Downloads_projetos_vue_project_laravue_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_PrincipalMovie_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_PrincipalMovie_vue_vue_type_template_id_3461a994_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-3461a994"],['__file',"resources/js/components/Carousel/PrincipalMovie.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -1148,32 +1245,32 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/Carousel/MoviesSection.vue?vue&type=template&id=0035223e":
-/*!******************************************************************************************!*\
-  !*** ./resources/js/components/Carousel/MoviesSection.vue?vue&type=template&id=0035223e ***!
-  \******************************************************************************************/
+/***/ "./resources/js/components/Carousel/MoviesSection.vue?vue&type=template&id=0035223e&scoped=true":
+/*!******************************************************************************************************!*\
+  !*** ./resources/js/components/Carousel/MoviesSection.vue?vue&type=template&id=0035223e&scoped=true ***!
+  \******************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_MoviesSection_vue_vue_type_template_id_0035223e__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_MoviesSection_vue_vue_type_template_id_0035223e_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_MoviesSection_vue_vue_type_template_id_0035223e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./MoviesSection.vue?vue&type=template&id=0035223e */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/MoviesSection.vue?vue&type=template&id=0035223e");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_MoviesSection_vue_vue_type_template_id_0035223e_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./MoviesSection.vue?vue&type=template&id=0035223e&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/MoviesSection.vue?vue&type=template&id=0035223e&scoped=true");
 
 
 /***/ }),
 
-/***/ "./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=template&id=3461a994":
-/*!*******************************************************************************************!*\
-  !*** ./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=template&id=3461a994 ***!
-  \*******************************************************************************************/
+/***/ "./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=template&id=3461a994&scoped=true":
+/*!*******************************************************************************************************!*\
+  !*** ./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=template&id=3461a994&scoped=true ***!
+  \*******************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PrincipalMovie_vue_vue_type_template_id_3461a994__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PrincipalMovie_vue_vue_type_template_id_3461a994_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PrincipalMovie_vue_vue_type_template_id_3461a994__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./PrincipalMovie.vue?vue&type=template&id=3461a994 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=template&id=3461a994");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PrincipalMovie_vue_vue_type_template_id_3461a994_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./PrincipalMovie.vue?vue&type=template&id=3461a994&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=template&id=3461a994&scoped=true");
 
 
 /***/ }),
@@ -1208,26 +1305,26 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/Carousel/MoviesSection.vue?vue&type=style&index=0&id=0035223e&lang=css":
-/*!********************************************************************************************************!*\
-  !*** ./resources/js/components/Carousel/MoviesSection.vue?vue&type=style&index=0&id=0035223e&lang=css ***!
-  \********************************************************************************************************/
+/***/ "./resources/js/components/Carousel/MoviesSection.vue?vue&type=style&index=0&id=0035223e&scoped=true&lang=css":
+/*!********************************************************************************************************************!*\
+  !*** ./resources/js/components/Carousel/MoviesSection.vue?vue&type=style&index=0&id=0035223e&scoped=true&lang=css ***!
+  \********************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_MoviesSection_vue_vue_type_style_index_0_id_0035223e_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./MoviesSection.vue?vue&type=style&index=0&id=0035223e&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/MoviesSection.vue?vue&type=style&index=0&id=0035223e&lang=css");
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_MoviesSection_vue_vue_type_style_index_0_id_0035223e_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./MoviesSection.vue?vue&type=style&index=0&id=0035223e&scoped=true&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/MoviesSection.vue?vue&type=style&index=0&id=0035223e&scoped=true&lang=css");
 
 
 /***/ }),
 
-/***/ "./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=style&index=0&id=3461a994&lang=css":
-/*!*********************************************************************************************************!*\
-  !*** ./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=style&index=0&id=3461a994&lang=css ***!
-  \*********************************************************************************************************/
+/***/ "./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=style&index=0&id=3461a994&scoped=true&lang=css":
+/*!*********************************************************************************************************************!*\
+  !*** ./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=style&index=0&id=3461a994&scoped=true&lang=css ***!
+  \*********************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PrincipalMovie_vue_vue_type_style_index_0_id_3461a994_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./PrincipalMovie.vue?vue&type=style&index=0&id=3461a994&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=style&index=0&id=3461a994&lang=css");
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PrincipalMovie_vue_vue_type_style_index_0_id_3461a994_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./PrincipalMovie.vue?vue&type=style&index=0&id=3461a994&scoped=true&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Carousel/PrincipalMovie.vue?vue&type=style&index=0&id=3461a994&scoped=true&lang=css");
 
 
 /***/ }),

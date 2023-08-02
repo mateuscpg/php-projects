@@ -3,6 +3,7 @@
     <HeaderLogin/>
     <div class="content">
       <div class="forms">
+        <h2>Cadastro</h2>
         <form>
           <div class="form-group">
             <label for="exampleInputName">Nome</label>
