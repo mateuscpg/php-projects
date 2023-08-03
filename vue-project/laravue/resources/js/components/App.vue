@@ -1,11 +1,8 @@
 <template>
-    <div>
-        <div class="app">
-          <Sidebar/>
-            <router-view/>
-        </div>
+    <div class="app">
+      <Sidebar/>
+        <router-view/>
     </div>
-    
 </template>
 
   <script>

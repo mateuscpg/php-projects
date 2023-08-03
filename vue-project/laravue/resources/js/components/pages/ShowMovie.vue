@@ -2,8 +2,10 @@
     <div>
       <Header/>
       <div class="content">
-        <div class="sobre-nos">
-          <p>Essa página foi desenvolvida com o intuito de centralizar todas as suas streamings, facilitando assim a sua busca por um filme.</p>
+        <div 
+        class="movie-player d-flex align-center mx-auto fill-height" 
+        :style="{ width: '60%'}">
+          <Player></Player>
         </div>
       </div>
     </div>
@@ -11,10 +13,10 @@
   
   <script>
   import Header from '../Header/Header.vue'
-
+  import Player from '../Player/Player.vue'
   export default {
     components: {
-      Header,
+      Header,Player
     },
 
 
@@ -23,22 +25,17 @@
   
   <style scoped>
 
-.content {
+/* .content {
   display: flex;
   flex-direction: column;
   align-items: center; 
   height: 100%;
-  color:var(--light);
-  background-color: var(--blue);
+
 }
-.sobre-nos{
+.movie-player{
   margin-top: 84px;
-  background-color: blue ;
   padding: 1rem 1rem;
-
-  /* position: absolute; */
-}
-
+} */
   
   </style>
   

@@ -30,6 +30,7 @@
         "keen-slider": "^6.8.6",
         "vue-ai-carousel": "^1.1.1",
         "vue-carousel": "^0.18.0",
-        "vue-router": "^4.2.4"
+        "vue-router": "^4.2.4",
+        "vuetify": "^3.3.11"
     }
 }

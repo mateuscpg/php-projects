@@ -6603,6 +6603,11 @@
     "@vue/server-renderer" "3.2.36"
     "@vue/shared" "3.2.36"
 
+"vuetify@^3.3.11":
+  "integrity" "sha512-hlbSgxXCcEu4VelJMRHKhvLpaitLsruHvdvolbqbCS6Z64XoulUDw3CQ9ay6WGBL7uckmop0bUYidD2d8mN0UQ=="
+  "resolved" "https://registry.npmjs.org/vuetify/-/vuetify-3.3.11.tgz"
+  "version" "3.3.11"
+
 "watchpack@^2.4.0":
   "integrity" "sha512-Lcvm7MGST/4fup+ifyKi2hjyIAwcdI4HRgtvTpIUxBRhB+RFtUh8XtDOxUfctVCnhVi+QQj49i91OyvzkJl6cg=="
   "resolved" "https://registry.npmjs.org/watchpack/-/watchpack-2.4.0.tgz"

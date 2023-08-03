@@ -31,12 +31,19 @@ const routes = [
     name: 'About',
     component: () => import('../components/pages/About.vue'),
   },
+  {
+    path: '/show-movie',
+    name: 'ShowMovie',
+    component: () => import('../components/pages/ShowMovie.vue'),
+    props: true,
+  },
  
 ]
 
 const router = createRouter({
   history: createWebHistory(),
   mode: 'history',
+  base: process.env.BASE_URL,
   routes
 })
 

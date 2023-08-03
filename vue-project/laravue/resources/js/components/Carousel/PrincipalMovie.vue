@@ -10,16 +10,18 @@
                 <h1>{{ movie.title }}</h1>
               </div>
               <div class="movie-description">
+                <h3>Descrição:</h3>
                 <p>{{ movie.description }}</p>
               </div>
               <div class="button-container">
-                <button class="play-button">PLAY</button>
-                <button class="info-button">INFO</button>
+                <button class="play-button" @click="openMovie(movie)">
+                  <span class="material-icons">play_arrow</span>Play</button>
+                <button class="info-button">More info</button>
               </div>
             </div>
           </div>
 
-          <img :src="movie.img" alt="" @click="openMovie(movie.id)" />
+          <img :src="movie.img" alt="" />
 
         </div>
       </div>
@@ -60,6 +62,7 @@ export default {
   methods: {
     openMovie(id) {
       console.log("O id desse filme é o id: " + id);
+      this.$router.push('/show-movie');
     },
   },
   mounted() {
@@ -96,8 +99,8 @@ export default {
 .keen-slider__slide img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
   cursor: pointer;
+  filter: brightness(0.8);
 }
 
 /* Overlay styles */
@@ -105,34 +108,60 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  width: 50%; /* Adjust the width of the overlay to fit your needs */
+  width: 45%; /* Adjust the width of the overlay to fit your needs */
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Transparent dark background */
+  background: linear-gradient(to right, black, rgba(0, 0, 0, 0.0)); /* Less transparent on the right */
   z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   padding: 20px;
   color: #fff;
 }
 
 .movie-info {
+  /* text-align: center; */
+}
+.movie-title h1 {
+  font-size: 80px;
   text-align: center;
+  margin-top: 2rem;
+}
+.movie-description p{
+  color: #c5c5c5;
 }
 .button-container{
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
 }
-.play-button, .info-button{
-  padding: 0.5rem;
-  border-radius: 6px;
+.play-button,
+.info-button {
+  font-size: 20px;
+  padding: 0.4rem 1.2rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 5px;
+}
+
+.play-button {
   color: black;
   background-color: white;
 }
 
+.info-button {
+  color: #fff;
+  background-color: rgba(128, 128, 128, 0.5);
+  position: relative; /* Add position relative to enable pseudo-element positioning */
+}
+.play-button:hover{
+outline: 2px solid #ccc;
+}
+.info-button:hover{
+  outline: 2px solid #fff;
+}
 
 .navigation-wrapper {
   position: relative;
@@ -156,7 +185,7 @@ export default {
   outline: none;
 }
 .dot.active {
-  background: #000;
+  background: var(--blue);
 }
 .arrow {
   width: 30px;
