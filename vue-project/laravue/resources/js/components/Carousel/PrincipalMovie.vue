@@ -118,10 +118,9 @@ export default {
   padding: 20px;
   color: #fff;
 }
-
-.movie-info {
+/* .movie-info { */
   /* text-align: center; */
-}
+/* } */
 .movie-title h1 {
   font-size: 80px;
   text-align: center;
