@@ -26,14 +26,14 @@
         <div class="menu">
       <router-link class="button" to="/home" :class="{'justify-content-center':!isExpanded}">
         <span class="material-symbols-outlined">home</span>
-        <span v-if="isExpanded" class="text">Home</span>
+        <span v-if="isExpanded" class="text">Início</span>
       </router-link>
 
 
       <div class="sub-menu">
         <div class="button" @click="toggleSubMenu" :class="{'justify-content-center':!isExpanded}">
           <span class="material-symbols-outlined">category</span>
-          <span v-if="isExpanded" class="text">Category</span>
+          <span v-if="isExpanded" class="text">Categorias</span>
         </div>
 
   
@@ -57,22 +57,22 @@
 
       <router-link class="button" to="/about" :class="{'justify-content-center':!isExpanded}">
         <span class="material-symbols-outlined">visibility</span>
-        <span v-if="isExpanded" class="text">About</span>
+        <span v-if="isExpanded" class="text">Sobre</span>
       </router-link>
             <router-link class="button" to="/team" :class="{'justify-content-center':!isExpanded}">
                 <span class="material-symbols-outlined">group</span>
-                <span v-if="isExpanded" class="text">Team</span>
+                <span v-if="isExpanded" class="text">Time</span>
             </router-link>
             <router-link class="button" to="/contact" :class="{'justify-content-center':!isExpanded}">
                 <span class="material-symbols-outlined">email</span>
-                <span v-if="isExpanded" class="text">Contact</span>
+                <span v-if="isExpanded" class="text">Contatos</span>
             </router-link>
         </div>
         <div class="flex"></div>
         <div class="menu">
             <router-link class="button" to="/settings" :class="{'justify-content-center':!isExpanded}">
                 <span class="material-symbols-outlined">settings</span>
-                <span v-if="isExpanded" class="text">Settings</span>
+                <span v-if="isExpanded" class="text">Configuração</span>
             </router-link>
             </div>
 
@@ -83,8 +83,8 @@
 <script setup>
 import {ref} from 'vue';
 
-const userName = ref('Mateus Correia'); // Replace with default user name
-const userImage = ref('https://photografos.com.br/wp-content/uploads/2020/09/fotografia-para-perfil.jpg'); // Replace with default image URL
+const userName = ref('Mateus Correia'); 
+const userImage = ref('https://photografos.com.br/wp-content/uploads/2020/09/fotografia-para-perfil.jpg'); 
 const showSubMenu = ref(false);
 
 const isExpanded = ref(localStorage.getItem('isExpanded') === 'true')
