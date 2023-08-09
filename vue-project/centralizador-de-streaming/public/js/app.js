@@ -22878,7 +22878,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     redirectToHome: function redirectToHome() {
-      this.$router.push('/');
+      this.$router.push('/home');
     }
   }
 });
@@ -22904,7 +22904,9 @@ var _hoisted_1 = {
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Sidebar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Sidebar");
   var _component_router_view = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-view");
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Sidebar), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_view)]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_ctx.$route.path !== '/login' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Sidebar, {
+    key: 0
+  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_view)]);
 }
 
 /***/ }),
@@ -23140,7 +23142,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["button", {
       'justify-content-center': !$setup.isExpanded
     }]),
-    to: "/"
+    to: "/home"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_8, $setup.isExpanded ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_9, "Home")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
@@ -23352,7 +23354,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var routes = [{
-  path: '/',
+  path: '/home',
   name: 'home',
   component: function component() {
     return __webpack_require__.e(/*! import() */ "resources_js_components_pages_Home_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../components/pages/Home.vue */ "./resources/js/components/pages/Home.vue"));
@@ -23378,6 +23380,12 @@ var routes = [{
     return __webpack_require__.e(/*! import() */ "resources_js_components_pages_About_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../components/pages/About.vue */ "./resources/js/components/pages/About.vue"));
   }
 }, {
+  path: '/profile',
+  name: 'Profile',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_components_pages_Profile_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../components/pages/Profile.vue */ "./resources/js/components/pages/Profile.vue"));
+  }
+}, {
   path: '/show-movie',
   name: 'ShowMovie',
   component: function component() {
@@ -23391,6 +23399,14 @@ var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_2__.createRouter)({
   base: process.env.BASE_URL,
   routes: routes
 });
+router.beforeEach(function (to, from, next) {
+  if (to.path === '/') {
+    next('/login'); // Redireciona para /login se a rota for a raiz
+  } else {
+    next(); // Continua para a próxima rota
+  }
+});
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
 
 /***/ }),
@@ -63312,7 +63328,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_components_pages_Home_vue":1,"resources_js_components_pages_About_vue":1,"resources_js_components_pages_ShowMovie_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_components_pages_Home_vue":1,"resources_js_components_pages_About_vue":1,"resources_js_components_pages_Profile_vue":1,"resources_js_components_pages_ShowMovie_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

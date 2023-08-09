@@ -60,10 +60,10 @@ export default {
     };
   },
   methods: {
-    openMovie(id) {
-      console.log("O id desse filme é o id: " + id);
-      this.$router.push('/show-movie');
-    },
+    openMovie(movie) {
+      console.log("O id desse filme é o id: " + movie.id);
+      this.$router.push({ name: 'ShowMovie', query: { id: movie.id, video: movie.video } });
+  },
   },
   mounted() {
     this.slider = new KeenSlider(this.$refs.slider, {

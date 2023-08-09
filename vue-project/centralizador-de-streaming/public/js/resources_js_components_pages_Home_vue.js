@@ -108,9 +108,15 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     };
   },
   methods: {
-    openMovie: function openMovie(id) {
-      console.log("O id desse filme é o id: " + id);
-      this.$router.push('/show-movie');
+    openMovie: function openMovie(movie) {
+      console.log("O id desse filme é o id: " + movie.id);
+      this.$router.push({
+        name: 'ShowMovie',
+        query: {
+          id: movie.id,
+          video: movie.video
+        }
+      });
     }
   },
   mounted: function mounted() {
@@ -184,19 +190,19 @@ __webpack_require__.r(__webpack_exports__);
         img: "https://cinepop.com.br/wp-content/uploads/2022/11/avatar2_29.jpg",
         title: "Avatar 2",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
+        video: "https://v4.cdnpk.net/videvo_files/video/free/video0453/large_watermarked/_import_605f65a0c8cfa7.70318750_FPpreview.mp4"
       }, {
         id: 3,
         img: "https://uploads.jovemnerd.com.br/wp-content/uploads/2018/10/deadpool-2-familia.jpg",
         title: "Deadpool 2",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
+        video: "https://v4.cdnpk.net/videvo_files/video/free/video0467/large_watermarked/_import_615005a8789b18.38685020_FPpreview.mp4"
       }, {
         id: 4,
         img: "https://images.cgames.de/images/gamestar/290/joker_6078890.jpg",
         title: "Coringa",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
+        video: "https://v4.cdnpk.net/videvo_files/video/free/video0457/large_watermarked/_import_60bc622a5b8144.54299663_FPpreview.mp4"
       }],
       recommendedMovies: [{
         id: 1,

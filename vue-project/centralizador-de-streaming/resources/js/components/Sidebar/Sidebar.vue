@@ -24,7 +24,7 @@
 
 
         <div class="menu">
-      <router-link class="button" to="/" :class="{'justify-content-center':!isExpanded}">
+      <router-link class="button" to="/home" :class="{'justify-content-center':!isExpanded}">
         <span class="material-symbols-outlined">home</span>
         <span v-if="isExpanded" class="text">Home</span>
       </router-link>

@@ -1,9 +1,9 @@
 <template>
   <div class="player">
     <div class="player__sizer">
-        <video controls>
-            <source type="video/mp4" src="https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"/>
-        </video>
+      <video controls>
+        <source type="video/mp4" :src="movies.video">
+      </video>
     </div>
   </div>
 </template>
@@ -12,10 +12,13 @@
 import "./Player.scss";
 export default {
     name: "Player",
+    props: {
     movies: {
-      type: Array,
-      required: true, // Make the movies prop required
+      type: Object,
+      required: true,
     },
+  },
+ 
 }
 </script>
 

@@ -35,9 +35,11 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Player",
-  movies: {
-    type: Array,
-    required: true // Make the movies prop required
+  props: {
+    movies: {
+      type: Object,
+      required: true
+    }
   }
 });
 
@@ -61,6 +63,17 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Header: _Header_Header_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     Player: _Player_Player_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      movies: {}
+    };
+  },
+  created: function created() {
+    var movieId = this.$route.query.id; // Get the movie ID from the route
+    var movieVideo = this.$route.query.video; // Get the movie Video from the route
+    this.movies.id = movieId;
+    this.movies.video = movieVideo;
   }
 });
 
@@ -139,17 +152,18 @@ __webpack_require__.r(__webpack_exports__);
 var _hoisted_1 = {
   "class": "player"
 };
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_2 = {
   "class": "player__sizer"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("video", {
+};
+var _hoisted_3 = {
   controls: ""
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("source", {
-  type: "video/mp4",
-  src: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-})])], -1 /* HOISTED */);
-var _hoisted_3 = [_hoisted_2];
+};
+var _hoisted_4 = ["src"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, _hoisted_3);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("video", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("source", {
+    type: "video/mp4",
+    src: $props.movies.video
+  }, null, 8 /* PROPS */, _hoisted_4)])])]);
 }
 
 /***/ }),
@@ -181,7 +195,9 @@ var _hoisted_2 = {
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Header = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Header");
   var _component_Player = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Player");
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Player)])])]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Player, {
+    movies: $data.movies
+  }, null, 8 /* PROPS */, ["movies"])])])]);
 }
 
 /***/ }),
