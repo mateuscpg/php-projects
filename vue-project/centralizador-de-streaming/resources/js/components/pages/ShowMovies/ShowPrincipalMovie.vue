@@ -12,8 +12,8 @@
   </template>
   
   <script>
-  import Header from '../Header/Header.vue'
-  import Player from '../Player/Player.vue'
+  import Header from '../../Header/Header.vue'
+  import Player from '../../Player/Player.vue'
   export default {
     components: {
       Header,Player

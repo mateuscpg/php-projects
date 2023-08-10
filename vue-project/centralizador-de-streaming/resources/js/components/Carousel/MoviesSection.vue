@@ -1,8 +1,14 @@
 <template>
     <div ref="slider" class="keen-slider">
-      <div class="keen-slider__slide" v-for="movie in movies" :key="movie.id">
-        <img :src="movie.img" alt="" @click="openMovie(movie.id)">
-        <div class="movie-title">{{ movie.title }}</div>
+      <div class="keen-slider__slide"
+       v-for="movie in movies" 
+       :key="movie.id"
+       >
+       <img class="movie-img" :src="movie.img" alt="" @click="openInfoMovie(movie)">
+       <div class="streaming">
+         <img :src="movie.streaming_logo" alt="" class="streaming-logo"/>
+       </div> 
+       <div class="movie-title">{{ movie.title }}</div>
       </div>
     </div>
   </template>
@@ -16,19 +22,19 @@
     props: {
       movies: {
         type: Array,
-        required: true, // Make the movies prop required
+        required: true, 
       },
     },
     data() {
       return {
-        slider: null, // Initialize the slider as null
+        slider: null, 
       };
     },
     mounted() {
       this.initializeSlider();
     },
     updated() {
-      // If the movies prop changes, reinitialize the slider
+     
       this.destroySlider();
       this.initializeSlider();
     },
@@ -43,7 +49,7 @@
             mode: "free-snap",
             slides: {
               perView: 6,
-              spacing: 15,
+              spacing: 12,
             },
           });
         });
@@ -54,9 +60,10 @@
           this.slider = null;
         }
       },
-      openMovie(id){
-        console.log("O id desse filme é o id: " + id);
-      }
+      openInfoMovie(movie) {
+      console.log("O id desse filme é o id: " + movie.id );
+      this.$router.push({ name: 'ShowMovie', query: { id: movie.id, title: movie.title, img: movie.img, description: movie.description, video: movie.video } });
+  },
     },
   };
   </script>
@@ -64,6 +71,7 @@
 <style scoped>
 .keen-slider {
   display: flex;
+
 }
 
 .keen-slider__slide {
@@ -73,10 +81,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 5px;
 }
-
-.keen-slider__slide img {
+.movie-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -85,7 +91,7 @@
   filter: brightness(100%); /* Set the initial brightness to 100% (no change) */
   transition: filter 0.3s ease;
 }
-.keen-slider__slide img:hover {
+.movie-img:hover {
   outline: 2px solid white;
   filter: brightness(70%); 
 }
@@ -97,8 +103,18 @@
   text-align: center;
   color: var(--light);
 }
+.streaming-logo{
+  width: 30px; /* Adjust the width as needed */
+  height: 30px; /* Adjust the height as needed */
+  border-radius: 50%;
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  z-index: 3;
+}
 
-/* Other styles (if needed) */
+
+/* Other styles (if needed)
 [class^="number-slide"],
 [class*=" number-slide"] {
   background: grey;
@@ -115,7 +131,7 @@
 .number-slide {
   background: rgb(64, 175, 255);
   background: linear-gradient(128deg, rgba(64, 175, 255, 1) 0%, rgba(63, 97, 255, 1) 100%);
-}
+} */
 </style>
 
   

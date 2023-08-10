@@ -23386,10 +23386,17 @@ var routes = [{
     return __webpack_require__.e(/*! import() */ "resources_js_components_pages_Profile_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../components/pages/Profile.vue */ "./resources/js/components/pages/Profile.vue"));
   }
 }, {
+  path: '/show-principal-movie',
+  name: 'ShowPrincipalMovie',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_components_pages_ShowMovies_ShowPrincipalMovie_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../components/pages/ShowMovies/ShowPrincipalMovie.vue */ "./resources/js/components/pages/ShowMovies/ShowPrincipalMovie.vue"));
+  },
+  props: true
+}, {
   path: '/show-movie',
   name: 'ShowMovie',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ "resources_js_components_pages_ShowMovie_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../components/pages/ShowMovie.vue */ "./resources/js/components/pages/ShowMovie.vue"));
+    return __webpack_require__.e(/*! import() */ "resources_js_components_pages_ShowMovies_ShowMovie_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../components/pages/ShowMovies/ShowMovie.vue */ "./resources/js/components/pages/ShowMovies/ShowMovie.vue"));
   },
   props: true
 }];
@@ -63328,7 +63335,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_components_pages_Home_vue":1,"resources_js_components_pages_About_vue":1,"resources_js_components_pages_Profile_vue":1,"resources_js_components_pages_ShowMovie_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_components_pages_Home_vue":1,"resources_js_components_pages_About_vue":1,"resources_js_components_pages_Profile_vue":1,"resources_js_components_pages_ShowMovies_ShowPrincipalMovie_vue":1,"resources_js_components_pages_ShowMovies_ShowMovie_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

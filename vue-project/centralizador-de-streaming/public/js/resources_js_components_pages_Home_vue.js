@@ -20,19 +20,18 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     movies: {
       type: Array,
-      required: true // Make the movies prop required
+      required: true
     }
   },
   data: function data() {
     return {
-      slider: null // Initialize the slider as null
+      slider: null
     };
   },
   mounted: function mounted() {
     this.initializeSlider();
   },
   updated: function updated() {
-    // If the movies prop changes, reinitialize the slider
     this.destroySlider();
     this.initializeSlider();
   },
@@ -48,7 +47,7 @@ __webpack_require__.r(__webpack_exports__);
           mode: "free-snap",
           slides: {
             perView: 6,
-            spacing: 15
+            spacing: 12
           }
         });
       });
@@ -59,8 +58,18 @@ __webpack_require__.r(__webpack_exports__);
         this.slider = null;
       }
     },
-    openMovie: function openMovie(id) {
-      console.log("O id desse filme é o id: " + id);
+    openInfoMovie: function openInfoMovie(movie) {
+      console.log("O id desse filme é o id: " + movie.id);
+      this.$router.push({
+        name: 'ShowMovie',
+        query: {
+          id: movie.id,
+          title: movie.title,
+          img: movie.img,
+          description: movie.description,
+          video: movie.video
+        }
+      });
     }
   }
 });
@@ -111,7 +120,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     openMovie: function openMovie(movie) {
       console.log("O id desse filme é o id: " + movie.id);
       this.$router.push({
-        name: 'ShowMovie',
+        name: 'ShowPrincipalMovie',
         query: {
           id: movie.id,
           video: movie.video
@@ -206,60 +215,70 @@ __webpack_require__.r(__webpack_exports__);
       }],
       recommendedMovies: [{
         id: 1,
+        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
         img: "https://files.tecnoblog.net/wp-content/uploads/2020/12/ordem-filmes-harry-potter-e1609427898909-700x393.jpg",
         title: "Filme 1",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 2,
+        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
         img: "https://conteudo.imguol.com.br/c/entretenimento/f1/2021/11/15/o-poster-mostra-peter-parker-e-doutor-estranho-lutando-contra-os-viloes-dos-homem-aranha-antigos-1637010597234_v2_1x1.jpg",
         title: "Filme 2",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 3,
+        streaming_logo: 'https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456',
         img: "https://img.olhardigital.com.br/wp-content/uploads/2023/02/o-projeto-adam-divulgacao-netflix-1.png",
         title: "Filme 3",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 4,
+        streaming_logo: 'https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456',
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIEN8hAzw3zJFEfnMlTrborAZon3HXAKHM1Q&usqp=CAU",
         title: "Filme 4",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 5,
+        streaming_logo: 'https://c.clc2l.com/t/p/a/paramount-ZPsCyQ.png',
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREtz6-RrA7Xb75mXTBbEIs84VqzXpcMnF6CA&usqp=CAU",
         title: "Filme 5",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 6,
+        streaming_logo: 'https://c.clc2l.com/t/p/a/paramount-ZPsCyQ.png',
         img: "https://6vezes7.com.br/wp-content/uploads/2023/05/arte-blog-75-1024x576.png",
         title: "Filme 6",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 7,
+        streaming_logo: 'https://cdn.windowsreport.com/wp-content/uploads/sites/3/2021/01/Amazon-Prime-a-bloque-le-VPN_Voici-ce-qui-marche-encore.jpg',
         img: "https://i.pinimg.com/originals/a0/47/91/a047914690fb35a8ce4f06d743ceb23a.png",
         title: "Filme 7",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 8,
+        streaming_logo: 'https://cdn.windowsreport.com/wp-content/uploads/sites/3/2021/01/Amazon-Prime-a-bloque-le-VPN_Voici-ce-qui-marche-encore.jpg',
         img: "https://br.web.img3.acsta.net/r_1280_720/newsv7/20/04/22/22/18/1797065.jpg",
         title: "Filme 8",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 9,
+        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
         img: "https://uploads.jovemnerd.com.br/wp-content/uploads/2021/02/destruicao-final-amazon.jpg",
         title: "Filme 9",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 10,
+        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdAmrUJHKHsdxN0yQazjyv7O0-D-bQy9Jqw&usqp=CAU",
         title: "Filme 10",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
@@ -267,60 +286,70 @@ __webpack_require__.r(__webpack_exports__);
       }],
       acctionMovies: [{
         id: 1,
+        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
         img: "https://s2.glbimg.com/uYRv1HsL0I1mVRHxND5W6_b5R4E=/620x413/top/e.glbimg.com/og/ed/f/original/2019/03/20/mv5bndjjmtqzm2mtnteyzs00y2filwi1ngmtmmy0m2y5yjrimwu1xkeyxkfqcgdeqxvynjk3nju0ndy._v1_sx1777_cr001777999_al_.jpg",
         title: "Filme 1",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 2,
+        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
         img: "https://img.wallpapic-br.com/i6762-343-437/medium/tomb-raider-filmes-poster-filme-de-acao-imagem-de-fundo.jpg",
         title: "Filme 2",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 3,
+        streaming_logo: 'https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456',
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFz-uo4bncM9B2I_WWWRB3TyDEvDnlkoupsKmZ8BI5WZMJMLdzn6uu6Ry8c1TaZ795c2s&usqp=CAU",
         title: "Filme 3",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 4,
+        streaming_logo: 'https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456',
         img: "https://static1.purebreak.com.br/articles/0/10/24/20/@/425265-tambem-ha-filmes-de-acao-natalinos-e-d-700x700-2.jpg",
         title: "Filme 4",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 5,
+        streaming_logo: 'https://c.clc2l.com/t/p/a/paramount-ZPsCyQ.png',
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJgrywbDSAChA7In3ejJleDRF7jyJ3BZhTrw&usqp=CAU",
         title: "Filme 5",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 6,
+        streaming_logo: 'https://c.clc2l.com/t/p/a/paramount-ZPsCyQ.png',
         img: "https://br.web.img3.acsta.net/pictures/210/140/21014018_2013061921374075.jpg",
         title: "Filme 6",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 7,
+        streaming_logo: 'https://cdn.windowsreport.com/wp-content/uploads/sites/3/2021/01/Amazon-Prime-a-bloque-le-VPN_Voici-ce-qui-marche-encore.jpg',
         img: "https://d3alv7ekdacjys.cloudfront.net/Custom/Content/Products/10/99/1099133_capitao-america-guerra-civil-filme-acao-ms_m1_637383523771667202.jpg",
         title: "Filme 7",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 8,
+        streaming_logo: 'https://cdn.windowsreport.com/wp-content/uploads/sites/3/2021/01/Amazon-Prime-a-bloque-le-VPN_Voici-ce-qui-marche-encore.jpg',
         img: "https://br.web.img3.acsta.net/r_1280_720/newsv7/20/04/22/22/18/1797065.jpg",
         title: "Filme 8",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 9,
+        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
         img: "https://uploads.jovemnerd.com.br/wp-content/uploads/2021/02/destruicao-final-amazon.jpg",
         title: "Filme 9",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 10,
+        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdAmrUJHKHsdxN0yQazjyv7O0-D-bQy9Jqw&usqp=CAU",
         title: "Filme 10",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
@@ -328,60 +357,70 @@ __webpack_require__.r(__webpack_exports__);
       }],
       adventureMovies: [{
         id: 1,
+        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
         img: "https://files.tecnoblog.net/wp-content/uploads/2020/12/ordem-filmes-harry-potter-e1609427898909-700x393.jpg",
         title: "Filme 1",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 2,
+        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
         img: "https://conteudo.imguol.com.br/c/entretenimento/f1/2021/11/15/o-poster-mostra-peter-parker-e-doutor-estranho-lutando-contra-os-viloes-dos-homem-aranha-antigos-1637010597234_v2_1x1.jpg",
         title: "Filme 2",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 3,
+        streaming_logo: 'https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456',
         img: "https://img.olhardigital.com.br/wp-content/uploads/2023/02/o-projeto-adam-divulgacao-netflix-1.png",
         title: "Filme 3",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 4,
+        streaming_logo: 'https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456',
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIEN8hAzw3zJFEfnMlTrborAZon3HXAKHM1Q&usqp=CAU",
         title: "Filme 4",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 5,
+        streaming_logo: 'https://c.clc2l.com/t/p/a/paramount-ZPsCyQ.png',
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREtz6-RrA7Xb75mXTBbEIs84VqzXpcMnF6CA&usqp=CAU",
         title: "Filme 5",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 6,
+        streaming_logo: 'https://c.clc2l.com/t/p/a/paramount-ZPsCyQ.png',
         img: "https://6vezes7.com.br/wp-content/uploads/2023/05/arte-blog-75-1024x576.png",
         title: "Filme 6",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 7,
+        streaming_logo: 'https://cdn.windowsreport.com/wp-content/uploads/sites/3/2021/01/Amazon-Prime-a-bloque-le-VPN_Voici-ce-qui-marche-encore.jpg',
         img: "https://i.pinimg.com/originals/a0/47/91/a047914690fb35a8ce4f06d743ceb23a.png",
         title: "Filme 7",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 8,
+        streaming_logo: 'https://cdn.windowsreport.com/wp-content/uploads/sites/3/2021/01/Amazon-Prime-a-bloque-le-VPN_Voici-ce-qui-marche-encore.jpg',
         img: "https://br.web.img3.acsta.net/r_1280_720/newsv7/20/04/22/22/18/1797065.jpg",
         title: "Filme 8",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 9,
+        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
         img: "https://uploads.jovemnerd.com.br/wp-content/uploads/2021/02/destruicao-final-amazon.jpg",
         title: "Filme 9",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 10,
+        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdAmrUJHKHsdxN0yQazjyv7O0-D-bQy9Jqw&usqp=CAU",
         title: "Filme 10",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
@@ -389,60 +428,70 @@ __webpack_require__.r(__webpack_exports__);
       }],
       terrorMovies: [{
         id: 1,
+        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
         img: "https://files.tecnoblog.net/wp-content/uploads/2020/12/ordem-filmes-harry-potter-e1609427898909-700x393.jpg",
         title: "Filme 1",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 2,
+        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
         img: "https://conteudo.imguol.com.br/c/entretenimento/f1/2021/11/15/o-poster-mostra-peter-parker-e-doutor-estranho-lutando-contra-os-viloes-dos-homem-aranha-antigos-1637010597234_v2_1x1.jpg",
         title: "Filme 2",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 3,
+        streaming_logo: 'https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456',
         img: "https://img.olhardigital.com.br/wp-content/uploads/2023/02/o-projeto-adam-divulgacao-netflix-1.png",
         title: "Filme 3",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 4,
+        streaming_logo: 'https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456',
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIEN8hAzw3zJFEfnMlTrborAZon3HXAKHM1Q&usqp=CAU",
         title: "Filme 4",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 5,
+        streaming_logo: 'https://c.clc2l.com/t/p/a/paramount-ZPsCyQ.png',
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREtz6-RrA7Xb75mXTBbEIs84VqzXpcMnF6CA&usqp=CAU",
         title: "Filme 5",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 6,
+        streaming_logo: 'https://c.clc2l.com/t/p/a/paramount-ZPsCyQ.png',
         img: "https://6vezes7.com.br/wp-content/uploads/2023/05/arte-blog-75-1024x576.png",
         title: "Filme 6",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 7,
+        streaming_logo: 'https://cdn.windowsreport.com/wp-content/uploads/sites/3/2021/01/Amazon-Prime-a-bloque-le-VPN_Voici-ce-qui-marche-encore.jpg',
         img: "https://i.pinimg.com/originals/a0/47/91/a047914690fb35a8ce4f06d743ceb23a.png",
         title: "Filme 7",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 8,
+        streaming_logo: 'https://cdn.windowsreport.com/wp-content/uploads/sites/3/2021/01/Amazon-Prime-a-bloque-le-VPN_Voici-ce-qui-marche-encore.jpg',
         img: "https://br.web.img3.acsta.net/r_1280_720/newsv7/20/04/22/22/18/1797065.jpg",
         title: "Filme 8",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 9,
+        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
         img: "https://uploads.jovemnerd.com.br/wp-content/uploads/2021/02/destruicao-final-amazon.jpg",
         title: "Filme 9",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 10,
+        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdAmrUJHKHsdxN0yQazjyv7O0-D-bQy9Jqw&usqp=CAU",
         title: "Filme 10",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
@@ -450,60 +499,70 @@ __webpack_require__.r(__webpack_exports__);
       }],
       romanceMovies: [{
         id: 1,
+        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
         img: "https://files.tecnoblog.net/wp-content/uploads/2020/12/ordem-filmes-harry-potter-e1609427898909-700x393.jpg",
         title: "Filme 1",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 2,
+        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
         img: "https://conteudo.imguol.com.br/c/entretenimento/f1/2021/11/15/o-poster-mostra-peter-parker-e-doutor-estranho-lutando-contra-os-viloes-dos-homem-aranha-antigos-1637010597234_v2_1x1.jpg",
         title: "Filme 2",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 3,
+        streaming_logo: 'https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456',
         img: "https://img.olhardigital.com.br/wp-content/uploads/2023/02/o-projeto-adam-divulgacao-netflix-1.png",
         title: "Filme 3",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 4,
+        streaming_logo: 'https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456',
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIEN8hAzw3zJFEfnMlTrborAZon3HXAKHM1Q&usqp=CAU",
         title: "Filme 4",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 5,
+        streaming_logo: 'https://c.clc2l.com/t/p/a/paramount-ZPsCyQ.png',
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREtz6-RrA7Xb75mXTBbEIs84VqzXpcMnF6CA&usqp=CAU",
         title: "Filme 5",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 6,
+        streaming_logo: 'https://c.clc2l.com/t/p/a/paramount-ZPsCyQ.png',
         img: "https://6vezes7.com.br/wp-content/uploads/2023/05/arte-blog-75-1024x576.png",
         title: "Filme 6",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 7,
+        streaming_logo: 'https://cdn.windowsreport.com/wp-content/uploads/sites/3/2021/01/Amazon-Prime-a-bloque-le-VPN_Voici-ce-qui-marche-encore.jpg',
         img: "https://i.pinimg.com/originals/a0/47/91/a047914690fb35a8ce4f06d743ceb23a.png",
         title: "Filme 7",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 8,
+        streaming_logo: 'https://cdn.windowsreport.com/wp-content/uploads/sites/3/2021/01/Amazon-Prime-a-bloque-le-VPN_Voici-ce-qui-marche-encore.jpg',
         img: "https://br.web.img3.acsta.net/r_1280_720/newsv7/20/04/22/22/18/1797065.jpg",
         title: "Filme 8",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 9,
+        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
         img: "https://uploads.jovemnerd.com.br/wp-content/uploads/2021/02/destruicao-final-amazon.jpg",
         title: "Filme 9",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 10,
+        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdAmrUJHKHsdxN0yQazjyv7O0-D-bQy9Jqw&usqp=CAU",
         title: "Filme 10",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
@@ -544,6 +603,10 @@ var _hoisted_1 = {
 };
 var _hoisted_2 = ["src", "onClick"];
 var _hoisted_3 = {
+  "class": "streaming"
+};
+var _hoisted_4 = ["src"];
+var _hoisted_5 = {
   "class": "movie-title"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -552,12 +615,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "class": "keen-slider__slide",
       key: movie.id
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+      "class": "movie-img",
       src: movie.img,
       alt: "",
       onClick: function onClick($event) {
-        return $options.openMovie(movie.id);
+        return $options.openInfoMovie(movie);
       }
-    }, null, 8 /* PROPS */, _hoisted_2), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(movie.title), 1 /* TEXT */)]);
+    }, null, 8 /* PROPS */, _hoisted_2), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+      src: movie.streaming_logo,
+      alt: "",
+      "class": "streaming-logo"
+    }, null, 8 /* PROPS */, _hoisted_4)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(movie.title), 1 /* TEXT */)]);
   }), 128 /* KEYED_FRAGMENT */))], 512 /* NEED_PATCH */);
 }
 
@@ -902,7 +970,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.keen-slider[data-v-0035223e] {\r\n  display: flex;\n}\n.keen-slider__slide[data-v-0035223e] {\r\n  width: 100%;\r\n  display: flex;\r\n  background-color: rgba(75, 73, 73, 0.486);\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: center;\r\n  border-radius: 5px;\n}\n.keen-slider__slide img[data-v-0035223e] {\r\n  width: 100%;\r\n  height: 100%;\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\r\n  max-height: 240px;\r\n  cursor: pointer;\r\n  filter: brightness(100%); /* Set the initial brightness to 100% (no change) */\r\n  transition: filter 0.3s ease;\n}\n.keen-slider__slide img[data-v-0035223e]:hover {\r\n  outline: 2px solid white;\r\n  filter: brightness(70%);\n}\n.movie-title[data-v-0035223e] {\r\n  margin: 15px 0px;\r\n  font-size: 18px;\r\n  font-weight: 2px;\r\n  text-align: center;\r\n  color: var(--light);\n}\r\n\r\n/* Other styles (if needed) */\n[class^=\"number-slide\"][data-v-0035223e],\r\n[class*=\" number-slide\"][data-v-0035223e] {\r\n  background: grey;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  font-size: 50px;\r\n  color: #fff;\r\n  font-weight: 500;\r\n  height: 240px;\r\n  max-height: 100vh;\n}\n.number-slide[data-v-0035223e] {\r\n  background: rgb(64, 175, 255);\r\n  background: linear-gradient(128deg, rgba(64, 175, 255, 1) 0%, rgba(63, 97, 255, 1) 100%);\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.keen-slider[data-v-0035223e] {\r\n  display: flex;\n}\n.keen-slider__slide[data-v-0035223e] {\r\n  width: 100%;\r\n  display: flex;\r\n  background-color: rgba(75, 73, 73, 0.486);\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: center;\n}\n.movie-img[data-v-0035223e] {\r\n  width: 100%;\r\n  height: 100%;\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\r\n  max-height: 240px;\r\n  cursor: pointer;\r\n  filter: brightness(100%); /* Set the initial brightness to 100% (no change) */\r\n  transition: filter 0.3s ease;\n}\n.movie-img[data-v-0035223e]:hover {\r\n  outline: 2px solid white;\r\n  filter: brightness(70%);\n}\n.movie-title[data-v-0035223e] {\r\n  margin: 15px 0px;\r\n  font-size: 18px;\r\n  font-weight: 2px;\r\n  text-align: center;\r\n  color: var(--light);\n}\n.streaming-logo[data-v-0035223e]{\r\n  width: 30px; /* Adjust the width as needed */\r\n  height: 30px; /* Adjust the height as needed */\r\n  border-radius: 50%;\r\n  position: absolute;\r\n  right: 0.5rem;\r\n  top: 0.5rem;\r\n  z-index: 3;\n}\r\n\r\n\r\n/* Other styles (if needed)\r\n[class^=\"number-slide\"],\r\n[class*=\" number-slide\"] {\r\n  background: grey;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  font-size: 50px;\r\n  color: #fff;\r\n  font-weight: 500;\r\n  height: 240px;\r\n  max-height: 100vh;\r\n}\r\n\r\n.number-slide {\r\n  background: rgb(64, 175, 255);\r\n  background: linear-gradient(128deg, rgba(64, 175, 255, 1) 0%, rgba(63, 97, 255, 1) 100%);\r\n} */\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

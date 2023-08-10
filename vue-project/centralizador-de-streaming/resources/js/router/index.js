@@ -37,9 +37,15 @@ const routes = [
     component: () => import('../components/pages/Profile.vue'),
   },
   {
+    path: '/show-principal-movie',
+    name: 'ShowPrincipalMovie',
+    component: () => import('../components/pages/ShowMovies/ShowPrincipalMovie.vue'),
+    props: true,
+  },
+  {
     path: '/show-movie',
     name: 'ShowMovie',
-    component: () => import('../components/pages/ShowMovie.vue'),
+    component: () => import('../components/pages/ShowMovies/ShowMovie.vue'),
     props: true,
   },
  
