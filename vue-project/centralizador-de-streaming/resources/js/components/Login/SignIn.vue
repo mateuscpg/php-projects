@@ -22,7 +22,7 @@
             <input type="date" class="form-control" id="exampleInputDate" placeholder="Data de nascimento">
           </div>
           
-          <button type="submit" class="btn btn-primary " @click="redirectToLogin">Cadastrar</button>
+          <button type="submit" class="cadastrar " @click="redirectToLogin">Cadastrar</button>
         </form>
       </div>
     </div>
@@ -81,8 +81,7 @@ export default {
   padding: 8px;
   width: 100%;
 }
-
-.forms button[type="submit"] {
+.cadastrar{
   padding: 8px ;
   width: 100%;
   margin-top: 20px ;
@@ -94,9 +93,9 @@ export default {
   cursor: pointer;
   transition: background-color 0.3s linear, outline 0.3s linear, color 0.3s linear;
 }
-.forms button:hover{
+.cadastrar:hover{
   background-color: #00aacd;
   outline: 1px solid #fff;
   
-}
+} 
 </style>

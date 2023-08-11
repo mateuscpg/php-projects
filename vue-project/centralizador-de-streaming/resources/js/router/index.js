@@ -1,6 +1,6 @@
 
 import { createRouter, createWebHistory } from 'vue-router'
-import Login from '../components/login/Login.vue';
+import Login from '../components/Login/Login.vue';
 import SignIn from '../components/Login/SignIn.vue';
 
 
@@ -30,6 +30,11 @@ const routes = [
     path: '/about',
     name: 'About',
     component: () => import('../components/pages/About.vue'),
+  },
+  {
+    path: '/contact',
+    name: 'Contact',
+    component: () => import('../components/pages/Contact.vue'),
   },
   {
     path: '/profile',

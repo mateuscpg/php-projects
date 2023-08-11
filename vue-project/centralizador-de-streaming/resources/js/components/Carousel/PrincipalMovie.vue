@@ -16,7 +16,7 @@
               <div class="button-container">
                 <button class="play-button" @click="openMovie(movie)">
                   <span class="material-icons">play_arrow</span>Play</button>
-                <button class="info-button">More info</button>
+                <!-- <button class="info-button">More info</button> -->
               </div>
             </div>
           </div>
@@ -150,17 +150,17 @@ export default {
   background-color: white;
 }
 
-.info-button {
+/* .info-button {
   color: #fff;
   background-color: rgba(128, 128, 128, 0.5);
-  position: relative; /* Add position relative to enable pseudo-element positioning */
-}
+  position: relative; 
+} */
 .play-button:hover{
-outline: 2px solid #ccc;
+outline: 2px solid white;
 }
-.info-button:hover{
+/* .info-button:hover{
   outline: 2px solid #fff;
-}
+} */
 
 .navigation-wrapper {
   position: relative;
