@@ -4,17 +4,30 @@
     <div class="content">
       <div class="forms">
         <h2>Login</h2>
-        <form>
+        <form @submit.prevent="redirectToHome">
           <div class="form-group">
             <label for="exampleInputEmail1">Email </label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite seu email"> 
+            <input type="email" 
+              class="form-control" 
+              id="exampleInputEmail1" 
+              aria-describedby="emailHelp" 
+              placeholder="Digite seu email" 
+              required
+              v-model="enteredEmail"
+            > 
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Senha</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Digite sua senha">
+            <input type="password" 
+              class="form-control" 
+              id="exampleInputPassword1" 
+              placeholder="Digite sua senha" 
+              required
+              v-model="enteredSenha"
+            >
           </div>
 
-          <button type="submit" class="btn btn-primary" @click="redirectToHome">Entrar</button>
+          <button type="submit" class="btn btn-primary">Entrar</button>
         </form>
       </div>
     </div>
@@ -30,11 +43,31 @@ export default {
     Sidebar,
     HeaderLogin,
   },
+  data(){
+    return{
+      users:{
+        email: 'teste@teste.com',
+        senha: '123',
+      },
+      enteredEmail: '',
+      enteredSenha: '',
+    }
+  },
  
   methods:{
-    redirectToHome(){
-      this.$router.push('/home');
-    }
+    redirectToHome() {
+      if (this.validateCredentials()) {
+        this.$router.push('/home');
+      } else {
+        alert('Email ou senha incorretos.');
+      }
+    },
+    validateCredentials() {
+      return (
+        this.enteredEmail === this.users.email &&
+        this.enteredSenha === this.users.senha
+      );
+    },
   }
 };
 </script>

@@ -83,6 +83,7 @@
   justify-content: center;
 }
 
+
 .movie-img {
   width: 100%;
   height: 100%;
@@ -93,8 +94,8 @@
   transition: filter 0.3s ease;
 }
 .movie-img:hover {
-  outline: 2px solid white;
-  filter: brightness(70%); 
+  /* outline: 2px solid var(--blue); */
+  filter: brightness(80%); 
 }
 
 .movie-title {

@@ -35,7 +35,7 @@
 
 body {
   font-family: 'Nunito', sans-serif;
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
     url('https://media.ldlc.com/apple/tv/imgTv/tv_app.png');
   // background: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
   background-size: cover;

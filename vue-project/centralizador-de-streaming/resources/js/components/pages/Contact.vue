@@ -20,7 +20,7 @@
                 <h3 class="card-title">Lucas Correia</h3>
                 <h5 class="card-title">Devops</h5>
                 <p class="card-text">Um exemplo de texto rápido para construir o título do card e fazer preencher o conteúdo do card.</p>
-                <a href="#" target="_blank" class="btn btn-primary">GitHub</a>
+                <a href="https://github.com/lucasdocker" target="_blank" class="btn btn-primary">GitHub</a>
                 <a href="https://www.linkedin.com/in/lucasclsr/" target="_blank" class="btn btn-primary">Linkedin</a>
                 <a href="#" target="_blank" class="btn btn-primary">Email</a>
             </div>

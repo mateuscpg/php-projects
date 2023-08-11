@@ -5,9 +5,14 @@
     @mouseleave="toggleMenu(false)"
     v-if="authenticated"
     >
-        <div class="logo-container" >
-            <div class="logo">
-                <img src="../../../../public/images/vue.svg" alt="Vue">
+        <div class="logo-container" v-if="isExpanded == false">
+            <div class="logo-class">
+                <img src="../../../../public/images/STREAMING-CENTRALIZER3.png" class="logo-isNotIsExpanded" alt="logo" v-if="isExpanded == false">
+            </div>
+        </div>
+        <div class="logo-container-isExpanded" v-if="isExpanded == true">
+            <div class="logo-class-isExpanded">
+                <img src="../../../../public/images/STREAMING-CENTRALIZER.png" alt="logo" v-if="isExpanded" class="logo-isExpanded">
             </div>
         </div>
         <div class="user-info">
@@ -107,6 +112,11 @@ const toggleSubMenu = () => {
   align-items: center;
   justify-content: center;
 }
+.logo-container-isExpanded{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 aside{
     display: flex;
     position: fixed;
@@ -118,7 +128,7 @@ aside{
     width: calc(2rem + 2rem);
     min-height: 100vh;
     overflow: hidden;
-    padding: 1rem;
+    // padding: 1rem;
     background-color: var(--dark);
     color: var(--light);
 
@@ -183,12 +193,26 @@ color: var(--light);
     .flex{
         flex: 1 1 0;
     }
-    .logo{
+    .logo-class{
         margin-top: 0.5rem;
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
 
         img{
-            width: 2rem;
+            width: 4rem;
+            height: 4rem;
+        }
+        .logo-isExpanded{
+            top: 0;
+            width: 6rem;
+            height: 6rem;
+        }
+    }
+    .logo-class-isExpanded{
+        margin-bottom: 2rem;
+        .logo-isExpanded{
+            top: 0;
+            width: 6rem;
+            height: 6rem;
         }
     }
     .menu-toggle-wrap{
@@ -269,6 +293,7 @@ color: var(--light);
         }
         .button{
             .material-symbols-outlined{
+                margin-left: 0.8rem;
                 margin-right: 2rem;
             }
         }
