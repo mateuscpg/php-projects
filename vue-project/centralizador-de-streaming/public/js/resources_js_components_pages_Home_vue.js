@@ -612,7 +612,7 @@ var _hoisted_5 = {
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.movies, function (movie) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-      "class": "keen-slider__slide",
+      "class": "keen-slider__slide slides",
       key: movie.id
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
       "class": "movie-img",
@@ -965,7 +965,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.keen-slider[data-v-0035223e] {\r\n  display: flex;\n}\n.keen-slider__slide[data-v-0035223e] {\r\n  width: 100%;\r\n  display: flex;\r\n  background-color: rgba(75, 73, 73, 0.486);\r\n  flex-direction: column;\r\n  align-items: center; \r\n  justify-content: center;\n}\n.movie-img[data-v-0035223e] {\r\n  width: 100%;\r\n  height: 100%;\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\r\n  max-height: 250px;\r\n  cursor: pointer; \r\n  filter: brightness(100%); \r\n  transition: filter 0.3s ease;\n}\n.movie-img[data-v-0035223e]:hover {\r\n  /* outline: 2px solid var(--blue); */\r\n  filter: brightness(80%);\n}\n.movie-title[data-v-0035223e] {\r\n  margin: 15px 0px;\r\n  font-size: 18px;\r\n  font-weight: 2px;\r\n  color: var(--light);\n}\n.streaming-logo[data-v-0035223e]{\r\n  width: 30px; \r\n  height: 30px; \r\n  border-radius: 50%;\r\n  position: absolute;\r\n  right: 0.5rem;\r\n  top: 0.5rem;\r\n  z-index: 3;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.keen-slider[data-v-0035223e] {\r\n  display: flex;\n}\n.keen-slider__slide[data-v-0035223e] {\r\n  width: 100%;\r\n  display: flex;\r\n  background-color: rgba(75, 73, 73, 0.486);\r\n  flex-direction: column;\r\n  align-items: center; \r\n  justify-content: center;\n}\n.movie-img[data-v-0035223e] {\r\n  width: 100%;\r\n  height: 100%;\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\r\n  max-height: 250px;\r\n  cursor: pointer; \r\n  filter: brightness(100%); \r\n  transition: filter 0.3s ease;\n}\n.movie-img[data-v-0035223e]:hover {\r\n  /* outline: 2px solid var(--blue); */\r\n  filter: brightness(70%);\n}\n.movie-title[data-v-0035223e] {\r\n  margin: 15px 0px;\r\n  font-size: 18px;\r\n  font-weight: 2px;\r\n  color: var(--light);\n}\n.streaming-logo[data-v-0035223e]{\r\n  width: 30px; \r\n  height: 30px; \r\n  border-radius: 50%;\r\n  position: absolute;\r\n  right: 0.5rem;\r\n  top: 0.5rem;\r\n  z-index: 3;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -68,10 +68,10 @@
                 <span class="material-symbols-outlined">group</span>
                 <span v-if="isExpanded" class="text">Time</span>
             </router-link>
-            <router-link class="button" to="/contact" :class="{'justify-content-center':!isExpanded}">
+            <!-- <router-link class="button" to="/contact" :class="{'justify-content-center':!isExpanded}">
                 <span class="material-symbols-outlined">email</span>
                 <span v-if="isExpanded" class="text">Contatos</span>
-            </router-link>
+            </router-link> -->
         </div>
         <div class="flex"></div>
         <div class="menu">

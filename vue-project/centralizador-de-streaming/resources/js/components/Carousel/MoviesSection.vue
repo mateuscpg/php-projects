@@ -1,6 +1,6 @@
 <template>
     <div ref="slider" class="keen-slider">
-      <div class="keen-slider__slide"
+      <div class="keen-slider__slide slides"
        v-for="movie in movies" 
        :key="movie.id"
        >
@@ -95,7 +95,7 @@
 }
 .movie-img:hover {
   /* outline: 2px solid var(--blue); */
-  filter: brightness(80%); 
+  filter: brightness(70%); 
 }
 
 .movie-title {

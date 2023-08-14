@@ -23203,28 +23203,19 @@ var _hoisted_23 = {
   "class": "text"
 };
 var _hoisted_24 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-    "class": "material-symbols-outlined"
-  }, "email", -1 /* HOISTED */);
-});
-var _hoisted_25 = {
-  key: 0,
-  "class": "text"
-};
-var _hoisted_26 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "flex"
   }, null, -1 /* HOISTED */);
 });
-var _hoisted_27 = {
+var _hoisted_25 = {
   "class": "menu"
 };
-var _hoisted_28 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_26 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     "class": "material-symbols-outlined"
   }, "settings", -1 /* HOISTED */);
 });
-var _hoisted_29 = {
+var _hoisted_27 = {
   key: 0,
   "class": "text"
 };
@@ -23308,24 +23299,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [_hoisted_22, $setup.isExpanded ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_23, "Time")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
     }),
     _: 1 /* STABLE */
-  }, 8 /* PROPS */, ["class"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["button", {
-      'justify-content-center': !$setup.isExpanded
-    }]),
-    to: "/contact"
-  }, {
-    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_24, $setup.isExpanded ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_25, "Contatos")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
-    }),
-    _: 1 /* STABLE */
-  }, 8 /* PROPS */, ["class"])]), _hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  }, 8 /* PROPS */, ["class"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <router-link class=\"button\" to=\"/contact\" :class=\"{'justify-content-center':!isExpanded}\">\r\n                <span class=\"material-symbols-outlined\">email</span>\r\n                <span v-if=\"isExpanded\" class=\"text\">Contatos</span>\r\n            </router-link> ")]), _hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["button", {
       'justify-content-center': !$setup.isExpanded
     }]),
     to: "/settings"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_28, $setup.isExpanded ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_29, "Configuração")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
+      return [_hoisted_26, $setup.isExpanded ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_27, "Configuração")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
     }),
     _: 1 /* STABLE */
   }, 8 /* PROPS */, ["class"])])], 34 /* CLASS, HYDRATE_EVENTS */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true);
@@ -23454,10 +23435,10 @@ var routes = [{
     return __webpack_require__.e(/*! import() */ "resources_js_components_pages_About_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../components/pages/About.vue */ "./resources/js/components/pages/About.vue"));
   }
 }, {
-  path: '/contact',
-  name: 'Contact',
+  path: '/team',
+  name: 'Team',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ "resources_js_components_pages_Contact_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../components/pages/Contact.vue */ "./resources/js/components/pages/Contact.vue"));
+    return __webpack_require__.e(/*! import() */ "resources_js_components_pages_Team_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../components/pages/Team.vue */ "./resources/js/components/pages/Team.vue"));
   }
 }, {
   path: '/profile',
@@ -63430,7 +63411,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_components_pages_Home_vue":1,"resources_js_components_pages_About_vue":1,"resources_js_components_pages_Contact_vue":1,"resources_js_components_pages_Profile_vue":1,"resources_js_components_pages_ShowMovies_ShowPrincipalMovie_vue":1,"resources_js_components_pages_ShowMovies_ShowMovie_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_components_pages_Home_vue":1,"resources_js_components_pages_About_vue":1,"resources_js_components_pages_Team_vue":1,"resources_js_components_pages_Profile_vue":1,"resources_js_components_pages_ShowMovies_ShowPrincipalMovie_vue":1,"resources_js_components_pages_ShowMovies_ShowMovie_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
