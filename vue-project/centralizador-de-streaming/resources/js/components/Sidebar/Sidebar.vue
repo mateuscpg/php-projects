@@ -7,37 +7,47 @@
     >
         <div class="logo-container" v-if="isExpanded == false">
             <div class="logo-class">
-                <img src="../../../../public/images/STREAMING-CENTRALIZER3.png" class="logo-isNotIsExpanded" alt="logo" v-if="isExpanded == false">
+                <img src="../../../../public/images/logonovapequena.png" class="logo-isNotIsExpanded" alt="logo" v-if="isExpanded == false">
             </div>
         </div>
         <div class="logo-container-isExpanded" v-if="isExpanded == true">
             <div class="logo-class-isExpanded">
-                <img src="../../../../public/images/STREAMING-CENTRALIZER.png" alt="logo" v-if="isExpanded" class="logo-isExpanded">
+                <img src="../../../../public/images/logonovagrande.png" alt="logo" v-if="isExpanded" class="logo-isExpanded">
             </div>
         </div>
-        <div class="user-info">
+        
+        <div class="user-info" :style="{ 'justify-content': isExpanded ? 'start' : 'center', 'margin-left': isExpanded ? '0.3rem' : '0' }">
             <div class="user-image">
                 <router-link to="/profile">
                     <img :src="userImage" alt="" />
                 </router-link>
             </div>
-            <div class="user-name" v-if="isExpanded">{{ userName }}</div>
-            <p style="color: rgb(135, 216, 13); font-size: 0.8rem;
+            <div class="user-name" v-if="isExpanded">{{ userName }}
+            
+            <div style="color: rgb(135, 216, 13); font-size: 0.8rem;
             " v-if="isExpanded
-            ">online</p>
+            ">online</div>
+            </div>
         </div>
+        
 
 
         <div class="menu">
+
+      <!-- <router-link class="button" to="/home" :class="{'justify-content-center':!isExpanded}">
+        <span class="material-symbols-rounded">search</span>
+        <input type="search" v-if="isExpanded" />
+      </router-link> -->
+
       <router-link class="button" to="/home" :class="{'justify-content-center':!isExpanded}">
-        <span class="material-symbols-outlined">home</span>
+        <span class="material-symbols-rounded">home</span>
         <span v-if="isExpanded" class="text">Início</span>
       </router-link>
 
-
+      
       <div class="sub-menu">
         <div class="button" @click="toggleSubMenu" :class="{'justify-content-center':!isExpanded}">
-          <span class="material-symbols-outlined">category</span>
+          <span class="material-symbols-rounded">category</span>
           <span v-if="isExpanded" class="text">Categorias</span>
         </div>
 
@@ -61,22 +71,22 @@
       </div>
 
       <router-link class="button" to="/about" :class="{'justify-content-center':!isExpanded}">
-        <span class="material-symbols-outlined">visibility</span>
+        <span class="material-symbols-rounded">visibility</span>
         <span v-if="isExpanded" class="text">Sobre</span>
       </router-link>
             <router-link class="button" to="/team" :class="{'justify-content-center':!isExpanded}">
-                <span class="material-symbols-outlined">group</span>
+                <span class="material-symbols-rounded">group</span>
                 <span v-if="isExpanded" class="text">Time</span>
             </router-link>
             <!-- <router-link class="button" to="/contact" :class="{'justify-content-center':!isExpanded}">
-                <span class="material-symbols-outlined">email</span>
+                <span class="material-symbols-rounded">email</span>
                 <span v-if="isExpanded" class="text">Contatos</span>
             </router-link> -->
         </div>
         <div class="flex"></div>
         <div class="menu">
             <router-link class="button" to="/settings" :class="{'justify-content-center':!isExpanded}">
-                <span class="material-symbols-outlined">settings</span>
+                <span class="material-symbols-rounded">settings</span>
                 <span v-if="isExpanded" class="text">Configuração</span>
             </router-link>
             </div>
@@ -119,6 +129,7 @@ const toggleSubMenu = () => {
 }
 aside{
     display: flex;
+    justify-content: center;
     position: fixed;
     top: 0;
     left: 0;
@@ -134,11 +145,25 @@ aside{
 
     transition: 0.3s ease-out;
 
+
+input[type="search"]{
+    background-color: aliceblue; 
+    max-width: 8rem;
+    padding: 0.1rem;
+    background-color: transparent;
+    outline: 1px solid #00aacd;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    transition: background-color 0.3s linear, outline 0.3s linear, color 0.3s linear;
+    }
 .user-info {
+    // margin-top: 50px;
   display: flex;
-  flex-direction: column;
+  flex-direction:row;
+  justify-content: center;
   align-items: center;
-//   margin-bottom: 0.5rem;
+//   margin-bottom: 3rem;
 }
 
 .user-image {
@@ -157,9 +182,11 @@ aside{
 }
 
 .user-name {
-  margin-top: 0.5rem;
-  font-size: 0.875rem;
-  color: var(--gray);
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.875rem;
+    color: var(--gray);
 }
 
 .sub-menu {
@@ -191,7 +218,7 @@ color: var(--light);
 
 
     .flex{
-        flex: 1 1 0;
+        margin-top: auto;
     }
     .logo-class{
         margin-top: 0.5rem;
@@ -201,18 +228,18 @@ color: var(--light);
             width: 4rem;
             height: 4rem;
         }
-        .logo-isExpanded{
-            top: 0;
-            width: 6rem;
-            height: 6rem;
-        }
+        // .logo-isExpanded{
+        //     top: 0;
+        //     width: 6rem;
+        //     height: 6rem;
+        // }
     }
     .logo-class-isExpanded{
-        margin-bottom: 2rem;
+        // margin-bottom: 2rem;
         .logo-isExpanded{
             top: 0;
-            width: 6rem;
-            height: 6rem;
+            width: 12rem;
+            height: 12rem;
         }
     }
     .menu-toggle-wrap{
@@ -227,12 +254,12 @@ color: var(--light);
         .menu-toggle {
             transition:  0.2s ease-out;
 
-            .material-symbols-outlined {
+            .material-symbols-rounded {
                 font-size: 2rem;
                 color: var(--light);
             }
             &:hover{
-                .material-symbols-outlined{
+                .material-symbols-rounded{
                     color: var(--blue);
                     transform: translateX(0.2rem);
                     transition:  0.2s ease-out;
@@ -261,7 +288,7 @@ color: var(--light);
             padding: 1rem  1rem;
             transition: 0.2s ease-out;
             
-            .material-symbols-outlined{
+            .material-symbols-rounded{
                 font-size: 1.6rem;
                 color: var(--light);
                 transition: 0.3s ease-out;
@@ -272,7 +299,7 @@ color: var(--light);
             }
             &:hover{
 
-                .material-symbols-outlined, .text {
+                .material-symbols-rounded, .text {
                     color: var(--blue);
                 }
             }
@@ -292,7 +319,7 @@ color: var(--light);
            
         }
         .button{
-            .material-symbols-outlined{
+            .material-symbols-rounded{
                 margin-left: 0.8rem;
                 margin-right: 2rem;
             }
