@@ -52,7 +52,7 @@
           </div>
             
         </div>
-
+        <Spinner/>
       </div>
   </div>
 </template>
@@ -60,17 +60,22 @@
 
 <script>
 import Header from '../Header/Header.vue'
+import Spinner from '../../mixins/Spinner.vue';
 import MoviesSection from '../Carousel/MoviesSection.vue';
 import PrincipalMovie from '../Carousel/PrincipalMovie.vue';
+import api from '../../services/Axios'
+import axios from 'axios';
 export default {
 
   components: {
     Header,
     PrincipalMovie,
-    MoviesSection
+    MoviesSection,
+    Spinner,
   },
   data(){
     return{
+      conselho: '',
       principalMovie:[
         {id: 1, img: "https://www.publicitarioscriativos.com/wp-content/uploads/2019/08/Todos-os-po%CC%82steres-do-Universo-Cinematogra%CC%81fico-Marvel-em-alta-qualidade.png", title: "Vingadores Ultimato", description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.", video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"},
         {id: 2, img: "https://cinepop.com.br/wp-content/uploads/2022/11/avatar2_29.jpg", title: "Avatar 2", description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.", video: "https://v4.cdnpk.net/videvo_files/video/free/video0453/large_watermarked/_import_605f65a0c8cfa7.70318750_FPpreview.mp4"},
@@ -146,7 +151,23 @@ export default {
         const searchQuery = event.target.value;
         console.log("Pesquisar filmes da categoria: " + moviesCategory + " com a consulta: " + searchQuery);
       }
+    },
+    async dadosSobreChuckNorris(){
+      try {
+        let dados = await api.listarFilmes();
+        this.conselho = dados;
+        console.log(this.conselho.value);
       }
+      catch (error) {
+        console.error("Erro ao obter conselho:", error);
+      }
+    }
+
+    
+  },
+
+  created(){
+    this.dadosSobreChuckNorris();
   }
   
  

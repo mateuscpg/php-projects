@@ -31,13 +31,12 @@
         </div>
         
 
-
         <div class="menu">
 
-      <!-- <router-link class="button" to="/home" :class="{'justify-content-center':!isExpanded}">
+      <router-link class="button" to="/home" :class="{'justify-content-center':!isExpanded}">
         <span class="material-symbols-rounded">search</span>
         <input type="search" v-if="isExpanded" />
-      </router-link> -->
+      </router-link>
 
       <router-link class="button" to="/home" :class="{'justify-content-center':!isExpanded}">
         <span class="material-symbols-rounded">home</span>
@@ -200,8 +199,8 @@ input[type="search"]{
 .sub-button {
 display: flex;
 flex-direction: column;
-align-items: center;
-justify-content: center;
+// align-items: center;
+// justify-content: center;
 text-decoration: none;
 padding-top: 1.1rem;
 padding-bottom: 1.1rem;
@@ -213,7 +212,7 @@ color: var(--light);
 }
 
 .sub-button .text {
-  margin-left: 0.5rem; /* Adjust the spacing as needed */
+  margin-left: 5.5rem; /* Adjust the spacing as needed */
 }
 
 

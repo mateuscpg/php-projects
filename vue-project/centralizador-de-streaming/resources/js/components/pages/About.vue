@@ -5,16 +5,18 @@
         <div class="sobre-nos">
           <p>Essa página foi desenvolvida com o intuito de centralizar todas as suas streamings, facilitando assim a sua busca por um filme.</p>
         </div>
+        <Spinner/>
       </div>
     </div>
   </template>
   
   <script>
+  import Spinner from '../../mixins/Spinner.vue';
   import Header from '../Header/Header.vue'
 
   export default {
     components: {
-      Header,
+      Header,Spinner,
     },
 
 

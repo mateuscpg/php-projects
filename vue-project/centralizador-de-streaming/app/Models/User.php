@@ -21,6 +21,14 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'photo',
+        'birth',
+        'id_cms_privileges',
+        'id_netflix',
+        'id_hbo',
+        'id_primevideo',
+        'id_paramount',
+        'id_starplus',
     ];
 
     /**

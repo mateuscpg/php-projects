@@ -27,7 +27,7 @@
             >
           </div>
 
-          <button type="submit" class="btn btn-primary">Entrar</button>
+          <button type="submit" class="btn btn-primary" @click="redirectToHome">Entrar</button>
         </form>
       </div>
     </div>
@@ -37,6 +37,7 @@
 <script>
 import Sidebar from '../Sidebar/Sidebar.vue';
 import HeaderLogin from '../Header/HeaderLogin.vue';
+import api from '../../services/Axios'
 
 export default {
   components: {
@@ -55,6 +56,13 @@ export default {
   },
  
   methods:{
+    async getUser(){
+      let dados = await api.getUser();
+      this.users = dados.data;
+      console.log(this.users);
+
+    },
+
     redirectToHome() {
       if (this.validateCredentials()) {
         this.$router.push('/home');

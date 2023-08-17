@@ -1,6 +1,6 @@
 <template>
     <div class="app">
-      <Sidebar v-if="$route.path !== '/login' && $route.path !=='/signin'"/>
+      <Sidebar v-if="$route.path !== '/login' && $route.path !=='/register'"/>
         <router-view/>
     </div>
 </template>
@@ -35,9 +35,9 @@
 
 body {
   font-family: 'Nunito', sans-serif;
-  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
-    url('https://media.ldlc.com/apple/tv/imgTv/tv_app.png');
-  // background: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
+  // background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+  //   url('https://media.ldlc.com/apple/tv/imgTv/tv_app.png');
+  background: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
   background-size: cover;
   background-attachment: fixed;
 }

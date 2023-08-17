@@ -26,13 +26,15 @@
             </div>
         </div>
     </div>
+    <Spinner/>
   </div>
 </template>
 
 <script>
+import Spinner from '../../mixins/Spinner.vue'
 import Header from '../Header/Header.vue';
 export default {
-    components: {Header,}
+    components: {Header,Spinner,}
 
 }
 </script>

@@ -1,7 +1,7 @@
 
 import { createRouter, createWebHistory } from 'vue-router'
 import Login from '../components/Login/Login.vue';
-import SignIn from '../components/Login/SignIn.vue';
+import Register from '../components/Login/Register.vue';
 
 
 const routes = [
@@ -19,9 +19,9 @@ const routes = [
     },
   },
   {
-    path: '/signin',
-    name: 'Signin',
-    component: SignIn,
+    path: '/register',
+    name: 'Register',
+    component: Register,
     meta: {
       showSidebar: false, // Define para não mostrar a Sidebar nesta rota
     },

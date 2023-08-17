@@ -18,3 +18,6 @@ Route::get('/', function () {
     return view('app');
 });
 Route::get('/{any}',[HomeController::class, 'index'])->where('any', '.*');
+
+Route::get('/getuser', [HomeController::class, 'getUser']);
+Route::post('/create-user', [HomeController::class, 'createUser']);
