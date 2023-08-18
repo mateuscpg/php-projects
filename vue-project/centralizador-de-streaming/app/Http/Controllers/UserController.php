@@ -27,6 +27,7 @@ class UserController extends Controller
     User::create([
         'name' => $request['name'],
         'email' => $request['email'],
+        'photo' => '',
         'password' => Hash::make($request['password']),
         'birth' => $request['birth'],
         'id_cms_privileges' => 2,
@@ -40,21 +41,17 @@ class UserController extends Controller
     return response()->json(['message' => 'User created successfully']);
 }
 
-    public function loginUser(Request $request)
-    {
-        $message = [];
-        $user = User::where('email', $request['email'])->first();
-        $credentials = $request->only('email', 'password');
-        
+public function login(Request $request)
+{
+    $credentials = $request->only('email', 'password');
 
-        if (!Hash::check($request['password'], $user->password)){
-            $message['password'] = 'Senha inválida';
-            return response()->json(["success" => false, 'message' => $message], 400);
-        }
-
-        Auth::attempt($credentials);
+    if (Auth::attempt($credentials)) {
         $user_auth = Auth::user();
-        return response()->json(["success" => true, 'message' => $message, 'user_auth' => $user_auth]);
+        return response()->json(["success" => true, 'user_auth' => $user_auth]);
+    } else {
+        return response()->json(["success" => false, 'message' => 'Credenciais inválidas'], 400);
     }
+}
+
 
 }

@@ -22829,7 +22829,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case 2:
               dados = _context.sent;
               _this.user = dados.data.user_auth;
-              if (_this.user.id_cms_privileges === 1) {
+              if (_this.user.id_cms_privileges === 1 || _this.user.id_cms_privileges === 2) {
                 window.location.href = "/home";
               }
             case 5:

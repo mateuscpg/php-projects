@@ -154,9 +154,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   methods: {
     redirectToLogin: function redirectToLogin() {
+      // axios.get('/sair');
       this.$router.push('/login');
     }
   }
@@ -591,17 +595,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         console.log("Pesquisar filmes da categoria: " + moviesCategory + " com a consulta: " + searchQuery);
       }
     },
-    // async dadosUsuario(){
-    //   try {
-    //     let dados = await api.getPerfil();
-    //     this.user = dados;
-    //     console.log(this.user);
-    //   }
-    //   catch (error) {
-    //     console.error("Erro ao obter usuário:", error);
-    //   }
-    // },
-    dadosSobreChuckNorris: function dadosSobreChuckNorris() {
+    dadosUsuario: function dadosUsuario() {
       var _this = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
         var dados;
@@ -610,27 +604,54 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case 0:
               _context.prev = 0;
               _context.next = 3;
-              return _services_Axios__WEBPACK_IMPORTED_MODULE_4__["default"].listarFilmes();
+              return _services_Axios__WEBPACK_IMPORTED_MODULE_4__["default"].getPerfil();
             case 3:
               dados = _context.sent;
-              _this.conselho = dados;
-              console.log(_this.conselho.value);
+              _this.user = dados;
+              console.log(_this.user);
               _context.next = 11;
               break;
             case 8:
               _context.prev = 8;
               _context.t0 = _context["catch"](0);
-              console.error("Erro ao obter conselho:", _context.t0);
+              console.error("Erro ao obter usuário:", _context.t0);
             case 11:
             case "end":
               return _context.stop();
           }
         }, _callee, null, [[0, 8]]);
       }))();
+    },
+    dadosSobreChuckNorris: function dadosSobreChuckNorris() {
+      var _this2 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        var dados;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _services_Axios__WEBPACK_IMPORTED_MODULE_4__["default"].listarFilmes();
+            case 3:
+              dados = _context2.sent;
+              _this2.conselho = dados;
+              console.log(_this2.conselho.value);
+              _context2.next = 11;
+              break;
+            case 8:
+              _context2.prev = 8;
+              _context2.t0 = _context2["catch"](0);
+              console.error("Erro ao obter conselho:", _context2.t0);
+            case 11:
+            case "end":
+              return _context2.stop();
+          }
+        }, _callee2, null, [[0, 8]]);
+      }))();
     }
   },
   created: function created() {
-    // this.dadosUsuario();
+    this.dadosUsuario();
     this.dadosSobreChuckNorris();
   }
 });

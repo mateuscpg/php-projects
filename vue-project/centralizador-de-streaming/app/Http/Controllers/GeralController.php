@@ -9,11 +9,11 @@ class GeralController extends Controller
 {
     public function getUser()
     {
-        // return Auth::user();
+        return Auth::user();
     }
     public function sair()
     {
-        // Auth::logout();
+        Auth::logout();
         return redirect('/login');
     }
 }

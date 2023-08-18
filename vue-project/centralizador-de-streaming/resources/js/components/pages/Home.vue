@@ -153,16 +153,16 @@ export default {
         console.log("Pesquisar filmes da categoria: " + moviesCategory + " com a consulta: " + searchQuery);
       }
     },
-    // async dadosUsuario(){
-    //   try {
-    //     let dados = await api.getPerfil();
-    //     this.user = dados;
-    //     console.log(this.user);
-    //   }
-    //   catch (error) {
-    //     console.error("Erro ao obter usuário:", error);
-    //   }
-    // },
+    async dadosUsuario(){
+      try {
+        let dados = await api.getPerfil();
+        this.user = dados;
+        console.log(this.user);
+      }
+      catch (error) {
+        console.error("Erro ao obter usuário:", error);
+      }
+    },
     async dadosSobreChuckNorris(){
       try {
         let dados = await api.listarFilmes();
@@ -178,7 +178,7 @@ export default {
   },
 
   created(){
-    // this.dadosUsuario();
+    this.dadosUsuario();
     this.dadosSobreChuckNorris();
   }
   

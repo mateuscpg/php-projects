@@ -59,7 +59,7 @@ export default {
           password: this.password,
         });
         this.user = dados.data.user_auth;
-        if (this.user.id_cms_privileges === 1) {
+        if (this.user.id_cms_privileges === 1 || this.user.id_cms_privileges === 2) {
             window.location.href = "/home";
         }
     },
