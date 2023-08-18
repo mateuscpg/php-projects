@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\GeralController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('app');
 });
+
+Route::post('/create-user', [UserController::class, 'createUser']);
+Route::get('/get-user', [GeralController::class, 'getUser']);
+Route::get('/sair', [GeralController::class, 'sair'])->withoutMiddleware(['csrf']);
 Route::get('/{any}',[HomeController::class, 'index'])->where('any', '.*');
 
-Route::get('/getuser', [HomeController::class, 'getUser']);
-Route::post('/create-user', [HomeController::class, 'createUser']);

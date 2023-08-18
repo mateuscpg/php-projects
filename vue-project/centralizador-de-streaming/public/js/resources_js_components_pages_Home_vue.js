@@ -47,7 +47,7 @@ __webpack_require__.r(__webpack_exports__);
           mode: "free-snap",
           slides: {
             perView: 6,
-            spacing: 12
+            spacing: 8
           }
         });
       });
@@ -200,6 +200,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   data: function data() {
     return {
+      user: {},
       conselho: '',
       principalMovie: [{
         id: 1,
@@ -590,6 +591,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         console.log("Pesquisar filmes da categoria: " + moviesCategory + " com a consulta: " + searchQuery);
       }
     },
+    // async dadosUsuario(){
+    //   try {
+    //     let dados = await api.getPerfil();
+    //     this.user = dados;
+    //     console.log(this.user);
+    //   }
+    //   catch (error) {
+    //     console.error("Erro ao obter usuário:", error);
+    //   }
+    // },
     dadosSobreChuckNorris: function dadosSobreChuckNorris() {
       var _this = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
@@ -619,6 +630,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   },
   created: function created() {
+    // this.dadosUsuario();
     this.dadosSobreChuckNorris();
   }
 });

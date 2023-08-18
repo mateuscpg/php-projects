@@ -94,25 +94,41 @@
   
 </template>
 
-<script setup>
-import {ref} from 'vue';
+<script>
+import { ref } from 'vue';
+import axios from 'axios';
 
-const userName = ref('Mateus Correia'); 
-const userImage = ref('https://photografos.com.br/wp-content/uploads/2020/09/fotografia-para-perfil.jpg'); 
-const showSubMenu = ref(false);
+export default {
+  data() {
+    return {
+        perfil:{},
+      userName: 'Mateus Correia',
+      userImage: 'https://photografos.com.br/wp-content/uploads/2020/09/fotografia-para-perfil.jpg',
+      showSubMenu: false,
+      isExpanded: localStorage.getItem('isExpanded') === 'true',
+      authenticated: true,
+    };
+  },
+  methods: {
+    // async getUser(){
+    //     let dados = await axios.get('/getuser');
+    //     this.perfil = dados.data;
+    //     console.log('aaaaaaaaaa',this.perfil);
+    // },
+    
 
-const isExpanded = ref(localStorage.getItem('isExpanded') === 'true')
-const authenticated = true;
-
-const toggleMenu = (expaned) => {
-    isExpanded.value = expaned;
-    localStorage.setItem('isExpanded', isExpanded.value)
-}
-const toggleSubMenu = () => {
-    showSubMenu.value = !showSubMenu.value;
-        
+    toggleMenu(expaned) {
+      this.isExpanded = expaned;
+      localStorage.setItem('isExpanded', this.isExpanded);
+    },
+    toggleSubMenu() {
+      this.showSubMenu = !this.showSubMenu;
+    },
+  },
+  created(){
+    // this.getUser();
+  }
 };
-
 </script>
 
 <style lang="scss" scoped>

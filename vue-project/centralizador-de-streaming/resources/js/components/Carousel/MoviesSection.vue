@@ -49,7 +49,7 @@
             mode: "free-snap",
             slides: {
               perView: 6,
-              spacing: 12,
+              spacing: 8,
             },
           });
         });

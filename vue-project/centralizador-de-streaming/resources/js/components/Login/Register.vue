@@ -76,23 +76,25 @@ export default {
   },
   methods:{
     registerUser(){
-      if(this.hbo == true){
-        this.hbo = 1
-      }
-      if(this.netflix == true){
-        this.netflix = 1
-      }
-      if(this.primevideo == true){
-        this.primevideo = 1
-      }
-      if(this.paramount == true){
-        this.paramount = 1
-      }
-      if(this.starplus == true){
-        this.starplus = 1
-      }
-      axios.post('/create-user')
+      const data = {
+        name: this.name,
+        email: this.email,
+        password: this.password,
+        birth: this.birth,
+        hbo: this.hbo ? 1 : 0,
+        netflix: this.netflix ? 1 : 0,
+        primevideo: this.primevideo ? 1 : 0,
+        paramount: this.paramount ? 1 : 0,
+        starplus: this.starplus ? 1 : 0
+      };
+
+      axios.post('/create-user', data)
+      .then(response => {
       this.$router.push('/login');
+    })
+    .catch(error => {
+      console.log(error);
+    });
     },
 
   }

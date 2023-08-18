@@ -4,7 +4,7 @@
     <div class="content">
       <div class="forms">
         <h2>Login</h2>
-        <form @submit.prevent="redirectToHome">
+        <form>
           <div class="form-group">
             <label for="exampleInputEmail1">Email </label>
             <input type="email" 
@@ -13,7 +13,7 @@
               aria-describedby="emailHelp" 
               placeholder="Digite seu email" 
               required
-              v-model="enteredEmail"
+              v-model="email"
             > 
           </div>
           <div class="form-group">
@@ -23,11 +23,11 @@
               id="exampleInputPassword1" 
               placeholder="Digite sua senha" 
               required
-              v-model="enteredSenha"
+              v-model="password"
             >
           </div>
 
-          <button type="submit" class="btn btn-primary" @click="redirectToHome">Entrar</button>
+          <button type="submit" class="btn btn-primary" @click="login">Entrar</button>
         </form>
       </div>
     </div>
@@ -37,7 +37,7 @@
 <script>
 import Sidebar from '../Sidebar/Sidebar.vue';
 import HeaderLogin from '../Header/HeaderLogin.vue';
-import api from '../../services/Axios'
+import api from '../../services/Axios';
 
 export default {
   components: {
@@ -46,36 +46,36 @@ export default {
   },
   data(){
     return{
-      users:{
-        email: 'teste@teste.com',
-        senha: '123',
-      },
-      enteredEmail: '',
-      enteredSenha: '',
+      email: '',
+      password: '',
+      user:{},
     }
   },
  
   methods:{
-    async getUser(){
-      let dados = await api.getUser();
-      this.users = dados.data;
-      console.log(this.users);
-
+    async login() {
+         let dados = await axios.post('/api/login',{
+          email: this.email,
+          password: this.password,
+        });
+        this.user = dados.data.user_auth;
+        if (this.user.id_cms_privileges === 1) {
+            window.location.href = "/home";
+        }
     },
-
+    
     redirectToHome() {
-      if (this.validateCredentials()) {
-        this.$router.push('/home');
-      } else {
-        alert('Email ou senha incorretos.');
-      }
+      this.$router.push('/home');
     },
-    validateCredentials() {
-      return (
-        this.enteredEmail === this.users.email &&
-        this.enteredSenha === this.users.senha
-      );
-    },
+    // validateCredentials() {
+    //   return (
+    //     this.enteredEmail === this.users.email &&
+    //     this.enteredSenha === this.users.senha
+    //   );
+    // },
+  },
+  activated(){
+    this.login();
   }
 };
 </script>

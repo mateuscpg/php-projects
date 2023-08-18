@@ -2,9 +2,9 @@ import api from '../api'
 
 export default {
 
-    getUser: async () => {
-        let dados = await api.get('/getuser');
-        return dados.data
+    getPerfil: async () => {
+        let dados = await api.get('/get-user');
+        return dados.data;
     },
 
     listarFilmes: async () => {

@@ -75,6 +75,7 @@ export default {
   },
   data(){
     return{
+      user: {},
       conselho: '',
       principalMovie:[
         {id: 1, img: "https://www.publicitarioscriativos.com/wp-content/uploads/2019/08/Todos-os-po%CC%82steres-do-Universo-Cinematogra%CC%81fico-Marvel-em-alta-qualidade.png", title: "Vingadores Ultimato", description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.", video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"},
@@ -152,6 +153,16 @@ export default {
         console.log("Pesquisar filmes da categoria: " + moviesCategory + " com a consulta: " + searchQuery);
       }
     },
+    // async dadosUsuario(){
+    //   try {
+    //     let dados = await api.getPerfil();
+    //     this.user = dados;
+    //     console.log(this.user);
+    //   }
+    //   catch (error) {
+    //     console.error("Erro ao obter usuário:", error);
+    //   }
+    // },
     async dadosSobreChuckNorris(){
       try {
         let dados = await api.listarFilmes();
@@ -167,6 +178,7 @@ export default {
   },
 
   created(){
+    // this.dadosUsuario();
     this.dadosSobreChuckNorris();
   }
   
