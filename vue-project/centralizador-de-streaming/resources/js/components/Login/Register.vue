@@ -6,6 +6,21 @@
         <h2>Cadastro</h2>
         <form>
           <div class="form-group">
+            
+            <div class="user-info">
+              <div class="user-image" @click="chooseImage">
+                <img :src="photo" style="cursor: pointer;" alt=""  />
+              </div>
+              <label for="profile-image-input">Foto do perfil</label>
+              <input
+                type="file"
+                id="profile-image-input"
+                style="display: none"
+                @change="handleImageChange"
+              />
+            </div>
+
+
             <label for="exampleInputName">Nome</label>
             <input v-model="name" type="text" class="form-control" id="exampleInpuName" placeholder="Digite seu nome">
           </div>
@@ -66,6 +81,8 @@ export default {
       name:'',
       email:'',
       password:'',
+      photo: '',
+      actualPhoto: '',
       birth:'',
       hbo:0,
       netflix:0,
@@ -75,11 +92,29 @@ export default {
     }
   },
   methods:{
+    chooseImage() {
+      document.getElementById('profile-image-input').click();
+    },
+    handleImageChange(event) {
+    const file = event.target.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = e => {
+        this.photo = e.target.result; // Define a URL para exibição
+        this.actualPhoto = e.target.result; // Armazena a URL no actualPhoto
+      };
+      reader.readAsDataURL(file); // Lê o arquivo como URL de dados (base64)
+    }
+  },
+
+
     registerUser(){
       const data = {
         name: this.name,
         email: this.email,
         password: this.password,
+        photo: this.actualPhoto,
         birth: this.birth,
         hbo: this.hbo ? 1 : 0,
         netflix: this.netflix ? 1 : 0,
@@ -125,7 +160,30 @@ export default {
 
 .forms .form-group {
   margin-bottom: 10px;
-  width: 550px;
+  width: 100%;
+}
+
+.user-info {
+     /* margin-top: 50px; */
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  /* margin-bottom: 3rem; */
+}
+.user-image {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%; /* Make the image rounded */
+  overflow: hidden; /* Ensure the image is properly clipped within the circle */
+  border: 2px solid var(--blue);
+
+}
+
+.user-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .forms .form-group label {

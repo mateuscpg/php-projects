@@ -27,7 +27,7 @@ class UserController extends Controller
     User::create([
         'name' => $request['name'],
         'email' => $request['email'],
-        'photo' => '',
+        'photo' => $request['photo'],
         'password' => Hash::make($request['password']),
         'birth' => $request['birth'],
         'id_cms_privileges' => 2,
