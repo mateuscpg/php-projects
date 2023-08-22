@@ -37,7 +37,7 @@
 <script>
 import Sidebar from '../Sidebar/Sidebar.vue';
 import HeaderLogin from '../Header/HeaderLogin.vue';
-import api from '../../services/Axios';
+// import api from '../../services/Axios';
 
 export default {
   components: {

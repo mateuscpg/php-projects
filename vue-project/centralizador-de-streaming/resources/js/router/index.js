@@ -53,6 +53,36 @@ const routes = [
     component: () => import('../components/pages/ShowMovies/ShowMovie.vue'),
     props: true,
   },
+  {
+    path: '/category/acction',
+    name: 'categoryAcction',
+    component: () => import('../components/pages/Categories/AcctionMovie.vue'),
+    props: true,
+  },
+  {
+    path: '/category/adventure',
+    name: 'categoryAdventure',
+    component: () => import('../components/pages/Categories/AdventureMovie.vue'),
+    props: true,
+  },
+  {
+    path: '/category/comedy',
+    name: 'categoryComedy',
+    component: () => import('../components/pages/Categories/ComedyMovie.vue'),
+    props: true,
+  },
+  {
+    path: '/category/romance',
+    name: 'categoryRomance',
+    component: () => import('../components/pages/Categories/RomanceMovie.vue'),
+    props: true,
+  },
+  {
+    path: '/category/terror',
+    name: 'categoryTerror',
+    component: () => import('../components/pages/Categories/TerrorMovie.vue'),
+    props: true,
+  },
  
 ]
 

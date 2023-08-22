@@ -21,8 +21,8 @@ class CreateTableMovies extends Migration
                 $table->string('description');
                 $table->string('image');
                 $table->string('video');
-                $table->enum('category',['principalMovie', 'recommendedMovies', 'acctionMovies','adventureMovies',
-                 'terrorMovies', 'romanceMovies', 'comedyMovies', 'dramaMovies', 'DocumentaryMovies', 
+                $table->enum('category',['principalMovies', 'recommendedMovies', 'acctionMovies','adventureMovies',
+                 'terrorMovies', 'romanceMovies', 'comedyMovies', 'dramaMovies', 'documentaryMovies', 
                  'suspenseMovies', 'scienceFictionMovies', 'musicalMovies']);
                 $table->integer('id_streaming');
                 $table->timestamps();

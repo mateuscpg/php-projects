@@ -38,7 +38,7 @@
         <input type="search" v-if="isExpanded" />
       </router-link>
 
-      <router-link class="button" to="/home" :class="{'justify-content-center':!isExpanded}">
+      <router-link class="button" to="/home" :class="{'hover-effect': $route.path === '/home','justify-content-center':!isExpanded}">
         <span class="material-symbols-rounded">home</span>
         <span v-if="isExpanded" class="text">Início</span>
       </router-link>
@@ -52,28 +52,57 @@
 
   
         <router-link
-        :class="{'justify-content-center':!isExpanded}"
+        :class="{'hover-effect': $route.path === '/category/acction','justify-content-center':!isExpanded}"
           v-if="showSubMenu && isExpanded"
           class="sub-button"
-          to="/category/subitem1"
+          to="/category/acction"
         >
           <span v-if="isExpanded" class="text">Ação</span>
         </router-link>
+
         <router-link
-        :class="{'justify-content-center':!isExpanded}"
+        :class="{'hover-effect': $route.path === '/category/adventure','justify-content-center':!isExpanded}"
           v-if="showSubMenu && isExpanded"
           class="sub-button"
-          to="/category/subitem2"
+          to="/category/adventure"
+        >
+          <span v-if="isExpanded" class="text">Aventura</span>
+        </router-link>
+
+        <router-link
+        :class="{'hover-effect': $route.path === '/category/romance','justify-content-center':!isExpanded}"
+          v-if="showSubMenu && isExpanded"
+          class="sub-button"
+          to="/category/romance"
         >
           <span v-if="isExpanded" class="text">Romance</span>
         </router-link>
+        
+        <router-link
+        :class="{'hover-effect': $route.path === '/category/terror','justify-content-center':!isExpanded}"
+          v-if="showSubMenu && isExpanded"
+          class="sub-button"
+          to="/category/terror"
+        >
+          <span v-if="isExpanded" class="text">Terror</span>
+        </router-link>
+
+        <router-link
+        :class="{'hover-effect': $route.path === '/category/comedy','justify-content-center':!isExpanded}"
+          v-if="showSubMenu && isExpanded"
+          class="sub-button"
+          to="/category/comedy"
+        >
+          <span v-if="isExpanded" class="text">Comédia</span>
+        </router-link>
+        
       </div>
 
-      <router-link class="button" to="/about" :class="{'justify-content-center':!isExpanded}">
+      <router-link class="button" to="/about" :class="{'hover-effect': $route.path === '/about','justify-content-center':!isExpanded}">
         <span class="material-symbols-rounded">visibility</span>
         <span v-if="isExpanded" class="text">Sobre</span>
       </router-link>
-            <router-link class="button" to="/team" :class="{'justify-content-center':!isExpanded}">
+            <router-link class="button" to="/team" :class="{'hover-effect': $route.path === '/team','justify-content-center':!isExpanded}">
                 <span class="material-symbols-rounded">group</span>
                 <span v-if="isExpanded" class="text">Time</span>
             </router-link>
@@ -210,6 +239,16 @@ input[type="search"]{
 }
 .button{
     cursor: pointer;
+    border-radius: 20px;
+}
+// .button:hover{
+//     background-color: rgb(22, 22, 22);
+//     border-radius: 20px;
+// }
+.hover-effect{
+  background-color: rgb(22, 22, 22);
+  border-radius: 22px;
+
 }
 
 .sub-button {
@@ -313,7 +352,6 @@ color: var(--light);
                 transition: 0.3s ease-out;
             }
             &:hover{
-
                 .material-symbols-rounded, .text {
                     color: var(--blue);
                 }
