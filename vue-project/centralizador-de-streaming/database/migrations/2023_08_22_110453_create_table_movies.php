@@ -1,0 +1,42 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateTableMovies extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        if(!Schema::hasTable('movies')){
+            Schema::create('movies', function (Blueprint $table) {
+                $table->id();
+                $table->string('name');
+                $table->string('title');
+                $table->string('description');
+                $table->string('image');
+                $table->string('video');
+                $table->enum('category',['principalMovie', 'recommendedMovies', 'acctionMovies','adventureMovies',
+                 'terrorMovies', 'romanceMovies', 'comedyMovies', 'dramaMovies', 'DocumentaryMovies', 
+                 'suspenseMovies', 'scienceFictionMovies', 'musicalMovies']);
+                $table->integer('id_streaming');
+                $table->timestamps();
+            });
+        }
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('movies');
+    }
+}

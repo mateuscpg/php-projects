@@ -12,6 +12,7 @@ const app = createApp(App);
 // Crie uma instância do Vuetify e use-a no aplicativo Vue
 const vuetify = createVuetify();
 app.use(vuetify);
+app.component("app", require("./components/App.vue").default);
 
 // Monte o aplicativo no elemento #app
 app.use(router).mount('#app');

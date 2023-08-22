@@ -23651,6 +23651,7 @@ var app = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)(_components_App_vue__WE
 // Crie uma instância do Vuetify e use-a no aplicativo Vue
 var vuetify = (0,vuetify__WEBPACK_IMPORTED_MODULE_6__.createVuetify)();
 app.use(vuetify);
+app.component("app", (__webpack_require__(/*! ./components/App.vue */ "./resources/js/components/App.vue")["default"]));
 
 // Monte o aplicativo no elemento #app
 app.use(_router__WEBPACK_IMPORTED_MODULE_2__["default"]).mount('#app');
