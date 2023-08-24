@@ -21,7 +21,7 @@
             </div>
           </div>
 
-          <img :src="movie.img" alt="" />
+          <img :src="movie.image" alt="" />
 
         </div>
       </div>
@@ -45,7 +45,7 @@ export default {
   props: {
     movies: {
       type: Array,
-      required: true, // Make the movies prop required
+      required: true, 
     },
   },
   computed: {

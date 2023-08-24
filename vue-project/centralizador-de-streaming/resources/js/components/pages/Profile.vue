@@ -7,11 +7,11 @@
           <form>
             <div class="form-group">
               <label for="exampleInputName">Nome</label>
-              <input type="text" class="form-control" id="exampleInpuName" placeholder="Digite seu nome">
+              <input type="text" class="form-control" id="exampleInpuName" placeholder="Digite seu nome" :value="user.name" >
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Email </label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite seu email">
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite seu email" :value="user.email">
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Senha</label>
@@ -19,7 +19,7 @@
             </div>
             <div class="form-group">
               <label for="exampleInputDate">Data de nascimento</label>
-              <input type="date" class="form-control" id="exampleInputDate" placeholder="Data de nascimento">
+              <input type="date" class="form-control" id="exampleInputDate" placeholder="Data de nascimento" :value="user.data_nascimento">
             </div>
             
             <button type="submit" class="btn btn-primary " @click="redirectToHome">Atualizar</button>
@@ -31,16 +31,44 @@
   
   <script>
   import Header from '../Header/Header.vue';
+  import api from '../../services/Axios';
   
   export default {
     components: {
       Header,
     },
+    data(){
+      return{
+        user: {
+          name: '',
+          email: '',
+          senha: '',
+          data_nascimento: '',
+        }
+
+      }
+    },
     methods:{
+      async dadosUsuario(){
+      try {
+        let dados = await api.getPerfil();
+        this.user.name = dados.name;
+        this.user.email = dados.email;
+        this.user.senha = dados.password;
+        this.user.data_nascimento = dados.birth;
+      }
+      catch (error) {
+        console.error("Erro ao obter usuário:", error);
+      }
+    },
       redirectToHome(){
         this.$router.push('/home');
       }
+    },
+    created(){
+      this.dadosUsuario();
     }
+    
   };
   </script>
   

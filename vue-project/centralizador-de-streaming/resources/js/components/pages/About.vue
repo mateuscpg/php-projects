@@ -29,16 +29,17 @@
   display: flex;
   flex-direction: column;
   align-items: center; 
-  height: 100%;
+  justify-content: center;
+  /* height: 100%; */
+  height: 100vh;
   color:var(--light);
-  background-color: var(--blue);
 }
 .sobre-nos{
-  margin-top: 84px;
-  background-color: blue ;
-  padding: 1rem 1rem;
-
-  /* position: absolute; */
+  border-radius: 6px;
+  background-color: rgba(39, 39, 47, 0.5); 
+  padding: 1rem ;
+  width: 50rem;
+  justify-content: center;
 }
 
   

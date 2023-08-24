@@ -54,7 +54,7 @@ export default {
  
   methods:{
     async login() {
-         let dados = await axios.post('/api/login',{
+         let dados = await axios.post('/login',{
           email: this.email,
           password: this.password,
         });

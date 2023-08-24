@@ -52,12 +52,14 @@ export default {
   gap: 50px; /* Adjust the gap between cards as needed */
 }
 a{
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 .card {
   width: 18rem;
   text-align: center;
+  color: var(--light);
+  background-color: rgba(39, 39, 47, 0.5); 
   /* Add any additional card styling here */
 }
 </style>

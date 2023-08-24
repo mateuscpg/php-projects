@@ -21,12 +21,10 @@
 </template>
 
 <script>
-import axios from 'axios';
 export default {
   methods: {
     redirectToLogin() {
-      // axios.get('/sair');
-      this.$router.push('/login');
+      window.location.href ='/sair';
     },
   },
 };

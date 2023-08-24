@@ -4,6 +4,7 @@ use App\Http\Controllers\GeralController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\UserController;
+use App\Routes\Movie\Movie;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,15 +18,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Movie::movie();
+
+
+
 Route::get('/', function () {
     return view('app');
 });
+Route::get('/sair', [GeralController::class, 'sair']);
+Route::post('/login', [UserController::class, 'login']);
 
 Route::post('/create-user', [UserController::class, 'createUser']);
-Route::get('/sair', [GeralController::class, 'sair'])->withoutMiddleware(['csrf']);
 
 Route::get('/get-user', [GeralController::class, 'getUser']);
 Route::get('/get-streaming', [MovieController::class, 'getStreaming']);
 
 Route::get('/{any}',[HomeController::class, 'index'])->where('any', '.*');
-

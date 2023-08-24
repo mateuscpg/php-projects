@@ -65,7 +65,7 @@ __webpack_require__.r(__webpack_exports__);
         query: {
           id: movie.id,
           title: movie.title,
-          img: movie.img,
+          img: movie.image,
           description: movie.description,
           video: movie.video
         }
@@ -101,10 +101,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   props: {
     movies: {
       type: Array,
-      required: true // Make the movies prop required
+      required: true
     }
   },
-
   computed: {
     dotHelper: function dotHelper() {
       return this.slider ? _toConsumableArray(Array(this.slider.track.details.slides.length).keys()) : [];
@@ -154,14 +153,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   methods: {
     redirectToLogin: function redirectToLogin() {
-      // axios.get('/sair');
-      this.$router.push('/login');
+      window.location.href = '/sair';
     }
   }
 });
@@ -203,25 +198,25 @@ __webpack_require__.r(__webpack_exports__);
       conselho: '',
       principalMovie: [{
         id: 1,
-        img: "https://www.publicitarioscriativos.com/wp-content/uploads/2019/08/Todos-os-po%CC%82steres-do-Universo-Cinematogra%CC%81fico-Marvel-em-alta-qualidade.png",
+        image: "https://www.publicitarioscriativos.com/wp-content/uploads/2019/08/Todos-os-po%CC%82steres-do-Universo-Cinematogra%CC%81fico-Marvel-em-alta-qualidade.png",
         title: "Vingadores Ultimato",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
       }, {
         id: 2,
-        img: "https://cinepop.com.br/wp-content/uploads/2022/11/avatar2_29.jpg",
+        image: "https://cinepop.com.br/wp-content/uploads/2022/11/avatar2_29.jpg",
         title: "Avatar 2",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://v4.cdnpk.net/videvo_files/video/free/video0453/large_watermarked/_import_605f65a0c8cfa7.70318750_FPpreview.mp4"
       }, {
         id: 3,
-        img: "https://uploads.jovemnerd.com.br/wp-content/uploads/2018/10/deadpool-2-familia.jpg",
+        image: "https://uploads.jovemnerd.com.br/wp-content/uploads/2018/10/deadpool-2-familia.jpg",
         title: "Deadpool 2",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://v4.cdnpk.net/videvo_files/video/free/video0467/large_watermarked/_import_615005a8789b18.38685020_FPpreview.mp4"
       }, {
         id: 4,
-        img: "https://images.cgames.de/images/gamestar/290/joker_6078890.jpg",
+        image: "https://images.cgames.de/images/gamestar/290/joker_6078890.jpg",
         title: "Coringa",
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://v4.cdnpk.net/videvo_files/video/free/video0457/large_watermarked/_import_60bc622a5b8144.54299663_FPpreview.mp4"
@@ -404,7 +399,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
       setTimeout(function () {
         _this.isLoading = false; // Set isLoading to false after a delay
-      }, 1000); // Adjust the delay as needed
+      }, 1700); // Adjust the delay as needed
     }
   },
   mounted: function mounted() {
@@ -448,7 +443,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       key: movie.id
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
       "class": "movie-img",
-      src: movie.img,
+      src: movie.image,
       alt: "",
       onClick: function onClick($event) {
         return $options.openInfoMovie(movie);
@@ -526,7 +521,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         return $options.openMovie(movie);
       }
     }, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Play")], 8 /* PROPS */, _hoisted_9), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button class=\"info-button\">More info</button> ")])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-      src: movie.img,
+      src: movie.image,
       alt: ""
     }, null, 8 /* PROPS */, _hoisted_11)]);
   }), 128 /* KEYED_FRAGMENT */))], 512 /* NEED_PATCH */)]), $data.slider ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_12, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.dotHelper, function (_slide, idx) {
@@ -842,7 +837,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.spin{\r\n    z-index: 2;\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: rgba(0, 0, 0, 0.5);\r\n    position: fixed;\n}\n.ring{\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    margin: 0 auto;\r\n    height: 100%;\n}\n.lds-roller {\r\n  display: inline-block;\r\n  position: relative;\r\n  width: 80px;\r\n  height: 80px;\n}\n.lds-roller div {\r\n  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;\r\n  transform-origin: 40px 40px;\n}\n.lds-roller div:after {\r\n  content: \" \";\r\n  display: block;\r\n  position: absolute;\r\n  width: 7px;\r\n  height: 7px;\r\n  border-radius: 50%;\r\n  background: #fff;\r\n  margin: -4px 0 0 -4px;\n}\n.lds-roller div:nth-child(1) {\r\n  animation-delay: -0.036s;\n}\n.lds-roller div:nth-child(1):after {\r\n  top: 63px;\r\n  left: 63px;\n}\n.lds-roller div:nth-child(2) {\r\n  animation-delay: -0.072s;\n}\n.lds-roller div:nth-child(2):after {\r\n  top: 68px;\r\n  left: 56px;\n}\n.lds-roller div:nth-child(3) {\r\n  animation-delay: -0.108s;\n}\n.lds-roller div:nth-child(3):after {\r\n  top: 71px;\r\n  left: 48px;\n}\n.lds-roller div:nth-child(4) {\r\n  animation-delay: -0.144s;\n}\n.lds-roller div:nth-child(4):after {\r\n  top: 72px;\r\n  left: 40px;\n}\n.lds-roller div:nth-child(5) {\r\n  animation-delay: -0.18s;\n}\n.lds-roller div:nth-child(5):after {\r\n  top: 71px;\r\n  left: 32px;\n}\n.lds-roller div:nth-child(6) {\r\n  animation-delay: -0.216s;\n}\n.lds-roller div:nth-child(6):after {\r\n  top: 68px;\r\n  left: 24px;\n}\n.lds-roller div:nth-child(7) {\r\n  animation-delay: -0.252s;\n}\n.lds-roller div:nth-child(7):after {\r\n  top: 63px;\r\n  left: 17px;\n}\n.lds-roller div:nth-child(8) {\r\n  animation-delay: -0.288s;\n}\n.lds-roller div:nth-child(8):after {\r\n  top: 56px;\r\n  left: 12px;\n}\n@keyframes lds-roller {\n0% {\r\n    transform: rotate(0deg);\n}\n100% {\r\n    transform: rotate(360deg);\n}\n}\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.spin{\r\n    z-index: 2;\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: rgba(0, 0, 0, 1);\r\n    position: fixed;\n}\n.ring{\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    margin: 0 auto;\r\n    height: 100%;\n}\n.lds-roller {\r\n  display: inline-block;\r\n  position: relative;\r\n  width: 80px;\r\n  height: 80px;\n}\n.lds-roller div {\r\n  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;\r\n  transform-origin: 40px 40px;\n}\n.lds-roller div:after {\r\n  content: \" \";\r\n  display: block;\r\n  position: absolute;\r\n  width: 7px;\r\n  height: 7px;\r\n  border-radius: 50%;\r\n  background: #fff;\r\n  margin: -4px 0 0 -4px;\n}\n.lds-roller div:nth-child(1) {\r\n  animation-delay: -0.036s;\n}\n.lds-roller div:nth-child(1):after {\r\n  top: 63px;\r\n  left: 63px;\n}\n.lds-roller div:nth-child(2) {\r\n  animation-delay: -0.072s;\n}\n.lds-roller div:nth-child(2):after {\r\n  top: 68px;\r\n  left: 56px;\n}\n.lds-roller div:nth-child(3) {\r\n  animation-delay: -0.108s;\n}\n.lds-roller div:nth-child(3):after {\r\n  top: 71px;\r\n  left: 48px;\n}\n.lds-roller div:nth-child(4) {\r\n  animation-delay: -0.144s;\n}\n.lds-roller div:nth-child(4):after {\r\n  top: 72px;\r\n  left: 40px;\n}\n.lds-roller div:nth-child(5) {\r\n  animation-delay: -0.18s;\n}\n.lds-roller div:nth-child(5):after {\r\n  top: 71px;\r\n  left: 32px;\n}\n.lds-roller div:nth-child(6) {\r\n  animation-delay: -0.216s;\n}\n.lds-roller div:nth-child(6):after {\r\n  top: 68px;\r\n  left: 24px;\n}\n.lds-roller div:nth-child(7) {\r\n  animation-delay: -0.252s;\n}\n.lds-roller div:nth-child(7):after {\r\n  top: 63px;\r\n  left: 17px;\n}\n.lds-roller div:nth-child(8) {\r\n  animation-delay: -0.288s;\n}\n.lds-roller div:nth-child(8):after {\r\n  top: 56px;\r\n  left: 12px;\n}\n@keyframes lds-roller {\n0% {\r\n    transform: rotate(0deg);\n}\n100% {\r\n    transform: rotate(360deg);\n}\n}\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

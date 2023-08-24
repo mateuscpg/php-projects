@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Movie;
 use App\Models\Streaming;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MovieController extends Controller
 {       
@@ -18,10 +19,26 @@ class MovieController extends Controller
                 return $movies;         
         }
 
-        public function getRecommendedMovies(){
-                $movies = Movie::all()->where('category', 'recommendedMovies' );
-                return $movies;       
+        public function getRecommendedMovies()
+        {
+                $movies = DB::table('movies')
+                ->join('streaming', 'movies.id_streaming', '=', 'streaming.id')
+                ->where('movies.category', 'recommendedMovies')
+                ->select('movies.title', 'movies.description', 'movies.image', 
+                         'movies.video', 'movies.category', 'movies.id_streaming', 'streaming.icon as streaming_logo')
+                ->get();
+
+                return $movies;
         }
+
+        // public function getRecommendedMovies(){
+        //         $movies = Movie::all()->where('category', 'recommendedMovies' );
+
+        //         foreach($movies as $movie){
+        //                 $movie->streaming()->select('icon as streaming_logo')->first();
+        //         }
+        //         return $movies;       
+        // }
 
         public function getAcctionMovies(){
                 $movies = Movie::all()->where('category', 'acctionMovies' );

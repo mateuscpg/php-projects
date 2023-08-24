@@ -4,7 +4,7 @@
        v-for="movie in movies" 
        :key="movie.id"
        >
-          <img class="movie-img" :src="movie.img" alt="" @click="openInfoMovie(movie)">
+          <img class="movie-img" :src="movie.image" alt="" @click="openInfoMovie(movie)">
           <div class="streaming">
             <img :src="movie.streaming_logo" alt="" class="streaming-logo"/>
           </div> 
@@ -62,7 +62,7 @@
       },
       openInfoMovie(movie) {
       console.log("O id desse filme é o id: " + movie.id );
-      this.$router.push({ name: 'ShowMovie', query: { id: movie.id, title: movie.title, img: movie.img, description: movie.description, video: movie.video } });
+      this.$router.push({ name: 'ShowMovie', query: { id: movie.id, title: movie.title, img: movie.image, description: movie.description, video: movie.video } });
   },
     },
   };

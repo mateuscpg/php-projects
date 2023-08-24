@@ -16,9 +16,8 @@ class CreateTableMovies extends Migration
         if(!Schema::hasTable('movies')){
             Schema::create('movies', function (Blueprint $table) {
                 $table->id();
-                $table->string('name');
                 $table->string('title');
-                $table->string('description');
+                $table->longText('description');
                 $table->string('image');
                 $table->string('video');
                 $table->enum('category',['principalMovies', 'recommendedMovies', 'acctionMovies','adventureMovies',

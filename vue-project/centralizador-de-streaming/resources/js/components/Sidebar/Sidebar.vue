@@ -126,24 +126,31 @@
 <script>
 import { ref } from 'vue';
 import axios from 'axios';
+import api from '../../services/Axios'
 
 export default {
   data() {
     return {
         perfil:{},
-      userName: 'Mateus Correia',
-      userImage: 'https://photografos.com.br/wp-content/uploads/2020/09/fotografia-para-perfil.jpg',
+      userName: '',
+      userImage: '',
       showSubMenu: false,
       isExpanded: localStorage.getItem('isExpanded') === 'true',
       authenticated: true,
     };
   },
   methods: {
-    // async getUser(){
-    //     let dados = await axios.get('/getuser');
-    //     this.perfil = dados.data;
-    //     console.log('aaaaaaaaaa',this.perfil);
-    // },
+    async dadosUsuario(){
+      try {
+        let dados = await api.getPerfil();
+        this.user = dados;
+        this.userName = dados.name;
+        this.userImage = dados.photo;
+      }
+      catch (error) {
+        console.error("Erro ao obter usuário:", error);
+      }
+    },
     
 
     toggleMenu(expaned) {
@@ -155,7 +162,7 @@ export default {
     },
   },
   created(){
-    // this.getUser();
+    this.dadosUsuario();
   }
 };
 </script>
@@ -192,7 +199,7 @@ aside{
 
 input[type="search"]{
     background-color: aliceblue; 
-    max-width: 8rem;
+    max-width: 7rem;
     padding: 0.1rem;
     background-color: transparent;
     outline: 1px solid #00aacd;

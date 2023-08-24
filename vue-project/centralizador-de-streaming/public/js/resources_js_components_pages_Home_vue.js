@@ -65,7 +65,7 @@ __webpack_require__.r(__webpack_exports__);
         query: {
           id: movie.id,
           title: movie.title,
-          img: movie.img,
+          img: movie.image,
           description: movie.description,
           video: movie.video
         }
@@ -101,10 +101,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   props: {
     movies: {
       type: Array,
-      required: true // Make the movies prop required
+      required: true
     }
   },
-
   computed: {
     dotHelper: function dotHelper() {
       return this.slider ? _toConsumableArray(Array(this.slider.track.details.slides.length).keys()) : [];
@@ -154,14 +153,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   methods: {
     redirectToLogin: function redirectToLogin() {
-      // axios.get('/sair');
-      this.$router.push('/login');
+      window.location.href = '/sair';
     }
   }
 });
@@ -205,387 +200,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       user: {},
-      conselho: '',
-      principalMovie: [{
-        id: 1,
-        img: "https://www.publicitarioscriativos.com/wp-content/uploads/2019/08/Todos-os-po%CC%82steres-do-Universo-Cinematogra%CC%81fico-Marvel-em-alta-qualidade.png",
-        title: "Vingadores Ultimato",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 2,
-        img: "https://cinepop.com.br/wp-content/uploads/2022/11/avatar2_29.jpg",
-        title: "Avatar 2",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://v4.cdnpk.net/videvo_files/video/free/video0453/large_watermarked/_import_605f65a0c8cfa7.70318750_FPpreview.mp4"
-      }, {
-        id: 3,
-        img: "https://uploads.jovemnerd.com.br/wp-content/uploads/2018/10/deadpool-2-familia.jpg",
-        title: "Deadpool 2",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://v4.cdnpk.net/videvo_files/video/free/video0467/large_watermarked/_import_615005a8789b18.38685020_FPpreview.mp4"
-      }, {
-        id: 4,
-        img: "https://images.cgames.de/images/gamestar/290/joker_6078890.jpg",
-        title: "Coringa",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://v4.cdnpk.net/videvo_files/video/free/video0457/large_watermarked/_import_60bc622a5b8144.54299663_FPpreview.mp4"
-      }],
-      recommendedMovies: [{
-        id: 1,
-        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
-        img: "https://files.tecnoblog.net/wp-content/uploads/2020/12/ordem-filmes-harry-potter-e1609427898909-700x393.jpg",
-        title: "Filme 1",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 2,
-        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
-        img: "https://conteudo.imguol.com.br/c/entretenimento/f1/2021/11/15/o-poster-mostra-peter-parker-e-doutor-estranho-lutando-contra-os-viloes-dos-homem-aranha-antigos-1637010597234_v2_1x1.jpg",
-        title: "Filme 2",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 3,
-        streaming_logo: 'https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456',
-        img: "https://img.olhardigital.com.br/wp-content/uploads/2023/02/o-projeto-adam-divulgacao-netflix-1.png",
-        title: "Filme 3",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 4,
-        streaming_logo: 'https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456',
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIEN8hAzw3zJFEfnMlTrborAZon3HXAKHM1Q&usqp=CAU",
-        title: "Filme 4",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 5,
-        streaming_logo: 'https://c.clc2l.com/t/p/a/paramount-ZPsCyQ.png',
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREtz6-RrA7Xb75mXTBbEIs84VqzXpcMnF6CA&usqp=CAU",
-        title: "Filme 5",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 6,
-        streaming_logo: 'https://c.clc2l.com/t/p/a/paramount-ZPsCyQ.png',
-        img: "https://6vezes7.com.br/wp-content/uploads/2023/05/arte-blog-75-1024x576.png",
-        title: "Filme 6",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 7,
-        streaming_logo: 'https://cdn.windowsreport.com/wp-content/uploads/sites/3/2021/01/Amazon-Prime-a-bloque-le-VPN_Voici-ce-qui-marche-encore.jpg',
-        img: "https://i.pinimg.com/originals/a0/47/91/a047914690fb35a8ce4f06d743ceb23a.png",
-        title: "Filme 7",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 8,
-        streaming_logo: 'https://cdn.windowsreport.com/wp-content/uploads/sites/3/2021/01/Amazon-Prime-a-bloque-le-VPN_Voici-ce-qui-marche-encore.jpg',
-        img: "https://br.web.img3.acsta.net/r_1280_720/newsv7/20/04/22/22/18/1797065.jpg",
-        title: "Filme 8",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 9,
-        streaming_logo: 'https://play-lh.googleusercontent.com/aZLb5JKvnzXBAcaU2M9fsgp0vfYBfsXQu_yHaehDzqMDqxCXixVPOdY3y1kWVfJfSBew=w240-h480-rw',
-        img: "https://uploads.jovemnerd.com.br/wp-content/uploads/2021/02/destruicao-final-amazon.jpg",
-        title: "Filme 9",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 10,
-        streaming_logo: 'https://play-lh.googleusercontent.com/aZLb5JKvnzXBAcaU2M9fsgp0vfYBfsXQu_yHaehDzqMDqxCXixVPOdY3y1kWVfJfSBew=w240-h480-rw',
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdAmrUJHKHsdxN0yQazjyv7O0-D-bQy9Jqw&usqp=CAU",
-        title: "Filme 10",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }],
-      acctionMovies: [{
-        id: 1,
-        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
-        img: "https://s2.glbimg.com/uYRv1HsL0I1mVRHxND5W6_b5R4E=/620x413/top/e.glbimg.com/og/ed/f/original/2019/03/20/mv5bndjjmtqzm2mtnteyzs00y2filwi1ngmtmmy0m2y5yjrimwu1xkeyxkfqcgdeqxvynjk3nju0ndy._v1_sx1777_cr001777999_al_.jpg",
-        title: "Filme 1",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 2,
-        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
-        img: "https://img.wallpapic-br.com/i6762-343-437/medium/tomb-raider-filmes-poster-filme-de-acao-imagem-de-fundo.jpg",
-        title: "Filme 2",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 3,
-        streaming_logo: 'https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456',
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFz-uo4bncM9B2I_WWWRB3TyDEvDnlkoupsKmZ8BI5WZMJMLdzn6uu6Ry8c1TaZ795c2s&usqp=CAU",
-        title: "Filme 3",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 4,
-        streaming_logo: 'https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456',
-        img: "https://static1.purebreak.com.br/articles/0/10/24/20/@/425265-tambem-ha-filmes-de-acao-natalinos-e-d-700x700-2.jpg",
-        title: "Filme 4",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 5,
-        streaming_logo: 'https://c.clc2l.com/t/p/a/paramount-ZPsCyQ.png',
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJgrywbDSAChA7In3ejJleDRF7jyJ3BZhTrw&usqp=CAU",
-        title: "Filme 5",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 6,
-        streaming_logo: 'https://c.clc2l.com/t/p/a/paramount-ZPsCyQ.png',
-        img: "https://br.web.img3.acsta.net/pictures/210/140/21014018_2013061921374075.jpg",
-        title: "Filme 6",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 7,
-        streaming_logo: 'https://cdn.windowsreport.com/wp-content/uploads/sites/3/2021/01/Amazon-Prime-a-bloque-le-VPN_Voici-ce-qui-marche-encore.jpg',
-        img: "https://d3alv7ekdacjys.cloudfront.net/Custom/Content/Products/10/99/1099133_capitao-america-guerra-civil-filme-acao-ms_m1_637383523771667202.jpg",
-        title: "Filme 7",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 8,
-        streaming_logo: 'https://cdn.windowsreport.com/wp-content/uploads/sites/3/2021/01/Amazon-Prime-a-bloque-le-VPN_Voici-ce-qui-marche-encore.jpg',
-        img: "https://br.web.img3.acsta.net/r_1280_720/newsv7/20/04/22/22/18/1797065.jpg",
-        title: "Filme 8",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 9,
-        streaming_logo: 'https://play-lh.googleusercontent.com/aZLb5JKvnzXBAcaU2M9fsgp0vfYBfsXQu_yHaehDzqMDqxCXixVPOdY3y1kWVfJfSBew=w240-h480-rw',
-        img: "https://uploads.jovemnerd.com.br/wp-content/uploads/2021/02/destruicao-final-amazon.jpg",
-        title: "Filme 9",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 10,
-        streaming_logo: 'https://play-lh.googleusercontent.com/aZLb5JKvnzXBAcaU2M9fsgp0vfYBfsXQu_yHaehDzqMDqxCXixVPOdY3y1kWVfJfSBew=w240-h480-rw',
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdAmrUJHKHsdxN0yQazjyv7O0-D-bQy9Jqw&usqp=CAU",
-        title: "Filme 10",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }],
-      adventureMovies: [{
-        id: 1,
-        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
-        img: "https://files.tecnoblog.net/wp-content/uploads/2020/12/ordem-filmes-harry-potter-e1609427898909-700x393.jpg",
-        title: "Filme 1",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 2,
-        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
-        img: "https://conteudo.imguol.com.br/c/entretenimento/f1/2021/11/15/o-poster-mostra-peter-parker-e-doutor-estranho-lutando-contra-os-viloes-dos-homem-aranha-antigos-1637010597234_v2_1x1.jpg",
-        title: "Filme 2",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 3,
-        streaming_logo: 'https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456',
-        img: "https://img.olhardigital.com.br/wp-content/uploads/2023/02/o-projeto-adam-divulgacao-netflix-1.png",
-        title: "Filme 3",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 4,
-        streaming_logo: 'https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456',
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIEN8hAzw3zJFEfnMlTrborAZon3HXAKHM1Q&usqp=CAU",
-        title: "Filme 4",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 5,
-        streaming_logo: 'https://c.clc2l.com/t/p/a/paramount-ZPsCyQ.png',
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREtz6-RrA7Xb75mXTBbEIs84VqzXpcMnF6CA&usqp=CAU",
-        title: "Filme 5",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 6,
-        streaming_logo: 'https://c.clc2l.com/t/p/a/paramount-ZPsCyQ.png',
-        img: "https://6vezes7.com.br/wp-content/uploads/2023/05/arte-blog-75-1024x576.png",
-        title: "Filme 6",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 7,
-        streaming_logo: 'https://cdn.windowsreport.com/wp-content/uploads/sites/3/2021/01/Amazon-Prime-a-bloque-le-VPN_Voici-ce-qui-marche-encore.jpg',
-        img: "https://i.pinimg.com/originals/a0/47/91/a047914690fb35a8ce4f06d743ceb23a.png",
-        title: "Filme 7",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 8,
-        streaming_logo: 'https://cdn.windowsreport.com/wp-content/uploads/sites/3/2021/01/Amazon-Prime-a-bloque-le-VPN_Voici-ce-qui-marche-encore.jpg',
-        img: "https://br.web.img3.acsta.net/r_1280_720/newsv7/20/04/22/22/18/1797065.jpg",
-        title: "Filme 8",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 9,
-        streaming_logo: 'https://play-lh.googleusercontent.com/aZLb5JKvnzXBAcaU2M9fsgp0vfYBfsXQu_yHaehDzqMDqxCXixVPOdY3y1kWVfJfSBew=w240-h480-rw',
-        img: "https://uploads.jovemnerd.com.br/wp-content/uploads/2021/02/destruicao-final-amazon.jpg",
-        title: "Filme 9",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 10,
-        streaming_logo: 'https://play-lh.googleusercontent.com/aZLb5JKvnzXBAcaU2M9fsgp0vfYBfsXQu_yHaehDzqMDqxCXixVPOdY3y1kWVfJfSBew=w240-h480-rw',
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdAmrUJHKHsdxN0yQazjyv7O0-D-bQy9Jqw&usqp=CAU",
-        title: "Filme 10",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }],
-      terrorMovies: [{
-        id: 1,
-        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
-        img: "https://files.tecnoblog.net/wp-content/uploads/2020/12/ordem-filmes-harry-potter-e1609427898909-700x393.jpg",
-        title: "Filme 1",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 2,
-        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
-        img: "https://conteudo.imguol.com.br/c/entretenimento/f1/2021/11/15/o-poster-mostra-peter-parker-e-doutor-estranho-lutando-contra-os-viloes-dos-homem-aranha-antigos-1637010597234_v2_1x1.jpg",
-        title: "Filme 2",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 3,
-        streaming_logo: 'https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456',
-        img: "https://img.olhardigital.com.br/wp-content/uploads/2023/02/o-projeto-adam-divulgacao-netflix-1.png",
-        title: "Filme 3",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 4,
-        streaming_logo: 'https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456',
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIEN8hAzw3zJFEfnMlTrborAZon3HXAKHM1Q&usqp=CAU",
-        title: "Filme 4",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 5,
-        streaming_logo: 'https://c.clc2l.com/t/p/a/paramount-ZPsCyQ.png',
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREtz6-RrA7Xb75mXTBbEIs84VqzXpcMnF6CA&usqp=CAU",
-        title: "Filme 5",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 6,
-        streaming_logo: 'https://c.clc2l.com/t/p/a/paramount-ZPsCyQ.png',
-        img: "https://6vezes7.com.br/wp-content/uploads/2023/05/arte-blog-75-1024x576.png",
-        title: "Filme 6",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 7,
-        streaming_logo: 'https://cdn.windowsreport.com/wp-content/uploads/sites/3/2021/01/Amazon-Prime-a-bloque-le-VPN_Voici-ce-qui-marche-encore.jpg',
-        img: "https://i.pinimg.com/originals/a0/47/91/a047914690fb35a8ce4f06d743ceb23a.png",
-        title: "Filme 7",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 8,
-        streaming_logo: 'https://cdn.windowsreport.com/wp-content/uploads/sites/3/2021/01/Amazon-Prime-a-bloque-le-VPN_Voici-ce-qui-marche-encore.jpg',
-        img: "https://br.web.img3.acsta.net/r_1280_720/newsv7/20/04/22/22/18/1797065.jpg",
-        title: "Filme 8",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 9,
-        streaming_logo: 'https://play-lh.googleusercontent.com/aZLb5JKvnzXBAcaU2M9fsgp0vfYBfsXQu_yHaehDzqMDqxCXixVPOdY3y1kWVfJfSBew=w240-h480-rw',
-        img: "https://uploads.jovemnerd.com.br/wp-content/uploads/2021/02/destruicao-final-amazon.jpg",
-        title: "Filme 9",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 10,
-        streaming_logo: 'https://play-lh.googleusercontent.com/aZLb5JKvnzXBAcaU2M9fsgp0vfYBfsXQu_yHaehDzqMDqxCXixVPOdY3y1kWVfJfSBew=w240-h480-rw',
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdAmrUJHKHsdxN0yQazjyv7O0-D-bQy9Jqw&usqp=CAU",
-        title: "Filme 10",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }],
-      romanceMovies: [{
-        id: 1,
-        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
-        img: "https://files.tecnoblog.net/wp-content/uploads/2020/12/ordem-filmes-harry-potter-e1609427898909-700x393.jpg",
-        title: "Filme 1",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 2,
-        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
-        img: "https://conteudo.imguol.com.br/c/entretenimento/f1/2021/11/15/o-poster-mostra-peter-parker-e-doutor-estranho-lutando-contra-os-viloes-dos-homem-aranha-antigos-1637010597234_v2_1x1.jpg",
-        title: "Filme 2",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 3,
-        streaming_logo: 'https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456',
-        img: "https://img.olhardigital.com.br/wp-content/uploads/2023/02/o-projeto-adam-divulgacao-netflix-1.png",
-        title: "Filme 3",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 4,
-        streaming_logo: 'https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456',
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIEN8hAzw3zJFEfnMlTrborAZon3HXAKHM1Q&usqp=CAU",
-        title: "Filme 4",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 5,
-        streaming_logo: 'https://c.clc2l.com/t/p/a/paramount-ZPsCyQ.png',
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREtz6-RrA7Xb75mXTBbEIs84VqzXpcMnF6CA&usqp=CAU",
-        title: "Filme 5",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 6,
-        streaming_logo: 'https://c.clc2l.com/t/p/a/paramount-ZPsCyQ.png',
-        img: "https://6vezes7.com.br/wp-content/uploads/2023/05/arte-blog-75-1024x576.png",
-        title: "Filme 6",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 7,
-        streaming_logo: 'https://cdn.windowsreport.com/wp-content/uploads/sites/3/2021/01/Amazon-Prime-a-bloque-le-VPN_Voici-ce-qui-marche-encore.jpg',
-        img: "https://i.pinimg.com/originals/a0/47/91/a047914690fb35a8ce4f06d743ceb23a.png",
-        title: "Filme 7",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 8,
-        streaming_logo: 'https://cdn.windowsreport.com/wp-content/uploads/sites/3/2021/01/Amazon-Prime-a-bloque-le-VPN_Voici-ce-qui-marche-encore.jpg',
-        img: "https://br.web.img3.acsta.net/r_1280_720/newsv7/20/04/22/22/18/1797065.jpg",
-        title: "Filme 8",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 9,
-        streaming_logo: 'https://play-lh.googleusercontent.com/aZLb5JKvnzXBAcaU2M9fsgp0vfYBfsXQu_yHaehDzqMDqxCXixVPOdY3y1kWVfJfSBew=w240-h480-rw',
-        img: "https://uploads.jovemnerd.com.br/wp-content/uploads/2021/02/destruicao-final-amazon.jpg",
-        title: "Filme 9",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 10,
-        streaming_logo: 'https://play-lh.googleusercontent.com/aZLb5JKvnzXBAcaU2M9fsgp0vfYBfsXQu_yHaehDzqMDqxCXixVPOdY3y1kWVfJfSBew=w240-h480-rw',
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdAmrUJHKHsdxN0yQazjyv7O0-D-bQy9Jqw&usqp=CAU",
-        title: "Filme 10",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }]
+      principalMovie: [],
+      recommendedMovies: [],
+      acctionMovies: [],
+      adventureMovies: [],
+      terrorMovies: [],
+      romanceMovies: []
     };
   },
   methods: {
@@ -608,51 +228,74 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case 3:
               dados = _context.sent;
               _this.user = dados;
-              console.log(_this.user);
-              _context.next = 11;
+              _context.next = 10;
               break;
-            case 8:
-              _context.prev = 8;
+            case 7:
+              _context.prev = 7;
               _context.t0 = _context["catch"](0);
               console.error("Erro ao obter usuário:", _context.t0);
-            case 11:
+            case 10:
             case "end":
               return _context.stop();
           }
-        }, _callee, null, [[0, 8]]);
+        }, _callee, null, [[0, 7]]);
       }))();
     },
-    dadosSobreChuckNorris: function dadosSobreChuckNorris() {
+    listMovies: function listMovies() {
       var _this2 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-        var dados;
+        var dadosPrincipal, dadosRecommended, dadosAcction, dadosAdventure, dadosTerror, dadosRomance;
         return _regeneratorRuntime().wrap(function _callee2$(_context2) {
           while (1) switch (_context2.prev = _context2.next) {
             case 0:
               _context2.prev = 0;
               _context2.next = 3;
-              return _services_Axios__WEBPACK_IMPORTED_MODULE_4__["default"].listarFilmes();
+              return _services_Axios__WEBPACK_IMPORTED_MODULE_4__["default"].listPrincipalMovies();
             case 3:
-              dados = _context2.sent;
-              _this2.conselho = dados;
-              console.log(_this2.conselho.value);
+              dadosPrincipal = _context2.sent;
+              _this2.principalMovie = dadosPrincipal;
+              _context2.next = 7;
+              return _services_Axios__WEBPACK_IMPORTED_MODULE_4__["default"].listRecommendedMovies();
+            case 7:
+              dadosRecommended = _context2.sent;
+              _this2.recommendedMovies = dadosRecommended;
               _context2.next = 11;
-              break;
-            case 8:
-              _context2.prev = 8;
-              _context2.t0 = _context2["catch"](0);
-              console.error("Erro ao obter conselho:", _context2.t0);
+              return _services_Axios__WEBPACK_IMPORTED_MODULE_4__["default"].listAcctionMovies();
             case 11:
+              dadosAcction = _context2.sent;
+              _this2.acctionMovies = dadosAcction;
+              _context2.next = 15;
+              return _services_Axios__WEBPACK_IMPORTED_MODULE_4__["default"].listAdventureMovies();
+            case 15:
+              dadosAdventure = _context2.sent;
+              _this2.adventureMovies = dadosAdventure;
+              _context2.next = 19;
+              return _services_Axios__WEBPACK_IMPORTED_MODULE_4__["default"].listTerrorMovies();
+            case 19:
+              dadosTerror = _context2.sent;
+              _this2.terrorMovies = dadosTerror;
+              _context2.next = 23;
+              return _services_Axios__WEBPACK_IMPORTED_MODULE_4__["default"].listRomanceMovies();
+            case 23:
+              dadosRomance = _context2.sent;
+              _this2.romanceMovies = dadosRomance;
+              _context2.next = 30;
+              break;
+            case 27:
+              _context2.prev = 27;
+              _context2.t0 = _context2["catch"](0);
+              console.error("Filme não encontrado!", _context2.t0);
+            case 30:
             case "end":
               return _context2.stop();
           }
-        }, _callee2, null, [[0, 8]]);
+        }, _callee2, null, [[0, 27]]);
       }))();
     }
   },
   created: function created() {
     this.dadosUsuario();
-    this.dadosSobreChuckNorris();
+    this.listMovies();
   }
 });
 
@@ -679,7 +322,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
       setTimeout(function () {
         _this.isLoading = false; // Set isLoading to false after a delay
-      }, 1000); // Adjust the delay as needed
+      }, 1700); // Adjust the delay as needed
     }
   },
   mounted: function mounted() {
@@ -723,7 +366,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       key: movie.id
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
       "class": "movie-img",
-      src: movie.img,
+      src: movie.image,
       alt: "",
       onClick: function onClick($event) {
         return $options.openInfoMovie(movie);
@@ -801,7 +444,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         return $options.openMovie(movie);
       }
     }, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Play")], 8 /* PROPS */, _hoisted_9), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button class=\"info-button\">More info</button> ")])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-      src: movie.img,
+      src: movie.image,
       alt: ""
     }, null, 8 /* PROPS */, _hoisted_11)]);
   }), 128 /* KEYED_FRAGMENT */))], 512 /* NEED_PATCH */)]), $data.slider ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_12, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.dotHelper, function (_slide, idx) {
@@ -876,79 +519,52 @@ var _hoisted_1 = {
 var _hoisted_2 = {
   "class": "homepage"
 };
-var _hoisted_3 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
-});
-var _hoisted_4 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
-});
-var _hoisted_5 = {
+var _hoisted_3 = {
+  "class": "principal-movies"
+};
+var _hoisted_4 = {
   "class": "recommended-movies"
 };
-var _hoisted_6 = {
+var _hoisted_5 = {
   "class": "search"
 };
-var _hoisted_7 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_6 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "Filmes Recomendados", -1 /* HOISTED */);
 });
-var _hoisted_8 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
-});
+var _hoisted_7 = {
+  "class": "acction-movies"
+};
+var _hoisted_8 = {
+  "class": "search"
+};
 var _hoisted_9 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "Filmes de Ação", -1 /* HOISTED */);
 });
 var _hoisted_10 = {
-  "class": "acction-movies"
+  "class": "adventure-movies"
 };
 var _hoisted_11 = {
   "class": "search"
 };
 var _hoisted_12 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "Filmes de Ação", -1 /* HOISTED */);
-});
-var _hoisted_13 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
-});
-var _hoisted_14 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
-});
-var _hoisted_15 = {
-  "class": "adventure-movies"
-};
-var _hoisted_16 = {
-  "class": "search"
-};
-var _hoisted_17 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "Filmes de Aventura", -1 /* HOISTED */);
 });
-var _hoisted_18 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
-});
-var _hoisted_19 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
-});
-var _hoisted_20 = {
+var _hoisted_13 = {
   "class": "terror-movies"
 };
-var _hoisted_21 = {
+var _hoisted_14 = {
   "class": "search"
 };
-var _hoisted_22 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_15 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "Filmes de Terror", -1 /* HOISTED */);
 });
-var _hoisted_23 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
-});
-var _hoisted_24 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
-});
-var _hoisted_25 = {
+var _hoisted_16 = {
   "class": "romance-movies"
 };
-var _hoisted_26 = {
+var _hoisted_17 = {
   "class": "search"
 };
-var _hoisted_27 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_18 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "Filmes de Romance", -1 /* HOISTED */);
 });
 
@@ -957,9 +573,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_PrincipalMovie = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("PrincipalMovie");
   var _component_MoviesSection = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("MoviesSection");
   var _component_Spinner = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Spinner");
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_PrincipalMovie, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [$data.principalMovie.length > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_PrincipalMovie, {
+    key: 0,
     movies: $data.principalMovie
-  }, null, 8 /* PROPS */, ["movies"]), _hoisted_3, _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, null, 8 /* PROPS */, ["movies"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "class": "header-search",
     type: "search",
     placeholder: "Pesquise",
@@ -968,7 +585,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }, null, 32 /* HYDRATE_EVENTS */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MoviesSection, {
     movies: $data.recommendedMovies
-  }, null, 8 /* PROPS */, ["movies"])]), _hoisted_8, _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, null, 8 /* PROPS */, ["movies"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "class": "header-search",
     type: "search",
     placeholder: "Pesquise",
@@ -977,7 +594,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }, null, 32 /* HYDRATE_EVENTS */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MoviesSection, {
     movies: $data.acctionMovies
-  }, null, 8 /* PROPS */, ["movies"])]), _hoisted_13, _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, null, 8 /* PROPS */, ["movies"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "class": "header-search",
     type: "search",
     placeholder: "Pesquise",
@@ -986,7 +603,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }, null, 32 /* HYDRATE_EVENTS */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MoviesSection, {
     movies: $data.adventureMovies
-  }, null, 8 /* PROPS */, ["movies"])]), _hoisted_18, _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, null, 8 /* PROPS */, ["movies"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "class": "header-search",
     type: "search",
     placeholder: "Pesquise",
@@ -995,7 +612,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }, null, 32 /* HYDRATE_EVENTS */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MoviesSection, {
     movies: $data.terrorMovies
-  }, null, 8 /* PROPS */, ["movies"])]), _hoisted_23, _hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [_hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, null, 8 /* PROPS */, ["movies"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "class": "header-search",
     type: "search",
     placeholder: "Pesquise",
@@ -1034,93 +651,6 @@ var _hoisted_3 = [_hoisted_2];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return $data.isLoading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, _hoisted_3)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true);
 }
-
-/***/ }),
-
-/***/ "./resources/js/api.js":
-/*!*****************************!*\
-  !*** ./resources/js/api.js ***!
-  \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
-
-var API_URL = process.env.VUE_APP_API_URL;
-var object = axios__WEBPACK_IMPORTED_MODULE_0___default().create({
-  baseURL: API_URL
-});
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (object);
-
-/***/ }),
-
-/***/ "./resources/js/services/Axios.js":
-/*!****************************************!*\
-  !*** ./resources/js/services/Axios.js ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../api */ "./resources/js/api.js");
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, defineProperty = Object.defineProperty || function (obj, key, desc) { obj[key] = desc.value; }, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return defineProperty(generator, "_invoke", { value: makeInvokeMethod(innerFn, self, context) }), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; defineProperty(this, "_invoke", { value: function value(method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return { value: void 0, done: !0 }; } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; } function maybeInvokeDelegate(delegate, context) { var methodName = context.method, method = delegate.iterator[methodName]; if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel; var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable || "" === iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; return next.value = undefined, next.done = !0, next; }; return next.next = next; } } throw new TypeError(_typeof(iterable) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), defineProperty(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (val) { var object = Object(val), keys = []; for (var key in object) keys.push(key); return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  getPerfil: function () {
-    var _getPerfil = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-      var dados;
-      return _regeneratorRuntime().wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/get-user');
-          case 2:
-            dados = _context.sent;
-            return _context.abrupt("return", dados.data);
-          case 4:
-          case "end":
-            return _context.stop();
-        }
-      }, _callee);
-    }));
-    function getPerfil() {
-      return _getPerfil.apply(this, arguments);
-    }
-    return getPerfil;
-  }(),
-  listarFilmes: function () {
-    var _listarFilmes = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-      var dados;
-      return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-        while (1) switch (_context2.prev = _context2.next) {
-          case 0:
-            _context2.next = 2;
-            return _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('https://api.chucknorris.io/jokes/random');
-          case 2:
-            dados = _context2.sent;
-            return _context2.abrupt("return", dados.data);
-          case 4:
-          case "end":
-            return _context2.stop();
-        }
-      }, _callee2);
-    }));
-    function listarFilmes() {
-      return _listarFilmes.apply(this, arguments);
-    }
-    return listarFilmes;
-  }()
-});
 
 /***/ }),
 
@@ -1247,7 +777,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.content[data-v-a9aac016] {\r\n  display: flex;\r\n  flex-direction: column;\r\n  height: 100%;\r\n  color:var(--light);\r\n  /* background-color: var(--blue); */\n}\n.homepage[data-v-a9aac016]{\r\n  margin-top: 84px;\r\n  /* background-color: blue ; */\r\n  margin-top: 5.5rem; \r\n  margin-right:8rem;\r\n  margin-left:8rem;\n}\n.search[data-v-a9aac016]{\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n  margin-bottom: 0.5rem;\n}\n.header-search[data-v-a9aac016] {\r\n  padding: 8px 25px;\r\n  background-color: transparent;\r\n  outline: 1px solid #00aacd;\r\n  border: none;\r\n  color: #fff;\r\n  border-radius: 4px;\r\n  transition: background-color 0.3s linear, outline 0.3s linear, color 0.3s linear;\n}\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.content[data-v-a9aac016] {\r\n  display: flex;\r\n  flex-direction: column;\r\n  height: 100%;\r\n  color:var(--light);\r\n  /* background-color: var(--blue); */\n}\n.homepage[data-v-a9aac016]{\r\n  margin-top: 84px;\r\n  /* background-color: blue ; */\r\n  margin-top: 5.5rem; \r\n  margin-right:8rem;\r\n  margin-left:8rem;\n}\n.search[data-v-a9aac016]{\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n  margin-bottom: 0.5rem;\n}\n.header-search[data-v-a9aac016] {\r\n  padding: 8px 25px;\r\n  background-color: transparent;\r\n  outline: 1px solid #00aacd;\r\n  border: none;\r\n  color: #fff;\r\n  border-radius: 4px;\r\n  transition: background-color 0.3s linear, outline 0.3s linear, color 0.3s linear;\n}\n.acction-movies[data-v-a9aac016], .adventure-movies[data-v-a9aac016],\r\n.terror-movies[data-v-a9aac016], .romance-movies[data-v-a9aac016]{\r\n  padding-top: 4rem;\n}\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1270,7 +800,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.spin{\r\n    z-index: 2;\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: rgba(0, 0, 0, 0.5);\r\n    position: fixed;\n}\n.ring{\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    margin: 0 auto;\r\n    height: 100%;\n}\n.lds-roller {\r\n  display: inline-block;\r\n  position: relative;\r\n  width: 80px;\r\n  height: 80px;\n}\n.lds-roller div {\r\n  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;\r\n  transform-origin: 40px 40px;\n}\n.lds-roller div:after {\r\n  content: \" \";\r\n  display: block;\r\n  position: absolute;\r\n  width: 7px;\r\n  height: 7px;\r\n  border-radius: 50%;\r\n  background: #fff;\r\n  margin: -4px 0 0 -4px;\n}\n.lds-roller div:nth-child(1) {\r\n  animation-delay: -0.036s;\n}\n.lds-roller div:nth-child(1):after {\r\n  top: 63px;\r\n  left: 63px;\n}\n.lds-roller div:nth-child(2) {\r\n  animation-delay: -0.072s;\n}\n.lds-roller div:nth-child(2):after {\r\n  top: 68px;\r\n  left: 56px;\n}\n.lds-roller div:nth-child(3) {\r\n  animation-delay: -0.108s;\n}\n.lds-roller div:nth-child(3):after {\r\n  top: 71px;\r\n  left: 48px;\n}\n.lds-roller div:nth-child(4) {\r\n  animation-delay: -0.144s;\n}\n.lds-roller div:nth-child(4):after {\r\n  top: 72px;\r\n  left: 40px;\n}\n.lds-roller div:nth-child(5) {\r\n  animation-delay: -0.18s;\n}\n.lds-roller div:nth-child(5):after {\r\n  top: 71px;\r\n  left: 32px;\n}\n.lds-roller div:nth-child(6) {\r\n  animation-delay: -0.216s;\n}\n.lds-roller div:nth-child(6):after {\r\n  top: 68px;\r\n  left: 24px;\n}\n.lds-roller div:nth-child(7) {\r\n  animation-delay: -0.252s;\n}\n.lds-roller div:nth-child(7):after {\r\n  top: 63px;\r\n  left: 17px;\n}\n.lds-roller div:nth-child(8) {\r\n  animation-delay: -0.288s;\n}\n.lds-roller div:nth-child(8):after {\r\n  top: 56px;\r\n  left: 12px;\n}\n@keyframes lds-roller {\n0% {\r\n    transform: rotate(0deg);\n}\n100% {\r\n    transform: rotate(360deg);\n}\n}\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.spin{\r\n    z-index: 2;\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: rgba(0, 0, 0, 1);\r\n    position: fixed;\n}\n.ring{\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    margin: 0 auto;\r\n    height: 100%;\n}\n.lds-roller {\r\n  display: inline-block;\r\n  position: relative;\r\n  width: 80px;\r\n  height: 80px;\n}\n.lds-roller div {\r\n  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;\r\n  transform-origin: 40px 40px;\n}\n.lds-roller div:after {\r\n  content: \" \";\r\n  display: block;\r\n  position: absolute;\r\n  width: 7px;\r\n  height: 7px;\r\n  border-radius: 50%;\r\n  background: #fff;\r\n  margin: -4px 0 0 -4px;\n}\n.lds-roller div:nth-child(1) {\r\n  animation-delay: -0.036s;\n}\n.lds-roller div:nth-child(1):after {\r\n  top: 63px;\r\n  left: 63px;\n}\n.lds-roller div:nth-child(2) {\r\n  animation-delay: -0.072s;\n}\n.lds-roller div:nth-child(2):after {\r\n  top: 68px;\r\n  left: 56px;\n}\n.lds-roller div:nth-child(3) {\r\n  animation-delay: -0.108s;\n}\n.lds-roller div:nth-child(3):after {\r\n  top: 71px;\r\n  left: 48px;\n}\n.lds-roller div:nth-child(4) {\r\n  animation-delay: -0.144s;\n}\n.lds-roller div:nth-child(4):after {\r\n  top: 72px;\r\n  left: 40px;\n}\n.lds-roller div:nth-child(5) {\r\n  animation-delay: -0.18s;\n}\n.lds-roller div:nth-child(5):after {\r\n  top: 71px;\r\n  left: 32px;\n}\n.lds-roller div:nth-child(6) {\r\n  animation-delay: -0.216s;\n}\n.lds-roller div:nth-child(6):after {\r\n  top: 68px;\r\n  left: 24px;\n}\n.lds-roller div:nth-child(7) {\r\n  animation-delay: -0.252s;\n}\n.lds-roller div:nth-child(7):after {\r\n  top: 63px;\r\n  left: 17px;\n}\n.lds-roller div:nth-child(8) {\r\n  animation-delay: -0.288s;\n}\n.lds-roller div:nth-child(8):after {\r\n  top: 56px;\r\n  left: 12px;\n}\n@keyframes lds-roller {\n0% {\r\n    transform: rotate(0deg);\n}\n100% {\r\n    transform: rotate(360deg);\n}\n}\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -21,7 +21,7 @@ export default {
     simulateLoading() {
       setTimeout(() => {
         this.isLoading = false; // Set isLoading to false after a delay
-      }, 1000); // Adjust the delay as needed
+      }, 1700); // Adjust the delay as needed
     },
   },
   mounted() {
@@ -37,7 +37,7 @@ export default {
     z-index: 2;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 1);
     position: fixed;
 }
 .ring{
