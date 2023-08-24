@@ -109,7 +109,7 @@ export default {
   flex-direction: column;
   height: 100%;
   color:var(--light);
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
     url('https://www.novamulher.com/resizer/32JrAxq0O4GZMrlAhtKVNTQXyh4=/800x0/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/IPD6FQCKKRDI3GPM5C3DLORXBE.jpeg');
   background-size: cover;
   background-attachment: fixed;

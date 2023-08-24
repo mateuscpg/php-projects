@@ -109,7 +109,7 @@ export default {
   flex-direction: column;
   height: 100%;
   color:var(--light);
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
     url('https://saiadazonadeconforto.com.br/wp-content/uploads/2018/08/Jumanji.jpg');
   background-size: cover;
   background-attachment: fixed;

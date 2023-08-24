@@ -109,7 +109,7 @@ export default {
   flex-direction: column;
   height: 100%;
   color:var(--light);
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
     url('https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2022/01/Panico-5-filmes-terror.jpg?w=876&h=484&crop=1');
   background-size: cover;
   background-attachment: fixed;

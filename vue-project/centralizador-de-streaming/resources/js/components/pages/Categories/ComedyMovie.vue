@@ -109,7 +109,7 @@ export default {
   flex-direction: column;
   height: 100%;
   color:var(--light);
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
     url('https://segredosdomundo.r7.com/wp-content/uploads/2019/08/20-filmes-de-comedia-para-voce-chorar-de-tanto-rir-3.jpg');
   background-size: cover;
   background-attachment: fixed;
