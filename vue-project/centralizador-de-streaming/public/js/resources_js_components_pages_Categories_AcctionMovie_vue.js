@@ -46,7 +46,7 @@ __webpack_require__.r(__webpack_exports__);
           loop: true,
           mode: "free-snap",
           slides: {
-            perView: 6,
+            perView: 8,
             spacing: 8
           }
         });
@@ -177,8 +177,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mixins_Spinner_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../mixins/Spinner.vue */ "./resources/js/mixins/Spinner.vue");
 /* harmony import */ var _Carousel_MoviesSection_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Carousel/MoviesSection.vue */ "./resources/js/components/Carousel/MoviesSection.vue");
 /* harmony import */ var _Carousel_PrincipalMovie_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Carousel/PrincipalMovie.vue */ "./resources/js/components/Carousel/PrincipalMovie.vue");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _services_Axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/Axios */ "./resources/js/services/Axios.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_5__);
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, defineProperty = Object.defineProperty || function (obj, key, desc) { obj[key] = desc.value; }, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return defineProperty(generator, "_invoke", { value: makeInvokeMethod(innerFn, self, context) }), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; defineProperty(this, "_invoke", { value: function value(method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return { value: void 0, done: !0 }; } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; } function maybeInvokeDelegate(delegate, context) { var methodName = context.method, method = delegate.iterator[methodName]; if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel; var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable || "" === iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; return next.value = undefined, next.done = !0, next; }; return next.next = next; } } throw new TypeError(_typeof(iterable) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), defineProperty(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (val) { var object = Object(val), keys = []; for (var key in object) keys.push(key); return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 
 
 
@@ -221,148 +227,8 @@ __webpack_require__.r(__webpack_exports__);
         description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
         video: "https://v4.cdnpk.net/videvo_files/video/free/video0457/large_watermarked/_import_60bc622a5b8144.54299663_FPpreview.mp4"
       }],
-      recommendedMovies: [{
-        id: 1,
-        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
-        img: "https://files.tecnoblog.net/wp-content/uploads/2020/12/ordem-filmes-harry-potter-e1609427898909-700x393.jpg",
-        title: "Filme 1",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 2,
-        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
-        img: "https://conteudo.imguol.com.br/c/entretenimento/f1/2021/11/15/o-poster-mostra-peter-parker-e-doutor-estranho-lutando-contra-os-viloes-dos-homem-aranha-antigos-1637010597234_v2_1x1.jpg",
-        title: "Filme 2",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 3,
-        streaming_logo: 'https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456',
-        img: "https://img.olhardigital.com.br/wp-content/uploads/2023/02/o-projeto-adam-divulgacao-netflix-1.png",
-        title: "Filme 3",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 4,
-        streaming_logo: 'https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456',
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIEN8hAzw3zJFEfnMlTrborAZon3HXAKHM1Q&usqp=CAU",
-        title: "Filme 4",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 5,
-        streaming_logo: 'https://c.clc2l.com/t/p/a/paramount-ZPsCyQ.png',
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREtz6-RrA7Xb75mXTBbEIs84VqzXpcMnF6CA&usqp=CAU",
-        title: "Filme 5",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 6,
-        streaming_logo: 'https://c.clc2l.com/t/p/a/paramount-ZPsCyQ.png',
-        img: "https://6vezes7.com.br/wp-content/uploads/2023/05/arte-blog-75-1024x576.png",
-        title: "Filme 6",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 7,
-        streaming_logo: 'https://cdn.windowsreport.com/wp-content/uploads/sites/3/2021/01/Amazon-Prime-a-bloque-le-VPN_Voici-ce-qui-marche-encore.jpg',
-        img: "https://i.pinimg.com/originals/a0/47/91/a047914690fb35a8ce4f06d743ceb23a.png",
-        title: "Filme 7",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 8,
-        streaming_logo: 'https://cdn.windowsreport.com/wp-content/uploads/sites/3/2021/01/Amazon-Prime-a-bloque-le-VPN_Voici-ce-qui-marche-encore.jpg',
-        img: "https://br.web.img3.acsta.net/r_1280_720/newsv7/20/04/22/22/18/1797065.jpg",
-        title: "Filme 8",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 9,
-        streaming_logo: 'https://play-lh.googleusercontent.com/aZLb5JKvnzXBAcaU2M9fsgp0vfYBfsXQu_yHaehDzqMDqxCXixVPOdY3y1kWVfJfSBew=w240-h480-rw',
-        img: "https://uploads.jovemnerd.com.br/wp-content/uploads/2021/02/destruicao-final-amazon.jpg",
-        title: "Filme 9",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 10,
-        streaming_logo: 'https://play-lh.googleusercontent.com/aZLb5JKvnzXBAcaU2M9fsgp0vfYBfsXQu_yHaehDzqMDqxCXixVPOdY3y1kWVfJfSBew=w240-h480-rw',
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdAmrUJHKHsdxN0yQazjyv7O0-D-bQy9Jqw&usqp=CAU",
-        title: "Filme 10",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }],
-      acctionMovies: [{
-        id: 1,
-        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
-        img: "https://s2.glbimg.com/uYRv1HsL0I1mVRHxND5W6_b5R4E=/620x413/top/e.glbimg.com/og/ed/f/original/2019/03/20/mv5bndjjmtqzm2mtnteyzs00y2filwi1ngmtmmy0m2y5yjrimwu1xkeyxkfqcgdeqxvynjk3nju0ndy._v1_sx1777_cr001777999_al_.jpg",
-        title: "Filme 1",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 2,
-        streaming_logo: 'https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png',
-        img: "https://img.wallpapic-br.com/i6762-343-437/medium/tomb-raider-filmes-poster-filme-de-acao-imagem-de-fundo.jpg",
-        title: "Filme 2",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 3,
-        streaming_logo: 'https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456',
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFz-uo4bncM9B2I_WWWRB3TyDEvDnlkoupsKmZ8BI5WZMJMLdzn6uu6Ry8c1TaZ795c2s&usqp=CAU",
-        title: "Filme 3",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 4,
-        streaming_logo: 'https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456',
-        img: "https://static1.purebreak.com.br/articles/0/10/24/20/@/425265-tambem-ha-filmes-de-acao-natalinos-e-d-700x700-2.jpg",
-        title: "Filme 4",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 5,
-        streaming_logo: 'https://c.clc2l.com/t/p/a/paramount-ZPsCyQ.png',
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJgrywbDSAChA7In3ejJleDRF7jyJ3BZhTrw&usqp=CAU",
-        title: "Filme 5",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 6,
-        streaming_logo: 'https://c.clc2l.com/t/p/a/paramount-ZPsCyQ.png',
-        img: "https://br.web.img3.acsta.net/pictures/210/140/21014018_2013061921374075.jpg",
-        title: "Filme 6",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 7,
-        streaming_logo: 'https://cdn.windowsreport.com/wp-content/uploads/sites/3/2021/01/Amazon-Prime-a-bloque-le-VPN_Voici-ce-qui-marche-encore.jpg',
-        img: "https://d3alv7ekdacjys.cloudfront.net/Custom/Content/Products/10/99/1099133_capitao-america-guerra-civil-filme-acao-ms_m1_637383523771667202.jpg",
-        title: "Filme 7",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 8,
-        streaming_logo: 'https://cdn.windowsreport.com/wp-content/uploads/sites/3/2021/01/Amazon-Prime-a-bloque-le-VPN_Voici-ce-qui-marche-encore.jpg',
-        img: "https://br.web.img3.acsta.net/r_1280_720/newsv7/20/04/22/22/18/1797065.jpg",
-        title: "Filme 8",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 9,
-        streaming_logo: 'https://play-lh.googleusercontent.com/aZLb5JKvnzXBAcaU2M9fsgp0vfYBfsXQu_yHaehDzqMDqxCXixVPOdY3y1kWVfJfSBew=w240-h480-rw',
-        img: "https://uploads.jovemnerd.com.br/wp-content/uploads/2021/02/destruicao-final-amazon.jpg",
-        title: "Filme 9",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }, {
-        id: 10,
-        streaming_logo: 'https://play-lh.googleusercontent.com/aZLb5JKvnzXBAcaU2M9fsgp0vfYBfsXQu_yHaehDzqMDqxCXixVPOdY3y1kWVfJfSBew=w240-h480-rw',
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdAmrUJHKHsdxN0yQazjyv7O0-D-bQy9Jqw&usqp=CAU",
-        title: "Filme 10",
-        description: "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia.",
-        video: "https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4"
-      }]
+      recommendedMovies: [],
+      acctionMovies: []
     };
   },
   methods: {
@@ -371,9 +237,35 @@ __webpack_require__.r(__webpack_exports__);
         var searchQuery = event.target.value;
         console.log("Pesquisar filmes da categoria: " + moviesCategory + " com a consulta: " + searchQuery);
       }
+    },
+    listMovies: function listMovies() {
+      var _this = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var dadosRecommended, dadosAcction;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _services_Axios__WEBPACK_IMPORTED_MODULE_4__["default"].listRecommendedMovies();
+            case 2:
+              dadosRecommended = _context.sent;
+              _this.recommendedMovies = dadosRecommended;
+              _context.next = 6;
+              return _services_Axios__WEBPACK_IMPORTED_MODULE_4__["default"].listAcctionMovies();
+            case 6:
+              dadosAcction = _context.sent;
+              _this.acctionMovies = dadosAcction;
+            case 8:
+            case "end":
+              return _context.stop();
+          }
+        }, _callee);
+      }))();
     }
   },
-  created: function created() {}
+  created: function created() {
+    this.listMovies();
+  }
 });
 
 /***/ }),
@@ -399,7 +291,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
       setTimeout(function () {
         _this.isLoading = false; // Set isLoading to false after a delay
-      }, 1700); // Adjust the delay as needed
+      }, 1400); // Adjust the delay as needed
     }
   },
   mounted: function mounted() {
@@ -558,19 +450,16 @@ var _withScopeId = function _withScopeId(n) {
 var _hoisted_1 = {
   "class": "header"
 };
-var _hoisted_2 = {
-  "class": "buttons-container"
-};
-var _hoisted_3 = {
-  "class": "right-container"
-};
+var _hoisted_2 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "buttons-container"
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <h3 style=\"color: var(--blue);\">STREAMING</h3> \r\n      <h3 style=\"color: var(--pink);\">CENTRALIZER</h3> "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "right-container"
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <a href=\"#\" class=\"icon-search\">\r\n          <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" fill=\"currentColor\" class=\"bi bi-search\" viewBox=\"0 0 16 16\">\r\n            <path d=\"M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z\"/>\r\n          </svg>\r\n        </a>\r\n\r\n        <input class=\"header-search\" type=\"search\" placeholder=\"Pesquise\"> "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button class=\"sair-button\" @click=\"redirectToLogin\">Sair</button> ")])], -1 /* HOISTED */);
+});
+var _hoisted_3 = [_hoisted_2];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("header", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <h3 style=\"color: var(--blue);\">STREAMING</h3> \r\n      <h3 style=\"color: var(--pink);\">CENTRALIZER</h3> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <a href=\"#\" class=\"icon-search\">\r\n          <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" fill=\"currentColor\" class=\"bi bi-search\" viewBox=\"0 0 16 16\">\r\n            <path d=\"M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z\"/>\r\n          </svg>\r\n        </a>\r\n\r\n        <input class=\"header-search\" type=\"search\" placeholder=\"Pesquise\"> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    "class": "sair-button",
-    onClick: _cache[0] || (_cache[0] = function () {
-      return $options.redirectToLogin && $options.redirectToLogin.apply($options, arguments);
-    })
-  }, "Sair")])])]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("header", _hoisted_1, _hoisted_3);
 }
 
 /***/ }),
@@ -682,8 +571,8 @@ var _hoisted_1 = {
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "ring"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "lds-roller"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div")])], -1 /* HOISTED */);
+  "class": "lds-ellipsis"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div")])], -1 /* HOISTED */);
 var _hoisted_3 = [_hoisted_2];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return $data.isLoading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, _hoisted_3)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true);
@@ -745,7 +634,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.keen-slider[data-v-0035223e] {\r\n  display: flex;\n}\n.keen-slider__slide[data-v-0035223e] {\r\n  width: 100%;\r\n  display: flex;\r\n  background-color: rgba(75, 73, 73, 0.486);\r\n  flex-direction: column;\r\n  align-items: center; \r\n  justify-content: center;\n}\n.movie-img[data-v-0035223e] {\r\n  width: 100%;\r\n  height: 100%;\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\r\n  max-height: 250px;\r\n  cursor: pointer; \r\n  filter: brightness(100%); \r\n  transition: filter 0.3s ease;\n}\n.movie-img[data-v-0035223e]:hover {\r\n  /* outline: 2px solid var(--blue); */\r\n  filter: brightness(70%);\n}\n.movie-title[data-v-0035223e] {\r\n  margin: 15px 0px;\r\n  font-size: 18px;\r\n  font-weight: 2px;\r\n  color: var(--light);\n}\n.streaming-logo[data-v-0035223e]{\r\n  width: 30px; \r\n  height: 30px; \r\n  border-radius: 50%;\r\n  position: absolute;\r\n  right: 0.5rem;\r\n  top: 0.5rem;\r\n  z-index: 3;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.keen-slider[data-v-0035223e] {\r\n  display: flex;\r\n  padding: 2px;\n}\n.keen-slider__slide[data-v-0035223e] {\r\n  width: 100%;\r\n  display: flex;\r\n  border-radius: 5px;\r\n  background-color: rgba(75, 73, 73, 0.486);\r\n  /* background-color: transparent;\r\n  outline: 1px solid white; */\r\n  flex-direction: column;\r\n  align-items: center; \r\n  justify-content: center;\n}\n.keen-slider__slide.slides[data-v-0035223e]\r\n{\r\n  /* transition: background-color 0.3s linear, outline 0s linear, color 0.1s linear; */\n}\n.keen-slider__slide.slides[data-v-0035223e]:hover {\r\n  background-color: rgba(75, 73, 73, 0.8); /* Cor com maior opacidade */\r\n  opacity: 1; /* Mostra o cartão completo */\r\n  outline: 2px solid var(--blue);\r\n  transform: scale(1.05) translateY(-5px);\n}\n.movie-img[data-v-0035223e] {\r\n  width: 100%;\r\n  height: 100%;\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\r\n  max-height: 260px;\r\n  cursor: pointer; \r\n  filter: brightness(100%); \r\n  transition: filter 0.3s ease;\n}\n.movie-img[data-v-0035223e]:hover {\r\n  /* outline: 2px solid var(--blue); */\r\n  filter: brightness(70%);\n}\n.movie-title[data-v-0035223e] {\r\n  margin: 12px 0px;\r\n  font-size: 18px;\r\n  font-weight: 2px;\r\n  color: var(--light);\n}\n.streaming-logo[data-v-0035223e]{\r\n  width: 30px; \r\n  height: 30px; \r\n  border-radius: 50%;\r\n  position: absolute;\r\n  right: 0.5rem;\r\n  top: 0.5rem;\r\n  z-index: 3;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -768,7 +657,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.keen-slider[data-v-3461a994] {\r\n  display: flex;\r\n  height: 700px;\r\n  width: 100%;\r\n  z-index: 0;\n}\n.keen-slider__slide[data-v-3461a994] {\r\n  width: 100%;\r\n  display: flex;\r\n  background-color: transparent;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: center;\r\n  position: relative; /* Add position relative to enable overlay positioning */\n}\n.keen-slider__slide img[data-v-3461a994] {\r\n  width: 100%;\r\n  height: 100%;\r\n  cursor: pointer;\r\n  filter: brightness(0.8);\n}\r\n\r\n/* Overlay styles */\n.image-overlay[data-v-3461a994] {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  width: 45%; /* Adjust the width of the overlay to fit your needs */\r\n  height: 100%;\r\n  background: linear-gradient(to right, black, rgba(0, 0, 0, 0.0)); /* Less transparent on the right */\r\n  z-index: 1;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  padding: 20px;\r\n  color: #fff;\n}\r\n/* .movie-info { */\r\n  /* text-align: center; */\r\n/* } */\n.movie-title h1[data-v-3461a994] {\r\n  font-size: 80px;\r\n  text-align: center;\r\n  margin-top: 2rem;\n}\n.movie-description p[data-v-3461a994]{\r\n  color: #c5c5c5;\n}\n.button-container[data-v-3461a994]{\r\n  display: flex;\r\n  align-items: center;\r\n  /* justify-content: center; */\n}\n.play-button[data-v-3461a994],\r\n.info-button[data-v-3461a994] {\r\n  font-size: 20px;\r\n  padding: 0.4rem 1.2rem;\r\n  border-radius: 4px;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  margin: 5px;\n}\n.play-button[data-v-3461a994] {\r\n  color: black;\r\n  background-color: white;\n}\r\n\r\n/* .info-button {\r\n  color: #fff;\r\n  background-color: rgba(128, 128, 128, 0.5);\r\n  position: relative; \r\n} */\n.play-button[data-v-3461a994]:hover{\r\noutline: 2px solid white;\n}\r\n/* .info-button:hover{\r\n  outline: 2px solid #fff;\r\n} */\n.navigation-wrapper[data-v-3461a994] {\r\n  position: relative;\n}\n.dots[data-v-3461a994] {\r\n  display: flex;\r\n  padding: 10px 0;\r\n  justify-content: center;\n}\n.dot[data-v-3461a994] {\r\n  border: none;\r\n  width: 10px;\r\n  height: 10px;\r\n  background: #c5c5c5;\r\n  border-radius: 50%;\r\n  margin: 0 5px;\r\n  padding: 5px;\r\n  cursor: pointer;\n}\n.dot[data-v-3461a994]:focus {\r\n  outline: none;\n}\n.dot.active[data-v-3461a994] {\r\n  background: var(--blue);\n}\n.arrow[data-v-3461a994] {\r\n  width: 30px;\r\n  height: 30px;\r\n  position: absolute;\r\n  top: 50%;\r\n  transform: translateY(-50%);\r\n  -webkit-transform: translateY(-50%);\r\n  fill: #fff;\r\n  cursor: pointer;\n}\n.arrow--left[data-v-3461a994] {\r\n  left: 5px;\n}\n.arrow--right[data-v-3461a994] {\r\n  left: auto;\r\n  right: 5px;\n}\n.arrow--disabled[data-v-3461a994] {\r\n  fill: rgba(255, 255, 255, 0.5);\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.keen-slider[data-v-3461a994] {\r\n  display: flex;\r\n  height: 700px;\r\n  width: 100%;\r\n  z-index: 0;\n}\n.keen-slider__slide[data-v-3461a994] {\r\n  width: 100%;\r\n  display: flex;\r\n  background-color: transparent;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: center;\r\n  position: relative;\n}\n.keen-slider__slide img[data-v-3461a994] {\r\n  width: 100%;\r\n  height: 100%;\r\n  cursor: pointer;\r\n  filter: brightness(0.8);\n}\r\n\r\n/* Overlay styles */\n.image-overlay[data-v-3461a994] {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  width: 45%; \r\n  height: 100%;\r\n  background: linear-gradient(to right, black, rgba(0, 0, 0, 0.0)); /* Less transparent on the right */\r\n  z-index: 1;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  padding: 20px;\r\n  color: #fff;\n}\r\n/* .movie-info { */\r\n  /* text-align: center; */\r\n/* } */\n.movie-title h1[data-v-3461a994] {\r\n  font-size: 80px;\r\n  text-align: center;\r\n  margin-top: 2rem;\n}\n.movie-description p[data-v-3461a994]{\r\n  color: #c5c5c5;\n}\n.button-container[data-v-3461a994]{\r\n  display: flex;\r\n  align-items: center;\r\n  /* justify-content: center; */\n}\n.play-button[data-v-3461a994],\r\n.info-button[data-v-3461a994] {\r\n  font-size: 20px;\r\n  padding: 0.4rem 1.2rem;\r\n  border-radius: 4px;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  margin: 5px;\n}\n.play-button[data-v-3461a994] {\r\n  color: black;\r\n  background-color: white;\n}\r\n\r\n/* .info-button {\r\n  color: #fff;\r\n  background-color: rgba(128, 128, 128, 0.5);\r\n  position: relative; \r\n} */\n.play-button[data-v-3461a994]:hover{\r\noutline: 2px solid white;\n}\r\n/* .info-button:hover{\r\n  outline: 2px solid #fff;\r\n} */\n.navigation-wrapper[data-v-3461a994] {\r\n  position: relative;\n}\n.dots[data-v-3461a994] {\r\n  display: flex;\r\n  padding: 10px 0;\r\n  justify-content: center;\n}\n.dot[data-v-3461a994] {\r\n  border: none;\r\n  width: 10px;\r\n  height: 10px;\r\n  background: #c5c5c5;\r\n  border-radius: 50%;\r\n  margin: 0 5px;\r\n  padding: 5px;\r\n  cursor: pointer;\n}\n.dot[data-v-3461a994]:focus {\r\n  outline: none;\n}\n.dot.active[data-v-3461a994] {\r\n  background: var(--blue);\n}\n.arrow[data-v-3461a994] {\r\n  width: 30px;\r\n  height: 30px;\r\n  position: absolute;\r\n  top: 50%;\r\n  transform: translateY(-50%);\r\n  -webkit-transform: translateY(-50%);\r\n  fill: #fff;\r\n  cursor: pointer;\n}\n.arrow--left[data-v-3461a994] {\r\n  left: 5px;\n}\n.arrow--right[data-v-3461a994] {\r\n  left: auto;\r\n  right: 5px;\n}\n.arrow--disabled[data-v-3461a994] {\r\n  fill: rgba(255, 255, 255, 0.5);\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -791,7 +680,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.header[data-v-770cded8] {\r\n  width: 100%;\r\n  /* display: flex; */\r\n  align-items: center;\r\n  position: fixed;\r\n  padding: 22px;\r\n  background-color: rgb(0, 0,0, 0.5);\r\n  z-index: 2;\n}\r\n/* h3{\r\n  font-weight: bold;\r\n  text-align: center;\r\n} */\n.right-container[data-v-770cded8] {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content:right;\n}\n.header-search[data-v-770cded8] {\r\n  padding: 8px 25px;\r\n  background-color: transparent;\r\n  outline: 1px solid #00aacd;\r\n  border: none;\r\n  color: #fff;\r\n  border-radius: 4px;\r\n  transition: background-color 0.3s linear, outline 0.3s linear, color 0.3s linear;\n}\n.icon-search[data-v-770cded8] {\r\n  color: white;\r\n  margin-right: 6px;\n}\n.header-search[data-v-770cded8]{\r\n  margin-right: 8px ;\n}\n.sair-button[data-v-770cded8] {\r\n  padding: 6px 35px;\r\n  background-color: transparent;\r\n  border-radius: 2px;\r\n  outline: 1px solid #00aacd;\r\n  color: #fff;\r\n  transition: background-color 0.3s linear, outline 0.3s linear, color 0.3s linear;\n}\n.sair-button[data-v-770cded8]:hover {\r\n  background-color: #00aacd;\r\n  outline: 1px solid #fff;\r\n  color: #17161b;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.header[data-v-770cded8] {\r\n  width: 100%;\r\n  /* display: flex; */\r\n  align-items: center;\r\n  position: fixed;\r\n  padding: 22px;\r\n  background: linear-gradient(to bottom, black, rgba(0, 0, 0, 0));\r\n  z-index: 2;\n}\r\n/* h3{\r\n  font-weight: bold;\r\n  text-align: center;\r\n} */\n.right-container[data-v-770cded8] {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content:right;\n}\n.header-search[data-v-770cded8] {\r\n  padding: 8px 25px;\r\n  background-color: transparent;\r\n  outline: 1px solid #00aacd;\r\n  border: none;\r\n  color: #fff;\r\n  border-radius: 4px;\r\n  transition: background-color 0.3s linear, outline 0.3s linear, color 0.3s linear;\n}\n.icon-search[data-v-770cded8] {\r\n  color: white;\r\n  margin-right: 6px;\n}\n.header-search[data-v-770cded8]{\r\n  margin-right: 8px ;\n}\n.sair-button[data-v-770cded8] {\r\n  padding: 6px 35px;\r\n  background-color: transparent;\r\n  border-radius: 2px;\r\n  outline: 1px solid #00aacd;\r\n  color: #fff;\r\n  transition: background-color 0.3s linear, outline 0.3s linear, color 0.3s linear;\n}\n.sair-button[data-v-770cded8]:hover {\r\n  background-color: #00aacd;\r\n  outline: 1px solid #fff;\r\n  color: #17161b;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -837,7 +726,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.spin{\r\n    z-index: 2;\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: rgba(0, 0, 0, 1);\r\n    position: fixed;\n}\n.ring{\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    margin: 0 auto;\r\n    height: 100%;\n}\n.lds-roller {\r\n  display: inline-block;\r\n  position: relative;\r\n  width: 80px;\r\n  height: 80px;\n}\n.lds-roller div {\r\n  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;\r\n  transform-origin: 40px 40px;\n}\n.lds-roller div:after {\r\n  content: \" \";\r\n  display: block;\r\n  position: absolute;\r\n  width: 7px;\r\n  height: 7px;\r\n  border-radius: 50%;\r\n  background: #fff;\r\n  margin: -4px 0 0 -4px;\n}\n.lds-roller div:nth-child(1) {\r\n  animation-delay: -0.036s;\n}\n.lds-roller div:nth-child(1):after {\r\n  top: 63px;\r\n  left: 63px;\n}\n.lds-roller div:nth-child(2) {\r\n  animation-delay: -0.072s;\n}\n.lds-roller div:nth-child(2):after {\r\n  top: 68px;\r\n  left: 56px;\n}\n.lds-roller div:nth-child(3) {\r\n  animation-delay: -0.108s;\n}\n.lds-roller div:nth-child(3):after {\r\n  top: 71px;\r\n  left: 48px;\n}\n.lds-roller div:nth-child(4) {\r\n  animation-delay: -0.144s;\n}\n.lds-roller div:nth-child(4):after {\r\n  top: 72px;\r\n  left: 40px;\n}\n.lds-roller div:nth-child(5) {\r\n  animation-delay: -0.18s;\n}\n.lds-roller div:nth-child(5):after {\r\n  top: 71px;\r\n  left: 32px;\n}\n.lds-roller div:nth-child(6) {\r\n  animation-delay: -0.216s;\n}\n.lds-roller div:nth-child(6):after {\r\n  top: 68px;\r\n  left: 24px;\n}\n.lds-roller div:nth-child(7) {\r\n  animation-delay: -0.252s;\n}\n.lds-roller div:nth-child(7):after {\r\n  top: 63px;\r\n  left: 17px;\n}\n.lds-roller div:nth-child(8) {\r\n  animation-delay: -0.288s;\n}\n.lds-roller div:nth-child(8):after {\r\n  top: 56px;\r\n  left: 12px;\n}\n@keyframes lds-roller {\n0% {\r\n    transform: rotate(0deg);\n}\n100% {\r\n    transform: rotate(360deg);\n}\n}\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.spin{\r\n    z-index: 2;\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: rgba(0, 0, 0, 1);\r\n    position: fixed;\n}\n.ring{\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    margin: 0 auto;\r\n    height: 100%;\n}\n.lds-ellipsis {\r\n  display: inline-block;\r\n  position: relative;\r\n  width: 80px;\r\n  height: 80px;\n}\n.lds-ellipsis div {\r\n  position: absolute;\r\n  top: 33px;\r\n  width: 13px;\r\n  height: 13px;\r\n  border-radius: 50%;\r\n  background: var(--blue);\r\n  animation-timing-function: cubic-bezier(0, 1, 1, 0);\n}\n.lds-ellipsis div:nth-child(1) {\r\n  left: 8px;\r\n  animation: lds-ellipsis1 0.6s infinite;\n}\n.lds-ellipsis div:nth-child(2) {\r\n  left: 8px;\r\n  animation: lds-ellipsis2 0.6s infinite;\n}\n.lds-ellipsis div:nth-child(3) {\r\n  left: 32px;\r\n  animation: lds-ellipsis2 0.6s infinite;\n}\n.lds-ellipsis div:nth-child(4) {\r\n  left: 56px;\r\n  animation: lds-ellipsis3 0.6s infinite;\n}\n@keyframes lds-ellipsis1 {\n0% {\r\n    transform: scale(0);\n}\n100% {\r\n    transform: scale(1);\n}\n}\n@keyframes lds-ellipsis3 {\n0% {\r\n    transform: scale(1);\n}\n100% {\r\n    transform: scale(0);\n}\n}\n@keyframes lds-ellipsis2 {\n0% {\r\n    transform: translate(0, 0);\n}\n100% {\r\n    transform: translate(24px, 0);\n}\n}\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

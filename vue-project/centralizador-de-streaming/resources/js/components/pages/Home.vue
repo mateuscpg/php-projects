@@ -3,11 +3,12 @@
     <Header/>
       <div class="content">
 
+        <div class="principal-movies">
+          <PrincipalMovie  v-if="principalMovie.length > 0" :movies="principalMovie"></PrincipalMovie>
+        </div>
+
         <div class="homepage">
 
-          <div class="principal-movies">
-            <PrincipalMovie  v-if="principalMovie.length > 0" :movies="principalMovie"></PrincipalMovie>
-          </div>
 
           <div class="recommended-movies">
             <div class="search">
@@ -147,10 +148,13 @@ export default {
   color:var(--light);
   /* background-color: var(--blue); */
 }
+.principal-movies{
+  /* z-index: 1; */
+  margin-right:8rem;
+  margin-left:8rem;
+
+}
 .homepage{
-  margin-top: 84px;
-  /* background-color: blue ; */
-  margin-top: 5.5rem; 
   margin-right:8rem;
   margin-left:8rem;
 }

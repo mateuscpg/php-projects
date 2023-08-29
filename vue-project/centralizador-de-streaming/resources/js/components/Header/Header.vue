@@ -13,7 +13,7 @@
         </a>
 
         <input class="header-search" type="search" placeholder="Pesquise"> -->
-        <button class="sair-button" @click="redirectToLogin">Sair</button>
+        <!-- <button class="sair-button" @click="redirectToLogin">Sair</button> -->
       </div>
   </div>
   </header>
@@ -38,7 +38,7 @@ export default {
   align-items: center;
   position: fixed;
   padding: 22px;
-  background-color: rgb(0, 0,0, 0.5);
+  background: linear-gradient(to bottom, black, rgba(0, 0, 0, 0));
   z-index: 2;
 }
 /* h3{

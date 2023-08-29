@@ -48,6 +48,7 @@
         <div class="button" @click="toggleSubMenu" :class="{'justify-content-center':!isExpanded}">
           <span class="material-symbols-rounded">category</span>
           <span v-if="isExpanded" class="text">Categorias</span>
+          <span class="material-symbols-rounded" v-if="showSubMenu && isExpanded" >expand_more</span>
         </div>
 
   
@@ -113,10 +114,10 @@
         </div>
         <div class="flex"></div>
         <div class="menu">
-            <router-link class="button" to="/settings" :class="{'justify-content-center':!isExpanded}">
-                <span class="material-symbols-rounded">settings</span>
-                <span v-if="isExpanded" class="text">Configuração</span>
-            </router-link>
+            <div class="button" :class="{'justify-content-center':!isExpanded}" @click="redirectToLogin">
+              <span class="material-symbols-rounded">logout</span>
+                <span v-if="isExpanded" class="text">Sair</span>
+            </div>
             </div>
 
     </aside>
@@ -140,6 +141,9 @@ export default {
     };
   },
   methods: {
+    redirectToLogin(){
+      window.location.href ='/sair';
+    },
     async dadosUsuario(){
       try {
         let dados = await api.getPerfil();
@@ -180,7 +184,7 @@ export default {
 }
 aside{
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     position: fixed;
     top: 0;
     left: 0;
@@ -340,7 +344,7 @@ color: var(--light);
     }
     .menu{
         margin: 0 -1rem;
-        margin-top: 3rem;
+        margin-top: 5rem;
         .button{
             display: flex;
             align-items: center;

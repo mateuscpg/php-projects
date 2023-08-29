@@ -38,7 +38,7 @@ import Spinner from '../../../mixins/Spinner.vue';
 import MoviesSection from '../../Carousel/MoviesSection.vue';
 import PrincipalMovie from '../../Carousel/PrincipalMovie.vue';
 import api from '../../../services/Axios'
-import axios from 'axios';
+
 export default {
 
   components: {
@@ -91,15 +91,21 @@ export default {
         console.log("Pesquisar filmes da categoria: " + moviesCategory + " com a consulta: " + searchQuery);
       }
     },
+    async listMovies(){
+        let dadosRecommended = await api.listRecommendedMovies();
+          this.recommendedMovies = dadosRecommended;
+
+        let dadosAdventure = await api.listAdventureMovies();
+          this.adventureMovies = dadosAdventure;
+    }
   
     
   },
 
   created(){
-    
+    this.listMovies();
   }
   
- 
 };
 </script>
 
@@ -110,7 +116,7 @@ export default {
   height: 100%;
   color:var(--light);
   background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
-    url('https://saiadazonadeconforto.com.br/wp-content/uploads/2018/08/Jumanji.jpg');
+    url('https://cdn.culturagenial.com/imagens/uncharted-fora-do-mapa-cke.jpg');
   background-size: cover;
   background-attachment: fixed;
 }

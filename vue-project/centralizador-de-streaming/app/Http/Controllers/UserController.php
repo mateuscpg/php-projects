@@ -37,11 +37,27 @@ class UserController extends Controller
         'id_paramount' => $request['paramount'],
         'id_starplus' => $request['starplus'],
     ]);
-
+    
     return response()->json(['message' => 'User created successfully']);
 }
 
-public function login(Request $request)
+public function updateUser(Request $request, $id)
+{
+    $user = User::findOrFail($id); 
+        
+    $user->update([
+        'name' => $request['data.name'],
+        'email' => $request['data.email'],
+        'password' => Hash::make($request['data.password']), 
+        'photo' => $request['data.photo'],
+        'birth' => $request['data.birth'],
+    ]);
+
+    return response()->json(['message' => 'Usuário atualizado com sucesso']);
+}
+
+
+    public function login(Request $request)
 {
     $credentials = $request->only('email', 'password');
 
@@ -52,6 +68,6 @@ public function login(Request $request)
         return response()->json(["success" => false, 'message' => 'Credenciais inválidas'], 400);
     }
 }
-
+    
 
 }

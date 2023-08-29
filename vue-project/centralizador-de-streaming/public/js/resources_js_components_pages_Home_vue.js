@@ -46,7 +46,7 @@ __webpack_require__.r(__webpack_exports__);
           loop: true,
           mode: "free-snap",
           slides: {
-            perView: 6,
+            perView: 8,
             spacing: 8
           }
         });
@@ -322,7 +322,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
       setTimeout(function () {
         _this.isLoading = false; // Set isLoading to false after a delay
-      }, 1700); // Adjust the delay as needed
+      }, 1400); // Adjust the delay as needed
     }
   },
   mounted: function mounted() {
@@ -481,19 +481,16 @@ var _withScopeId = function _withScopeId(n) {
 var _hoisted_1 = {
   "class": "header"
 };
-var _hoisted_2 = {
-  "class": "buttons-container"
-};
-var _hoisted_3 = {
-  "class": "right-container"
-};
+var _hoisted_2 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "buttons-container"
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <h3 style=\"color: var(--blue);\">STREAMING</h3> \r\n      <h3 style=\"color: var(--pink);\">CENTRALIZER</h3> "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "right-container"
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <a href=\"#\" class=\"icon-search\">\r\n          <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" fill=\"currentColor\" class=\"bi bi-search\" viewBox=\"0 0 16 16\">\r\n            <path d=\"M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z\"/>\r\n          </svg>\r\n        </a>\r\n\r\n        <input class=\"header-search\" type=\"search\" placeholder=\"Pesquise\"> "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button class=\"sair-button\" @click=\"redirectToLogin\">Sair</button> ")])], -1 /* HOISTED */);
+});
+var _hoisted_3 = [_hoisted_2];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("header", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <h3 style=\"color: var(--blue);\">STREAMING</h3> \r\n      <h3 style=\"color: var(--pink);\">CENTRALIZER</h3> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <a href=\"#\" class=\"icon-search\">\r\n          <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" fill=\"currentColor\" class=\"bi bi-search\" viewBox=\"0 0 16 16\">\r\n            <path d=\"M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z\"/>\r\n          </svg>\r\n        </a>\r\n\r\n        <input class=\"header-search\" type=\"search\" placeholder=\"Pesquise\"> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    "class": "sair-button",
-    onClick: _cache[0] || (_cache[0] = function () {
-      return $options.redirectToLogin && $options.redirectToLogin.apply($options, arguments);
-    })
-  }, "Sair")])])]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("header", _hoisted_1, _hoisted_3);
 }
 
 /***/ }),
@@ -517,10 +514,10 @@ var _hoisted_1 = {
   "class": "content"
 };
 var _hoisted_2 = {
-  "class": "homepage"
+  "class": "principal-movies"
 };
 var _hoisted_3 = {
-  "class": "principal-movies"
+  "class": "homepage"
 };
 var _hoisted_4 = {
   "class": "recommended-movies"
@@ -573,10 +570,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_PrincipalMovie = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("PrincipalMovie");
   var _component_MoviesSection = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("MoviesSection");
   var _component_Spinner = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Spinner");
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [$data.principalMovie.length > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_PrincipalMovie, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [$data.principalMovie.length > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_PrincipalMovie, {
     key: 0,
     movies: $data.principalMovie
-  }, null, 8 /* PROPS */, ["movies"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, null, 8 /* PROPS */, ["movies"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "class": "header-search",
     type: "search",
     placeholder: "Pesquise",
@@ -645,8 +642,8 @@ var _hoisted_1 = {
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "ring"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "lds-roller"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div")])], -1 /* HOISTED */);
+  "class": "lds-ellipsis"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div")])], -1 /* HOISTED */);
 var _hoisted_3 = [_hoisted_2];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return $data.isLoading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, _hoisted_3)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true);
@@ -708,7 +705,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.keen-slider[data-v-0035223e] {\r\n  display: flex;\n}\n.keen-slider__slide[data-v-0035223e] {\r\n  width: 100%;\r\n  display: flex;\r\n  background-color: rgba(75, 73, 73, 0.486);\r\n  flex-direction: column;\r\n  align-items: center; \r\n  justify-content: center;\n}\n.movie-img[data-v-0035223e] {\r\n  width: 100%;\r\n  height: 100%;\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\r\n  max-height: 250px;\r\n  cursor: pointer; \r\n  filter: brightness(100%); \r\n  transition: filter 0.3s ease;\n}\n.movie-img[data-v-0035223e]:hover {\r\n  /* outline: 2px solid var(--blue); */\r\n  filter: brightness(70%);\n}\n.movie-title[data-v-0035223e] {\r\n  margin: 15px 0px;\r\n  font-size: 18px;\r\n  font-weight: 2px;\r\n  color: var(--light);\n}\n.streaming-logo[data-v-0035223e]{\r\n  width: 30px; \r\n  height: 30px; \r\n  border-radius: 50%;\r\n  position: absolute;\r\n  right: 0.5rem;\r\n  top: 0.5rem;\r\n  z-index: 3;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.keen-slider[data-v-0035223e] {\r\n  display: flex;\r\n  padding: 2px;\n}\n.keen-slider__slide[data-v-0035223e] {\r\n  width: 100%;\r\n  display: flex;\r\n  border-radius: 5px;\r\n  background-color: rgba(75, 73, 73, 0.486);\r\n  /* background-color: transparent;\r\n  outline: 1px solid white; */\r\n  flex-direction: column;\r\n  align-items: center; \r\n  justify-content: center;\n}\n.keen-slider__slide.slides[data-v-0035223e]\r\n{\r\n  /* transition: background-color 0.3s linear, outline 0s linear, color 0.1s linear; */\n}\n.keen-slider__slide.slides[data-v-0035223e]:hover {\r\n  background-color: rgba(75, 73, 73, 0.8); /* Cor com maior opacidade */\r\n  opacity: 1; /* Mostra o cartão completo */\r\n  outline: 2px solid var(--blue);\r\n  transform: scale(1.05) translateY(-5px);\n}\n.movie-img[data-v-0035223e] {\r\n  width: 100%;\r\n  height: 100%;\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\r\n  max-height: 260px;\r\n  cursor: pointer; \r\n  filter: brightness(100%); \r\n  transition: filter 0.3s ease;\n}\n.movie-img[data-v-0035223e]:hover {\r\n  /* outline: 2px solid var(--blue); */\r\n  filter: brightness(70%);\n}\n.movie-title[data-v-0035223e] {\r\n  margin: 12px 0px;\r\n  font-size: 18px;\r\n  font-weight: 2px;\r\n  color: var(--light);\n}\n.streaming-logo[data-v-0035223e]{\r\n  width: 30px; \r\n  height: 30px; \r\n  border-radius: 50%;\r\n  position: absolute;\r\n  right: 0.5rem;\r\n  top: 0.5rem;\r\n  z-index: 3;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -731,7 +728,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.keen-slider[data-v-3461a994] {\r\n  display: flex;\r\n  height: 700px;\r\n  width: 100%;\r\n  z-index: 0;\n}\n.keen-slider__slide[data-v-3461a994] {\r\n  width: 100%;\r\n  display: flex;\r\n  background-color: transparent;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: center;\r\n  position: relative; /* Add position relative to enable overlay positioning */\n}\n.keen-slider__slide img[data-v-3461a994] {\r\n  width: 100%;\r\n  height: 100%;\r\n  cursor: pointer;\r\n  filter: brightness(0.8);\n}\r\n\r\n/* Overlay styles */\n.image-overlay[data-v-3461a994] {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  width: 45%; /* Adjust the width of the overlay to fit your needs */\r\n  height: 100%;\r\n  background: linear-gradient(to right, black, rgba(0, 0, 0, 0.0)); /* Less transparent on the right */\r\n  z-index: 1;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  padding: 20px;\r\n  color: #fff;\n}\r\n/* .movie-info { */\r\n  /* text-align: center; */\r\n/* } */\n.movie-title h1[data-v-3461a994] {\r\n  font-size: 80px;\r\n  text-align: center;\r\n  margin-top: 2rem;\n}\n.movie-description p[data-v-3461a994]{\r\n  color: #c5c5c5;\n}\n.button-container[data-v-3461a994]{\r\n  display: flex;\r\n  align-items: center;\r\n  /* justify-content: center; */\n}\n.play-button[data-v-3461a994],\r\n.info-button[data-v-3461a994] {\r\n  font-size: 20px;\r\n  padding: 0.4rem 1.2rem;\r\n  border-radius: 4px;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  margin: 5px;\n}\n.play-button[data-v-3461a994] {\r\n  color: black;\r\n  background-color: white;\n}\r\n\r\n/* .info-button {\r\n  color: #fff;\r\n  background-color: rgba(128, 128, 128, 0.5);\r\n  position: relative; \r\n} */\n.play-button[data-v-3461a994]:hover{\r\noutline: 2px solid white;\n}\r\n/* .info-button:hover{\r\n  outline: 2px solid #fff;\r\n} */\n.navigation-wrapper[data-v-3461a994] {\r\n  position: relative;\n}\n.dots[data-v-3461a994] {\r\n  display: flex;\r\n  padding: 10px 0;\r\n  justify-content: center;\n}\n.dot[data-v-3461a994] {\r\n  border: none;\r\n  width: 10px;\r\n  height: 10px;\r\n  background: #c5c5c5;\r\n  border-radius: 50%;\r\n  margin: 0 5px;\r\n  padding: 5px;\r\n  cursor: pointer;\n}\n.dot[data-v-3461a994]:focus {\r\n  outline: none;\n}\n.dot.active[data-v-3461a994] {\r\n  background: var(--blue);\n}\n.arrow[data-v-3461a994] {\r\n  width: 30px;\r\n  height: 30px;\r\n  position: absolute;\r\n  top: 50%;\r\n  transform: translateY(-50%);\r\n  -webkit-transform: translateY(-50%);\r\n  fill: #fff;\r\n  cursor: pointer;\n}\n.arrow--left[data-v-3461a994] {\r\n  left: 5px;\n}\n.arrow--right[data-v-3461a994] {\r\n  left: auto;\r\n  right: 5px;\n}\n.arrow--disabled[data-v-3461a994] {\r\n  fill: rgba(255, 255, 255, 0.5);\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.keen-slider[data-v-3461a994] {\r\n  display: flex;\r\n  height: 700px;\r\n  width: 100%;\r\n  z-index: 0;\n}\n.keen-slider__slide[data-v-3461a994] {\r\n  width: 100%;\r\n  display: flex;\r\n  background-color: transparent;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: center;\r\n  position: relative;\n}\n.keen-slider__slide img[data-v-3461a994] {\r\n  width: 100%;\r\n  height: 100%;\r\n  cursor: pointer;\r\n  filter: brightness(0.8);\n}\r\n\r\n/* Overlay styles */\n.image-overlay[data-v-3461a994] {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  width: 45%; \r\n  height: 100%;\r\n  background: linear-gradient(to right, black, rgba(0, 0, 0, 0.0)); /* Less transparent on the right */\r\n  z-index: 1;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  padding: 20px;\r\n  color: #fff;\n}\r\n/* .movie-info { */\r\n  /* text-align: center; */\r\n/* } */\n.movie-title h1[data-v-3461a994] {\r\n  font-size: 80px;\r\n  text-align: center;\r\n  margin-top: 2rem;\n}\n.movie-description p[data-v-3461a994]{\r\n  color: #c5c5c5;\n}\n.button-container[data-v-3461a994]{\r\n  display: flex;\r\n  align-items: center;\r\n  /* justify-content: center; */\n}\n.play-button[data-v-3461a994],\r\n.info-button[data-v-3461a994] {\r\n  font-size: 20px;\r\n  padding: 0.4rem 1.2rem;\r\n  border-radius: 4px;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  margin: 5px;\n}\n.play-button[data-v-3461a994] {\r\n  color: black;\r\n  background-color: white;\n}\r\n\r\n/* .info-button {\r\n  color: #fff;\r\n  background-color: rgba(128, 128, 128, 0.5);\r\n  position: relative; \r\n} */\n.play-button[data-v-3461a994]:hover{\r\noutline: 2px solid white;\n}\r\n/* .info-button:hover{\r\n  outline: 2px solid #fff;\r\n} */\n.navigation-wrapper[data-v-3461a994] {\r\n  position: relative;\n}\n.dots[data-v-3461a994] {\r\n  display: flex;\r\n  padding: 10px 0;\r\n  justify-content: center;\n}\n.dot[data-v-3461a994] {\r\n  border: none;\r\n  width: 10px;\r\n  height: 10px;\r\n  background: #c5c5c5;\r\n  border-radius: 50%;\r\n  margin: 0 5px;\r\n  padding: 5px;\r\n  cursor: pointer;\n}\n.dot[data-v-3461a994]:focus {\r\n  outline: none;\n}\n.dot.active[data-v-3461a994] {\r\n  background: var(--blue);\n}\n.arrow[data-v-3461a994] {\r\n  width: 30px;\r\n  height: 30px;\r\n  position: absolute;\r\n  top: 50%;\r\n  transform: translateY(-50%);\r\n  -webkit-transform: translateY(-50%);\r\n  fill: #fff;\r\n  cursor: pointer;\n}\n.arrow--left[data-v-3461a994] {\r\n  left: 5px;\n}\n.arrow--right[data-v-3461a994] {\r\n  left: auto;\r\n  right: 5px;\n}\n.arrow--disabled[data-v-3461a994] {\r\n  fill: rgba(255, 255, 255, 0.5);\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -754,7 +751,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.header[data-v-770cded8] {\r\n  width: 100%;\r\n  /* display: flex; */\r\n  align-items: center;\r\n  position: fixed;\r\n  padding: 22px;\r\n  background-color: rgb(0, 0,0, 0.5);\r\n  z-index: 2;\n}\r\n/* h3{\r\n  font-weight: bold;\r\n  text-align: center;\r\n} */\n.right-container[data-v-770cded8] {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content:right;\n}\n.header-search[data-v-770cded8] {\r\n  padding: 8px 25px;\r\n  background-color: transparent;\r\n  outline: 1px solid #00aacd;\r\n  border: none;\r\n  color: #fff;\r\n  border-radius: 4px;\r\n  transition: background-color 0.3s linear, outline 0.3s linear, color 0.3s linear;\n}\n.icon-search[data-v-770cded8] {\r\n  color: white;\r\n  margin-right: 6px;\n}\n.header-search[data-v-770cded8]{\r\n  margin-right: 8px ;\n}\n.sair-button[data-v-770cded8] {\r\n  padding: 6px 35px;\r\n  background-color: transparent;\r\n  border-radius: 2px;\r\n  outline: 1px solid #00aacd;\r\n  color: #fff;\r\n  transition: background-color 0.3s linear, outline 0.3s linear, color 0.3s linear;\n}\n.sair-button[data-v-770cded8]:hover {\r\n  background-color: #00aacd;\r\n  outline: 1px solid #fff;\r\n  color: #17161b;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.header[data-v-770cded8] {\r\n  width: 100%;\r\n  /* display: flex; */\r\n  align-items: center;\r\n  position: fixed;\r\n  padding: 22px;\r\n  background: linear-gradient(to bottom, black, rgba(0, 0, 0, 0));\r\n  z-index: 2;\n}\r\n/* h3{\r\n  font-weight: bold;\r\n  text-align: center;\r\n} */\n.right-container[data-v-770cded8] {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content:right;\n}\n.header-search[data-v-770cded8] {\r\n  padding: 8px 25px;\r\n  background-color: transparent;\r\n  outline: 1px solid #00aacd;\r\n  border: none;\r\n  color: #fff;\r\n  border-radius: 4px;\r\n  transition: background-color 0.3s linear, outline 0.3s linear, color 0.3s linear;\n}\n.icon-search[data-v-770cded8] {\r\n  color: white;\r\n  margin-right: 6px;\n}\n.header-search[data-v-770cded8]{\r\n  margin-right: 8px ;\n}\n.sair-button[data-v-770cded8] {\r\n  padding: 6px 35px;\r\n  background-color: transparent;\r\n  border-radius: 2px;\r\n  outline: 1px solid #00aacd;\r\n  color: #fff;\r\n  transition: background-color 0.3s linear, outline 0.3s linear, color 0.3s linear;\n}\n.sair-button[data-v-770cded8]:hover {\r\n  background-color: #00aacd;\r\n  outline: 1px solid #fff;\r\n  color: #17161b;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -777,7 +774,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.content[data-v-a9aac016] {\r\n  display: flex;\r\n  flex-direction: column;\r\n  height: 100%;\r\n  color:var(--light);\r\n  /* background-color: var(--blue); */\n}\n.homepage[data-v-a9aac016]{\r\n  margin-top: 84px;\r\n  /* background-color: blue ; */\r\n  margin-top: 5.5rem; \r\n  margin-right:8rem;\r\n  margin-left:8rem;\n}\n.search[data-v-a9aac016]{\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n  margin-bottom: 0.5rem;\n}\n.header-search[data-v-a9aac016] {\r\n  padding: 8px 25px;\r\n  background-color: transparent;\r\n  outline: 1px solid #00aacd;\r\n  border: none;\r\n  color: #fff;\r\n  border-radius: 4px;\r\n  transition: background-color 0.3s linear, outline 0.3s linear, color 0.3s linear;\n}\n.acction-movies[data-v-a9aac016], .adventure-movies[data-v-a9aac016],\r\n.terror-movies[data-v-a9aac016], .romance-movies[data-v-a9aac016]{\r\n  padding-top: 4rem;\n}\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.content[data-v-a9aac016] {\r\n  display: flex;\r\n  flex-direction: column;\r\n  height: 100%;\r\n  color:var(--light);\r\n  /* background-color: var(--blue); */\n}\n.principal-movies[data-v-a9aac016]{\r\n  /* z-index: 1; */\r\n  margin-right:8rem;\r\n  margin-left:8rem;\n}\n.homepage[data-v-a9aac016]{\r\n  margin-right:8rem;\r\n  margin-left:8rem;\n}\n.search[data-v-a9aac016]{\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n  margin-bottom: 0.5rem;\n}\n.header-search[data-v-a9aac016] {\r\n  padding: 8px 25px;\r\n  background-color: transparent;\r\n  outline: 1px solid #00aacd;\r\n  border: none;\r\n  color: #fff;\r\n  border-radius: 4px;\r\n  transition: background-color 0.3s linear, outline 0.3s linear, color 0.3s linear;\n}\n.acction-movies[data-v-a9aac016], .adventure-movies[data-v-a9aac016],\r\n.terror-movies[data-v-a9aac016], .romance-movies[data-v-a9aac016]{\r\n  padding-top: 4rem;\n}\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -800,7 +797,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.spin{\r\n    z-index: 2;\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: rgba(0, 0, 0, 1);\r\n    position: fixed;\n}\n.ring{\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    margin: 0 auto;\r\n    height: 100%;\n}\n.lds-roller {\r\n  display: inline-block;\r\n  position: relative;\r\n  width: 80px;\r\n  height: 80px;\n}\n.lds-roller div {\r\n  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;\r\n  transform-origin: 40px 40px;\n}\n.lds-roller div:after {\r\n  content: \" \";\r\n  display: block;\r\n  position: absolute;\r\n  width: 7px;\r\n  height: 7px;\r\n  border-radius: 50%;\r\n  background: #fff;\r\n  margin: -4px 0 0 -4px;\n}\n.lds-roller div:nth-child(1) {\r\n  animation-delay: -0.036s;\n}\n.lds-roller div:nth-child(1):after {\r\n  top: 63px;\r\n  left: 63px;\n}\n.lds-roller div:nth-child(2) {\r\n  animation-delay: -0.072s;\n}\n.lds-roller div:nth-child(2):after {\r\n  top: 68px;\r\n  left: 56px;\n}\n.lds-roller div:nth-child(3) {\r\n  animation-delay: -0.108s;\n}\n.lds-roller div:nth-child(3):after {\r\n  top: 71px;\r\n  left: 48px;\n}\n.lds-roller div:nth-child(4) {\r\n  animation-delay: -0.144s;\n}\n.lds-roller div:nth-child(4):after {\r\n  top: 72px;\r\n  left: 40px;\n}\n.lds-roller div:nth-child(5) {\r\n  animation-delay: -0.18s;\n}\n.lds-roller div:nth-child(5):after {\r\n  top: 71px;\r\n  left: 32px;\n}\n.lds-roller div:nth-child(6) {\r\n  animation-delay: -0.216s;\n}\n.lds-roller div:nth-child(6):after {\r\n  top: 68px;\r\n  left: 24px;\n}\n.lds-roller div:nth-child(7) {\r\n  animation-delay: -0.252s;\n}\n.lds-roller div:nth-child(7):after {\r\n  top: 63px;\r\n  left: 17px;\n}\n.lds-roller div:nth-child(8) {\r\n  animation-delay: -0.288s;\n}\n.lds-roller div:nth-child(8):after {\r\n  top: 56px;\r\n  left: 12px;\n}\n@keyframes lds-roller {\n0% {\r\n    transform: rotate(0deg);\n}\n100% {\r\n    transform: rotate(360deg);\n}\n}\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.spin{\r\n    z-index: 2;\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: rgba(0, 0, 0, 1);\r\n    position: fixed;\n}\n.ring{\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    margin: 0 auto;\r\n    height: 100%;\n}\n.lds-ellipsis {\r\n  display: inline-block;\r\n  position: relative;\r\n  width: 80px;\r\n  height: 80px;\n}\n.lds-ellipsis div {\r\n  position: absolute;\r\n  top: 33px;\r\n  width: 13px;\r\n  height: 13px;\r\n  border-radius: 50%;\r\n  background: var(--blue);\r\n  animation-timing-function: cubic-bezier(0, 1, 1, 0);\n}\n.lds-ellipsis div:nth-child(1) {\r\n  left: 8px;\r\n  animation: lds-ellipsis1 0.6s infinite;\n}\n.lds-ellipsis div:nth-child(2) {\r\n  left: 8px;\r\n  animation: lds-ellipsis2 0.6s infinite;\n}\n.lds-ellipsis div:nth-child(3) {\r\n  left: 32px;\r\n  animation: lds-ellipsis2 0.6s infinite;\n}\n.lds-ellipsis div:nth-child(4) {\r\n  left: 56px;\r\n  animation: lds-ellipsis3 0.6s infinite;\n}\n@keyframes lds-ellipsis1 {\n0% {\r\n    transform: scale(0);\n}\n100% {\r\n    transform: scale(1);\n}\n}\n@keyframes lds-ellipsis3 {\n0% {\r\n    transform: scale(1);\n}\n100% {\r\n    transform: scale(0);\n}\n}\n@keyframes lds-ellipsis2 {\n0% {\r\n    transform: translate(0, 0);\n}\n100% {\r\n    transform: translate(24px, 0);\n}\n}\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

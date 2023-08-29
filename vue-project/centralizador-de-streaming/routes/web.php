@@ -25,12 +25,19 @@ Movie::movie();
 Route::get('/', function () {
     return view('app');
 });
-Route::get('/sair', [GeralController::class, 'sair']);
 Route::post('/login', [UserController::class, 'login']);
+Route::get('/sair', [GeralController::class, 'sair']);
 
 Route::post('/create-user', [UserController::class, 'createUser']);
-
 Route::get('/get-user', [GeralController::class, 'getUser']);
+
+Route::put('/update-user/{id}', [UserController::class, 'updateUser']);
 Route::get('/get-streaming', [MovieController::class, 'getStreaming']);
 
-Route::get('/{any}',[HomeController::class, 'index'])->where('any', '.*');
+
+Route::middleware(['authUser'])->group(function () {
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+});
+
+Route::get('/{any}', [HomeController::class, 'index'])->where('any', '.*');
+

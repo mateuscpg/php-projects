@@ -46,16 +46,43 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       user: {
+        id: null,
         name: '',
         email: '',
-        senha: '',
-        data_nascimento: ''
+        photo: '',
+        actualPhoto: '',
+        password: '',
+        birth: ''
+      },
+      newUser: {
+        name: '',
+        email: '',
+        photo: '',
+        actualPhoto: '',
+        password: '',
+        birth: ''
       }
     };
   },
   methods: {
-    dadosUsuario: function dadosUsuario() {
+    chooseImage: function chooseImage() {
+      document.getElementById('profile-image-input').click();
+    },
+    handleImageChange: function handleImageChange(event) {
       var _this = this;
+      var file = event.target.files[0];
+      if (file) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          _this.user.photo = e.target.result; // Define a URL para exibição
+          _this.newUser.actualPhoto = e.target.result; // Armazena a URL no actualPhoto
+        };
+
+        reader.readAsDataURL(file); // Lê o arquivo como URL de dados (base64)
+      }
+    },
+    dadosUsuario: function dadosUsuario() {
+      var _this2 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
         var dados;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
@@ -66,10 +93,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               return _services_Axios__WEBPACK_IMPORTED_MODULE_1__["default"].getPerfil();
             case 3:
               dados = _context.sent;
-              _this.user.name = dados.name;
-              _this.user.email = dados.email;
-              _this.user.senha = dados.password;
-              _this.user.data_nascimento = dados.birth;
+              _this2.user.id = dados.id;
+              _this2.user.photo = dados.photo;
+              _this2.user.name = dados.name;
+              _this2.user.email = dados.email;
               _context.next = 13;
               break;
             case 10:
@@ -83,9 +110,41 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee, null, [[0, 10]]);
       }))();
     },
+    updatePerfil: function updatePerfil() {
+      var _this3 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        var data;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
+            case 0:
+              data = {
+                name: _this3.newUser.name,
+                email: _this3.newUser.email,
+                password: _this3.newUser.password,
+                photo: _this3.newUser.actualPhoto,
+                birth: _this3.newUser.birth
+              };
+              try {
+                axios.put("/update-user/".concat(_this3.user.id), {
+                  data: data
+                });
+                _this3.$router.push('/home');
+              } catch (error) {
+                console.error("Erro ao atualizar", error);
+              }
+            case 2:
+            case "end":
+              return _context2.stop();
+          }
+        }, _callee2);
+      }))();
+    },
     redirectToHome: function redirectToHome() {
       this.$router.push('/home');
     }
+  },
+  activated: function activated() {
+    this.updatePerfil();
   },
   created: function created() {
     this.dadosUsuario();
@@ -112,19 +171,16 @@ var _withScopeId = function _withScopeId(n) {
 var _hoisted_1 = {
   "class": "header"
 };
-var _hoisted_2 = {
-  "class": "buttons-container"
-};
-var _hoisted_3 = {
-  "class": "right-container"
-};
+var _hoisted_2 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "buttons-container"
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <h3 style=\"color: var(--blue);\">STREAMING</h3> \r\n      <h3 style=\"color: var(--pink);\">CENTRALIZER</h3> "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "right-container"
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <a href=\"#\" class=\"icon-search\">\r\n          <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" fill=\"currentColor\" class=\"bi bi-search\" viewBox=\"0 0 16 16\">\r\n            <path d=\"M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z\"/>\r\n          </svg>\r\n        </a>\r\n\r\n        <input class=\"header-search\" type=\"search\" placeholder=\"Pesquise\"> "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button class=\"sair-button\" @click=\"redirectToLogin\">Sair</button> ")])], -1 /* HOISTED */);
+});
+var _hoisted_3 = [_hoisted_2];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("header", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <h3 style=\"color: var(--blue);\">STREAMING</h3> \r\n      <h3 style=\"color: var(--pink);\">CENTRALIZER</h3> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <a href=\"#\" class=\"icon-search\">\r\n          <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" fill=\"currentColor\" class=\"bi bi-search\" viewBox=\"0 0 16 16\">\r\n            <path d=\"M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z\"/>\r\n          </svg>\r\n        </a>\r\n\r\n        <input class=\"header-search\" type=\"search\" placeholder=\"Pesquise\"> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    "class": "sair-button",
-    onClick: _cache[0] || (_cache[0] = function () {
-      return $options.redirectToLogin && $options.redirectToLogin.apply($options, arguments);
-    })
-  }, "Sair")])])]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("header", _hoisted_1, _hoisted_3);
 }
 
 /***/ }),
@@ -151,73 +207,110 @@ var _hoisted_2 = {
   "class": "forms"
 };
 var _hoisted_3 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, "Profile", -1 /* HOISTED */);
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, "Perfil", -1 /* HOISTED */);
 });
 var _hoisted_4 = {
-  "class": "form-group"
+  "class": "user-info"
 };
-var _hoisted_5 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_5 = ["src"];
+var _hoisted_6 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-    "for": "exampleInputName"
-  }, "Nome", -1 /* HOISTED */);
+    "for": "profile-image-input"
+  }, "Foto do perfil", -1 /* HOISTED */);
 });
-var _hoisted_6 = ["value"];
 var _hoisted_7 = {
   "class": "form-group"
 };
 var _hoisted_8 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+    "for": "exampleInputName"
+  }, "Nome", -1 /* HOISTED */);
+});
+var _hoisted_9 = {
+  "class": "form-group"
+};
+var _hoisted_10 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
     "for": "exampleInputEmail1"
   }, "Email ", -1 /* HOISTED */);
-});
-var _hoisted_9 = ["value"];
-var _hoisted_10 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "form-group"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-    "for": "exampleInputPassword1"
-  }, "Senha"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "password",
-    "class": "form-control",
-    id: "exampleInputPassword1",
-    placeholder: "Digite sua senha"
-  })], -1 /* HOISTED */);
 });
 var _hoisted_11 = {
   "class": "form-group"
 };
 var _hoisted_12 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+    "for": "exampleInputPassword1"
+  }, "Senha", -1 /* HOISTED */);
+});
+var _hoisted_13 = {
+  "class": "form-group"
+};
+var _hoisted_14 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
     "for": "exampleInputDate"
   }, "Data de nascimento", -1 /* HOISTED */);
 });
-var _hoisted_13 = ["value"];
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Header = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Header");
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "user-image",
+    onClick: _cache[0] || (_cache[0] = function () {
+      return $options.chooseImage && $options.chooseImage.apply($options, arguments);
+    })
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    src: $data.user.photo,
+    style: {
+      "cursor": "pointer"
+    },
+    alt: ""
+  }, null, 8 /* PROPS */, _hoisted_5)]), _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "file",
+    id: "profile-image-input",
+    style: {
+      "display": "none"
+    },
+    onChange: _cache[1] || (_cache[1] = function () {
+      return $options.handleImageChange && $options.handleImageChange.apply($options, arguments);
+    })
+  }, null, 32 /* HYDRATE_EVENTS */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "text",
     "class": "form-control",
     id: "exampleInpuName",
-    placeholder: "Digite seu nome",
-    value: $data.user.name
-  }, null, 8 /* PROPS */, _hoisted_6)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return $data.newUser.name = $event;
+    }),
+    placeholder: "Digite seu nome"
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.newUser.name]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "email",
     "class": "form-control",
     id: "exampleInputEmail1",
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+      return $data.newUser.email = $event;
+    }),
     "aria-describedby": "emailHelp",
-    placeholder: "Digite seu email",
-    value: $data.user.email
-  }, null, 8 /* PROPS */, _hoisted_9)]), _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    placeholder: "Digite seu email"
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.newUser.email]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "password",
+    "class": "form-control",
+    id: "exampleInputPassword1",
+    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+      return $data.newUser.password = $event;
+    }),
+    placeholder: "Digite sua senha"
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.newUser.password]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "date",
     "class": "form-control",
     id: "exampleInputDate",
-    placeholder: "Data de nascimento",
-    value: $data.user.data_nascimento
-  }, null, 8 /* PROPS */, _hoisted_13)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    type: "submit",
+    "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
+      return $data.newUser.birth = $event;
+    }),
+    placeholder: "Data de nascimento"
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.newUser.birth]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "button",
     "class": "btn btn-primary",
-    onClick: _cache[0] || (_cache[0] = function () {
-      return $options.redirectToHome && $options.redirectToHome.apply($options, arguments);
+    onClick: _cache[6] || (_cache[6] = function () {
+      return $options.updatePerfil && $options.updatePerfil.apply($options, arguments);
     })
   }, "Atualizar")])])])]);
 }
@@ -240,7 +333,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.header[data-v-770cded8] {\r\n  width: 100%;\r\n  /* display: flex; */\r\n  align-items: center;\r\n  position: fixed;\r\n  padding: 22px;\r\n  background-color: rgb(0, 0,0, 0.5);\r\n  z-index: 2;\n}\r\n/* h3{\r\n  font-weight: bold;\r\n  text-align: center;\r\n} */\n.right-container[data-v-770cded8] {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content:right;\n}\n.header-search[data-v-770cded8] {\r\n  padding: 8px 25px;\r\n  background-color: transparent;\r\n  outline: 1px solid #00aacd;\r\n  border: none;\r\n  color: #fff;\r\n  border-radius: 4px;\r\n  transition: background-color 0.3s linear, outline 0.3s linear, color 0.3s linear;\n}\n.icon-search[data-v-770cded8] {\r\n  color: white;\r\n  margin-right: 6px;\n}\n.header-search[data-v-770cded8]{\r\n  margin-right: 8px ;\n}\n.sair-button[data-v-770cded8] {\r\n  padding: 6px 35px;\r\n  background-color: transparent;\r\n  border-radius: 2px;\r\n  outline: 1px solid #00aacd;\r\n  color: #fff;\r\n  transition: background-color 0.3s linear, outline 0.3s linear, color 0.3s linear;\n}\n.sair-button[data-v-770cded8]:hover {\r\n  background-color: #00aacd;\r\n  outline: 1px solid #fff;\r\n  color: #17161b;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.header[data-v-770cded8] {\r\n  width: 100%;\r\n  /* display: flex; */\r\n  align-items: center;\r\n  position: fixed;\r\n  padding: 22px;\r\n  background: linear-gradient(to bottom, black, rgba(0, 0, 0, 0));\r\n  z-index: 2;\n}\r\n/* h3{\r\n  font-weight: bold;\r\n  text-align: center;\r\n} */\n.right-container[data-v-770cded8] {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content:right;\n}\n.header-search[data-v-770cded8] {\r\n  padding: 8px 25px;\r\n  background-color: transparent;\r\n  outline: 1px solid #00aacd;\r\n  border: none;\r\n  color: #fff;\r\n  border-radius: 4px;\r\n  transition: background-color 0.3s linear, outline 0.3s linear, color 0.3s linear;\n}\n.icon-search[data-v-770cded8] {\r\n  color: white;\r\n  margin-right: 6px;\n}\n.header-search[data-v-770cded8]{\r\n  margin-right: 8px ;\n}\n.sair-button[data-v-770cded8] {\r\n  padding: 6px 35px;\r\n  background-color: transparent;\r\n  border-radius: 2px;\r\n  outline: 1px solid #00aacd;\r\n  color: #fff;\r\n  transition: background-color 0.3s linear, outline 0.3s linear, color 0.3s linear;\n}\n.sair-button[data-v-770cded8]:hover {\r\n  background-color: #00aacd;\r\n  outline: 1px solid #fff;\r\n  color: #17161b;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -263,7 +356,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.content[data-v-08bed703] {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    height: 100vh;\r\n    position: relative;\n}\n.forms[data-v-08bed703] {\r\n    position: absolute;\r\n    top: 15%;\r\n    background-color: rgba(39, 39, 47, 0.5); /* Cor de fundo com transparência */\r\n    display: flex;\r\n    align-items: center;\r\n    padding: 25px;\r\n    padding-top: 60px;\r\n    padding-bottom: 60px;\r\n    border-radius: 25px;\r\n    flex-direction: column;\n}\n.forms .form-group[data-v-08bed703] {\r\n    margin-bottom: 10px;\r\n    width: 350px;\n}\n.forms .form-group label[data-v-08bed703] {\r\n    color: var(--blue);\r\n    font-weight: 500;\r\n    margin-bottom: 8px;\n}\n.forms .form-group input[data-v-08bed703] {\r\n    padding: 8px;\r\n    width: 100%;\n}\n.forms .form-group input[data-v-08bed703]:focus {\r\n  outline: 2px solid var(--blue); /* Customize the outline color and style */\n}\n.forms button[type=\"submit\"][data-v-08bed703] {\r\n    padding: 8px ;\r\n    width: 100%;\r\n    margin-top: 20px ;\r\n    background-color: transparent;\r\n    outline: 1px solid var(--blue);\r\n    color: white;\r\n    border: none;\r\n    border-radius: 4px;\r\n    cursor: pointer;\r\n    transition: background-color 0.3s linear, outline 0.3s linear, color 0.3s linear;\n}\n.forms button[data-v-08bed703]:hover{\r\n    background-color: var(--blue);\r\n    outline: 1px solid #fff;\n}\r\n  ", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.content[data-v-08bed703] {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    height: 100vh;\r\n    position: relative;\n}\n.user-info[data-v-08bed703] {\r\n     /* margin-top: 50px; */\r\n  display: flex;\r\n  flex-direction:column;\r\n  justify-content: center;\r\n  align-items: center;\r\n  /* margin-bottom: 3rem; */\n}\n.user-image[data-v-08bed703] {\r\n  width: 3rem;\r\n  height: 3rem;\r\n  border-radius: 50%; /* Make the image rounded */\r\n  overflow: hidden; /* Ensure the image is properly clipped within the circle */\r\n  border: 2px solid var(--blue);\n}\n.user-image img[data-v-08bed703] {\r\n  width: 100%;\r\n  height: 100%;\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\n}\n.forms[data-v-08bed703] {\r\n    position: absolute;\r\n    top: 15%;\r\n    background-color: rgba(39, 39, 47, 0.5); /* Cor de fundo com transparência */\r\n    display: flex;\r\n    align-items: center;\r\n    padding: 25px;\r\n    padding-top: 60px;\r\n    padding-bottom: 60px;\r\n    border-radius: 25px;\r\n    flex-direction: column;\n}\n.forms .form-group[data-v-08bed703] {\r\n    margin-bottom: 10px;\r\n    width: 350px;\n}\n.forms .form-group label[data-v-08bed703] {\r\n    color: var(--blue);\r\n    font-weight: 500;\r\n    margin-bottom: 8px;\n}\n.forms .form-group input[data-v-08bed703] {\r\n    padding: 8px;\r\n    width: 100%;\n}\n.forms .form-group input[data-v-08bed703]:focus {\r\n  outline: 2px solid var(--blue); /* Customize the outline color and style */\n}\n.forms button[type=\"button\"][data-v-08bed703] {\r\n    padding: 8px ;\r\n    width: 100%;\r\n    margin-top: 20px ;\r\n    background-color: transparent;\r\n    outline: 1px solid var(--blue);\r\n    color: white;\r\n    border: none;\r\n    border-radius: 4px;\r\n    cursor: pointer;\r\n    transition: background-color 0.3s linear, outline 0.3s linear, color 0.3s linear;\n}\n.forms button[data-v-08bed703]:hover{\r\n    background-color: var(--blue);\r\n    outline: 1px solid #fff;\n}\r\n  ", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

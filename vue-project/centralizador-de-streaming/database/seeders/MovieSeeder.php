@@ -18,6 +18,16 @@ class MovieSeeder extends Seeder
 
         DB::table('movies')
         ->insertGetId([
+            'title' => 'Game Of Thrones',
+            'description' => "A série se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia",
+            'image' => 'https://ogimg.infoglobo.com.br/in/23593051-659-3a7/FT1500A/690/header-got.jpg',
+            'video' => 'https://resource.flexclip.com/templates/video/720p/epic-fire-effect-movie-trailer.mp4',
+            'category' => 'principalMovies',
+            'id_streaming' => '1',
+            'created_at' => now(),
+        ]);
+        DB::table('movies')
+        ->insertGetId([
             'title' => 'Vingadores Ultimato',
             'description' => "O filme se passa em um tradicional colégio interno, o St. Benedict's, no qual estudam os mais prósperos e influentes jovens da sociedade americana. O lema da Instituição é “o fim depende do início”. Para ser mais preciso, ela tem como objetivo formar homens de caráter tendo por base a transmissão do saber e do conhecimento dando como exemplo grandes nomes do passado que muito contribuíram para uma verdadeira democracia",
             'image' => 'https://www.publicitarioscriativos.com/wp-content/uploads/2019/08/Todos-os-po%CC%82steres-do-Universo-Cinematogra%CC%81fico-Marvel-em-alta-qualidade.png',

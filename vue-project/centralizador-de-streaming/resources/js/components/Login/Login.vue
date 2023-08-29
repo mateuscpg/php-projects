@@ -3,7 +3,12 @@
     <HeaderLogin/>
     <div class="content">
       <div class="forms">
-        <h2>Login</h2>
+        <div class="logo-container">
+            <div class="logo-class">
+                <img src="../../../../public/images/logonovagrande.png" width="200" class="logo-isNotIsExpanded" alt="logo">
+            </div>
+        </div>
+        <!-- <h2>Login</h2> -->
         <form>
           <div class="form-group">
             <label for="exampleInputEmail1">Email </label>
@@ -96,7 +101,7 @@ export default {
   display: flex;
   align-items: center;
   padding: 25px;
-  padding-top: 60px;
+  /* padding-top: 20px; */
   padding-bottom: 60px;
   border-radius: 25px;
   flex-direction: column;

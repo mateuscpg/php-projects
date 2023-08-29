@@ -93,7 +93,7 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative; /* Add position relative to enable overlay positioning */
+  position: relative; 
 }
 
 .keen-slider__slide img {
@@ -108,7 +108,7 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  width: 45%; /* Adjust the width of the overlay to fit your needs */
+  width: 45%; 
   height: 100%;
   background: linear-gradient(to right, black, rgba(0, 0, 0, 0.0)); /* Less transparent on the right */
   z-index: 1;

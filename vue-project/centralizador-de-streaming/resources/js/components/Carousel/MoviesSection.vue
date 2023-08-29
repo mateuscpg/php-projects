@@ -9,6 +9,7 @@
             <img :src="movie.streaming_logo" alt="" class="streaming-logo"/>
           </div> 
           <div class="movie-title">{{ movie.title }}</div>
+          
       </div>
     </div>
   </template>
@@ -48,7 +49,7 @@
             loop: true,
             mode: "free-snap",
             slides: {
-              perView: 6,
+              perView: 8,
               spacing: 8,
             },
           });
@@ -71,24 +72,36 @@
 <style scoped>
 .keen-slider {
   display: flex;
-
+  padding: 2px;
 }
 
 .keen-slider__slide {
   width: 100%;
   display: flex;
+  border-radius: 5px;
   background-color: rgba(75, 73, 73, 0.486);
+  /* background-color: transparent;
+  outline: 1px solid white; */
   flex-direction: column;
   align-items: center; 
   justify-content: center;
 }
-
+.keen-slider__slide.slides
+{
+  /* transition: background-color 0.3s linear, outline 0s linear, color 0.1s linear; */
+}
+.keen-slider__slide.slides:hover {
+  background-color: rgba(75, 73, 73, 0.8); /* Cor com maior opacidade */
+  opacity: 1; /* Mostra o cartão completo */
+  outline: 2px solid var(--blue);
+  transform: scale(1.05) translateY(-5px);
+}
 
 .movie-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  max-height: 250px;
+  max-height: 260px;
   cursor: pointer; 
   filter: brightness(100%); 
   transition: filter 0.3s ease;
@@ -99,7 +112,7 @@
 }
 
 .movie-title {
-  margin: 15px 0px;
+  margin: 12px 0px;
   font-size: 18px;
   font-weight: 2px;
   color: var(--light);
