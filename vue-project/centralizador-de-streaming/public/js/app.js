@@ -23385,14 +23385,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
     return listRecommendedMovies;
   }(),
-  listAcctionMovies: function () {
-    var _listAcctionMovies = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
+  searchMovies: function () {
+    var _searchMovies = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(moviesCategory, searchQuery) {
       var dados;
       return _regeneratorRuntime().wrap(function _callee4$(_context4) {
         while (1) switch (_context4.prev = _context4.next) {
           case 0:
             _context4.next = 2;
-            return _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/movies/get-acction-movie');
+            return _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/movies/search-movie', {
+              params: {
+                category: moviesCategory,
+                movie: searchQuery
+              }
+            });
           case 2:
             dados = _context4.sent;
             return _context4.abrupt("return", dados.data);
@@ -23402,19 +23407,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }
       }, _callee4);
     }));
-    function listAcctionMovies() {
-      return _listAcctionMovies.apply(this, arguments);
+    function searchMovies(_x, _x2) {
+      return _searchMovies.apply(this, arguments);
     }
-    return listAcctionMovies;
+    return searchMovies;
   }(),
-  listAdventureMovies: function () {
-    var _listAdventureMovies = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
+  listAcctionMovies: function () {
+    var _listAcctionMovies = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
       var dados;
       return _regeneratorRuntime().wrap(function _callee5$(_context5) {
         while (1) switch (_context5.prev = _context5.next) {
           case 0:
             _context5.next = 2;
-            return _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/movies/get-adventure-movie');
+            return _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/movies/get-acction-movie');
           case 2:
             dados = _context5.sent;
             return _context5.abrupt("return", dados.data);
@@ -23424,19 +23429,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }
       }, _callee5);
     }));
-    function listAdventureMovies() {
-      return _listAdventureMovies.apply(this, arguments);
+    function listAcctionMovies() {
+      return _listAcctionMovies.apply(this, arguments);
     }
-    return listAdventureMovies;
+    return listAcctionMovies;
   }(),
-  listTerrorMovies: function () {
-    var _listTerrorMovies = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6() {
+  listAdventureMovies: function () {
+    var _listAdventureMovies = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6() {
       var dados;
       return _regeneratorRuntime().wrap(function _callee6$(_context6) {
         while (1) switch (_context6.prev = _context6.next) {
           case 0:
             _context6.next = 2;
-            return _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/movies/get-terror-movie');
+            return _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/movies/get-adventure-movie');
           case 2:
             dados = _context6.sent;
             return _context6.abrupt("return", dados.data);
@@ -23446,19 +23451,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }
       }, _callee6);
     }));
-    function listTerrorMovies() {
-      return _listTerrorMovies.apply(this, arguments);
+    function listAdventureMovies() {
+      return _listAdventureMovies.apply(this, arguments);
     }
-    return listTerrorMovies;
+    return listAdventureMovies;
   }(),
-  listRomanceMovies: function () {
-    var _listRomanceMovies = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee7() {
+  listTerrorMovies: function () {
+    var _listTerrorMovies = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee7() {
       var dados;
       return _regeneratorRuntime().wrap(function _callee7$(_context7) {
         while (1) switch (_context7.prev = _context7.next) {
           case 0:
             _context7.next = 2;
-            return _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/movies/get-romance-movie');
+            return _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/movies/get-terror-movie');
           case 2:
             dados = _context7.sent;
             return _context7.abrupt("return", dados.data);
@@ -23468,19 +23473,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }
       }, _callee7);
     }));
-    function listRomanceMovies() {
-      return _listRomanceMovies.apply(this, arguments);
+    function listTerrorMovies() {
+      return _listTerrorMovies.apply(this, arguments);
     }
-    return listRomanceMovies;
+    return listTerrorMovies;
   }(),
-  listDramaMovies: function () {
-    var _listDramaMovies = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee8() {
+  listRomanceMovies: function () {
+    var _listRomanceMovies = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee8() {
       var dados;
       return _regeneratorRuntime().wrap(function _callee8$(_context8) {
         while (1) switch (_context8.prev = _context8.next) {
           case 0:
             _context8.next = 2;
-            return _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/movies/get-drama-movie');
+            return _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/movies/get-romance-movie');
           case 2:
             dados = _context8.sent;
             return _context8.abrupt("return", dados.data);
@@ -23490,19 +23495,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }
       }, _callee8);
     }));
-    function listDramaMovies() {
-      return _listDramaMovies.apply(this, arguments);
+    function listRomanceMovies() {
+      return _listRomanceMovies.apply(this, arguments);
     }
-    return listDramaMovies;
+    return listRomanceMovies;
   }(),
-  listComedyMovies: function () {
-    var _listComedyMovies = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee9() {
+  listDramaMovies: function () {
+    var _listDramaMovies = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee9() {
       var dados;
       return _regeneratorRuntime().wrap(function _callee9$(_context9) {
         while (1) switch (_context9.prev = _context9.next) {
           case 0:
             _context9.next = 2;
-            return _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/movies/get-comedy-movie');
+            return _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/movies/get-drama-movie');
           case 2:
             dados = _context9.sent;
             return _context9.abrupt("return", dados.data);
@@ -23512,19 +23517,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }
       }, _callee9);
     }));
-    function listComedyMovies() {
-      return _listComedyMovies.apply(this, arguments);
+    function listDramaMovies() {
+      return _listDramaMovies.apply(this, arguments);
     }
-    return listComedyMovies;
+    return listDramaMovies;
   }(),
-  listDocumentaryMovies: function () {
-    var _listDocumentaryMovies = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee10() {
+  listComedyMovies: function () {
+    var _listComedyMovies = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee10() {
       var dados;
       return _regeneratorRuntime().wrap(function _callee10$(_context10) {
         while (1) switch (_context10.prev = _context10.next) {
           case 0:
             _context10.next = 2;
-            return _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/movies/get-documentary-movie');
+            return _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/movies/get-comedy-movie');
           case 2:
             dados = _context10.sent;
             return _context10.abrupt("return", dados.data);
@@ -23534,19 +23539,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }
       }, _callee10);
     }));
-    function listDocumentaryMovies() {
-      return _listDocumentaryMovies.apply(this, arguments);
+    function listComedyMovies() {
+      return _listComedyMovies.apply(this, arguments);
     }
-    return listDocumentaryMovies;
+    return listComedyMovies;
   }(),
-  listSuspenseMovies: function () {
-    var _listSuspenseMovies = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee11() {
+  listDocumentaryMovies: function () {
+    var _listDocumentaryMovies = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee11() {
       var dados;
       return _regeneratorRuntime().wrap(function _callee11$(_context11) {
         while (1) switch (_context11.prev = _context11.next) {
           case 0:
             _context11.next = 2;
-            return _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/movies/get-suspense-movie');
+            return _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/movies/get-documentary-movie');
           case 2:
             dados = _context11.sent;
             return _context11.abrupt("return", dados.data);
@@ -23556,19 +23561,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }
       }, _callee11);
     }));
-    function listSuspenseMovies() {
-      return _listSuspenseMovies.apply(this, arguments);
+    function listDocumentaryMovies() {
+      return _listDocumentaryMovies.apply(this, arguments);
     }
-    return listSuspenseMovies;
+    return listDocumentaryMovies;
   }(),
-  listScienceFictionMovies: function () {
-    var _listScienceFictionMovies = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee12() {
+  listSuspenseMovies: function () {
+    var _listSuspenseMovies = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee12() {
       var dados;
       return _regeneratorRuntime().wrap(function _callee12$(_context12) {
         while (1) switch (_context12.prev = _context12.next) {
           case 0:
             _context12.next = 2;
-            return _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/movies/get-science-fiction-movie');
+            return _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/movies/get-suspense-movie');
           case 2:
             dados = _context12.sent;
             return _context12.abrupt("return", dados.data);
@@ -23578,19 +23583,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }
       }, _callee12);
     }));
-    function listScienceFictionMovies() {
-      return _listScienceFictionMovies.apply(this, arguments);
+    function listSuspenseMovies() {
+      return _listSuspenseMovies.apply(this, arguments);
     }
-    return listScienceFictionMovies;
+    return listSuspenseMovies;
   }(),
-  listMusicalMovies: function () {
-    var _listMusicalMovies = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee13() {
+  listScienceFictionMovies: function () {
+    var _listScienceFictionMovies = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee13() {
       var dados;
       return _regeneratorRuntime().wrap(function _callee13$(_context13) {
         while (1) switch (_context13.prev = _context13.next) {
           case 0:
             _context13.next = 2;
-            return _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/movies/get-musical-movie');
+            return _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/movies/get-science-fiction-movie');
           case 2:
             dados = _context13.sent;
             return _context13.abrupt("return", dados.data);
@@ -23599,6 +23604,28 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             return _context13.stop();
         }
       }, _callee13);
+    }));
+    function listScienceFictionMovies() {
+      return _listScienceFictionMovies.apply(this, arguments);
+    }
+    return listScienceFictionMovies;
+  }(),
+  listMusicalMovies: function () {
+    var _listMusicalMovies = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee14() {
+      var dados;
+      return _regeneratorRuntime().wrap(function _callee14$(_context14) {
+        while (1) switch (_context14.prev = _context14.next) {
+          case 0:
+            _context14.next = 2;
+            return _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/movies/get-musical-movie');
+          case 2:
+            dados = _context14.sent;
+            return _context14.abrupt("return", dados.data);
+          case 4:
+          case "end":
+            return _context14.stop();
+        }
+      }, _callee14);
     }));
     function listMusicalMovies() {
       return _listMusicalMovies.apply(this, arguments);

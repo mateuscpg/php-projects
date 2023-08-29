@@ -205,91 +205,112 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       acctionMovies: [],
       adventureMovies: [],
       terrorMovies: [],
-      romanceMovies: []
+      romanceMovies: [],
+      MovieSelected: []
     };
   },
   methods: {
     searchMovies: function searchMovies(event, moviesCategory) {
-      if (event.key === "Enter") {
-        var searchQuery = event.target.value;
-        console.log("Pesquisar filmes da categoria: " + moviesCategory + " com a consulta: " + searchQuery);
-      }
-    },
-    dadosUsuario: function dadosUsuario() {
       var _this = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var dados;
+        var searchQuery, dados;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) switch (_context.prev = _context.next) {
             case 0:
-              _context.prev = 0;
-              _context.next = 3;
-              return _services_Axios__WEBPACK_IMPORTED_MODULE_4__["default"].getPerfil();
-            case 3:
+              if (!(event.key === "Enter")) {
+                _context.next = 8;
+                break;
+              }
+              searchQuery = event.target.value;
+              _context.next = 4;
+              return _services_Axios__WEBPACK_IMPORTED_MODULE_4__["default"].searchMovies(moviesCategory, searchQuery);
+            case 4:
               dados = _context.sent;
-              _this.user = dados;
-              _context.next = 10;
-              break;
-            case 7:
-              _context.prev = 7;
-              _context.t0 = _context["catch"](0);
-              console.error("Erro ao obter usuário:", _context.t0);
-            case 10:
+              _this.MovieSelected = dados.movie;
+              console.log(_this.MovieSelected);
+              console.log("Pesquisar filmes da categoria: " + moviesCategory + " com a consulta: " + searchQuery);
+            case 8:
             case "end":
               return _context.stop();
           }
-        }, _callee, null, [[0, 7]]);
+        }, _callee);
       }))();
     },
-    listMovies: function listMovies() {
+    dadosUsuario: function dadosUsuario() {
       var _this2 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-        var dadosPrincipal, dadosRecommended, dadosAcction, dadosAdventure, dadosTerror, dadosRomance;
+        var dados;
         return _regeneratorRuntime().wrap(function _callee2$(_context2) {
           while (1) switch (_context2.prev = _context2.next) {
             case 0:
               _context2.prev = 0;
               _context2.next = 3;
-              return _services_Axios__WEBPACK_IMPORTED_MODULE_4__["default"].listPrincipalMovies();
+              return _services_Axios__WEBPACK_IMPORTED_MODULE_4__["default"].getPerfil();
             case 3:
-              dadosPrincipal = _context2.sent;
-              _this2.principalMovie = dadosPrincipal;
-              _context2.next = 7;
-              return _services_Axios__WEBPACK_IMPORTED_MODULE_4__["default"].listRecommendedMovies();
-            case 7:
-              dadosRecommended = _context2.sent;
-              _this2.recommendedMovies = dadosRecommended;
-              _context2.next = 11;
-              return _services_Axios__WEBPACK_IMPORTED_MODULE_4__["default"].listAcctionMovies();
-            case 11:
-              dadosAcction = _context2.sent;
-              _this2.acctionMovies = dadosAcction;
-              _context2.next = 15;
-              return _services_Axios__WEBPACK_IMPORTED_MODULE_4__["default"].listAdventureMovies();
-            case 15:
-              dadosAdventure = _context2.sent;
-              _this2.adventureMovies = dadosAdventure;
-              _context2.next = 19;
-              return _services_Axios__WEBPACK_IMPORTED_MODULE_4__["default"].listTerrorMovies();
-            case 19:
-              dadosTerror = _context2.sent;
-              _this2.terrorMovies = dadosTerror;
-              _context2.next = 23;
-              return _services_Axios__WEBPACK_IMPORTED_MODULE_4__["default"].listRomanceMovies();
-            case 23:
-              dadosRomance = _context2.sent;
-              _this2.romanceMovies = dadosRomance;
-              _context2.next = 30;
+              dados = _context2.sent;
+              _this2.user = dados;
+              _context2.next = 10;
               break;
-            case 27:
-              _context2.prev = 27;
+            case 7:
+              _context2.prev = 7;
               _context2.t0 = _context2["catch"](0);
-              console.error("Filme não encontrado!", _context2.t0);
-            case 30:
+              console.error("Erro ao obter usuário:", _context2.t0);
+            case 10:
             case "end":
               return _context2.stop();
           }
-        }, _callee2, null, [[0, 27]]);
+        }, _callee2, null, [[0, 7]]);
+      }))();
+    },
+    listMovies: function listMovies() {
+      var _this3 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+        var dadosPrincipal, dadosRecommended, dadosAcction, dadosAdventure, dadosTerror, dadosRomance;
+        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+          while (1) switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _services_Axios__WEBPACK_IMPORTED_MODULE_4__["default"].listPrincipalMovies();
+            case 3:
+              dadosPrincipal = _context3.sent;
+              _this3.principalMovie = dadosPrincipal;
+              _context3.next = 7;
+              return _services_Axios__WEBPACK_IMPORTED_MODULE_4__["default"].listRecommendedMovies();
+            case 7:
+              dadosRecommended = _context3.sent;
+              _this3.recommendedMovies = dadosRecommended;
+              _context3.next = 11;
+              return _services_Axios__WEBPACK_IMPORTED_MODULE_4__["default"].listAcctionMovies();
+            case 11:
+              dadosAcction = _context3.sent;
+              _this3.acctionMovies = dadosAcction;
+              _context3.next = 15;
+              return _services_Axios__WEBPACK_IMPORTED_MODULE_4__["default"].listAdventureMovies();
+            case 15:
+              dadosAdventure = _context3.sent;
+              _this3.adventureMovies = dadosAdventure;
+              _context3.next = 19;
+              return _services_Axios__WEBPACK_IMPORTED_MODULE_4__["default"].listTerrorMovies();
+            case 19:
+              dadosTerror = _context3.sent;
+              _this3.terrorMovies = dadosTerror;
+              _context3.next = 23;
+              return _services_Axios__WEBPACK_IMPORTED_MODULE_4__["default"].listRomanceMovies();
+            case 23:
+              dadosRomance = _context3.sent;
+              _this3.romanceMovies = dadosRomance;
+              _context3.next = 30;
+              break;
+            case 27:
+              _context3.prev = 27;
+              _context3.t0 = _context3["catch"](0);
+              console.error("Filme não encontrado!", _context3.t0);
+            case 30:
+            case "end":
+              return _context3.stop();
+          }
+        }, _callee3, null, [[0, 27]]);
       }))();
     }
   },

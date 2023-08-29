@@ -7,8 +7,15 @@ use App\Models\Streaming;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+
 class MovieController extends Controller
 {       
+        private function filterMovie($query, $request){
+                if(isset($request['movie'])){
+                        $query->where('title', 'like', '%' . $request['movie'] . '%');
+                }
+        }
+
         public function getStreaming(){
                 $streaming = Streaming::all();
                 return $streaming;
@@ -31,14 +38,17 @@ class MovieController extends Controller
                 return $movies;
         }
 
-        // public function getRecommendedMovies(){
-        //         $movies = Movie::all()->where('category', 'recommendedMovies' );
+        public function searchMovie(Request $request)
+        {
+                $movie = Movie::select('*')->where(function ($query) use ($request){
+                        $this->filterMovie($query, $request);
+                })
+                ->where('category', $request['category'])
+                ->get();
 
-        //         foreach($movies as $movie){
-        //                 $movie->streaming()->select('icon as streaming_logo')->first();
-        //         }
-        //         return $movies;       
-        // }
+                return response()->json(['movie'=>$movie, 'success'=>true]);
+
+        }
 
         public function getAcctionMovies(){
                 $movies = Movie::all()->where('category', 'acctionMovies' );

@@ -83,12 +83,16 @@ export default {
       adventureMovies: [],
       terrorMovies: [],
       romanceMovies: [],
+      MovieSelected: [],
     }
   },
   methods:{
-    searchMovies(event, moviesCategory) {
+   async searchMovies(event, moviesCategory) {
       if (event.key === "Enter") {
         const searchQuery = event.target.value;
+        let dados = await api.searchMovies(moviesCategory, searchQuery);
+        this.MovieSelected = dados.movie;
+        console.log(this.MovieSelected);
         console.log("Pesquisar filmes da categoria: " + moviesCategory + " com a consulta: " + searchQuery);
       }
     },

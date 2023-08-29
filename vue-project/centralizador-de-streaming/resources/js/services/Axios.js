@@ -16,6 +16,16 @@ export default {
         let dados = await api.get('/movies/get-recommended-movie');
         return dados.data;
     },
+    searchMovies: async (moviesCategory, searchQuery) => {
+        let dados = await api.get('/movies/search-movie', {
+          params: {
+            category: moviesCategory,
+            movie: searchQuery
+          }
+        });
+        return dados.data;
+      },
+      
     
     listAcctionMovies: async () => {
         let dados = await api.get('/movies/get-acction-movie');
