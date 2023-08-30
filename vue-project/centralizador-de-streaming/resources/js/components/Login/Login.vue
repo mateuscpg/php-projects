@@ -42,6 +42,7 @@
 <script>
 import Sidebar from '../Sidebar/Sidebar.vue';
 import HeaderLogin from '../Header/HeaderLogin.vue';
+import {USER_COLLECTION} from '../../collection';
 // import api from '../../services/Axios';
 
 export default {
@@ -64,6 +65,7 @@ export default {
           password: this.password,
         });
         this.user = dados.data.user_auth;
+        localStorage.setItem(USER_COLLECTION,JSON.stringify({...this.user,isUserLoggedIn:true }));
         if (this.user.id_cms_privileges === 1 || this.user.id_cms_privileges === 2) {
             window.location.href = "/home";
         }
@@ -72,12 +74,6 @@ export default {
     redirectToHome() {
       this.$router.push('/home');
     },
-    // validateCredentials() {
-    //   return (
-    //     this.enteredEmail === this.users.email &&
-    //     this.enteredSenha === this.users.senha
-    //   );
-    // },
   },
   activated(){
     this.login();

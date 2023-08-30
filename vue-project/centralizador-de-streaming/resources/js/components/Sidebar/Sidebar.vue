@@ -128,11 +128,13 @@
 import { ref } from 'vue';
 import axios from 'axios';
 import api from '../../services/Axios'
+import { USER_COLLECTION } from '../../collection';
 
 export default {
   data() {
     return {
-        perfil:{},
+      user: {},
+      perfil:{},
       userName: '',
       userImage: '',
       showSubMenu: false,
@@ -142,19 +144,13 @@ export default {
   },
   methods: {
     redirectToLogin(){
+      localStorage.setItem(USER_COLLECTION,JSON.stringify({...this.user,isUserLoggedIn:false }));
+
       window.location.href ='/sair';
     },
-    async dadosUsuario(){
-      try {
-        let dados = await api.getPerfil();
-        this.user = dados;
-        this.userName = dados.name;
-        this.userImage = dados.photo;
-      }
-      catch (error) {
-        console.error("Erro ao obter usuário:", error);
-      }
-    },
+    // async dadosUsuario(){
+      
+    // },
     
 
     toggleMenu(expaned) {
@@ -166,7 +162,15 @@ export default {
     },
   },
   created(){
-    this.dadosUsuario();
+    try {
+        this.user = JSON.parse(localStorage.getItem(USER_COLLECTION));
+        this.userName = this.user.name;
+        this.userImage = this.user.photo;
+      }
+      catch (error) {
+        console.error("Erro ao obter usuário:", error);
+      }
+    // this.dadosUsuario();
   }
 };
 </script>
