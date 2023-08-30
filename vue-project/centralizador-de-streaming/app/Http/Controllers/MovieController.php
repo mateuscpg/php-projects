@@ -16,6 +16,18 @@ class MovieController extends Controller
                 }
         }
 
+        public function searchMovie(Request $request)
+        {
+                $movie = Movie::select('*')->where(function ($query) use ($request){
+                        $this->filterMovie($query, $request);
+                })
+                ->where('category', $request['category'])
+                ->get();
+
+                return response()->json(['movie'=>$movie, 'success'=>true]);
+
+        }
+
         public function getStreaming(){
                 $streaming = Streaming::all();
                 return $streaming;
@@ -38,65 +50,113 @@ class MovieController extends Controller
                 return $movies;
         }
 
-        public function searchMovie(Request $request)
-        {
-                $movie = Movie::select('*')->where(function ($query) use ($request){
-                        $this->filterMovie($query, $request);
-                })
-                ->where('category', $request['category'])
+        public function getAcctionMovies(){
+                $movies = DB::table('movies')
+                ->join('streaming', 'movies.id_streaming', '=', 'streaming.id')
+                ->where('category', 'acctionMovies' )
+                ->select('movies.title', 'movies.description', 'movies.image', 
+                         'movies.video', 'movies.category', 'movies.id_streaming', 'streaming.icon as streaming_logo')
                 ->get();
 
-                return response()->json(['movie'=>$movie, 'success'=>true]);
-
-        }
-
-        public function getAcctionMovies(){
-                $movies = Movie::all()->where('category', 'acctionMovies' );
                 return $movies;
         }
 
         public function getAdventureMovies(){
-                $movies = Movie::all()->where('category', 'adventureMovies' );
+                $movies = DB::table('movies')
+                ->join('streaming', 'movies.id_streaming', '=', 'streaming.id')
+                ->where('category', 'adventureMovies' )
+                ->select('movies.title', 'movies.description', 'movies.image', 
+                         'movies.video', 'movies.category', 'movies.id_streaming', 'streaming.icon as streaming_logo')
+                ->get();
+
                 return $movies;
         }
 
         public function getTerrorMovies(){
-                $movies = Movie::all()->where('category', 'terrorMovies' );
+                $movies = DB::table('movies')
+                ->join('streaming', 'movies.id_streaming', '=', 'streaming.id')
+                ->where('category', 'terrorMovies' )
+                ->select('movies.title', 'movies.description', 'movies.image', 
+                         'movies.video', 'movies.category', 'movies.id_streaming', 'streaming.icon as streaming_logo')
+                ->get();
+
                 return $movies;
         }
 
         public function getRomanceMovies(){
-                $movies = Movie::all()->where('category', 'romanceMovies' );
+                $movies = DB::table('movies')
+                ->join('streaming', 'movies.id_streaming', '=', 'streaming.id')
+                ->where('category', 'romanceMovies' )
+                ->select('movies.title', 'movies.description', 'movies.image', 
+                         'movies.video', 'movies.category', 'movies.id_streaming', 'streaming.icon as streaming_logo')
+                ->get();
+
                 return $movies;        
         }
 
         public function getDramaMovies(){
-                $movies = Movie::all()->where('category', 'dramaMovies' );
+                $movies = DB::table('movies')
+                ->join('streaming', 'movies.id_streaming', '=', 'streaming.id')
+                ->where('category', 'dramaMovies' )
+                ->select('movies.title', 'movies.description', 'movies.image', 
+                         'movies.video', 'movies.category', 'movies.id_streaming', 'streaming.icon as streaming_logo')
+                ->get();
+
                 return $movies;
         }
 
         public function getComedyMovies(){
-                $movies = Movie::all()->where('category', 'comedyMovies' );
+                $movies = DB::table('movies')
+                ->join('streaming', 'movies.id_streaming', '=', 'streaming.id')
+                ->where('category', 'comedyMovies' )
+                ->select('movies.title', 'movies.description', 'movies.image', 
+                         'movies.video', 'movies.category', 'movies.id_streaming', 'streaming.icon as streaming_logo')
+                ->get();
+
                 return $movies;
         }
 
         public function getDocumentaryMovies(){
-                $movies = Movie::all()->where('category', 'documentaryMovies' );
+                $movies = DB::table('movies')
+                ->join('streaming', 'movies.id_streaming', '=', 'streaming.id')
+                ->where('category', 'documentaryMovies' )
+                ->select('movies.title', 'movies.description', 'movies.image', 
+                         'movies.video', 'movies.category', 'movies.id_streaming', 'streaming.icon as streaming_logo')
+                ->get();
+                
                 return $movies;
         }
 
         public function getSuspenseMovies(){
-                $movies = Movie::all()->where('category', 'suspenseMovies' );
+                $movies = DB::table('movies')
+                ->join('streaming', 'movies.id_streaming', '=', 'streaming.id')
+                ->where('category', 'suspenseMovies' )
+                ->select('movies.title', 'movies.description', 'movies.image', 
+                         'movies.video', 'movies.category', 'movies.id_streaming', 'streaming.icon as streaming_logo')
+                ->get();
+
                 return $movies;
         }
 
         public function getScienceFictionMovies(){
-                $movies = Movie::all()->where('category', 'scienceFictionMovies' );
+                $movies = DB::table('movies')
+                ->join('streaming', 'movies.id_streaming', '=', 'streaming.id')
+                ->where('category', 'scienceFictionMovies' )
+                ->select('movies.title', 'movies.description', 'movies.image', 
+                         'movies.video', 'movies.category', 'movies.id_streaming', 'streaming.icon as streaming_logo')
+                ->get();
+
                 return $movies;
         }
 
         public function getMusicalMovies(){
-                $movies = Movie::all()->where('category', 'musicalMovies' );
+                $movies = DB::table('movies')
+                ->join('streaming', 'movies.id_streaming', '=', 'streaming.id')
+                ->where('category', 'musicalMovies' )
+                ->select('movies.title', 'movies.description', 'movies.image', 
+                         'movies.video', 'movies.category', 'movies.id_streaming', 'streaming.icon as streaming_logo')
+                ->get();
+
                 return $movies;        
         }
     

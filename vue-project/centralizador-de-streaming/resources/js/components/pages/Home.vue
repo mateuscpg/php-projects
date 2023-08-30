@@ -96,6 +96,7 @@ export default {
         console.log("Pesquisar filmes da categoria: " + moviesCategory + " com a consulta: " + searchQuery);
       }
     },
+    
     async dadosUsuario(){
       try {
         let dados = await api.getPerfil();
@@ -105,6 +106,7 @@ export default {
         console.error("Erro ao obter usuário:", error);
       }
     },
+
     async listMovies(){
       try{
         let dadosPrincipal = await api.listPrincipalMovies();
@@ -127,7 +129,6 @@ export default {
       }
       catch (error) {
         console.error("Filme não encontrado!", error);
-
       }
 
     },

@@ -2,6 +2,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Login from '../components/Login/Login.vue';
 import Register from '../components/Login/Register.vue';
+import api from '../services/Axios';
 
 
 const routes = [
@@ -92,11 +93,21 @@ const router = createRouter({
   base: process.env.BASE_URL,
   routes
 })
-router.beforeEach((to, from, next) => {
+
+router.beforeEach(async (to, from, next) => {
   if (to.path === '/') {
     next('/login'); // Redireciona para /login se a rota for a raiz
-  } else {
-    next(); // Continua para a próxima rota
+  }
+   else if (to.path === '/login') {
+    let isAuthenticated = await api.getPerfil();
+      if (isAuthenticated) {
+        next('/home'); // Redireciona para /home se o usuário estiver autenticado
+      } 
+      else {
+        next(); // Permite que o usuário acesse a tela de login
+      }
+  }else {
+    next(); // Continua para a próxima rota se não for /, /login ou /home
   }
 });
 
