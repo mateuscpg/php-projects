@@ -5,8 +5,7 @@
 
         <div class="homepage">
           <PrincipalMovie :movies="principalMovie"></PrincipalMovie>
-          <br>
-          <br>
+         
           <div class="recommended-movies">
             <div class="search">
               <h3>Filmes Recomendados</h3>

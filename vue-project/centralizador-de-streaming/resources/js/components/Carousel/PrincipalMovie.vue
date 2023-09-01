@@ -61,9 +61,9 @@ export default {
   },
   methods: {
     openMovie(movie) {
-      console.log("O id desse filme é o id: " + movie.id);
-      this.$router.push({ name: 'ShowPrincipalMovie', query: { id: movie.id, video: movie.video } });
-  },
+      console.log("O id desse filme é o id: " + movie.id );
+      this.$router.push('/show-principal-movie/'+movie.id);
+    },
   },
   mounted() {
     this.slider = new KeenSlider(this.$refs.slider, {

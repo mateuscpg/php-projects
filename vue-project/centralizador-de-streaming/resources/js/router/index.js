@@ -67,14 +67,14 @@ const routes = [
      beforeEnter: verifyIsUserLoggedIn
   },
   {
-    path: '/show-principal-movie',
+    path: '/show-principal-movie/:id_movie',
     name: 'ShowPrincipalMovie',
     component: () => import('../components/pages/ShowMovies/ShowPrincipalMovie.vue'),
      beforeEnter: verifyIsUserLoggedIn,
     props: true,
   },
   {
-    path: '/show-movie',
+    path: '/show-movie/:id_movie',
     name: 'ShowMovie',
     component: () => import('../components/pages/ShowMovies/ShowMovie.vue'),
      beforeEnter: verifyIsUserLoggedIn,

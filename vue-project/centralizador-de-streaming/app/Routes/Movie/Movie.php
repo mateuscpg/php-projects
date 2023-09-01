@@ -11,6 +11,7 @@ class Movie
     {
         return Route::group(['middleware' => $middlware, 'prefix' => $prefix],function () {
             Route::get('/search-movie', [MovieController::class, 'searchMovie']);
+            Route::get('/get-movie', [MovieController::class, 'getMovie']);
             Route::get('/get-principal-movie', [MovieController::class, 'getPrincipalMovies']);
             Route::get('/get-recommended-movie', [MovieController::class, 'getRecommendedMovies']);
             Route::get('/get-acction-movie', [MovieController::class, 'getRecommendedMovies']);

@@ -3,17 +3,17 @@
     <Header/>
       <div class="content">
 
-        <div class="principal-movies">
-          <PrincipalMovie  v-if="principalMovie.length > 0" :movies="principalMovie"></PrincipalMovie>
-        </div>
-
+        
         <div class="homepage">
-
+          
+          <div class="principal-movies">
+            <PrincipalMovie  v-if="principalMovie.length > 0" :movies="principalMovie"></PrincipalMovie>
+          </div>
 
           <div class="recommended-movies">
             <div class="search">
               <h3>Filmes Recomendados</h3>
-              <input class="header-search" type="search" placeholder="Pesquise" @keypress="searchMovies($event, 'recommendedMovies')">
+              <!-- <input class="header-search" type="search" placeholder="Pesquise" @keypress="searchMovies($event, 'recommendedMovies')"> -->
             </div>
             <MoviesSection :movies="recommendedMovies"></MoviesSection>
           </div>
@@ -21,7 +21,7 @@
           <div class="acction-movies">
             <div class="search">
               <h3>Filmes de Ação</h3>
-              <input class="header-search" type="search" placeholder="Pesquise" @keypress="searchMovies($event, 'acctionMovies')">
+              <!-- <input class="header-search" type="search" placeholder="Pesquise" @keypress="searchMovies($event, 'acctionMovies')"> -->
             </div>
             <MoviesSection :movies="acctionMovies"></MoviesSection>
           </div>
@@ -29,7 +29,7 @@
           <div class="adventure-movies">
             <div class="search">
               <h3>Filmes de Aventura</h3>
-              <input class="header-search" type="search" placeholder="Pesquise" @keypress="searchMovies($event, 'adventureMovies')">
+              <!-- <input class="header-search" type="search" placeholder="Pesquise" @keypress="searchMovies($event, 'adventureMovies')"> -->
             </div>
             <MoviesSection :movies="adventureMovies"></MoviesSection>
           </div>
@@ -37,7 +37,7 @@
           <div class="terror-movies">
             <div class="search">
               <h3>Filmes de Terror</h3>
-              <input class="header-search" type="search" placeholder="Pesquise" @keypress="searchMovies($event, 'terrorMovies')">
+              <!-- <input class="header-search" type="search" placeholder="Pesquise" @keypress="searchMovies($event, 'terrorMovies')"> -->
             </div>
             <MoviesSection :movies="terrorMovies"></MoviesSection>
           </div>
@@ -45,7 +45,7 @@
           <div class="romance-movies">
             <div class="search">
               <h3>Filmes de Romance</h3>
-              <input class="header-search" type="search" placeholder="Pesquise" @keypress="searchMovies($event, 'romanceMovies')">
+              <!-- <input class="header-search" type="search" placeholder="Pesquise" @keypress="searchMovies($event, 'romanceMovies')"> -->
             </div>
             <MoviesSection :movies="romanceMovies"></MoviesSection>
           </div>
@@ -79,6 +79,7 @@ export default {
       user: {},
       principalMovie:[],
       recommendedMovies: [],
+      selectedRecommendedMovies: '',
       acctionMovies: [],
       adventureMovies: [],
       terrorMovies: [],
@@ -153,13 +154,14 @@ export default {
   color:var(--light);
   /* background-color: var(--blue); */
 }
-.principal-movies{
-  /* z-index: 1; */
+/* .principal-movies{
+  z-index: 1;
   margin-right:8rem;
-  margin-left:8rem;
+  margin-left:8rem; 
+} */
 
-}
 .homepage{
+  margin-top: 5.2rem;
   margin-right:8rem;
   margin-left:8rem;
 }

@@ -35,6 +35,7 @@ Route::put('/update-user/{id}', [UserController::class, 'updateUser']);
 Route::get('/get-streaming', [MovieController::class, 'getStreaming']);
 
 
+
 Route::middleware(['authUser'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 });

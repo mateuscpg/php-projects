@@ -33,10 +33,7 @@
 
         <div class="menu">
 
-      <router-link class="button" to="/home" :class="{'justify-content-center':!isExpanded}">
-        <span class="material-symbols-rounded">search</span>
-        <input type="search" v-if="isExpanded" />
-      </router-link>
+
 
       <router-link class="button" to="/home" :class="{'hover-effect': $route.path === '/home','justify-content-center':!isExpanded}">
         <span class="material-symbols-rounded">home</span>
@@ -112,21 +109,19 @@
                 <span v-if="isExpanded" class="text">Contatos</span>
             </router-link> -->
         </div>
-        <div class="flex"></div>
+        <!-- <div class="flex"></div>
         <div class="menu">
             <div class="button" :class="{'justify-content-center':!isExpanded}" @click="redirectToLogin">
               <span class="material-symbols-rounded">logout</span>
                 <span v-if="isExpanded" class="text">Sair</span>
             </div>
-            </div>
+            </div> -->
 
     </aside>
   
 </template>
 
 <script>
-import { ref } from 'vue';
-import axios from 'axios';
 import api from '../../services/Axios'
 import { USER_COLLECTION } from '../../collection';
 
@@ -135,6 +130,7 @@ export default {
     return {
       user: {},
       perfil:{},
+      MovieSelected:[],
       userName: '',
       userImage: '',
       showSubMenu: false,
@@ -143,6 +139,7 @@ export default {
     };
   },
   methods: {
+
     redirectToLogin(){
       localStorage.setItem(USER_COLLECTION,JSON.stringify({...this.user,isUserLoggedIn:false }));
 
@@ -151,7 +148,10 @@ export default {
     // async dadosUsuario(){
       
     // },
-    
+    openInfoMovie(movie) {
+      console.log("O id desse filme é o id: " + movie.id );
+      this.$router.push({ name: 'ShowMovie', query: { id: movie.id, title: movie.title, img: movie.image, description: movie.description, video: movie.video } });
+  },
 
     toggleMenu(expaned) {
       this.isExpanded = expaned;
@@ -171,6 +171,7 @@ export default {
         console.error("Erro ao obter usuário:", error);
       }
     // this.dadosUsuario();
+
   }
 };
 </script>
@@ -186,6 +187,7 @@ export default {
     align-items: center;
     justify-content: center;
 }
+
 aside{
     display: flex;
     // justify-content: center;
@@ -193,7 +195,7 @@ aside{
     top: 0;
     left: 0;
     bottom: 0;
-    z-index: 3;
+    z-index: 5;
     flex-direction: column;
     width: calc(2rem + 2rem);
     min-height: 100vh;
@@ -204,18 +206,6 @@ aside{
 
     transition: 0.3s ease-out;
 
-
-input[type="search"]{
-    background-color: aliceblue; 
-    max-width: 7rem;
-    padding: 0.1rem;
-    background-color: transparent;
-    outline: 1px solid #00aacd;
-    border: none;
-    color: #fff;
-    border-radius: 4px;
-    transition: background-color 0.3s linear, outline 0.3s linear, color 0.3s linear;
-    }
 .user-info {
     // margin-top: 50px;
   display: flex;

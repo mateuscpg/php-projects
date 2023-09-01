@@ -14,6 +14,8 @@
   <script>
   import Header from '../../Header/Header.vue'
   import Player from '../../Player/Player.vue'
+  import api from '../../../services/Axios'
+
   export default {
     components: {
       Header,Player
@@ -23,12 +25,20 @@
         movies: {}
       };
     },
+    methods:{
+      async getMovies(id_movie){
+      let dados = await api.getMovie(id_movie);
+        this.movies = dados.movie;
+
+    },  
+  },
+    watch:{
+      '$route.params.id_movie': function (valor) {this.getMovies(valor)} 
+    },
     created(){
-      const movieId = this.$route.query.id; // Get the movie ID from the route
-      const movieVideo = this.$route.query.video; // Get the movie Video from the route
-      this.movies.id = movieId; 
-      this.movies.video = movieVideo; 
-    }
+      let id_movie =this.$route.params.id_movie;
+      this.getMovies(id_movie);
+    },
   };
   </script>
   

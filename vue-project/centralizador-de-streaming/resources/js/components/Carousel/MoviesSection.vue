@@ -63,8 +63,8 @@
       },
       openInfoMovie(movie) {
       console.log("O id desse filme é o id: " + movie.id );
-      this.$router.push({ name: 'ShowMovie', query: { id: movie.id, title: movie.title, img: movie.image, description: movie.description, video: movie.video } });
-  },
+      this.$router.push('/show-movie/'+movie.id);
+    },
     },
   };
   </script>
@@ -86,10 +86,10 @@
   align-items: center; 
   justify-content: center;
 }
-.keen-slider__slide.slides
+/* .keen-slider__slide.slides
 {
-  /* transition: background-color 0.3s linear, outline 0s linear, color 0.1s linear; */
-}
+  transition: background-color 0.3s linear, outline 0s linear, color 0.1s linear;
+} */
 .keen-slider__slide.slides:hover {
   background-color: rgba(75, 73, 73, 0.8); /* Cor com maior opacidade */
   opacity: 1; /* Mostra o cartão completo */

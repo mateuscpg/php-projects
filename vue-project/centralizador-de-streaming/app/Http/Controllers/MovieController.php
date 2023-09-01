@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Movie;
 use App\Models\Streaming;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+use function PHPUnit\Framework\isEmpty;
 
 class MovieController extends Controller
 {       
@@ -18,13 +20,27 @@ class MovieController extends Controller
 
         public function searchMovie(Request $request)
         {
-                $movie = Movie::select('*')->where(function ($query) use ($request){
+                $movie = DB::table('movies')
+                ->join('streaming', 'movies.id_streaming', '=', 'streaming.id')
+                ->where(function ($query) use ($request){
                         $this->filterMovie($query, $request);
                 })
-                ->where('category', $request['category'])
+                ->select('movies.id','movies.title', 'movies.description','movies.video', 'streaming.icon as streaming_logo')
                 ->get();
 
                 return response()->json(['movie'=>$movie, 'success'=>true]);
+
+        }
+
+
+        public function getMovie(Request $request){
+                try{
+                        $movie = Movie::select('*')-> where('id',$request['id_movie'])->first();
+                        return response()->json(['movie'=>$movie]);
+                }
+                catch(Exception $error){
+                        return $error->getTrace();
+                }
 
         }
 
@@ -43,7 +59,7 @@ class MovieController extends Controller
                 $movies = DB::table('movies')
                 ->join('streaming', 'movies.id_streaming', '=', 'streaming.id')
                 ->where('movies.category', 'recommendedMovies')
-                ->select('movies.title', 'movies.description', 'movies.image', 
+                ->select('movies.id','movies.title', 'movies.description', 'movies.image', 
                          'movies.video', 'movies.category', 'movies.id_streaming', 'streaming.icon as streaming_logo')
                 ->get();
 

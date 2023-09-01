@@ -32,6 +32,7 @@
   <script>
   import Header from '../../Header/Header.vue'
   import Player from '../../Player/Player.vue'
+  import api from '../../../services/Axios'
   export default {
     components: {
       Header,Player
@@ -43,6 +44,12 @@
       };
     },
     methods: {
+    async getMovies(id_movie){
+      let dados = await api.getMovie(id_movie);
+        this.movies = dados.movie;
+
+    },  
+
     disabledCard() {
       this.showCard = false; 
 
@@ -51,17 +58,13 @@
       this.$router.push('/home');
     },
   },
-    created(){
-      const movieId = this.$route.query.id; 
-      const movieVideo = this.$route.query.video; 
-      const movieTitle = this.$route.query.title; 
-      const movieImg = this.$route.query.img; 
-      const movieDescription = this.$route.query.description; 
-      this.movies.id = movieId; 
-      this.movies.video = movieVideo; 
-      this.movies.title = movieTitle; 
-      this.movies.img = movieImg; 
-      this.movies.description = movieDescription;
+
+  watch:{
+    '$route.params.id_movie': function (valor) {this.getMovies(valor)} 
+  },
+  created(){
+    let id_movie =this.$route.params.id_movie;
+    this.getMovies(id_movie);
     },
   };
   </script>
