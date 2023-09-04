@@ -53,9 +53,7 @@
                             @endif
                             
                         @else
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('tarefa.create') }}">{{ __('Cadastrar tarefa') }}</a>
-                        </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('tarefa.index') }}">{{ __('Lista de tarefas') }}</a>
                         </li>

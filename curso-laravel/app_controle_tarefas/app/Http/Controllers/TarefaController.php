@@ -25,7 +25,8 @@ class TarefaController extends Controller
     public function index(){
 
         $user_id= Auth::user()->id;
-        $tarefas= Tarefa::where('user_id', $user_id)->paginate(1);
+        $tarefas= Tarefa::where('user_id', $user_id)->paginate(2);
+
 
         return view('tarefa.index', ['tarefas' => $tarefas]);   
 
@@ -111,7 +112,13 @@ class TarefaController extends Controller
      */
     public function edit(Tarefa $tarefa)
     {
-        //
+        $user_id = Auth::user()->id;
+        if($tarefa->user_id == $user_id){
+            return view('tarefa.edit', ['tarefa' => $tarefa]);
+        }
+        else{
+            return view('acesso-negado');
+        }
     }
 
     /**
@@ -123,7 +130,23 @@ class TarefaController extends Controller
      */
     public function update(Request $request, Tarefa $tarefa)
     {
-        //
+        $regras=[
+            'tarefa' => 'required|max:200',
+            'data_limite_conclusao' => 'required'
+        ];
+        $feedback=[
+            'tarefa.required' => "O campo ':attribute' precisa ser informado.",
+            'tarefa.max' => "O campo ':attribute' só pode ter no máximo 200 caracteres.",
+            'data_limite_conclusao.required' => "O campo ':attribute' precisa ser informado."
+        ];
+        $request->validate($regras, $feedback);
+        $dados = $request->all('tarefa', 'data_limite_conclusao');
+
+        if(!$tarefa->user_id == Auth::user()->id){
+            return view('acesso-negado');
+        }
+            $tarefa->update($dados);
+            return redirect()->route('tarefa.index', ['tarefa' => $tarefa->id]);
     }
 
     /**
@@ -134,6 +157,11 @@ class TarefaController extends Controller
      */
     public function destroy(Tarefa $tarefa)
     {
-        //
+        if($tarefa->user_id != Auth::user()->id){
+            return view('acesso-negado');
+        }
+        $tarefa->delete();
+        return redirect()->route('tarefa.index', ['tarefa' => $tarefa->id]);
+
     }
 }
