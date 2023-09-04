@@ -22416,7 +22416,7 @@ var _hoisted_1 = {
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Sidebar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Sidebar");
   var _component_router_view = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-view");
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_ctx.$route.path !== '/login' && _ctx.$route.path !== '/register' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Sidebar, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_ctx.$route.path !== '/login' && _ctx.$route.path !== '/register' && _ctx.$route.path !== '/intro' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Sidebar, {
     key: 0
   })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_view)]);
 }
@@ -23253,6 +23253,14 @@ var routes = [{
   name: 'ShowMovie',
   component: function component() {
     return __webpack_require__.e(/*! import() */ "resources_js_components_pages_ShowMovies_ShowMovie_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../components/pages/ShowMovies/ShowMovie.vue */ "./resources/js/components/pages/ShowMovies/ShowMovie.vue"));
+  },
+  beforeEnter: verifyIsUserLoggedIn,
+  props: true
+}, {
+  path: '/intro',
+  name: 'Intro',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_mixins_Intro_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../mixins/Intro.vue */ "./resources/js/mixins/Intro.vue"));
   },
   beforeEnter: verifyIsUserLoggedIn,
   props: true
@@ -63695,7 +63703,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_components_pages_Home_vue":1,"resources_js_components_pages_About_vue":1,"resources_js_components_pages_Team_vue":1,"resources_js_components_pages_Profile_vue":1,"resources_js_components_pages_ShowMovies_ShowPrincipalMovie_vue":1,"resources_js_components_pages_ShowMovies_ShowMovie_vue":1,"resources_js_components_pages_Categories_AcctionMovie_vue":1,"resources_js_components_pages_Categories_AdventureMovie_vue":1,"resources_js_components_pages_Categories_ComedyMovie_vue":1,"resources_js_components_pages_Categories_RomanceMovie_vue":1,"resources_js_components_pages_Categories_TerrorMovie_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_components_pages_Home_vue":1,"resources_js_components_pages_About_vue":1,"resources_js_components_pages_Team_vue":1,"resources_js_components_pages_Profile_vue":1,"resources_js_components_pages_ShowMovies_ShowPrincipalMovie_vue":1,"resources_js_components_pages_ShowMovies_ShowMovie_vue":1,"resources_js_mixins_Intro_vue":1,"resources_js_components_pages_Categories_AcctionMovie_vue":1,"resources_js_components_pages_Categories_AdventureMovie_vue":1,"resources_js_components_pages_Categories_ComedyMovie_vue":1,"resources_js_components_pages_Categories_RomanceMovie_vue":1,"resources_js_components_pages_Categories_TerrorMovie_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

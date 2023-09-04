@@ -81,6 +81,13 @@ const routes = [
     props: true,
   },
   {
+    path: '/intro',
+    name: 'Intro',
+    component: () => import('../mixins/Intro.vue'),
+     beforeEnter: verifyIsUserLoggedIn,
+    props: true,
+  },
+  {
     path: '/category/acction',
     name: 'categoryAcction',
     component: () => import('../components/pages/Categories/AcctionMovie.vue'),
