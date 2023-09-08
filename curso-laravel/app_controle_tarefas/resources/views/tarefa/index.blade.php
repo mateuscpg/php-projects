@@ -6,7 +6,21 @@
         <div class="col-md-8">
             <div class="card">
 
-                <div class="card-header">Lista de tarefas <a class="float-right" href="{{ route('tarefa.create') }}">Nova Tarefa</a></div>
+                <div class="card-header">
+                  <div class="row">
+                      <div class="col-6">
+                        Lista de tarefas
+                      </div>
+                      <div class="col-6">
+                        <div class="float-right">
+                          <a class="mr-3" href="{{ route('tarefa.create') }}">Nova Tarefa</a>
+                          <a class="mr-3" href="{{ route('tarefa.exportacao', ['extensao' => 'xlsx']) }}">XLSX</a>
+                          <a class="mr-3" href="{{ route('tarefa.exportar_pdf') }}">PDF</a>
+                          <a  href="{{ route('tarefa.exportacao',['extensao' => 'csv']) }}">CSV</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 
                 <div class="card-body">
                     <table class="table table-striped">

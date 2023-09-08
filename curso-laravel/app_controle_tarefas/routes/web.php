@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TarefaController;
 use App\Mail\MensagemTesteMail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -26,6 +27,8 @@ Auth::routes(['verify'=> true]);
 // ->name('home')
 // ->middleware('verified');
 
+Route::get('tarefa/exportacao/{extensao}', [ TarefaController::class, 'exportacao'])->name('tarefa.exportacao');
+Route::get('tarefa/exportar-pdf', [ TarefaController::class, 'exportar_pdf'])->name('tarefa.exportar_pdf');
 Route::resource('tarefa', App\Http\Controllers\TarefaController::class)
 ->middleware('verified');
 
