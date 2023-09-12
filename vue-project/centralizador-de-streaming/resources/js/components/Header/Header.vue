@@ -13,7 +13,8 @@
           </svg>
         </div>
         
-        <input class="header-search" type="search" placeholder="Pesquise o filme" @keypress="searchMovies($event)">
+        <!-- <input class="header-search" type="search" placeholder="Pesquise o filme" @keypress="searchMovies($event)"> -->
+        <input class="header-search" type="search" placeholder="Pesquise o filme" v-model="searchQuery">
         <button class="sair-button" @click="redirectToLogin">Sair</button>
         
         
@@ -45,6 +46,7 @@ export default {
     return{
       MovieSelected: [],
       results: true,
+      searchQuery: "",
 
     }
   },
@@ -56,18 +58,15 @@ export default {
       localStorage.setItem(USER_COLLECTION,JSON.stringify({...this.user,isUserLoggedIn:false }));
       window.location.href ='/sair';
     },
-    async searchMovies(event) {
-      if (event.key === "Enter") {
-        const searchQuery = event.target.value;
-        try {
-          let dados = await api.searchMovies(searchQuery);
-          this.MovieSelected = dados.movie;
-          this.results = true;
-          console.log(this.MovieSelected);
-          console.log("Pesquisar filmes com a consulta: " + searchQuery);
-        } catch (error) {
-          console.error("Erro ao buscar filmes:", error);
-        }
+    async searchMovies(searchQuery) {
+      try {
+        let dados = await api.searchMovies(searchQuery);
+        this.MovieSelected = dados.movie;
+        this.results = true;
+        console.log(this.MovieSelected);
+        console.log("Pesquisar filmes com a consulta: " + searchQuery);
+      } catch (error) {
+        console.error("Erro ao buscar filmes:", error);
       }
     },
     openInfoMovie(movie) {
@@ -75,6 +74,12 @@ export default {
       this.$router.push('/show-movie/'+movie.id);
     },
   },
+  watch: {
+  searchQuery: function(newVal) {
+    this.searchMovies(newVal);
+  },
+},
+
 };
 </script>
 

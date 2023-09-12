@@ -155,7 +155,8 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
   data: function data() {
     return {
       MovieSelected: [],
-      results: true
+      results: true,
+      searchQuery: ""
     };
   },
   methods: {
@@ -168,43 +169,43 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       })));
       window.location.href = '/sair';
     },
-    searchMovies: function searchMovies(event) {
+    searchMovies: function searchMovies(searchQuery) {
       var _this = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var searchQuery, dados;
+        var dados;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) switch (_context.prev = _context.next) {
             case 0:
-              if (!(event.key === "Enter")) {
-                _context.next = 15;
-                break;
-              }
-              searchQuery = event.target.value;
-              _context.prev = 2;
-              _context.next = 5;
+              _context.prev = 0;
+              _context.next = 3;
               return _services_Axios__WEBPACK_IMPORTED_MODULE_0__["default"].searchMovies(searchQuery);
-            case 5:
+            case 3:
               dados = _context.sent;
               _this.MovieSelected = dados.movie;
               _this.results = true;
               console.log(_this.MovieSelected);
               console.log("Pesquisar filmes com a consulta: " + searchQuery);
-              _context.next = 15;
+              _context.next = 13;
               break;
-            case 12:
-              _context.prev = 12;
-              _context.t0 = _context["catch"](2);
+            case 10:
+              _context.prev = 10;
+              _context.t0 = _context["catch"](0);
               console.error("Erro ao buscar filmes:", _context.t0);
-            case 15:
+            case 13:
             case "end":
               return _context.stop();
           }
-        }, _callee, null, [[2, 12]]);
+        }, _callee, null, [[0, 10]]);
       }))();
     },
     openInfoMovie: function openInfoMovie(movie) {
       console.log("O id desse filme é o id: " + movie.id);
       this.$router.push('/show-movie/' + movie.id);
+    }
+  },
+  watch: {
+    searchQuery: function searchQuery(newVal) {
+      this.searchMovies(newVal);
     }
   }
 });
@@ -672,14 +673,14 @@ var _hoisted_9 = {
 };
 var _hoisted_10 = ["src"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <h3 style=\"color: var(--blue);\">STREAMING</h3> \r\n      <h3 style=\"color: var(--pink);\">CENTRALIZER</h3> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <h3 style=\"color: var(--blue);\">STREAMING</h3> \r\n      <h3 style=\"color: var(--pink);\">CENTRALIZER</h3> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <input class=\"header-search\" type=\"search\" placeholder=\"Pesquise o filme\" @keypress=\"searchMovies($event)\"> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "class": "header-search",
     type: "search",
     placeholder: "Pesquise o filme",
-    onKeypress: _cache[0] || (_cache[0] = function ($event) {
-      return $options.searchMovies($event);
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $data.searchQuery = $event;
     })
-  }, null, 32 /* HYDRATE_EVENTS */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.searchQuery]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     "class": "sair-button",
     onClick: _cache[1] || (_cache[1] = function () {
       return $options.redirectToLogin && $options.redirectToLogin.apply($options, arguments);
