@@ -23182,6 +23182,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var verifyIsUserLoggedIn = function verifyIsUserLoggedIn(to, from, next) {
   var user = JSON.parse(localStorage.getItem(_collection__WEBPACK_IMPORTED_MODULE_3__.USER_COLLECTION));
+  // let user = api.getPerfil();
+
   console.log(user.isUserLoggedIn);
   var isAuthenticated = user.isUserLoggedIn;
   if (to.path === '/') {

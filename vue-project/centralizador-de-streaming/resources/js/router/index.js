@@ -7,6 +7,7 @@ import { USER_COLLECTION } from '../collection';
 
 const verifyIsUserLoggedIn = (to, from, next) => {
   let user = JSON.parse(localStorage.getItem(USER_COLLECTION));
+  // let user = api.getPerfil();
  
   console.log(user.isUserLoggedIn);
   const isAuthenticated =user.isUserLoggedIn;
