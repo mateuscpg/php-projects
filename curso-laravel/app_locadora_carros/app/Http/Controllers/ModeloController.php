@@ -21,7 +21,9 @@ class ModeloController extends Controller
      */
     public function index()
     {
-        $modelo = $this->modelo->all();
+        $modelo = $this->modelo->with('marca')->get();
+        //all() : Cria um objeto de consulta + get() = Collection
+        //get() : Collection, e pode modificar a consulta. 
         return response()->json($modelo, 200);
     }
 
@@ -69,7 +71,7 @@ class ModeloController extends Controller
      */
     public function show($id)
     {
-        $modelo = $this->modelo->find($id);
+        $modelo = $this->modelo->with('marca')->find($id);
         if ($modelo == null){
             return response()->json(['msg' => 'Modelo não encontrado'], 404);
         }

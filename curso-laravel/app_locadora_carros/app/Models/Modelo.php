@@ -29,4 +29,8 @@ class Modelo extends Model
         */
     }
 
+    public function marca(){
+        return $this->belongsTo(Marca::class); //UM modelo pertenca à UMA marca
+    }
+
 }

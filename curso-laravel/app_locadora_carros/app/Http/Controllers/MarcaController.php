@@ -21,8 +21,10 @@ class MarcaController extends Controller
      */
     public function index()
     {
-        $marcas = Marca::all();
-        return $marcas;
+        $marcas = $this->marca->with('modelos')->get();
+        //all() : Cria um objeto de consulta + get() = Collection
+        //get() : Collection, e pode modificar a consulta.
+        return response()->json($marcas, 200);
     }
 
     /**
@@ -69,7 +71,7 @@ class MarcaController extends Controller
      */
     public function show($id)
     {
-        $marca = $this->marca->find($id);
+        $marca = $this->marca->with('modelos')->find($id);
         if($marca){
             return $marca;
         }
