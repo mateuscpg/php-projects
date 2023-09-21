@@ -19,12 +19,22 @@ class ModeloController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $modelo = $this->modelo->with('marca')->get();
-        //all() : Cria um objeto de consulta + get() = Collection
-        //get() : Collection, e pode modificar a consulta. 
-        return response()->json($modelo, 200);
+        $modelos = array();
+        
+        // Tem o atributo: atributo_marca? Se tiver, atribua à $modelos a intância do Model com
+        // o relacionamento definido neste Model, mostrando o que tiver vindo como request.
+        $request->has('atributos_marca') ? $modelos = $this->modelo->with('marca:id,'.$request->atributos_marca)
+       : $modelos = $this->modelo->with('marca');
+       
+         // Tem o atributo: atributo? Se tiver, atribua à $modelos o modelo definido antes
+         // mostrando o que tiver vindo como request.
+        $request->has('atributos') ? $modelos= $modelos->selectRaw($request->atributos)->get()
+        : $modelos = $modelos->get();
+        //Esse tipo de select(selectRaw) consegue lidar com tipos de consulta como "id, nome, imagem" ao invés de 'id', 'nome', 'imagem';
+
+        return response()->json($modelos, 200);
     }
 
     /**
@@ -129,15 +139,18 @@ class ModeloController extends Controller
             $imagem = $request->file('imagem');                        //Recupera a imagem que está vindo como request
             $imagem_urn = $imagem->store('imagens/modelos', 'public'); //Seta a imagem com um determinado id na pasta public do storage (segundo configuração do filesystem)
             
-            $modelo->update([
-                'marca_id' => $request->marca_id,
-                'nome' => $request->nome,
-                'imagem' => $imagem_urn,
-                'numero_portas' => $request->numero_portas,
-                'lugares' => $request->lugares,
-                'air_bag' => $request->air_bag,
-                'abs' => $request->abs,
-            ]);
+            $modelo->fill($request->all());
+            $modelo->imagem= $imagem_urn;
+            $modelo->save();
+            // $modelo->update([
+            //     'marca_id' => $request->marca_id,
+            //     'nome' => $request->nome,
+            //     'imagem' => $imagem_urn,
+            //     'numero_portas' => $request->numero_portas,
+            //     'lugares' => $request->lugares,
+            //     'air_bag' => $request->air_bag,
+            //     'abs' => $request->abs,
+            // ]);
             return response()->json($modelo, 200);
     }
 

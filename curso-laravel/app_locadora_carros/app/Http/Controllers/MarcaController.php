@@ -132,11 +132,14 @@ class MarcaController extends Controller
 
             $imagem = $request->file('imagem');      //Recupera a imagem que está vindo como request
             $imagem_urn = $imagem->store('imagens', 'public');      //Seta a imagem com um determinado id na pasta public do storage (segundo configuração do filesystem)
-    
-            $marca->update([
-                'nome' => $request->nome,
-                'imagem' => $imagem_urn,
-            ]);
+            
+            $marca->fill($request->all());
+            $marca->imagem = $imagem_urn;
+            $marca->save();
+            // $marca->update([
+            //     'nome' => $request->nome,
+            //     'imagem' => $imagem_urn,
+            // ]);
             return response()->json($marca, 200);
 
     }
