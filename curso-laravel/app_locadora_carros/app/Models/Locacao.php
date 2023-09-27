@@ -15,7 +15,28 @@ class Locacao extends Model
         'data_inicio_periodo',
         'data_final_previsto_periodo',
         'data_final_realizado_periodo',
-        'valor_diaria','km_inicial',
+        'valor_diaria',
+        'km_inicial',
         'km_final'
     ];
+
+    public function rules(){
+        return [
+            // 'cliente_id' => 'required',
+            // 'carro_id' => 'required',
+            // 'data_inicio_periodo' => 'required',
+            // 'data_final_previsto_periodo' => 'required',
+            // 'data_final_realizado_periodo' => 'required',
+            // 'valor_diaria' => 'required',
+            // 'km_inicial' => 'required',
+            // 'km_final' => 'required',
+        ];
+        /*
+        Sobre UNIQUE
+        1) Nome da tabela.
+        2) Nome da coluna que será pesquisada na tabela.
+        3) Id do registro que será desconsiderado na tabela.
+        */
+
+    }
 }

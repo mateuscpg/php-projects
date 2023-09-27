@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Marca;
+use App\Repositories\MarcaRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -19,15 +20,29 @@ class MarcaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $marcas = $this->marca->with('modelos')->get();
-        //all() : Cria um objeto de consulta + get() = Collection
-        //get() : Collection, e pode modificar a consulta.
-        return response()->json($marcas, 200);
+        $marcaRepository = new MarcaRepository($this->marca);
+
+        if ($request->has('atributos_modelos')){
+            $atributos_modelos = 'modelos:id,'.$request->atributos_modelos;
+            $marcaRepository->selectAtributosRegistrosRelacionados($atributos_modelos);
+        }else{
+            $marcaRepository->selectAtributosRegistrosRelacionados('modelos');
+        }
+
+        if($request->has('filtro')){
+            $marcaRepository->filtro($request->filtro);
+        }
+
+        if($request->has('atributos')){
+           $marcaRepository->selectAtributos($request->atributos);
+        }
+
+        return response()->json($marcaRepository->getResultado(), 200);
     }
 
-    /**
+    /** 
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -99,9 +114,6 @@ class MarcaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // print_r($request->all());
-        // echo '<hr>';
-        // print_r($marca->getAttributes());
         $marca = $this->marca->find($id);
         if($marca === null){
             return response()->json( ['msg' => 'Marca não encontrada, impossível atualizar!'], 404);

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Modelo;
+use App\Repositories\ModeloRepository;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -21,20 +22,24 @@ class ModeloController extends Controller
      */
     public function index(Request $request)
     {
-        $modelos = array();
-        
-        // Tem o atributo: atributo_marca? Se tiver, atribua à $modelos a intância do Model com
-        // o relacionamento definido neste Model, mostrando o que tiver vindo como request.
-        $request->has('atributos_marca') ? $modelos = $this->modelo->with('marca:id,'.$request->atributos_marca)
-       : $modelos = $this->modelo->with('marca');
-       
-         // Tem o atributo: atributo? Se tiver, atribua à $modelos o modelo definido antes
-         // mostrando o que tiver vindo como request.
-        $request->has('atributos') ? $modelos= $modelos->selectRaw($request->atributos)->get()
-        : $modelos = $modelos->get();
-        //Esse tipo de select(selectRaw) consegue lidar com tipos de consulta como "id, nome, imagem" ao invés de 'id', 'nome', 'imagem';
+        $modeloRepository = new ModeloRepository($this->modelo);
 
-        return response()->json($modelos, 200);
+        if ($request->has('atributos_marca')){
+            $atributos_marca = 'marca:id,'.$request->atributos_marca;
+            $modeloRepository->selectAtributosRegistrosRelacionados($atributos_marca);
+        }else{
+            $modeloRepository->selectAtributosRegistrosRelacionados('marca');
+        }
+
+        if($request->has('filtro')){
+            $modeloRepository->filtro($request->filtro);
+        }
+
+        if($request->has('atributos')){
+           $modeloRepository->selectAtributos($request->atributos);
+        }
+
+        return response()->json($modeloRepository->getResultado(), 200);
     }
 
     /**
