@@ -34,7 +34,10 @@
                 <!-- Início do card de listagem -->
             <card-component titulo="Relação de marcas">
                 <template v-slot:conteudo>
-                    <table-component 
+                    <table-component
+                    :visualizar="true"
+                    :atualizar="true"
+                    :excluir="true"
                     :marcas = "marcas.data"
                     :headers = "{
                         id:{titulo: 'ID', tipo: 'text'},
@@ -150,11 +153,14 @@ import axios from 'axios';
                     if (filtro != '') {
                         filtro += ';'
                     }
-                    filtro += chave + ':like:' + this.busca[chave];
+                    filtro += chave + ':like:%' + this.busca[chave]+"%";
                 }                 
                 if (filtro != '') {
+                    this.urlPaginacao = 'page=1'
                     this.urlFiltro = '&filtro=' + filtro;
-                } 
+                } else{
+                    this.urlFiltro = ''
+                }
                 this.carregarLista();    
                 
             }

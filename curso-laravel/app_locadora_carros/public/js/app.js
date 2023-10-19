@@ -5201,10 +5201,13 @@ __webpack_require__.r(__webpack_exports__);
           if (filtro != '') {
             filtro += ';';
           }
-          filtro += chave + ':like:' + this.busca[chave];
+          filtro += chave + ':like:%' + this.busca[chave] + "%";
         }
         if (filtro != '') {
+          this.urlPaginacao = 'page=1';
           this.urlFiltro = '&filtro=' + filtro;
+        } else {
+          this.urlFiltro = '';
         }
         this.carregarLista();
       }
@@ -5369,7 +5372,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['marcas', 'headers'],
+  props: ['marcas', 'headers', 'visualizar', 'atualizar', 'excluir'],
+  data: function data() {
+    return {};
+  },
+  methods: {
+    functionVisualizar: function functionVisualizar() {
+      console.log("visualizar");
+    },
+    functionAtualizar: function functionAtualizar() {
+      console.log("atualizar");
+    },
+    functionExcluir: function functionExcluir() {
+      console.log("excluir");
+    }
+  },
   computed: {
     dadosFiltrados: function dadosFiltrados() {
       var campos = Object.keys(this.headers);
@@ -5752,6 +5769,9 @@ var render = function render() {
       fn: function fn() {
         return [_c("table-component", {
           attrs: {
+            visualizar: true,
+            atualizar: true,
+            excluir: true,
             marcas: _vm.marcas.data,
             headers: {
               id: {
@@ -6127,17 +6147,17 @@ var render = function render() {
     }
   }, [_c("table", {
     staticClass: "table table-hover"
-  }, [_c("thead", [_c("tr", _vm._l(_vm.headers, function (header, key) {
+  }, [_c("thead", [_c("tr", [_vm._l(_vm.headers, function (header, key) {
     return _c("th", {
       key: key,
       attrs: {
         scope: "col"
       }
     }, [_vm._v(_vm._s(header.titulo))]);
-  }), 0)]), _vm._v(" "), _c("tbody", _vm._l(_vm.dadosFiltrados, function (obj, chave) {
+  }), _vm._v(" "), _vm.visualizar || _vm.atualizar || _vm.excluir ? _c("th") : _vm._e()], 2)]), _vm._v(" "), _c("tbody", _vm._l(_vm.dadosFiltrados, function (obj, chave) {
     return _c("tr", {
       key: chave
-    }, _vm._l(obj, function (valor, chaveValor) {
+    }, [_vm._l(obj, function (valor, chaveValor) {
       return _c("td", {
         key: chaveValor
       }, [_vm.headers[chaveValor].tipo == "text" ? _c("span", [_vm._v("  " + _vm._s(valor) + " ")]) : _vm._e(), _vm._v(" "), _vm.headers[chaveValor].tipo == "data" ? _c("span", [_vm._v("  " + _vm._s(new Date(valor).toLocaleDateString()) + " ")]) : _vm._e(), _vm._v(" "), _vm.headers[chaveValor].tipo == "imagem" ? _c("span", [_c("img", {
@@ -6147,7 +6167,37 @@ var render = function render() {
           height: "30"
         }
       })]) : _vm._e()]);
-    }), 0);
+    }), _vm._v(" "), _vm.visualizar || _vm.atualizar || _vm.excluir ? _c("td", [_vm.visualizar ? _c("button", {
+      staticClass: "btn btn-outline-success btn-sm",
+      attrs: {
+        type: "submit"
+      },
+      on: {
+        click: function click($event) {
+          return _vm.functionVisualizar();
+        }
+      }
+    }, [_vm._v("Visualizar")]) : _vm._e(), _vm._v(" "), _vm.atualizar ? _c("button", {
+      staticClass: "btn btn-outline-primary btn-sm",
+      attrs: {
+        type: "submit"
+      },
+      on: {
+        click: function click($event) {
+          return _vm.functionAtualizar();
+        }
+      }
+    }, [_vm._v("Atualizar")]) : _vm._e(), _vm._v(" "), _vm.excluir ? _c("button", {
+      staticClass: "btn btn-outline-danger btn-sm",
+      attrs: {
+        type: "submit"
+      },
+      on: {
+        click: function click($event) {
+          return _vm.functionExcluir();
+        }
+      }
+    }, [_vm._v("Excluir")]) : _vm._e()]) : _vm._e()], 2);
   }), 0)])]);
 };
 var staticRenderFns = [];
