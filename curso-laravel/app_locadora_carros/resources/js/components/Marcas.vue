@@ -10,14 +10,14 @@
                     <div class="d-flex">
                         <div class="col mb-3">
                             <input-container-component titulo="ID" id="inputId" id-help="idHelp" texto-ajuda="Opcional. Informe o ID do registro">
-                            <input type="number" class="form-control" id="inputId" aria-describedby="idHelp" placeholder="Informe o ID">
-                        </input-container-component>
+                                <input type="number" v-model="busca.id" class="form-control" id="inputId" aria-describedby="idHelp" placeholder="Informe o ID">
+                            </input-container-component>
                         
-                    </div>
+                        </div>
 
-                    <div class="col mb-3">
-                        <input-container-component titulo="Nome da marca" id="inputNome" id-help="nomeHelp" texto-ajuda="Opcional. Informe o nome da marca">
-                            <input type="text" class="form-control" id="inputNome" aria-describedby="nomeHelp" placeholder="Informe o nome da marca">
+                        <div class="col mb-3">
+                            <input-container-component titulo="Nome da marca" id="inputNome" id-help="nomeHelp" texto-ajuda="Opcional. Informe o nome da marca">
+                                <input type="text" v-model="busca.nome" class="form-control" id="inputNome" aria-describedby="nomeHelp" placeholder="Informe o nome da marca">
                             </input-container-component>
                         </div>
                         
@@ -25,7 +25,7 @@
                 </template>
                 
                 <template v-slot:rodape>
-                    <button  type="submit" class="btn btn-primary">Buscar</button>
+                    <button  type="submit" class="btn btn-primary" @click="pesquisar()">Pesquisar</button>
                 </template>
 
             </card-component >
@@ -35,14 +35,37 @@
             <card-component titulo="Relação de marcas">
                 <template v-slot:conteudo>
                     <table-component 
-                    :marcas = "marcas"
-                    :headers = "['id', 'nome', 'imagem', 'created_at']"
+                    :marcas = "marcas.data"
+                    :headers = "{
+                        id:{titulo: 'ID', tipo: 'text'},
+                        nome:{titulo: 'Nome', tipo: 'text'},
+                        imagem:{titulo: 'Imagem', tipo: 'imagem'},
+                        created_at:{titulo: 'Data de criação', tipo: 'data'},
+                    } "
+                   
                     ></table-component>
                 </template>
                 
                 <template v-slot:rodape>
-                    <button  type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalMarca">Adicionar</button>
+                    <div class="row">
+                        <div class="col-10">
+                            <paginate-component>
+                                    <li 
+                                    v-for="link, index in marcas.links" :key="index" 
+                                    :class="link.active ? 'page-item active' : 'page-item'" 
+                                    @click="paginacao(link)"
+
+                                    >
+                                        <a class="page-link" v-html="link.label "></a>
+                                    </li>
+                            </paginate-component>
+                        </div>
+                        <div class="col">
+                            <button  type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalMarca">Adicionar</button>
+                        </div>
+                    </div>
                 </template>
+                
             </card-component>
                 <!-- Fim do card de listagem -->
         </div>
@@ -89,12 +112,18 @@ import axios from 'axios';
     data(){
         return{
             urlBase: 'http://localhost:8000/api/v1/marca',
+            urlPaginacao: '',
+            urlFiltro: '',
             nomeMarca: '',
             arquivoImagem: [],
             transacaoStatus:'',
             mensagemAlerta:'',
             transacaoDetalhes: {},
-            marcas: [], 
+            marcas: {data: []},
+            busca: {
+                id: '',
+                nome:'',
+            },
 
         }
     },
@@ -109,6 +138,35 @@ import axios from 'axios';
         }
     },
     methods:{
+        pesquisar(){
+            // console.log(this.busca);
+            
+            let filtro = ''
+
+            for (let chave in this.busca){
+
+                if(this.busca[chave]){
+                    // console.log(chave, this.busca[chave]);
+                    if (filtro != '') {
+                        filtro += ';'
+                    }
+                    filtro += chave + ':like:' + this.busca[chave];
+                }                 
+                if (filtro != '') {
+                    this.urlFiltro = '&filtro=' + filtro;
+                } 
+                this.carregarLista();    
+                
+            }
+        },
+
+        paginacao(link){
+            if(link.url){
+                 this.urlPaginacao = link.url.split('?')[1]
+                // this.urlBase = link.url; //Ajustando a url de consulta com o parâmetro de página
+                this.carregarLista();    //Requisitando novamente os dados para a nossa API
+            }
+        },
         
         carregarLista(){
             let config = {
@@ -117,11 +175,11 @@ import axios from 'axios';
                     'Authorization': this.token
                 }
             }   
-
-            axios.get(this.urlBase, config)
+            let url = this.urlBase + '?' + this.urlPaginacao + this.urlFiltro
+            console.log(url);
+            axios.get(url, config)
                 .then(response => {
-                    this.marcas =response.data
-                    console.log(this.marcas);
+                    this.marcas = response.data
                 })
                 .catch(errors => {
                     console.log(errors);
@@ -151,7 +209,6 @@ import axios from 'axios';
                     this.transacaoDetalhes = {
                         mensagem: "Carro com ID: "+ response.data.id +" e nome: " + response.data.nome + " cadastrado"
                     }
-                    console.log(response);
                 })
                 .catch(errors => {
                     this.transacaoStatus = 'erro';

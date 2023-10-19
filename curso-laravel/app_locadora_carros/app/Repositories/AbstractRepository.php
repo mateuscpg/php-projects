@@ -33,6 +33,9 @@ abstract class AbstractRepository {
         //all() : Cria um objeto de consulta + get() = Collection
         //get() : Collection, e pode modificar a consulta.
     }
+    public function getResultadoPaginado($paginas){
+        return $this->model->orderBy('created_at', 'desc')->paginate($paginas);
+    }
 
 }
 

@@ -24,6 +24,6 @@ Route::get('/marcas', function() {
     return view('app.marcas');
 })->name('marcas')->middleware('auth');
 
-Route::get('/carros', function() {
-    return view('app.carros');
-})->name('carros')->middleware('auth');
+// Route::get('/carros', function() {
+//     return view('app.carros');
+// })->name('carros')->middleware('auth');
