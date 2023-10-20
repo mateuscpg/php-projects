@@ -4,7 +4,7 @@
       <thead>
           <tr>
             <th scope="col" v-for="header, key in headers" :key="key">{{ header.titulo }}</th> 
-            <th v-if="visualizar || atualizar || excluir"></th>
+            <th v-if="visualizar.visivel || atualizar || excluir.visivel"></th>
           </tr>
       </thead>
       <tbody>
@@ -14,19 +14,44 @@
           <td v-for="valor, chaveValor in obj" :key="chaveValor">
             <span v-if="headers[chaveValor].tipo == 'text'">  {{ valor }} </span>
             <span v-if="headers[chaveValor].tipo == 'data'">  {{ new Date(valor).toLocaleDateString() }} </span>
-            <span v-if="headers[chaveValor].tipo == 'imagem'"> 
-            <img :src="'/storage/' + valor" width="30" height="30"> 
+            <span v-if="headers[chaveValor].tipo == 'imagem'">
+              <img :src="'/storage/' + valor" width="30" height="30"> 
             </span>
           </td>
 
-          <td v-if="visualizar || atualizar || excluir">
-            <button type="submit" v-if="visualizar" class="btn btn-outline-success btn-sm" @click="functionVisualizar()">Visualizar</button>
-            <button type="submit" v-if="atualizar" class="btn btn-outline-primary btn-sm" @click="functionAtualizar()">Atualizar</button>
-            <button type="submit" v-if="excluir" class="btn btn-outline-danger btn-sm" @click="functionExcluir()">Excluir</button>
+          <td v-if="visualizar.visivel || atualizar || excluir.visivel">
+            <button 
+            v-if="visualizar.visivel"
+            type="submit" 
+            class="btn btn-outline-success btn-sm" 
+            :data-bs-toggle="visualizar.dataToggle" 
+            :data-bs-target="visualizar.dataTarget" 
+            @click="setStore(obj)"
+            >
+            Visualizar
+          </button>
+          
+          <button 
+          v-if="atualizar" 
+          type="submit" 
+          class="btn btn-outline-primary btn-sm" 
+          >
+          Atualizar
+        </button>
+        
+        <button 
+        v-if="excluir.visivel" 
+        type="submit"
+        class="btn btn-outline-danger btn-sm"
+        :data-bs-toggle="excluir.dataToggle" 
+        :data-bs-target="excluir.dataTarget" 
+        @click="setStore(obj)"
+            >
+            Excluir
+            </button>
           </td>
 
         </tr>
-
       </tbody>
     </table>
   </div>
@@ -42,15 +67,12 @@ export default {
     }
   },
   methods:{
-    functionVisualizar(){
-      console.log("visualizar");
+    setStore(obj){
+      this.$store.state.item = obj
     },
-    functionAtualizar(){
-      console.log("atualizar");
-    },
-    functionExcluir(){
-      console.log("excluir");
-    },
+    // excluirMarca(obj){
+    //   console.log(obj.id, obj.nome);
+    // }
   },
   computed: {
     dadosFiltrados(){

@@ -8,6 +8,19 @@ require('./bootstrap');
 
 window.Vue = require('vue').default;
 
+// importando e configurando o vuex
+import Vuex from 'Vuex';
+
+Vue.use(Vuex);
+
+const store = new Vuex.Store({
+    state:{
+        item: {},
+        transacao: {status:'',mensagem: '',},
+    }
+})
+
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -37,5 +50,6 @@ Vue.component('paginate-component', require('./components/layouts/Paginate.vue')
  */
 
 const app = new Vue({
-    el: '#app',
+    el: '#app', 
+    store,
 });

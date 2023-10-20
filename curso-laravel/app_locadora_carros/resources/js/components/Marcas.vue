@@ -35,9 +35,17 @@
             <card-component titulo="Relação de marcas">
                 <template v-slot:conteudo>
                     <table-component
-                    :visualizar="true"
+                    :visualizar="{
+                        visivel: true,
+                        dataToggle: 'modal',
+                        dataTarget: '#modalMarcaVisualizar'
+                    }"
                     :atualizar="true"
-                    :excluir="true"
+                    :excluir="{
+                        visivel: true,
+                        dataToggle: 'modal',
+                        dataTarget: '#modalMarcaExcluir'
+                    }"
                     :marcas = "marcas.data"
                     :headers = "{
                         id:{titulo: 'ID', tipo: 'text'},
@@ -73,7 +81,7 @@
                 <!-- Fim do card de listagem -->
         </div>
 
-                <!-- Início do componente de modal -->
+                <!-- Início do componente de modal para adição da marca -->
             <modal-component id="modalMarca" titulo="Adicionar marca">
 
                 <template v-slot:alertas>
@@ -101,7 +109,81 @@
                     <button type="button" class="btn btn-primary" @click="salvar()">Salvar</button>
                 </template>
             </modal-component>
-                <!-- Fim do componente de modal -->
+                <!-- Fim do componente de modal para adição da marca -->
+
+
+                <!-- Início do componente de modal para visualizar marca -->
+                <modal-component id="modalMarcaVisualizar" titulo="Visualizar marca">
+                    <!-- <template v-slot:alertas>
+
+                    </template> -->
+
+                    <template v-slot:conteudo>
+                        <div class="mt-2 mb-2">
+                            <input-container-component titulo="ID" >
+                                <input type="text" class="form-control" :value="$store.state.item.id" disabled>
+                            </input-container-component>
+                        </div>
+                        <div class="mt-2 mb-2">
+                            <input-container-component titulo="Nome da marca" >
+                                <input type="text" class="form-control" :value="$store.state.item.nome" disabled>
+                            </input-container-component>
+                        </div>
+                        <div class="mt-2 mb-2">
+                            <input-container-component titulo="Imagem da marca" >
+                            <img class="d-flex m" :src="'/storage/'+ $store.state.item.imagem" v-if="$store.state.item.imagem">
+                            </input-container-component>
+                        </div>
+
+                        <div class="mt-2 mb-2">
+                            <input-container-component titulo="Data de criação" >
+                                <input type="text" class="form-control" :value=" new Date($store.state.item.created_at).toLocaleDateString()" disabled>
+                            </input-container-component>
+                        </div>
+                    </template>
+
+                    <template v-slot:rodape>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    </template>
+
+                </modal-component>
+                <!-- Fim do componente de modal para visualizar marca-->
+
+                <!-- Início do componente de modal para excluir marca-->
+                <modal-component id="modalMarcaExcluir" titulo="Excluir marca">
+
+                    <template v-slot:alertas>
+                        <alert-component v-if="$store.state.transacao.status == 'sucesso'" tipo="success" titulo="SUCESSO!" :detalhes="{mensagem: $store.state.transacao.mensagem}"></alert-component>
+                        <alert-component v-if="$store.state.transacao.status == 'erro'" tipo="danger" titulo="ERRO!" :detalhes="{mensagem: $store.state.transacao.mensagem}"></alert-component>
+                    </template>
+
+                    <template v-slot:conteudo>
+                        <div class="mt-2 mb-2">
+                            <input-container-component titulo="ID" >
+                            <input type="text" class="form-control" :value="$store.state.item.id" disabled>
+                        </input-container-component>
+                    </div>
+                    <div class="mt-2 mb-2">
+                        <input-container-component titulo="Nome da marca" >
+                            <input type="text" class="form-control" :value="$store.state.item.nome" disabled>
+                        </input-container-component>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; margin-top: 20px;">
+                        <h5 style="text-align: center;">Você deseja de fato excluir essa marca?</h5>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-danger"  @click="excluirMarca()">Sim</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+                        </div>
+                    </div>
+                </template>
+                
+                    <template v-slot:rodape>
+                        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button> -->
+                    </template>
+                </modal-component>
+                <!-- Fim do componente de modal para excluir marca-->
+
 
       </div>
   </div>
@@ -110,8 +192,10 @@
   
   <script>
 import axios from 'axios';
+import InputContainer from './layouts/InputContainer.vue';
 
   export default {
+  components: { InputContainer },
     data(){
         return{
             urlBase: 'http://localhost:8000/api/v1/marca',
@@ -141,6 +225,34 @@ import axios from 'axios';
         }
     },
     methods:{
+        excluirMarca(){
+            let config = {
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': this.token
+                }
+            }   
+            let formData = new FormData();
+            formData.append('_method', 'delete');
+
+            let url = this.urlBase + '/' + this.$store.state.item.id
+            // this.$store.state.transacao.status = 'Sucesso';
+            // this.$store.state.transacao.mensagem = 'Registro removido com sucesso';
+
+            axios.post(url, formData, config)
+                .then(response =>{
+                    this.$store.state.transacao.status = 'sucesso';
+                    this.$store.state.transacao.mensagem = 'Registro removido com sucesso!';
+                    console.log(response);
+                    this.carregarLista();
+                })
+                .catch(errors =>{
+                    this.$store.state.transacao.status = 'erro';
+                    this.$store.state.transacao.mensagem = 'Erro ao remover o registro!';
+                    console.log(errors);
+                    this.carregarLista();
+                })
+        },
         pesquisar(){
             // console.log(this.busca);
             
@@ -153,7 +265,7 @@ import axios from 'axios';
                     if (filtro != '') {
                         filtro += ';'
                     }
-                    filtro += chave + ':like:%' + this.busca[chave]+"%";
+                    filtro += chave + ':like:' + this.busca[chave];
                 }                 
                 if (filtro != '') {
                     this.urlPaginacao = 'page=1'
@@ -182,7 +294,7 @@ import axios from 'axios';
                 }
             }   
             let url = this.urlBase + '?' + this.urlPaginacao + this.urlFiltro
-            console.log(url);
+            // console.log(url);
             axios.get(url, config)
                 .then(response => {
                     this.marcas = response.data
@@ -215,6 +327,7 @@ import axios from 'axios';
                     this.transacaoDetalhes = {
                         mensagem: "Carro com ID: "+ response.data.id +" e nome: " + response.data.nome + " cadastrado"
                     }
+                    this.carregarLista();
                 })
                 .catch(errors => {
                     this.transacaoStatus = 'erro';
