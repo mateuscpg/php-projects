@@ -4,7 +4,7 @@
       <thead>
           <tr>
             <th scope="col" v-for="header, key in headers" :key="key">{{ header.titulo }}</th> 
-            <th v-if="visualizar.visivel || atualizar || excluir.visivel"></th>
+            <th v-if="visualizar.visivel || atualizar.visivel || excluir.visivel"></th>
           </tr>
       </thead>
       <tbody>
@@ -19,7 +19,7 @@
             </span>
           </td>
 
-          <td v-if="visualizar.visivel || atualizar || excluir.visivel">
+          <td v-if="visualizar.visivel || atualizar.visivel || excluir.visivel">
             <button 
             v-if="visualizar.visivel"
             type="submit" 
@@ -32,9 +32,12 @@
           </button>
           
           <button 
-          v-if="atualizar" 
+          v-if="atualizar.visivel" 
           type="submit" 
           class="btn btn-outline-primary btn-sm" 
+          :data-bs-toggle="atualizar.dataToggle" 
+          :data-bs-target="atualizar.dataTarget" 
+          @click="setStore(obj)"
           >
           Atualizar
         </button>
@@ -68,11 +71,10 @@ export default {
   },
   methods:{
     setStore(obj){
+      this.$store.state.transacao.status = '';
+      this.$store.state.transacao.mensagem = '';
       this.$store.state.item = obj
     },
-    // excluirMarca(obj){
-    //   console.log(obj.id, obj.nome);
-    // }
   },
   computed: {
     dadosFiltrados(){

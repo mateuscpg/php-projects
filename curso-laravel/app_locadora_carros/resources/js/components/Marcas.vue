@@ -40,7 +40,11 @@
                         dataToggle: 'modal',
                         dataTarget: '#modalMarcaVisualizar'
                     }"
-                    :atualizar="true"
+                    :atualizar="{
+                        visivel: true,
+                        dataToggle: 'modal',
+                        dataTarget: '#modalMarcaAtualizar'
+                    }"
                     :excluir="{
                         visivel: true,
                         dataToggle: 'modal',
@@ -157,7 +161,7 @@
                         <alert-component v-if="$store.state.transacao.status == 'erro'" tipo="danger" titulo="ERRO!" :detalhes="{mensagem: $store.state.transacao.mensagem}"></alert-component>
                     </template>
 
-                    <template v-slot:conteudo>
+                    <template v-slot:conteudo v-if="$store.state.transacao.status != 'sucesso'">
                         <div class="mt-2 mb-2">
                             <input-container-component titulo="ID" >
                             <input type="text" class="form-control" :value="$store.state.item.id" disabled>
@@ -172,8 +176,8 @@
                     <div style="display: flex; flex-direction: column; margin-top: 20px;">
                         <h5 style="text-align: center;">Você deseja de fato excluir essa marca?</h5>
                         <div class="text-center">
-                            <button type="button" class="btn btn-danger"  @click="excluirMarca()">Sim</button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+                            <button type="button" class="btn btn-danger"  @click="excluirMarca()" v-if="$store.state.transacao.status != 'sucesso'">Sim</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" v-if="$store.state.transacao.status != 'sucesso'">Não</button>
                         </div>
                     </div>
                 </template>
@@ -184,6 +188,35 @@
                 </modal-component>
                 <!-- Fim do componente de modal para excluir marca-->
 
+                 <!-- Início do componente de modal para atualização da marca -->
+            <modal-component id="modalMarcaAtualizar" titulo="Atualizar marca">
+
+                <template v-slot:alertas>
+                    <alert-component v-if="$store.state.transacao.status == 'sucesso'" tipo="success" titulo="SUCESSO!" :detalhes="{mensagem: $store.state.transacao.mensagem}"></alert-component>
+                    <alert-component v-if="$store.state.transacao.status == 'erro'" tipo="danger" titulo="ERRO!" :detalhes="{mensagem: $store.state.transacao.mensagem}"></alert-component>
+                </template>
+
+                <template v-slot:conteudo>
+                    <div class="form-group">
+                        <input-container-component titulo="Nome da marca" id="atualizarNome" id-help="atualizarNomeHelp" texto-ajuda="Informe o nome da marca">
+                            <input type="text" v-model="$store.state.item.nome" class="form-control" id="atualizarNome" aria-describedby="atualizarNomeHelp" placeholder="Informe o nome da marca">
+                        </input-container-component>
+                       
+                    </div>
+                    <div class="form-group">
+                        <input-container-component titulo="Imagem" id="atualizarImagem" id-help="atualizarImagemHelp" texto-ajuda="Selecione uma imagem no formato PNG">
+                            <input type="file" class="form-control" id="atualizarImagem" aria-describedby="atualizarImagemHelp" placeholder="Selecione uma imagem" @change="carregarImagem($event)">
+                        </input-container-component>
+                        
+                    </div>
+                </template>
+
+                <template v-slot:rodape>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary" @click="atualizar()">Atualizar</button>
+                </template>
+            </modal-component>
+                <!-- Fim do componente de modal para atualização da marca -->
 
       </div>
   </div>
@@ -214,47 +247,56 @@ import InputContainer from './layouts/InputContainer.vue';
 
         }
     },
-    computed:{
-        token(){
-            let token = document.cookie.split(';').find(indice =>{ //Separa os cookies por ";" 
-                return indice.includes('token=') //Retorna o cookie que tem "token="
-            })
-            token = token.split('=')[1] //Recupera apenas o valor do token de fato
-            token = 'Bearer ' + token
-            return token;
-        }
-    },
-    methods:{
-        excluirMarca(){
+    methods:{ 
+        atualizar(){
+            let formData = new FormData();
+            formData.append('_method', 'patch');
+            formData.append('nome',this.$store.state.item.nome);
+            if(this.arquivoImagem[0]){
+                formData.append('imagem', this.arquivoImagem[0]);
+            }
+
+            let url = this.urlBase +'/' + this.$store.state.item.id
+
             let config = {
-                headers: {
-                    'Accept': 'application/json',
-                    'Authorization': this.token
+                headers:{
+                    'Content-Type': 'multipart/form-data',
+                    
                 }
-            }   
+            }
+            axios.post(url, formData, config)
+                .then(response => {
+                    this.carregarLista();
+                    atualizarImagem.value = '';
+                    this.$store.state.transacao.status = 'sucesso';
+                    this.$store.state.transacao.mensagem = 'Marca atualizada com sucesso!';
+                    console.log(response);
+                }).catch(errors => {
+                    this.$store.state.transacao.status = 'erro';
+                    this.$store.state.transacao.mensagem = errors.response.data.errors.nome[0];
+                });
+
+        },
+        excluirMarca(){
+           
             let formData = new FormData();
             formData.append('_method', 'delete');
 
             let url = this.urlBase + '/' + this.$store.state.item.id
-            // this.$store.state.transacao.status = 'Sucesso';
-            // this.$store.state.transacao.mensagem = 'Registro removido com sucesso';
 
-            axios.post(url, formData, config)
+            axios.post(url, formData)
                 .then(response =>{
                     this.$store.state.transacao.status = 'sucesso';
-                    this.$store.state.transacao.mensagem = 'Registro removido com sucesso!';
-                    console.log(response);
+                    this.$store.state.transacao.mensagem = response.data.msg;
                     this.carregarLista();
                 })
                 .catch(errors =>{
                     this.$store.state.transacao.status = 'erro';
-                    this.$store.state.transacao.mensagem = 'Erro ao remover o registro!';
-                    console.log(errors);
+                    this.$store.state.transacao.mensagem = errors.response.data.msg;
                     this.carregarLista();
                 })
         },
         pesquisar(){
-            // console.log(this.busca);
             
             let filtro = ''
 
@@ -280,22 +322,16 @@ import InputContainer from './layouts/InputContainer.vue';
 
         paginacao(link){
             if(link.url){
-                 this.urlPaginacao = link.url.split('?')[1]
-                // this.urlBase = link.url; //Ajustando a url de consulta com o parâmetro de página
+                this.urlPaginacao = link.url.split('?')[1] //Ajustando a url de consulta com o parâmetro de página
                 this.carregarLista();    //Requisitando novamente os dados para a nossa API
             }
         },
         
         carregarLista(){
-            let config = {
-                headers: {
-                    'Accept': 'application/json',
-                    'Authorization': this.token
-                }
-            }   
+           
             let url = this.urlBase + '?' + this.urlPaginacao + this.urlFiltro
-            // console.log(url);
-            axios.get(url, config)
+            
+            axios.get(url)
                 .then(response => {
                     this.marcas = response.data
                 })
@@ -316,8 +352,6 @@ import InputContainer from './layouts/InputContainer.vue';
             let config = {
                 headers: {
                     'Content-Type': 'multipart/form-data',
-                    'Accept': 'application/json',
-                    'Authorization': this.token
                 }
             }           
                           //url      conteúdo    configuração

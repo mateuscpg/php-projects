@@ -101,7 +101,7 @@ return [
     |
     */
 
-    'ttl' => env('JWT_TTL', 60),
+    'ttl' => env('JWT_TTL', 60), //Tempo de vida de um token em minutos
 
     /*
     |--------------------------------------------------------------------------
@@ -120,7 +120,7 @@ return [
     |
     */
 
-    'refresh_ttl' => env('JWT_REFRESH_TTL', 20160),
+    'refresh_ttl' => env('JWT_REFRESH_TTL', 20160), //Após o token expirado em quantos minutos eu posso solicitar(com esse token expirado) um novo token
 
     /*
     |--------------------------------------------------------------------------
