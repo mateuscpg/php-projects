@@ -14,7 +14,7 @@ class AuthController extends Controller
         $token = auth('api')->attempt($credenciais);
     
         if ($token){
-            //retornar um Json WebService Token do usuário autenticado
+            //retornar um Json   Token do usuário autenticado
             return response()->json(['token'=> $token], 202);
         }
         

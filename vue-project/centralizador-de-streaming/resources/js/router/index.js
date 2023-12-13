@@ -6,11 +6,11 @@ import api from '../services/Axios';
 import { USER_COLLECTION } from '../collection';
 
 const verifyIsUserLoggedIn = (to, from, next) => {
-  let user = JSON.parse(localStorage.getItem(USER_COLLECTION));
-  // let user = api.getPerfil();
+  // let user = JSON.parse(localStorage.getItem(USER_COLLECTION));
+  let user = api.getPerfil();
  
-  console.log(user.isUserLoggedIn);
-  const isAuthenticated =user.isUserLoggedIn;
+  // console.log(user.isUserLoggedIn);
+  const isAuthenticated = user;
   if (to.path === '/') {
     next('/login'); // Redireciona para /login se a rota for a raiz
   }
