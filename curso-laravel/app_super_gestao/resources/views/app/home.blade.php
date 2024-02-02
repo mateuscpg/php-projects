@@ -16,7 +16,7 @@
     margin: 50px 500px;
     padding: 15px
     ">
-    <h1 style="color: black">Estatísticas</h1>
+    <h1 class="tittle_form">Estatísticas</h1>
     <input type="search" name="" id="" placeholder="Faça sua pesquisa">
     </div>
 

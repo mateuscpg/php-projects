@@ -9,24 +9,19 @@
         <div class="titulo-pagina">
         </div>
         
-        <h1>Login</h1>
+        <h1 style="text-align: center">Login</h1>
         <div class="informacao-pagina">
-            <div style="
-                background-color:aliceblue; 
-                padding: 25px; 
-                border-radius: 20px 0px 20px 0px;
-                width: 30%; 
-                margin-left: auto;
-                margin-right: auto;
-                ">
+            <div class="login">
                 <form action={{route('site.login')}} method="post">
                     @csrf
 
                     {{$errors->has('email') ? $errors->first('email') : ''}}
-                    <input name="email" type="text" value="{{old('email')}}" placeholder="Digite o email" class="borda-preta">
+                    <label>Email</label>
+                    <input name="email" type="text" value="{{old('email')}}" placeholder="Digite o email" class="borda-branca">
 
                     {{$errors->has('senha') ? $errors->first('senha') : ''}}
-                    <input name="senha" type="password" value="{{old('senha')}}" placeholder="Digite a senha" class="borda-preta">
+                    <label>Senha</label>
+                    <input name="senha" type="password" value="{{old('senha')}}" placeholder="Digite a senha" class="borda-branca">
 
                     <p style="font-size: 12px; text-align:left">
                         <a href="" class="link">Esqueceu sua senha?</a>
@@ -38,7 +33,7 @@
         </div>  
     </div>
 
-    <div class="rodape">
+    {{-- <div class="rodape">
         <div class="redes-sociais">
             <h2>Redes sociais</h2>
             <img src="{{asset('img/facebook.png')}}">
@@ -55,5 +50,5 @@
             <h2>Localização</h2>
             <img src="{{asset('img/mapa.png')}}">
         </div>
-    </div> 
+    </div>  --}}
 @endsection

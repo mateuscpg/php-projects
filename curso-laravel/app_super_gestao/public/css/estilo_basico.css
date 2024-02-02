@@ -25,7 +25,7 @@ input, select, textarea, button {
     margin: 10px 0px 10px 0px;
     box-sizing: border-box;
     border-radius: 3px;
-    background-color: transparent;
+    /* background-color: transparent; */
     color: #000000;
 }
 .contato input::placeholder,.contato textarea::placeholder{
@@ -46,8 +46,26 @@ input, select, textarea, button {
 
 .borda-preta {
     border: solid 1px #333;
+    color: black;
 }
-
+.login{
+    background-color:rgba(240, 248, 255, 0.11); 
+    border: white solid 1px;
+    padding: 25px; 
+    color: white;
+    border-radius: 15px;
+    width: 20%; 
+    margin-left: auto;
+    margin-right: auto;    
+}
+.link{
+    text-decoration: none;
+    color: white;
+}
+.tittle_form{
+    color: black; 
+    text-align:center;
+}
 button {
     background-color: #69b30a;
     cursor: pointer;
@@ -59,16 +77,16 @@ button:hover {
 }
 
 ::placeholder {
-    color: #333333;
+    color: #000000;
     opacity: 1;
 }
 
 :-ms-input-placeholder {
-    color: #333333;
+    color: #000000;;
 }
 
 ::-ms-input-placeholder {
-    color: #333333;
+    color: #000000;;
 }
 
 .topo {
@@ -208,16 +226,16 @@ button:hover {
 .conteudo-pagina {
     width: 100%;
     height: 100vh;
-    text-align: center;
+    /* text-align: center; */
     background-repeat: no-repeat;
-    background-image: url("https://img.freepik.com/fotos-gratis/fundo-preto-abstrato-da-grade-digital_53876-97647.jpg");
+    background-image: url("https://wallpaperset.com/w/full/b/d/c/436674.jpg");
     background-size: cover;
     background-position: center;
 }
 
 .titulo-pagina {
     padding: 100px 0px 60px 0px;
-    background-color: #006494;
+    background-color: transparent;
     text-align: center;
     color: #fff;
 
@@ -230,7 +248,7 @@ button:hover {
 }
 
 .informacao-pagina {
-    text-align: center;
+    /* text-align: center; */
     margin-top: 30px;
     
 }

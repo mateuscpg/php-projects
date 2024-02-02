@@ -18,9 +18,9 @@ class UserFactory extends Factory
         return [
             'name' =>'Mateus',
             'email' => 'mateus@teste.com',
-            'email_verified_at' => now(),
+            // 'email_verified_at' => now(),
             'password' => '123456',
-            'remember_token' => Str::random(10),
+            // 'remember_token' => Str::random(10),
         ];
     }
 

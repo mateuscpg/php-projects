@@ -1,6 +1,6 @@
 
 <form action="{{route('pedido-produto.store', ['pedido'=> $pedido])}}" method="post">
-    <h2>ADICIONAR</h2>
+    <h2 class="tittle_form">ADICIONAR</h2>
     @csrf
 
     {{$errors->has('produto_id') ? $errors->first('produto_id') : ''}}

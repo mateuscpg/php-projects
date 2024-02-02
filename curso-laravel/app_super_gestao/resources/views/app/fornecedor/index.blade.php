@@ -27,7 +27,7 @@
        margin-right: auto;">
          <form method="POST" action="{{route('app.fornecedor.listar')}}">
             @csrf
-            <h2>CONSULTAR</h2>
+            <h2 class="tittle_form">CONSULTAR</h2>
             <input type="text" name="nome" placeholder="Digite um nome" class="borda-preta">
             <input type="text" name="site" placeholder="Digite um site" class="borda-preta">
             <input type="text" name="uf" placeholder="Digite uma uf" class="borda-preta">

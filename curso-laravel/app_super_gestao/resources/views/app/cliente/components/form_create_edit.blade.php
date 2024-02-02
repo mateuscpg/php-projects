@@ -9,7 +9,7 @@
     @else
 
         <form action="{{route('cliente.store')}}" method="post">
-        <h2>ADICIONAR</h2>
+        <h2 class="tittle_form">ADICIONAR</h2>
         @csrf
 
     @endif
