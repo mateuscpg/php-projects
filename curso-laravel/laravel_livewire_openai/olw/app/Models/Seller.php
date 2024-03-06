@@ -15,18 +15,18 @@ class Seller extends Model
         'user_id',
     ];
 
-    public function company() : BelongsTo
+    public function company(): BelongsTo
     {
         return $this->belongsTo(Company::class);
     }
 
-    public function user() : BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
-    
-    public function sales() : HasMany
+
+    public function sales(): HasMany
     {
-        return $this->hasMany(Seller::class);
+        return $this->hasMany(Sale::class);
     }
 }

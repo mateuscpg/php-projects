@@ -7,5 +7,3 @@ abstract class Status
     const APPROVED = 'A';
     const CANCELED = 'C';
 }
-
-$status = Status::PENDING;

@@ -23,12 +23,12 @@ class Sale extends Model
         'status' => Status::class
     ];
 
-    public function client () : BelongsTo
+    public function client(): BelongsTo
     {
         return $this->belongsTo(Client::class);
     }
 
-    public function seller () : BelongsTo
+    public function seller(): BelongsTo
     {
         return $this->belongsTo(Seller::class);
     }
