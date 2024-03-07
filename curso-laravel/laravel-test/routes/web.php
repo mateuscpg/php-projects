@@ -23,8 +23,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::resource('/customers', CustomerController::class)->middleware('auth');
 Route::get('/get-users', [UserController::class, 'getUsers']);
 Route::post('/create-user', [UserController::class, 'createUser']);
+Route::get('/get-user/{id}', [UserController::class, 'getUser']);
 
 require __DIR__.'/auth.php';
