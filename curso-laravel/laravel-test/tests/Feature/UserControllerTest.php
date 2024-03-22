@@ -31,7 +31,7 @@ class UserControllerTest extends TestCase
         $this->assertEquals('Barney Reilly DVM', end($users)['name']);  // Verifica se o último registro do response tem o valor 'name' igual a 'Barney Reilly DVM'
 
         $this->assertEquals(null, end($users)['nextId']); // Verifica se não tem próximo id se chegar no último registro do response.
-
+        $response->assertJsonFragment(['name' => 'Barney Reilly DVM']); 
     }
     public function test_getUser() : void
     {
